@@ -64,5 +64,6 @@ items = [newPassword, repeatPassword, continueButton]
 //Present the alert on screen.
 SnackView(withTitle: "Create password", andCloseButtonTitle: "Cancel", andItems: items).show()
 ```
+![SnackView alert](http://www.lucacasula.it/SnackViewAlert@2x.jpg)
 
 
