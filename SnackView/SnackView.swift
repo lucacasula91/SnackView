@@ -126,6 +126,24 @@ public class SnackView: UIViewController {
         }
     }
     
+    override public func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        var height:CGFloat = 0
+        for view in scrollContentView.subviews {
+            view.layoutIfNeeded()
+            height += view.frame.size.height
+        }
+        
+        //Set ScrollView max height value
+        let maxScrollViewHeight = self.view.frame.height - 68
+        if height < maxScrollViewHeight {
+            heightScrollViewConstant.constant = height
+        } else {
+            heightScrollViewConstant.constant = maxScrollViewHeight
+        }
+    }
+    
     //MARK: - Public Methods
     public func show() {
         let containerViewController = UIViewController()
@@ -153,6 +171,12 @@ public class SnackView: UIViewController {
             self.items.append(item)
         }
         self.addItemsToContentScrollView()
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25) { [weak self] in
+            guard let width = self?.scrollView.frame.width, let height = self?.scrollView.frame.height else { return }
+
+            self?.scrollView.scrollRectToVisible(CGRect(x: 0, y: height, width: width, height: height), animated: true)
+        }
     }
     
     public func removeItem(item:SVItem) {
@@ -187,7 +211,12 @@ public class SnackView: UIViewController {
         contentView.backgroundColor = UIColor.white.withAlphaComponent(0.75)
         self.view.addSubview(contentView)
         
-        contentView.topAnchor.constraint(greaterThanOrEqualTo: self.view.topAnchor, constant: 0).isActive = true
+        
+        if #available(iOS 11.0, *) {
+            contentView.topAnchor.constraint(greaterThanOrEqualTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        } else {
+            contentView.topAnchor.constraint(greaterThanOrEqualTo: self.view.topAnchor, constant: 0).isActive = true
+        }
         contentView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
         contentView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
         
@@ -251,7 +280,7 @@ public class SnackView: UIViewController {
         self.addItemsToContentScrollView()
     }
     
-    func addItemsToContentScrollView() {
+    private func addItemsToContentScrollView() {
         scrollContentView.subviews.forEach{ $0.removeFromSuperview() }
         
         //Add BottomAlertItems to ScrollView
@@ -297,25 +326,6 @@ public class SnackView: UIViewController {
     }
     
    
-    
-    
-    override public func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        var height:CGFloat = 0
-        for view in scrollContentView.subviews {
-            view.layoutIfNeeded()
-            height += view.frame.size.height
-        }
-
-        //Set ScrollView max height value
-        let maxScrollViewHeight = self.view.frame.height - 68
-        if height < maxScrollViewHeight {
-            heightScrollViewConstant.constant = height
-        } else {
-            heightScrollViewConstant.constant = maxScrollViewHeight
-        }
-    }
-    
     //MARK: - Keyboard stuff
     @objc func keyboardWillShow(notification:Notification) {
         scrollView.alwaysBounceVertical = true
@@ -341,7 +351,6 @@ public class SnackView: UIViewController {
             bottomContentViewConstant.constant = -constant
             print(scrollView.contentOffset.y)
             scrollView.contentOffset = CGPoint.zero
-
         }
     }
 

@@ -14,9 +14,9 @@ Pod::Spec.new do |s|
   #  can feel like a chore to fill in it's definitely to your advantage. The
   #  summary should be tweet-length, and the description more in depth.
   #
-
+  s.ios.deployment_target  = '9.3'
   s.name         = "SnackView"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "A new way to stack UI items in the bottom of the screen."
   s.swift_version = "3.2"
 
