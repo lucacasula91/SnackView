@@ -38,3 +38,31 @@ Then, run the following command:
 ```bash
 $ pod install
 ```
+
+
+## Create your custom SnackView alert
+SnackView includes some default UI elements as Button, Label and other complex UI.
+The first step is to create an array of SVItem. SVItem is the class of every element that SnackView can include within it.
+
+Here an example of simple SnackView alert:
+```swift
+//SVItem array
+let items: Array<SVItem>!
+
+//Define all the view you want to display
+let newPassword = SVTextFieldItem(withPlaceholder: "New Password", isSecureField: true)
+        
+let repeatPassword = SVTextFieldItem(withPlaceholder: "Repeat Password", isSecureField: true)
+        
+let continueButton = SVButtonItem(withTitle: "Continue") {
+    /* Handle action here */
+}
+        
+//Populate the SVItem array
+items = [newPassword, repeatPassword, continueButton]
+
+//Present the alert on screen.
+SnackView(withTitle: "Create password", andCloseButtonTitle: "Cancel", andItems: items).show()
+```
+
+
