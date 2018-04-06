@@ -18,10 +18,10 @@ public class SVApplicationItem: SVItem {
         imageContainer.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(imageContainer)
         
-        let imageContainerHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-(8)-[imageContainer(==103)]", options: [], metrics: nil, views: ["imageContainer":imageContainer])
+        let imageContainerHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[imageContainer(==111)]", options: [], metrics: nil, views: ["imageContainer":imageContainer])
         self.addConstraints(imageContainerHContraints)
         
-        let imageContainerVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-(8)-[imageContainer]-(8)-|", options: [], metrics: nil, views: ["imageContainer":imageContainer])
+        let imageContainerVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[imageContainer]-|", options: [], metrics: nil, views: ["imageContainer":imageContainer])
         self.addConstraints(imageContainerVContraints)
         
         
@@ -49,10 +49,10 @@ public class SVApplicationItem: SVItem {
         titleLabel.numberOfLines = 0
         self.addSubview(titleLabel)
         
-        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[imageContainer]-(16)-[titleLabel]-|", options: [], metrics: nil, views: ["titleLabel":titleLabel, "imageContainer":imageContainer])
+        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[imageContainer]-[titleLabel]-|", options: [], metrics: nil, views: ["titleLabel":titleLabel, "imageContainer":imageContainer])
         self.addConstraints(titleHContraints)
         
-        let titleVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-(8)-[titleLabel]", options: [], metrics: nil, views: ["titleLabel":titleLabel])
+        let titleVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[titleLabel]", options: [], metrics: nil, views: ["titleLabel":titleLabel])
         self.addConstraints(titleVContraints)
         
         
@@ -64,10 +64,10 @@ public class SVApplicationItem: SVItem {
         descriptionLabel.numberOfLines = 0
         self.addSubview(descriptionLabel)
         
-        let descriptionHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[imageContainer]-(16)-[descriptionLabel]-|", options: [], metrics: nil, views: ["imageContainer":imageContainer, "descriptionLabel":descriptionLabel])
+        let descriptionHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[imageContainer]-[descriptionLabel]-|", options: [], metrics: nil, views: ["imageContainer":imageContainer, "descriptionLabel":descriptionLabel])
         self.addConstraints(descriptionHContraints)
         
-        let descriptionVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:[titleLabel][descriptionLabel]-(8)-|", options: [], metrics: nil, views: ["titleLabel":titleLabel, "descriptionLabel":descriptionLabel])
+        let descriptionVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:[titleLabel][descriptionLabel]-|", options: [], metrics: nil, views: ["titleLabel":titleLabel, "descriptionLabel":descriptionLabel])
         self.addConstraints(descriptionVContraints)
         
     }

@@ -25,10 +25,10 @@ public class SVTextFieldItem: SVItem {
         titleLabel.numberOfLines = 0
         self.addSubview(titleLabel)
         
-        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel(==103)]", options: [], metrics: nil, views: ["titleLabel":titleLabel])
+        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel(==111)]", options: [], metrics: nil, views: ["titleLabel":titleLabel])
         self.addConstraints(titleHContraints)
         
-        let titleVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-(8)-[titleLabel(>=28)]-(8)-|", options: [], metrics: nil, views: ["titleLabel":titleLabel])
+        let titleVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[titleLabel(>=28)]-|", options: [], metrics: nil, views: ["titleLabel":titleLabel])
         self.addConstraints(titleVContraints)
         
         
@@ -40,10 +40,10 @@ public class SVTextFieldItem: SVItem {
         textField.placeholder = self.removeNewLine(fromString: placeholder)
         self.addSubview(textField)
         
-        let textFieldHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[titleLabel]-(16)-[textfield]-|", options: [], metrics: nil, views: ["titleLabel":titleLabel, "textfield":textField])
+        let textFieldHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[titleLabel]-[textfield]-|", options: [], metrics: nil, views: ["titleLabel":titleLabel, "textfield":textField])
         self.addConstraints(textFieldHContraints)
         
-        let textFieldVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-(8)-[textfield]-(8)-|", options: [], metrics: nil, views: ["textfield":textField])
+        let textFieldVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[textfield]-|", options: [], metrics: nil, views: ["textfield":textField])
         self.addConstraints(textFieldVContraints)
        
     }

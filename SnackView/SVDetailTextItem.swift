@@ -23,7 +23,7 @@ public class SVDetailTextItem: SVItem {
         titleLabel.numberOfLines = 0
         self.addSubview(titleLabel)
         
-        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel(==103)]", options: [], metrics: nil, views: ["titleLabel":titleLabel])
+        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel(==111)]", options: [], metrics: nil, views: ["titleLabel":titleLabel])
         self.addConstraints(titleHContraints)
         
         let titleVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-(8)-[titleLabel(>=28)]-(8)-|", options: [], metrics: nil, views: ["titleLabel":titleLabel])
@@ -39,10 +39,10 @@ public class SVDetailTextItem: SVItem {
         descriptionLabel.numberOfLines = 0
         self.addSubview(descriptionLabel)
         
-        let descriptionHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel]-(16)-[descriptionLabel]-|", options: [], metrics: nil, views: ["titleLabel":titleLabel, "descriptionLabel":descriptionLabel])
+        let descriptionHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel]-[descriptionLabel]-|", options: [], metrics: nil, views: ["titleLabel":titleLabel, "descriptionLabel":descriptionLabel])
         self.addConstraints(descriptionHContraints)
         
-        let descriptionVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-(8)-[descriptionLabel]-(8)-|", options: [], metrics: nil, views: ["descriptionLabel":descriptionLabel])
+        let descriptionVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[descriptionLabel]-|", options: [], metrics: nil, views: ["descriptionLabel":descriptionLabel])
         self.addConstraints(descriptionVContraints)
     }
     
