@@ -7,6 +7,7 @@
 ![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SnackView.svg)
 ![Platform](https://img.shields.io/cocoapods/p/SnackView.svg?style=flat)
 ![License](https://img.shields.io/cocoapods/l/SnackView.svg?style=flat)
+[![Downloads](https://img.shields.io/cocoapods/dt/SnackView.svg)](https://cocoapods.org/pods/SnackView)
 [![Twitter](https://img.shields.io/badge/twitter-@lucacasula91-green.svg?style=flat)](http://twitter.com/lucacasula91)
 
 
@@ -42,13 +43,11 @@ $ pod install
 
 ## Create your custom SnackView alert
 SnackView includes some default UI elements as Button, Label and other complex UI.
-The first step is to create an array of SVItem. SVItem is the class of every element that SnackView can include within it.
+The first step is to define every SVItem you want to display. SVItem is the class of every element that SnackView can include within it.
 
 Here an example of simple SnackView alert:
-```swift
-//SVItem array
-let items: Array<SVItem>!
 
+```swift
 //Define all the view you want to display
 let newPassword = SVTextFieldItem(withPlaceholder: "New Password", isSecureField: true)
         
@@ -58,12 +57,21 @@ let continueButton = SVButtonItem(withTitle: "Continue") {
     /* Handle action here */
 }
         
-//Populate the SVItem array
-items = [newPassword, repeatPassword, continueButton]
+//Populate a SVItem array
+let items: Array<SVItem>! = [newPassword, repeatPassword, continueButton]
 
 //Present the alert on screen.
 SnackView(withTitle: "Create password", andCloseButtonTitle: "Cancel", andItems: items).show()
 ```
-![SnackView alert](http://www.lucacasula.it/SnackViewAlert@2x.jpg)
 
+The result will be:
 
+![SnackView alert example](http://www.lucacasula.it/AlertExample.jpg)
+
+## Contributing
+If you want to contribute to make SnackView a better framework, **submit a pull request**.
+
+Please consider to **open an issue** for the following reasons:
+* If you have questions or if you need help using SnackView
+* If you found a bug
+* If you have some feature request
