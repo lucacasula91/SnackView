@@ -43,11 +43,14 @@ $ pod install
 
 ## Create your custom SnackView alert
 SnackView includes some default UI elements as Button, Label and other complex UI.
-The first step is to define every SVItem you want to display. SVItem is the class of every element that SnackView can include within it.
+The first step is to create an array of SVItem. SVItem is the class of every element that SnackView can include within it.
 
 Here an example of simple SnackView alert:
 
 ```swift
+//SVItem array
+let items: Array<SVItem>!
+
 //Define all the view you want to display
 let newPassword = SVTextFieldItem(withPlaceholder: "New Password", isSecureField: true)
         
@@ -57,8 +60,8 @@ let continueButton = SVButtonItem(withTitle: "Continue") {
     /* Handle action here */
 }
         
-//Populate a SVItem array
-let items: Array<SVItem>! = [newPassword, repeatPassword, continueButton]
+//Populate the SVItem array
+items = [newPassword, repeatPassword, continueButton]
 
 //Present the alert on screen.
 SnackView(withTitle: "Create password", andCloseButtonTitle: "Cancel", andItems: items).show()
@@ -66,7 +69,65 @@ SnackView(withTitle: "Create password", andCloseButtonTitle: "Cancel", andItems:
 
 The result will be:
 
-![SnackView alert example](http://www.lucacasula.it/AlertExample.jpg)
+![SnackView alert](http://www.lucacasula.it/AlertExample.jpg)
+
+***
+
+## SVItems included
+SnackView provides some SVItems ready to use, here below the list of SVItems available:
+
+**SVApplicationItem**
+
+```swift
+SVApplicationItem(withIcon: UIImage(named: "AppIcon"),
+                 withTitle: "Ipsum lorem", 
+            andDescription: "Lorem ipsum dolor sit amet...")
+```
+
+![SnackView alert](http://www.lucacasula.it/SVItems/SVApplicationItem.png)
+
+***
+
+**SVDescriptionItem**
+
+```swift
+SVDescriptionItem(withDescription: "Lorem ipsum dolor sit amet...")
+```
+
+![SnackView alert](http://www.lucacasula.it/SVItems/SVDescriptionItem.png)
+
+***
+
+**SVTextFieldItem**
+
+```swift
+SVTextFieldItem(withPlaceholder: "Create Password", isSecureField: true)
+```
+
+![SnackView alert](http://www.lucacasula.it/SVItems/SVTextFieldItem.png)
+
+***
+
+**SVDetailTextItem**
+
+```swift
+SVDetailTextItem(withTitle: "Elit amet", 
+                andContent: "Lorem ipsum dolor sit amet...")
+```
+
+![SnackView alert](http://www.lucacasula.it/SVItems/SVDetailTextItem.png)
+
+***
+
+**SVButtonItem**
+
+```swift
+SVButtonItem(withTitle: "Continue") { /* Button action here */ }
+```
+
+![SnackView alert](http://www.lucacasula.it/SVItems/SVButtonItem.png)
+
+***
 
 ## Contributing
 If you want to contribute to make SnackView a better framework, **submit a pull request**.
@@ -75,3 +136,5 @@ Please consider to **open an issue** for the following reasons:
 * If you have questions or if you need help using SnackView
 * If you found a bug
 * If you have some feature request
+
+
