@@ -13,18 +13,20 @@ public class SVApplicationItem: SVItem {
     public init(withIcon icon:UIImage, withTitle title:String, andDescription description:String) {
         super.init()
         
-        //Create Image container
+        //Create left container
         let imageContainer = UIView()
         imageContainer.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(imageContainer)
         
-        let imageContainerHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[imageContainer(==\(self.leftContentWidth)]", options: [], metrics: nil, views: ["imageContainer":imageContainer])
+        
+        let imageContainerHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[imageContainer(==\(self.leftContentWidth))]", options: [], metrics: nil, views: ["imageContainer":imageContainer])
         self.addConstraints(imageContainerHContraints)
         
         let imageContainerVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[imageContainer]-|", options: [], metrics: nil, views: ["imageContainer":imageContainer])
         self.addConstraints(imageContainerVContraints)
         
         
+        //Add image view into container
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = icon
@@ -40,7 +42,7 @@ public class SVApplicationItem: SVItem {
         imageView.layer.masksToBounds = true
         
         
-        
+        //Add title label
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.text = title
@@ -56,6 +58,7 @@ public class SVApplicationItem: SVItem {
         self.addConstraints(titleVContraints)
         
         
+        //Add description label
         let descriptionLabel = UILabel()
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.text = description

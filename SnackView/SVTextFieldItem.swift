@@ -25,14 +25,14 @@ public class SVTextFieldItem: SVItem {
         titleLabel.numberOfLines = 0
         self.addSubview(titleLabel)
         
-        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel(==\(self.leftContentWidth)]", options: [], metrics: nil, views: ["titleLabel":titleLabel])
+        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel(==\(self.leftContentWidth))]", options: [], metrics: nil, views: ["titleLabel":titleLabel])
         self.addConstraints(titleHContraints)
         
         let titleVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[titleLabel(>=28)]-|", options: [], metrics: nil, views: ["titleLabel":titleLabel])
         self.addConstraints(titleVContraints)
         
         
-        //
+        //Add text field item
         textField = UITextField()
         textField.isSecureTextEntry = isSecure
         textField.translatesAutoresizingMaskIntoConstraints = false

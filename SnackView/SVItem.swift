@@ -15,7 +15,7 @@ open class SVItem: UIView {
     private var heightConstraint: NSLayoutConstraint?
     
     //MARK: - Public Variables
-    public let leftContentWidth: String! = "111"
+    public let leftContentWidth: CGFloat = 111
     public let grayTextColor = #colorLiteral(red: 0.5553562641, green: 0.5649003983, blue: 0.5733956099, alpha: 1)
     public let blueButtonColor = #colorLiteral(red: 0, green: 0.4779834747, blue: 0.9985283017, alpha: 1)
     
@@ -35,7 +35,7 @@ open class SVItem: UIView {
             self.addConstraints(bottomLineHConstraints + bottomLineVConstraints)
             
             //Add minimum view height
-            self.heightConstraint = NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50)
+            self.heightConstraint = NSLayoutConstraint(item: self, attribute: .height, relatedBy: .greaterThanOrEqual, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50)
             if let tmpConstraint = self.heightConstraint {
                 self.addConstraint(tmpConstraint)
             }
@@ -54,7 +54,7 @@ open class SVItem: UIView {
     public func setMinimumHeightActive(active: Bool) {
         if active {
             if self.heightConstraint == nil {
-                self.heightConstraint = NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50)
+                self.heightConstraint = NSLayoutConstraint(item: self, attribute: .height, relatedBy: .greaterThanOrEqual, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50)
                 if let tmpConstraint = self.heightConstraint {
                     self.addConstraint(tmpConstraint)
                 }
