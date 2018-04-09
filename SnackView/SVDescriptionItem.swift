@@ -24,13 +24,13 @@ public class SVDescriptionItem: SVItem {
         let descriptionHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[descriptionLabel]-|", options: [], metrics: nil, views: ["descriptionLabel":descriptionLabel])
         self.addConstraints(descriptionHContraints)
         
-        let descriptionVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-(8)-[descriptionLabel]-(8)-|", options: [], metrics: nil, views: ["descriptionLabel":descriptionLabel])
+        let descriptionVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[descriptionLabel]-|", options: [], metrics: nil, views: ["descriptionLabel":descriptionLabel])
         self.addConstraints(descriptionVContraints)
     }
     
     
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required public convenience init?(coder aDecoder: NSCoder) {
+        self.init(coder: aDecoder)
     }
 }
 

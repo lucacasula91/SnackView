@@ -31,12 +31,12 @@ public class SVButtonItem: SVItem {
         let buttonHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[buttonItem]-|", options: [], metrics: nil, views: ["buttonItem":buttonItem])
         self.addConstraints(buttonHContraints)
         
-        let buttonVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-(8)-[buttonItem]-(8)-|", options: [], metrics: nil, views: ["buttonItem":buttonItem])
+        let buttonVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[buttonItem]-|", options: [], metrics: nil, views: ["buttonItem":buttonItem])
         self.addConstraints(buttonVContraints)
     }
     
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required public convenience init?(coder aDecoder: NSCoder) {
+        self.init(coder: aDecoder)
     }
 }
 

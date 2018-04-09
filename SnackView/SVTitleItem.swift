@@ -19,6 +19,9 @@ class SVTitleItem: SVItem {
     public init(withTitle title:String, andCancelButton cancelButtonTitle:String) {
         super.init()
         
+        //Disable minimum height value
+        self.setMinimumHeightActive(active: false)
+        
         self.title = title
         self.cancelButtonTitle = cancelButtonTitle
         
@@ -51,7 +54,7 @@ class SVTitleItem: SVItem {
         
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required convenience init?(coder aDecoder: NSCoder) {
+        self.init(coder: aDecoder)
     }
 }

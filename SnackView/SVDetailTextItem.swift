@@ -23,10 +23,10 @@ public class SVDetailTextItem: SVItem {
         titleLabel.numberOfLines = 0
         self.addSubview(titleLabel)
         
-        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel(==111)]", options: [], metrics: nil, views: ["titleLabel":titleLabel])
+        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel(==\(self.leftContentWidth)]", options: [], metrics: nil, views: ["titleLabel":titleLabel])
         self.addConstraints(titleHContraints)
         
-        let titleVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-(8)-[titleLabel(>=28)]-(8)-|", options: [], metrics: nil, views: ["titleLabel":titleLabel])
+        let titleVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[titleLabel(>=28)]-|", options: [], metrics: nil, views: ["titleLabel":titleLabel])
         self.addConstraints(titleVContraints)
         
         //Add description item
@@ -47,7 +47,7 @@ public class SVDetailTextItem: SVItem {
     }
     
     
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required public convenience init?(coder aDecoder: NSCoder) {
+        self.init(coder: aDecoder)
     }
 }

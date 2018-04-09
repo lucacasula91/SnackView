@@ -18,7 +18,7 @@ public class SVApplicationItem: SVItem {
         imageContainer.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(imageContainer)
         
-        let imageContainerHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[imageContainer(==111)]", options: [], metrics: nil, views: ["imageContainer":imageContainer])
+        let imageContainerHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[imageContainer(==\(self.leftContentWidth)]", options: [], metrics: nil, views: ["imageContainer":imageContainer])
         self.addConstraints(imageContainerHContraints)
         
         let imageContainerVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[imageContainer]-|", options: [], metrics: nil, views: ["imageContainer":imageContainer])
@@ -73,8 +73,8 @@ public class SVApplicationItem: SVItem {
     }
     
     
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required public convenience init?(coder aDecoder: NSCoder) {
+        self.init(coder: aDecoder)
     }
 }
 

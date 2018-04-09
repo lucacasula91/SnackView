@@ -25,7 +25,7 @@ public class SVTextFieldItem: SVItem {
         titleLabel.numberOfLines = 0
         self.addSubview(titleLabel)
         
-        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel(==111)]", options: [], metrics: nil, views: ["titleLabel":titleLabel])
+        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel(==\(self.leftContentWidth)]", options: [], metrics: nil, views: ["titleLabel":titleLabel])
         self.addConstraints(titleHContraints)
         
         let titleVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[titleLabel(>=28)]-|", options: [], metrics: nil, views: ["titleLabel":titleLabel])
@@ -48,10 +48,10 @@ public class SVTextFieldItem: SVItem {
        
     }
     
-    
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required public convenience init?(coder aDecoder: NSCoder) {
+        self.init(coder: aDecoder)
     }
+    
     
     private func removeNewLine(fromString string:String) -> String {
         var result = string.replacingOccurrences(of: "\r", with: " ")
