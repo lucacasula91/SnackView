@@ -142,7 +142,7 @@ SVSwitchItem(withTitle: "Push Notifications",
 ***
 
 # Create custom SVItems
-####You can create custom items subclassing SVItem class. 
+#### You can create custom items subclassing SVItem class. 
 Here below an example. 
 ```swift
 import UIKit
