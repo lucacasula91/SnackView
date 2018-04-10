@@ -101,7 +101,8 @@ SVDescriptionItem(withDescription: "Lorem ipsum dolor sit amet...")
 **SVTextFieldItem**
 
 ```swift
-SVTextFieldItem(withPlaceholder: "Create Password", isSecureField: true)
+SVTextFieldItem(withPlaceholder: "Create Password", 
+                  fisSecureField: true)
 ```
 
 ![SnackView alert](http://www.lucacasula.it/SVItems/SVTextFieldItem.png)
@@ -128,6 +129,18 @@ SVButtonItem(withTitle: "Continue") { /* Button action here */ }
 ![SnackView alert](http://www.lucacasula.it/SVItems/SVButtonItem.png)
 
 ***
+
+**SVSwitchItem**
+
+```swift
+SVSwitchItem(withTitle: "Push Notifications", 
+            andContent: "Activate to stay up to date...") { (isOn) in  /* Switch action here */ }
+```
+
+![SnackView alert](http://www.lucacasula.it/SVItems/SVSwitchItem.jpg)
+
+***
+
 
 ## Contributing
 If you want to contribute to make SnackView a better framework, **submit a pull request**.
