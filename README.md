@@ -141,6 +141,43 @@ SVSwitchItem(withTitle: "Push Notifications",
 
 ***
 
+# Create custom SVItems
+####You can create custom items subclassing SVItem class. 
+Here below an example. 
+```swift
+import UIKit
+import SnackView
+
+//Create a subclass of SVItem
+class SVCustomItem: SVItem {
+    
+    //Pass all parameters in init method to customize your SVItem
+    init(withColor color: UIColor) {
+        super.init()
+        
+        //Add an UIView
+        let customView = UIView()
+        customView.translatesAutoresizingMaskIntoConstraints = false
+        customView.backgroundColor = color
+        self.addSubview(customView)
+       
+        //Add UIView contraints
+         let vConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[customView(70)]-|", options: [], metrics: nil, views: ["customView":customView])
+        
+        let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[customView]-|", options: [], metrics: nil, views: ["customView": customView])
+        
+        self.addConstraints(vConstraints + hConstraints)
+    }
+    
+    required public convenience init?(coder aDecoder: NSCoder) {
+        self.init(coder: aDecoder)
+    }
+}
+```
+
+![Custom SVItem](http://www.lucacasula.it/CustomSVItemExample.jpg)
+
+***
 
 ## Contributing
 If you want to contribute to make SnackView a better framework, **submit a pull request**.
