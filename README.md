@@ -102,7 +102,7 @@ SVDescriptionItem(withDescription: "Lorem ipsum dolor sit amet...")
 
 ```swift
 SVTextFieldItem(withPlaceholder: "Create Password", 
-                  fisSecureField: true)
+                  isSecureField: true)
 ```
 
 ![SnackView alert](http://www.lucacasula.it/SVItems/SVTextFieldItem.png)
@@ -138,6 +138,17 @@ SVSwitchItem(withTitle: "Push Notifications",
 ```
 
 ![SnackView alert](http://www.lucacasula.it/SVItems/SVSwitchItem.jpg)
+
+***
+
+**SVLoaderItem**
+
+```swift
+SVLoadingItem(withSize: .large, 
+               andText: nil)
+```
+
+![SnackView alert](http://www.lucacasula.it/SVItems/SVLoaderItem.jpg)
 
 ***
 
