@@ -11,6 +11,13 @@
 [![Twitter](https://img.shields.io/badge/twitter-@lucacasula91-green.svg?style=flat)](http://twitter.com/lucacasula91)
 
 
+## What's new in 1.0.4
+- Added documentation to all SVItem
+- Renamed the parameter ‘content’ to ‘description’ in SVSwitchItem and SVDetailTextItem
+- Fixed an issue for which SVTitleOptions did not set Close button as hidden
+- Added SVLoadingItem
+
+
 ## Installation with CocoaPods
 
 [CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like SnackView in your projects. You can install it with the following command:
