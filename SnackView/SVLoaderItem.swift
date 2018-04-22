@@ -1,5 +1,5 @@
 //
-//  SVLoadingItem.swift
+//  SVLoaderItem.swift
 //  SnackView
 //
 //  Created by Luca Casula on 22/03/18.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-/** SVLoadingItem is an item that show an animated activity indicator view. The item can be more specific by showing a text message. */
-public class SVLoadingItem: SVItem {
+/** SVLoaderItem is an item that show an animated activity indicator view. The item can be more specific by showing a text message. */
+public class SVLoaderItem: SVItem {
     
     /** Enumerator describing the size of activity indicator item */
     public enum ActivityIndicatorSize {
@@ -23,7 +23,7 @@ public class SVLoadingItem: SVItem {
     
     //MARK: - Initialization Method
     /**
-     Initialization method for SVLoadingItem view. You can customize this item with size of the activity indicator view and a custom text message.
+     Initialization method for SVLoaderItem view. You can customize this item with size of the activity indicator view and a custom text message.
      - parameter size: The size of activity indicator view
      - parameter text: A text that can appear on top of activity indicator view
      */
