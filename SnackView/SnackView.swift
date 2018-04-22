@@ -13,7 +13,7 @@ public class SnackView: UIViewController {
     //MARK: - Outlets and Variables
     private var titleAlert:String!
     private var closeButtonTitle:String!
-    private var cancelButtonVisible:Bool!
+    private var cancelButtonVisible:Bool = true
     private var items:[SVItem] = []
     private var scrollView:UIScrollView! = UIScrollView()
     private var contentView:UIView! = UIView()
