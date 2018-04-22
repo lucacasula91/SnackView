@@ -101,7 +101,8 @@ SVDescriptionItem(withDescription: "Lorem ipsum dolor sit amet...")
 **SVTextFieldItem**
 
 ```swift
-SVTextFieldItem(withPlaceholder: "Create Password", isSecureField: true)
+SVTextFieldItem(withPlaceholder: "Create Password", 
+                  fisSecureField: true)
 ```
 
 ![SnackView alert](http://www.lucacasula.it/SVItems/SVTextFieldItem.png)
@@ -126,6 +127,55 @@ SVButtonItem(withTitle: "Continue") { /* Button action here */ }
 ```
 
 ![SnackView alert](http://www.lucacasula.it/SVItems/SVButtonItem.png)
+
+***
+
+**SVSwitchItem**
+
+```swift
+SVSwitchItem(withTitle: "Push Notifications", 
+            andContent: "Activate to stay up to date...") { (isOn) in  /* Switch action here */ }
+```
+
+![SnackView alert](http://www.lucacasula.it/SVItems/SVSwitchItem.jpg)
+
+***
+
+# Create custom SVItems
+#### You can create custom items subclassing SVItem class. 
+Here below an example. 
+```swift
+import UIKit
+import SnackView
+
+//Create a subclass of SVItem
+class SVCustomItem: SVItem {
+    
+    //Pass all parameters in init method to customize your SVItem
+    init(withColor color: UIColor) {
+        super.init()
+        
+        //Add an UIView
+        let customView = UIView()
+        customView.translatesAutoresizingMaskIntoConstraints = false
+        customView.backgroundColor = color
+        self.addSubview(customView)
+       
+        //Add UIView contraints
+         let vConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[customView(70)]-|", options: [], metrics: nil, views: ["customView":customView])
+        
+        let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[customView]-|", options: [], metrics: nil, views: ["customView": customView])
+        
+        self.addConstraints(vConstraints + hConstraints)
+    }
+    
+    required public convenience init?(coder aDecoder: NSCoder) {
+        self.init(coder: aDecoder)
+    }
+}
+```
+
+![Custom SVItem](http://www.lucacasula.it/CustomSVItemExample.jpg)
 
 ***
 
