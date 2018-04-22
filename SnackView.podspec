@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
   s.ios.deployment_target  = '9.3'
   s.name         = "SnackView"
-  s.version      = "1.0.2"
+  s.version      = "1.0.3"
   s.summary      = "A new way to stack UI items in the bottom of the screen."
   s.swift_version = "3.2"
 

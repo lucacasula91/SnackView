@@ -1,6 +1,6 @@
 //
 //  BottomAlertViewController.swift
-//  BottomAllert
+//  SnackView
 //
 //  Created by Luca Casula on 08/11/17.
 //  Copyright © 2017 Luca Casula. All rights reserved.
@@ -12,7 +12,7 @@ public class SnackView: UIViewController {
     
     //MARK: - Outlets and Variables
     private var titleAlert:String!
-    private var cancelButton:String!
+    private var closeButtonTitle:String!
     private var cancelButtonVisible:Bool!
     private var items:[SVItem] = []
     private var scrollView:UIScrollView! = UIScrollView()
@@ -43,7 +43,7 @@ public class SnackView: UIViewController {
         
         //Set the title
         self.titleAlert = titleOptions.title
-        self.cancelButton = titleOptions.closeButtonTitle
+        self.closeButtonTitle = titleOptions.closeButtonTitle
         self.cancelButtonVisible = titleOptions.closeButtonVisible
         self.items = items
         
@@ -64,7 +64,7 @@ public class SnackView: UIViewController {
         
         //Set the title
         self.titleAlert = title
-        self.cancelButton = closeTitle
+        self.closeButtonTitle = closeTitle
         self.items = items
         
         //Set the presentation style as over current context
@@ -196,9 +196,12 @@ public class SnackView: UIViewController {
     
     //MARK: - Private Methods
     private func getTitleBar() -> SVTitleItem {
-        let titleTab = SVTitleItem(withTitle: self.titleAlert, andCancelButton: self.cancelButton)
+        let titleTab = SVTitleItem(withTitle: self.titleAlert, andCancelButton: self.closeButtonTitle)
         titleTab.translatesAutoresizingMaskIntoConstraints = false
         titleTab.cancelButton.addTarget(self, action: #selector(closeActionSelector), for: UIControlEvents.touchUpInside)
+        
+        //Check if close button must be visible or hidden
+        titleTab.cancelButton.isHidden = self.cancelButtonVisible ? false : true
         return titleTab
     }
     
@@ -292,10 +295,13 @@ public class SnackView: UIViewController {
         //Add BottomAlertItems Vertical Constraints
         var verticalConstraintString = "V:|"
         var verticalConstraintDictionary:[String:UIView] = [:]
+        
         for (index, item) in scrollContentView.subviews.enumerated() {
             verticalConstraintString += "[item_\(index)]"
             verticalConstraintDictionary["item_\(index)"] = item
         }
+        
+        
         verticalConstraintString += "|"
         
         let scrollViewVerticalContraints = NSLayoutConstraint.constraints(withVisualFormat: verticalConstraintString, options: [], metrics: nil, views: verticalConstraintDictionary)

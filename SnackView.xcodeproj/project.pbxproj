@@ -23,6 +23,7 @@
 
 /* Begin PBXBuildFile section */
 		385DCCC5207BD55E00E280E3 /* SVSwitchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DCCC4207BD55E00E280E3 /* SVSwitchItem.swift */; };
+		38EA7C3620862B7700B6F88D /* SVLoadingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA7C3520862B7700B6F88D /* SVLoadingItem.swift */; };
 		38F4AEFA205969CD00341940 /* SnackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F4AEF0205969CD00341940 /* SnackView.framework */; };
 		38F4AEFF205969CD00341940 /* SnackViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AEFE205969CD00341940 /* SnackViewTests.swift */; };
 		38F4AF01205969CD00341940 /* SnackView.h in Headers */ = {isa = PBXBuildFile; fileRef = 38F4AEF3205969CD00341940 /* SnackView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		385DCCC4207BD55E00E280E3 /* SVSwitchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVSwitchItem.swift; sourceTree = "<group>"; };
+		38EA7C3520862B7700B6F88D /* SVLoadingItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVLoadingItem.swift; sourceTree = "<group>"; };
 		38F4AEF0205969CD00341940 /* SnackView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnackView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F4AEF3205969CD00341940 /* SnackView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SnackView.h; sourceTree = "<group>"; };
 		38F4AEF4205969CD00341940 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -128,12 +130,13 @@
 		38F4AF1F20596A0600341940 /* Custom Items */ = {
 			isa = PBXGroup;
 			children = (
+				38F4AF12205969E900341940 /* CustomInputAccessoryView.swift */,
 				38F4AF0B205969E800341940 /* SVItem.swift */,
 				38F4AF10205969E800341940 /* SVApplicationItem.swift */,
-				38F4AF12205969E900341940 /* CustomInputAccessoryView.swift */,
 				38F4AF0A205969E700341940 /* SVButtonItem.swift */,
 				38F4AF0C205969E800341940 /* SVDescriptionItem.swift */,
 				38F4AF0E205969E800341940 /* SVDetailTextItem.swift */,
+				38EA7C3520862B7700B6F88D /* SVLoadingItem.swift */,
 				385DCCC4207BD55E00E280E3 /* SVSwitchItem.swift */,
 				38F4AF11205969E900341940 /* SVTextFieldItem.swift */,
 				38F4AF0F205969E800341940 /* SVTitleItem.swift */,
@@ -292,6 +295,7 @@
 				38F4AF1B205969E900341940 /* SVTextFieldItem.swift in Sources */,
 				38F4AF1A205969E900341940 /* SVApplicationItem.swift in Sources */,
 				38F4AF14205969E900341940 /* SVButtonItem.swift in Sources */,
+				38EA7C3620862B7700B6F88D /* SVLoadingItem.swift in Sources */,
 				38F4AF1D205969E900341940 /* SVTitleOptions.swift in Sources */,
 				38F4AF17205969E900341940 /* SnackView.swift in Sources */,
 				38F4AF15205969E900341940 /* SVItem.swift in Sources */,

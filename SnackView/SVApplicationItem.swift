@@ -1,6 +1,6 @@
 //
-//  BADescripionItem.swift
-//  BottomAllert
+//  SVApplicationItem.swift
+//  SnackView
 //
 //  Created by Luca Casula on 08/11/17.
 //  Copyright © 2017 Luca Casula. All rights reserved.
@@ -8,9 +8,20 @@
 
 import UIKit
 
+/** SVApplicationItem is an SVItem with which to show an image, a title and a description text.
+ 
+ It can be useful to show the icon with title and description of an application, of an in-app purchase or to show a list of steps.
+ */
 public class SVApplicationItem: SVItem {
     
-    public init(withIcon icon:UIImage, withTitle title:String, andDescription description:String) {
+    //MARK: - Initialization Method
+    /**
+     Initialization method for SVApplicationItem view. You can customize this item with image, title and description text.
+     - parameter icon: The image you want to show at left of title and description text
+     - parameter title: The title of application or in-app purchase
+     - parameter description: The description text of application or in-app purchase
+     */
+    public init(withIcon icon: UIImage, withTitle title: String, andDescription description: String) {
         super.init()
         
         //Create left container
@@ -19,6 +30,7 @@ public class SVApplicationItem: SVItem {
         self.addSubview(imageContainer)
         
         
+        //Add constraints for left container
         let imageContainerHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[imageContainer(==\(self.leftContentWidth))]", options: [], metrics: nil, views: ["imageContainer":imageContainer])
         self.addConstraints(imageContainerHContraints)
         
@@ -32,12 +44,16 @@ public class SVApplicationItem: SVItem {
         imageView.image = icon
         imageContainer.addSubview(imageView)
         
+        
+        //Add constraints to imageView
         let imageHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[imageView(40)]|", options: [], metrics: nil, views: ["imageView":imageView])
         imageContainer.addConstraints(imageHContraints)
         
         let imageVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[imageView(40)]-(>=0)-|", options: [], metrics: nil, views: ["imageView":imageView])
         imageContainer.addConstraints(imageVContraints)
         
+        
+        //Customize the UI of imageView
         imageView.layer.cornerRadius = 9
         imageView.layer.masksToBounds = true
         
@@ -51,6 +67,8 @@ public class SVApplicationItem: SVItem {
         titleLabel.numberOfLines = 0
         self.addSubview(titleLabel)
         
+        
+        //Add constraints to titleLabel
         let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[imageContainer]-[titleLabel]-|", options: [], metrics: nil, views: ["titleLabel":titleLabel, "imageContainer":imageContainer])
         self.addConstraints(titleHContraints)
         
@@ -67,12 +85,13 @@ public class SVApplicationItem: SVItem {
         descriptionLabel.numberOfLines = 0
         self.addSubview(descriptionLabel)
         
+        
+        //Add constraints to descriptionLabel
         let descriptionHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[imageContainer]-[descriptionLabel]-|", options: [], metrics: nil, views: ["imageContainer":imageContainer, "descriptionLabel":descriptionLabel])
         self.addConstraints(descriptionHContraints)
         
         let descriptionVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:[titleLabel][descriptionLabel]-|", options: [], metrics: nil, views: ["titleLabel":titleLabel, "descriptionLabel":descriptionLabel])
         self.addConstraints(descriptionVContraints)
-        
     }
     
     

@@ -1,6 +1,6 @@
 //
 //  CustomInputAccessoryView.swift
-//  BottomAllert
+//  SnackView
 //
 //  Created by Luca Casula on 15/11/17.
 //  Copyright © 2017 Luca Casula. All rights reserved.

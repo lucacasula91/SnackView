@@ -1,12 +1,13 @@
 //
-//  BATitleBarItem.swift
-//  BottomAllert
+//  SVTitleItem.swift
+//  SnackView
 //
 //  Created by Luca Casula on 08/11/17.
 //  Copyright © 2017 Luca Casula. All rights reserved.
 //
 
 import UIKit
+
 
 class SVTitleItem: SVItem {
     
