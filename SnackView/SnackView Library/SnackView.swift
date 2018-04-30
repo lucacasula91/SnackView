@@ -163,7 +163,7 @@ public class SnackView: UIViewController {
     
     //MARK: - Private Methods
     
-    
+    /** This method add notification observer for keyboard and rotation events */
     private func addNotificationsObserver() {
         //Keyboard notifications
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -257,6 +257,7 @@ public class SnackView: UIViewController {
         self.addItemsToContentScrollView()
     }
     
+    /** This method add all SVItems to scrollView content view */
     private func addItemsToContentScrollView() {
         self.scrollContentView.subviews.forEach{ $0.removeFromSuperview() }
         
@@ -308,6 +309,7 @@ public class SnackView: UIViewController {
         self.contentView.layoutIfNeeded()
     }
     
+    /** This method return the max height of UIScrollView  */
     private func getScrollViewMaxHeight() -> CGFloat {
         let statusBarHeight = SafeAreaHelper().getTopSafeAreaHeight()
         let titleBarHeight: CGFloat = 44
@@ -316,6 +318,7 @@ public class SnackView: UIViewController {
         return UIScreen.main.bounds.height - statusBarHeight - titleBarHeight - safeAreaBottomHeight
     }
     
+    /** This method calculate the height of SnackView according orientation and keyboard height */
     fileprivate func calculateScrollViewHeight(withKeyboardHeight kbHeight: CGFloat?) {
         var height:CGFloat = 0
         for view in scrollContentView.subviews {
@@ -373,12 +376,11 @@ public class SnackView: UIViewController {
     @objc func keyboardFrameDidChange(notification:Notification) {
         if let constant = notification.userInfo?["constant"] as? CGFloat{
             bottomContentViewConstant.constant = -constant
-            
-            //scrollView.contentOffset = CGPoint(x: 0, y: self.prova!)
         }
     }
     
     @objc func deviceDidRotate() {
+        //Recalculate SnackView height
         self.calculateScrollViewHeight(withKeyboardHeight: self.keyboardHeight)
     }
     
