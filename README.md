@@ -11,7 +11,12 @@
 [![Twitter](https://img.shields.io/badge/twitter-@lucacasula91-green.svg?style=flat)](http://twitter.com/lucacasula91)
 
 
-## What's new in 1.0.5
+### What's new in 1.0.6
+- Fixed an issue with constraints when keyboard did appear
+- Fixed an issue with constraints with device rotation
+- Added documentation for some methods
+
+### What's new in 1.0.5
 - Added documentation to all SVItem
 - Renamed the parameter ‘content’ to ‘description’ in SVSwitchItem and SVDetailTextItem
 - Fixed an issue for which SVTitleOptions did not set Close button as hidden
@@ -27,6 +32,10 @@ $ gem install cocoapods
 ```
 
 > CocoaPods 1.0.1+ is required to build SnackView 1+ (along with Swift 3 and Xcode 9).
+
+## Manual installation
+
+If you want to install SnackView manually, just drag **SnackView Library** folder into your project.
 
 #### Podfile
 
