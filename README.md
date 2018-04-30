@@ -1,4 +1,4 @@
-![SnackView logo](http://www.lucacasula.it/SnackViewLogo.svg)
+![SnackView logo](http://www.lucacasula.it/NewSnackViewLogo.svg)
 
 # SnackView
 ***An easy way to present customizable bottom-half alert.***
@@ -11,7 +11,7 @@
 [![Twitter](https://img.shields.io/badge/twitter-@lucacasula91-green.svg?style=flat)](http://twitter.com/lucacasula91)
 
 
-## What's new in 1.0.4
+## What's new in 1.0.5
 - Added documentation to all SVItem
 - Renamed the parameter ‘content’ to ‘description’ in SVSwitchItem and SVDetailTextItem
 - Fixed an issue for which SVTitleOptions did not set Close button as hidden
@@ -91,7 +91,7 @@ SVApplicationItem(withIcon: UIImage(named: "AppIcon"),
             andDescription: "Lorem ipsum dolor sit amet...")
 ```
 
-![SnackView alert](http://www.lucacasula.it/SVItems/SVApplicationItem.png)
+![SnackView alert](http://www.lucacasula.it/SVItems/SVApplicationItem.svg)
 
 ***
 
@@ -101,7 +101,7 @@ SVApplicationItem(withIcon: UIImage(named: "AppIcon"),
 SVDescriptionItem(withDescription: "Lorem ipsum dolor sit amet...")
 ```
 
-![SnackView alert](http://www.lucacasula.it/SVItems/SVDescriptionItem.png)
+![SnackView alert](http://www.lucacasula.it/SVItems/SVDescriptionItem.svg)
 
 ***
 
@@ -112,7 +112,7 @@ SVTextFieldItem(withPlaceholder: "Create Password",
                   isSecureField: true)
 ```
 
-![SnackView alert](http://www.lucacasula.it/SVItems/SVTextFieldItem.png)
+![SnackView alert](http://www.lucacasula.it/SVItems/SVTextFieldItem.svg)
 
 ***
 
@@ -123,7 +123,7 @@ SVDetailTextItem(withTitle: "Elit amet",
                 andContent: "Lorem ipsum dolor sit amet...")
 ```
 
-![SnackView alert](http://www.lucacasula.it/SVItems/SVDetailTextItem.png)
+![SnackView alert](http://www.lucacasula.it/SVItems/SVDetailTextItem.svg)
 
 ***
 
@@ -133,7 +133,7 @@ SVDetailTextItem(withTitle: "Elit amet",
 SVButtonItem(withTitle: "Continue") { /* Button action here */ }
 ```
 
-![SnackView alert](http://www.lucacasula.it/SVItems/SVButtonItem.png)
+![SnackView alert](http://www.lucacasula.it/SVItems/SVButtonItem.svg)
 
 ***
 
@@ -144,7 +144,7 @@ SVSwitchItem(withTitle: "Push Notifications",
             andContent: "Activate to stay up to date...") { (isOn) in  /* Switch action here */ }
 ```
 
-![SnackView alert](http://www.lucacasula.it/SVItems/SVSwitchItem.jpg)
+![SnackView alert](http://www.lucacasula.it/SVItems/SVSwitchItem.svg)
 
 ***
 
@@ -152,10 +152,10 @@ SVSwitchItem(withTitle: "Push Notifications",
 
 ```swift
 SVLoadingItem(withSize: .large, 
-               andText: nil)
+               andText: "Lorem ipsum dolor sit amet...")
 ```
 
-![SnackView alert](http://www.lucacasula.it/SVItems/SVLoaderItem.jpg)
+![SnackView alert](http://www.lucacasula.it/SVItems/SVLoaderItem.svg)
 
 ***
 
