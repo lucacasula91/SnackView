@@ -33,9 +33,7 @@ $ gem install cocoapods
 
 > CocoaPods 1.0.1+ is required to build SnackView 1+ (along with Swift 3 and Xcode 9).
 
-## Manual installation
 
-If you want to install SnackView manually, just drag **SnackView Library** folder into your project.
 
 #### Podfile
 
@@ -56,6 +54,9 @@ Then, run the following command:
 $ pod install
 ```
 
+## Manual installation
+
+If you want to install SnackView manually, just drag **SnackView Library** folder into your project.
 
 ## Create your custom SnackView alert
 SnackView includes some default UI elements as Button, Label and other complex UI.
