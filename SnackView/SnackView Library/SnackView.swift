@@ -160,6 +160,11 @@ public class SnackView: UIViewController {
         self.addItemsToContentScrollView()
     }
     
+    public func update(withItems items: [SVItem]) {
+        self.items = items
+        self.addItemsToContentScrollView()
+    }
+    
     
     //MARK: - Private Methods
     

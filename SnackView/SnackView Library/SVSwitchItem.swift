@@ -74,11 +74,14 @@ public class SVSwitchItem: SVItem {
         
         
         //Add contraints to descriptionLabel
+        descriptionLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+
         let descriptionVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[descriptionLabel]-|", options: [], metrics: nil, views: ["descriptionLabel":descriptionLabel])
         self.addConstraints(descriptionVContraints)
         
         let descriptionHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[titleLabel]-[descriptionLabel]-[switch]", options: [], metrics: nil, views: ["titleLabel":titleLabel, "switch":switchItem, "descriptionLabel":descriptionLabel])
         self.addConstraints(descriptionHContraints)
+        
     }
     
     required public convenience init?(coder aDecoder: NSCoder) {
