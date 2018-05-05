@@ -74,7 +74,7 @@ public class SVSwitchItem: SVItem {
         
         
         //Add contraints to descriptionLabel
-        descriptionLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        descriptionLabel.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 200), for: .horizontal)
 
         let descriptionVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[descriptionLabel]-|", options: [], metrics: nil, views: ["descriptionLabel":descriptionLabel])
         self.addConstraints(descriptionVContraints)
