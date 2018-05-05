@@ -267,10 +267,8 @@ public class SnackView: UIViewController {
         
         //Make sure self.items is not empty
         if self.items.isEmpty {
-
-            let imageView = SVImageViewItem(withImage: UIImage(named: "Code_preview", in: Bundle(for: SnackView.self), compatibleWith: nil)!)
-            let errorItem = SVApplicationItem(withIcon: UIImage(named: "Info_icon", in: Bundle(for: SnackView.self), compatibleWith: nil)!, withTitle: "Warning", andDescription: "SnackView needs an array of SVItem elements to work properly.")
-            self.items = [errorItem, imageView]
+            let info = SVDescriptionItem(withDescription: "SnackView needs a non empty SVItem array to work properly.")
+            self.items = [info]
         }
         
         //Add BottomAlertItems to ScrollView
