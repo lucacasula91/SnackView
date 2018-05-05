@@ -11,16 +11,13 @@
 [![Twitter](https://img.shields.io/badge/twitter-@lucacasula91-green.svg?style=flat)](http://twitter.com/lucacasula91)
 
 
-### What's new in 1.0.6
+### What's new in 1.0.8
+- Fixed crash that occurs when SnackView was init with an empty SVItem array.
+
+### What's new in 1.0.7
 - Fixed an issue with constraints when keyboard did appear
 - Fixed an issue with constraints with device rotation
 - Added documentation for some methods
-
-### What's new in 1.0.5
-- Added documentation to all SVItem
-- Renamed the parameter ‘content’ to ‘description’ in SVSwitchItem and SVDetailTextItem
-- Fixed an issue for which SVTitleOptions did not set Close button as hidden
-- Added SVLoadingItem
 
 
 ## Installation with CocoaPods
