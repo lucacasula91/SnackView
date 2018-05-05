@@ -38,6 +38,8 @@
 		38F4AF1B205969E900341940 /* SVTextFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF11205969E900341940 /* SVTextFieldItem.swift */; };
 		38F4AF1C205969E900341940 /* CustomInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF12205969E900341940 /* CustomInputAccessoryView.swift */; };
 		38F4AF1D205969E900341940 /* SVTitleOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF13205969E900341940 /* SVTitleOptions.swift */; };
+		8EDE06202099F5DF0017A700 /* SnackViewAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EDE061F2099F5DF0017A700 /* SnackViewAssets.xcassets */; };
+		8EDE06222099FC6D0017A700 /* SVImageViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDE06212099FC6D0017A700 /* SVImageViewItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		38F4AF11205969E900341940 /* SVTextFieldItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVTextFieldItem.swift; sourceTree = "<group>"; };
 		38F4AF12205969E900341940 /* CustomInputAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInputAccessoryView.swift; sourceTree = "<group>"; };
 		38F4AF13205969E900341940 /* SVTitleOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVTitleOptions.swift; sourceTree = "<group>"; };
+		8EDE061F2099F5DF0017A700 /* SnackViewAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SnackViewAssets.xcassets; sourceTree = "<group>"; };
+		8EDE06212099FC6D0017A700 /* SVImageViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVImageViewItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +148,8 @@
 				38F4AF11205969E900341940 /* SVTextFieldItem.swift */,
 				38F4AF0F205969E800341940 /* SVTitleItem.swift */,
 				38F4AF13205969E900341940 /* SVTitleOptions.swift */,
+				8EDE06212099FC6D0017A700 /* SVImageViewItem.swift */,
+				8EDE061F2099F5DF0017A700 /* SnackViewAssets.xcassets */,
 			);
 			path = "SnackView Library";
 			sourceTree = "<group>";
@@ -205,7 +211,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = LucaCasula;
 				TargetAttributes = {
 					38798379205A58A300D77D4B = {
@@ -247,6 +253,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EDE06202099F5DF0017A700 /* SnackViewAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +312,7 @@
 				38F4AF15205969E900341940 /* SVItem.swift in Sources */,
 				385DCCC5207BD55E00E280E3 /* SVSwitchItem.swift in Sources */,
 				38F4AF19205969E900341940 /* SVTitleItem.swift in Sources */,
+				8EDE06222099FC6D0017A700 /* SVImageViewItem.swift in Sources */,
 				38F4AF16205969E900341940 /* SVDescriptionItem.swift in Sources */,
 				38F4AF1C205969E900341940 /* CustomInputAccessoryView.swift in Sources */,
 			);
@@ -361,6 +369,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -368,6 +377,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -421,6 +431,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -428,6 +439,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

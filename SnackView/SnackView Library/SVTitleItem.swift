@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class SVTitleItem: SVItem {
     
     //MARK: - Variables

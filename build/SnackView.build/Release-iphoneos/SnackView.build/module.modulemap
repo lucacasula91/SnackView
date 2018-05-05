@@ -1,0 +1,11 @@
+framework module SnackView {
+  umbrella header "SnackView.h"
+
+  export *
+  module * { export * }
+}
+
+module SnackView.Swift {
+    header "SnackView-Swift.h"
+    requires objc
+}

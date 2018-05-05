@@ -32,14 +32,12 @@ public class SnackView: UIViewController {
     
     //MARK: - Initialization methods
     public init(withTitleOptions titleOptions:SVTitleOptions, andItems items: [SVItem]) {
-        super.init(nibName: nil, bundle: nil)
-        
-        //Set the title
-        self.titleOptions = titleOptions
-        self.items = items
+    super.init(nibName: nil, bundle: nil)
+    
+    //Set the title
+    self.titleOptions = titleOptions
+    self.items = items
     }
-    
-    
     
     public init(withTitle title:String, andCloseButtonTitle closeTitle:String, andItems items: [SVItem]) {
         super.init(nibName: nil, bundle: nil)
@@ -155,7 +153,7 @@ public class SnackView: UIViewController {
         }
     }
     
-    public func removeItemAtIndex(index:Int) {
+    public func removeItemAtIndex(index:Int)  {
         self.items.remove(at: index)
         self.addItemsToContentScrollView()
     }
@@ -170,6 +168,7 @@ public class SnackView: UIViewController {
     
     /** This method add notification observer for keyboard and rotation events */
     private func addNotificationsObserver() {
+        
         //Keyboard notifications
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -266,6 +265,14 @@ public class SnackView: UIViewController {
     private func addItemsToContentScrollView() {
         self.scrollContentView.subviews.forEach{ $0.removeFromSuperview() }
         
+        //Make sure self.items is not empty
+        if self.items.isEmpty {
+
+            let imageView = SVImageViewItem(withImage: UIImage(named: "Code_preview", in: Bundle(for: SnackView.self), compatibleWith: nil)!)
+            let errorItem = SVApplicationItem(withIcon: UIImage(named: "Info_icon", in: Bundle(for: SnackView.self), compatibleWith: nil)!, withTitle: "Warning", andDescription: "SnackView needs an array of SVItem elements to work properly.")
+            self.items = [errorItem, imageView]
+        }
+        
         //Add BottomAlertItems to ScrollView
         for item in self.items {
             item.translatesAutoresizingMaskIntoConstraints = false
@@ -341,7 +348,7 @@ public class SnackView: UIViewController {
         }
     }
     
-   
+    
     
     //MARK: - Notifications handler
     @objc func keyboardWillShow(notification:Notification) {
@@ -377,7 +384,7 @@ public class SnackView: UIViewController {
             self.view.layoutIfNeeded()
         }
     }
-
+    
     @objc func keyboardFrameDidChange(notification:Notification) {
         if let constant = notification.userInfo?["constant"] as? CGFloat{
             bottomContentViewConstant.constant = -constant

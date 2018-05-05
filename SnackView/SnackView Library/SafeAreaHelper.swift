@@ -10,10 +10,12 @@ import UIKit
 
 class SafeAreaHelper {
     
+    /** Boolean value indicating if device is in portrait orientation or not */
     var isPortrait: Bool {
         return UIScreen.main.bounds.width < UIScreen.main.bounds.height
     }
     
+    /** Boolean value indicating if device is an iPhone X or not */
     var isiPhoneX: Bool {
         if UIDevice().userInterfaceIdiom == .phone {
             //Check for screen height
@@ -27,6 +29,7 @@ class SafeAreaHelper {
         return false
     }
     
+    /** Return the top safe area height according device and orientation */
     func getTopSafeAreaHeight() -> CGFloat {
         var statusBarHeight: CGFloat
 
@@ -40,6 +43,7 @@ class SafeAreaHelper {
         return statusBarHeight
     }
     
+    /** Return the botton safe area height according device and orientation */
     func getBottomSafeAreaHeight() -> CGFloat {
         var bottomSafeAreaHeight: CGFloat
         

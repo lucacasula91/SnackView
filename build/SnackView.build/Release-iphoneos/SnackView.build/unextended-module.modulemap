@@ -1,0 +1,10 @@
+framework module SnackView {
+  umbrella header "SnackView.h"
+
+  export *
+  module * { export * }
+}
+
+module SnackView.__Swift {
+    exclude header "SnackView-Swift.h"
+}
