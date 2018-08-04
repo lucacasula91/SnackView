@@ -83,7 +83,7 @@ SnackView(withTitle: "Create password", andCloseButtonTitle: "Cancel", andItems:
 
 The result will be:
 
-![SnackView alert](http://www.lucacasula.it/AlertExample.jpg)
+![SnackView alert](http://www.lucacasula.it/SVItems/SnackViewAlertPreview.jpg)
 
 ***
 
@@ -162,7 +162,7 @@ SVLoadingItem(withSize: .large,
                andText: "Lorem ipsum dolor sit amet...")
 ```
 
-![SnackView alert Item](http://www.lucacasula.it/SVItems/SVLoaderItem.svg)
+![SnackView alert Item](http://www.lucacasula.it/SVItems/SVLoaderDescriptionItem.svg)
 
 ***
 
@@ -200,7 +200,7 @@ class SVCustomItem: SVItem {
 }
 ```
 
-![Custom SVItem](http://www.lucacasula.it/CustomSVItemExample.jpg)
+![Custom SVItem](http://www.lucacasula.it/SVItems/SnackViewCustomSVItem.jpg)
 
 ***
 
