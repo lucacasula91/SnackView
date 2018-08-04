@@ -1,8 +1,8 @@
-![SnackView logo](http://www.lucacasula.it/NewSnackViewLogo.svg)
+![SnackView logo](http://www.lucacasula.it/SVItems/SnackViewTitle.svg)
 
 # SnackView
 ***An easy way to present customizable bottom-half alert.***
-![SnackView logo](http://www.lucacasula.it/Preview.gif)
+#![SnackView logo](http://www.lucacasula.it/Preview.gif)
 
 ![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SnackView.svg)
 ![Platform](https://img.shields.io/cocoapods/p/SnackView.svg?style=flat)
