@@ -2,7 +2,7 @@
 
 # SnackView
 ***An easy way to present customizable bottom-half alert.***
-#![SnackView logo](http://www.lucacasula.it/Preview.gif)
+![SnackView logo](http://www.lucacasula.it/SVItems/SnackViewPreview.jpg)
 
 ![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SnackView.svg)
 ![Platform](https://img.shields.io/cocoapods/p/SnackView.svg?style=flat)
@@ -162,7 +162,7 @@ SVLoadingItem(withSize: .large,
                andText: "Lorem ipsum dolor sit amet...")
 ```
 
-![SnackView alert](http://www.lucacasula.it/SVItems/SVLoaderItem.svg)
+![SnackView alert Item](http://www.lucacasula.it/SVItems/SVLoaderItem.svg)
 
 ***
 
