@@ -32,11 +32,11 @@ public class SnackView: UIViewController {
     
     //MARK: - Initialization methods
     public init(withTitleOptions titleOptions:SVTitleOptions, andItems items: [SVItem]) {
-    super.init(nibName: nil, bundle: nil)
-    
-    //Set the title
-    self.titleOptions = titleOptions
-    self.items = items
+        super.init(nibName: nil, bundle: nil)
+        
+        //Set the title
+        self.titleOptions = titleOptions
+        self.items = items
     }
     
     public init(withTitle title:String, andCloseButtonTitle closeTitle:String, andItems items: [SVItem]) {
