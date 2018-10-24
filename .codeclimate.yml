@@ -1,0 +1,15 @@
+---
+version: "2"
+plugins:
+  swiftlint:
+    enabled: true
+exclude_patterns:
+  - "Carthage/"
+  - "fastlane/"
+checks:
+  identical-code:
+    config:
+      threshold: 25
+  similar-code:
+    config:
+      threshold: 50

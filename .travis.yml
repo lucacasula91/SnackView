@@ -1,0 +1,46 @@
+language: objective-c
+os: osx
+before_install:
+- rvm install 2.5.1
+- bundle install --without=documentation
+env:
+  global:
+  - APPNAME="SnackView"
+  - FASTLANE_FOLDER="fastlane"
+  - BUILD_FOLDER="Build"
+  - TRAVIS_FASTLANE_BASE_DIR=$TRAVIS_BUILD_DIR/$FASTLANE_FOLDER
+  - CC_TEST_REPORTER_ID="2e79c4ddadf05b6315005430d3bd2fb12d31d64e8fd49772585921e67cdaee38"
+  - LC_CTYPE=en_US.UTF-8 LANG=en_US.UTF-8
+jobs:
+  include:
+  - stage: test
+    name: Fastlane scan
+    before_script:
+    - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64
+      > ./cc-test-reporter
+    - chmod +x ./cc-test-reporter
+    - "./cc-test-reporter before-build"
+    script:
+    - bundle exec fastlane test_with_coverage
+    after_success:
+    - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+  - stage: release
+    name: Tag Version
+    if: "(branch = master)"
+    script:
+    - bundle exec create_release
+stages:
+- test
+- name: release
+  if: (branch = master) AND (type != pull_request) AND (tag =~ /v\d\.\d{1,3}\.\d{1,3}$/)
+branches:
+  only:
+  - master
+  - develop
+  - "/^(hotfix)$*/"
+  except:
+  - "/^[^\\/]+\\/\\d+(?:\\.\\d+)+\\/\\d+$/"
+cache:
+  bundler: true
+  directories:
+  - Carthage

@@ -1,0 +1,108 @@
+fastlane_require 'fileutils'
+fastlane_require 'dotenv'
+
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  Dotenv.load('.env')
+
+  #########################
+  # Environment Variables #
+  #########################
+
+  project_base_name = ENV['PROJECT_BASE_NAME']
+
+  # List of schemes to test. NOTE: ensure schemes are shared.
+  schemes_to_test = [
+    project_base_name.to_s
+  ]
+
+  # Files to ignore in code coverage, as an array of strings. Wildcards may be used.
+  coverage_files_to_ignore = [
+    "#{project_base_name}/SupportingFiles/*",
+    'Pods/*',
+    'Carthage/*'
+  ]
+
+  #
+  #---------------- | Before all
+  #
+  before_all do
+  end
+
+  #############
+  ## TESTING ##
+  #############
+
+  desc ''
+  desc 'Run tests using scan and slather.'
+  desc ''
+  lane :test_with_coverage do
+    schemes_to_test.each do |scheme|
+      scan_and_slather(scheme: scheme)
+    end
+  end
+
+  desc 'Scan and slather'
+  desc ':scheme Name of the scheme to test.'
+  private_lane :scan_and_slather do |options|
+    scheme = options[:scheme]
+
+    scan(
+      scheme: scheme,
+      code_coverage: true
+    )
+
+    slather(
+      travis: true,
+      scheme: scheme,
+      cobertura_xml: true,
+      proj: "#{project_base_name}.xcodeproj",
+      workspace: "#{project_base_name}.xcworkspace",
+      ignore: coverage_files_to_ignore
+    )
+  end
+
+  desc 'Generate new localized screenshots'
+  lane :screenshots do
+    capture_screenshots(scheme: 'SnackView')
+  end
+
+  desc 'Generate github release'
+  lane :create_release do
+    UI.message 'creating release...'
+
+    # TODO: Create and add github token as encrypted travis variable
+    github_release = set_github_release(
+      repository_name: 'lucacasula91/SnackView',
+      api_token: ENV['GITHUB_TOKEN'],
+      name: 'SnackView release',
+      tag_name: '1.0.9',
+      description: (begin
+                  File.read('changelog')
+                rescue StandardError
+                  'No changelog provided'
+                end),
+      commitish: 'master'
+      # upload_assets: ['example_integration.ipa', './pkg/built.gem']
+    )
+  end
+
+  ######################
+  ## SUCCESS HANDLING ##
+  ######################
+
+  after_all do |lane|
+    UI.success "'#{lane}' Successfully completed! " + ' :yoda:'
+  end
+
+  ######################
+  ## FAILURE HANDLING ##
+  ######################
+
+  error do |lane, exception|
+    UI.error "'#{lane}' Finished with errors #{exception.message}"
+  end
+end
