@@ -12,19 +12,21 @@ import os.log
 public class SnackView: UIViewController {
 
     // MARK: - Outlets and Variables
-    private var titleOptions: SVTitleOptions!
-    private var items: [SVItem] = []
-    private var scrollView: UIScrollView = UIScrollView()
-    private var contentView: UIView = UIView()
-    private var safeAreaView: UIView = UIView()
-    private var stackView: UIStackView = UIStackView()
+    internal var titleOptions: SVTitleOptions!
+    internal var snackViewItems: [SVItem] = []
+    internal var contentView: UIView = UIView()
+    internal var titleBar: SVTitleItem!
+    internal var scrollView: UIScrollView = UIScrollView()
+    internal var safeAreaView: UIView = UIView()
+    internal var stackView: UIStackView = UIStackView()
 
-    private var widthScrollContentView: CGFloat = 0
-    private var heightScrollViewConstant: NSLayoutConstraint = NSLayoutConstraint()
+    internal var widthScrollContentView: CGFloat = 0
+    internal var heightScrollViewConstant: NSLayoutConstraint = NSLayoutConstraint()
 
-    private var bottomContentViewConstant: NSLayoutConstraint = NSLayoutConstraint()
-    private var customInputAccessoryView: UIView = UIView()
-    private var keyboardHeight: CGFloat = 0
+    internal var bottomContentViewConstant: NSLayoutConstraint = NSLayoutConstraint()
+    internal var customInputAccessoryView: UIView = UIView()
+    internal var keyboardHeight: CGFloat = 0
+
     override public var inputAccessoryView: UIView? {
         let customInput = CustomInputAccessoryView()
         customInput.frame.size.height = 0.1
@@ -37,7 +39,7 @@ public class SnackView: UIViewController {
 
         //Set the title
         self.titleOptions = titleOptions
-        self.items = items
+        self.snackViewItems = items
     }
 
     public init(withTitle title: String, andCloseButtonTitle closeTitle: String, andItems items: [SVItem]) {
@@ -45,7 +47,7 @@ public class SnackView: UIViewController {
 
         //Set the title
         self.titleOptions = SVTitleOptions(withTitle: title, setCloseButtonVisible: true, setCloseButtonTitle: closeTitle)
-        self.items = items
+        self.snackViewItems = items
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -64,55 +66,26 @@ public class SnackView: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
 
-        //Add custom input accessory view to handle keyboard dismiss interactively
-        self.customInputAccessoryView.frame.size.height = 44
-        self.customInputAccessoryView.backgroundColor = UIColor.red
-
-        //Set the presentation style as over current context
-        self.modalPresentationStyle = .overCurrentContext
-
-        //Handle rotation screen notification
-        UIDevice.current.beginGeneratingDeviceOrientationNotifications()
+        //
+        self.setupViewController()
 
         //Create the SnackView skeleton view
         self.layoutSnackViewSkeleton()
 
         //Register SnackView for keyboard and rotation notifications
         self.addNotificationsObserver()
-
-        //Set SnackView hidden
-        self.contentView.isHidden = true
     }
 
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        //Set background color to clear color
-        DispatchQueue.main.async {
-            self.view.backgroundColor = UIColor.clear
-        }
+        self.setBackgroundForWillAppear()
     }
 
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        DispatchQueue.main.async {
-            //Hide the SnackView out the screen bounds and set visible
-            let contentViewHeight = self.contentView.frame.size.height + self.safeAreaView.frame.height
-            self.contentView.transform = CGAffineTransform(translationX: 0, y: contentViewHeight)
-            self.contentView.isHidden = false
-
-            //Background Color Animation
-            UIView.animate(withDuration: 0.3, animations: {
-                self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-
-            }) { (_) in
-                //Show SnackView Animation
-                UIView.animate(withDuration: 0.2, animations: {
-                    self.contentView.transform = CGAffineTransform.identity
-                })
-            }
-        }
+        self.showSnackViewWithAnimation()
     }
 
     // MARK: - Public Methods
@@ -138,11 +111,11 @@ public class SnackView: UIViewController {
 
     public func insertItem(item: SVItem, atIndex index: Int?) {
         if let aIndex = index {
-            self.items.insert(item, at: aIndex)
+            self.snackViewItems.insert(item, at: aIndex)
         } else {
-            self.items.append(item)
+            self.snackViewItems.append(item)
         }
-        self.addItemsToContentScrollView()
+        self.addItemsInsideStackView()
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25) { [weak self] in
             guard let width = self?.scrollView.frame.width, let height = self?.scrollView.frame.height else { return }
@@ -152,7 +125,7 @@ public class SnackView: UIViewController {
     }
 
     public func removeItem(item: SVItem) {
-        for (index, tmpItem) in self.items.enumerated() {
+        for (index, tmpItem) in self.snackViewItems.enumerated() {
             if tmpItem == item {
                 self.removeItemAtIndex(index: index)
                 break
@@ -161,181 +134,35 @@ public class SnackView: UIViewController {
     }
 
     public func removeItemAtIndex(index: Int) {
-        self.items.remove(at: index)
-        self.addItemsToContentScrollView()
+        self.snackViewItems.remove(at: index)
+        self.addItemsInsideStackView()
     }
 
     public func update(withItems items: [SVItem]) {
-        self.items = items
-        self.addItemsToContentScrollView()
+        self.snackViewItems = items
+        self.addItemsInsideStackView()
     }
 
     // MARK: - Private Methods
-
-    /** This method add notification observer for keyboard and rotation events */
-    private func addNotificationsObserver() {
-
-        //Keyboard notifications
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardFrameDidChange(notification:)), name: NSNotification.Name(rawValue: "KeyboardFrameDidChange"), object: nil)
-    }
 
     /** This method creates a view that contains all the SnackView items */
     private func layoutSnackViewSkeleton() {
         self.view.subviews.forEach { $0.removeFromSuperview() }
 
-        self.contentView = UIView()
-        self.contentView.translatesAutoresizingMaskIntoConstraints = false
-        self.contentView.backgroundColor = UIColor.white.withAlphaComponent(0.75)
-        self.view.addSubview(contentView)
+        self.addContentViewWithConstraints()
+        self.addVisualEffectViewToContentView()
 
-        //Use safe area layout guide if possible
-        if #available(iOS 11.0, *) {
-            self.contentView.topAnchor.constraint(greaterThanOrEqualTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
-        } else {
-            self.contentView.topAnchor.constraint(greaterThanOrEqualTo: self.view.topAnchor, constant: 0).isActive = true
-        }
-        self.contentView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-        self.contentView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+        self.addTitleBarToContentView()
+        self.addScrollViewToContentView()
+        self.addSafeAreaViewToContentView()
+        self.addMainConstraintsToContentView()
+        self.addStackViewInsideScrollViewWithConstraints()
 
-        self.bottomContentViewConstant = self.contentView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-        self.view.addConstraint(bottomContentViewConstant)
-
-        //Add Visual Effect
-        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
-        visualEffectView.frame = contentView.bounds
-        visualEffectView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        self.contentView.addSubview(visualEffectView)
-
-        //Title Bar View
-        let title = SVTitleItem(withTitle: self.titleOptions.title, andCancelButton: self.titleOptions.closeButtonTitle)
-        title.translatesAutoresizingMaskIntoConstraints = false
-        title.cancelButton.addTarget(self, action: #selector(closeActionSelector), for: UIControlEvents.touchUpInside)
-
-        //Check if close button must be visible or hidden
-        title.cancelButton.isHidden = self.titleOptions.closeButtonVisible ? false : true
-        self.contentView.addSubview(title)
-
-        //Scroll Content View
-        self.scrollView = UIScrollView()
-        self.scrollView.translatesAutoresizingMaskIntoConstraints = false
-        self.scrollView.keyboardDismissMode = .interactive
-        self.scrollView.bounces = true
-        self.scrollView.alwaysBounceVertical = false
-        self.scrollView.backgroundColor = UIColor.clear
-        self.contentView.addSubview(self.scrollView)
-
-        //Safe Area View
-        self.safeAreaView = UIView()
-        self.safeAreaView.translatesAutoresizingMaskIntoConstraints = false
-        self.safeAreaView.backgroundColor = UIColor.clear
-        self.contentView.addSubview(self.safeAreaView)
-
-        //Add vertical constraints
-        let verticalContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[title(44)][scrollView]-|", options: [], metrics: nil, views: ["title": title, "scrollView": scrollView])
-        self.contentView.addConstraints(verticalContraints)
-
-        self.safeAreaView.topAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
-        self.safeAreaView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-
-        //Add horizontal constraints
-        let items = [title, self.scrollView, self.safeAreaView] as [Any]
-        for item in items {
-            let horizontalConstraint = NSLayoutConstraint.constraints(withVisualFormat: "H:|[item]|", options: [], metrics: nil, views: ["item": item])
-            self.contentView.addConstraints(horizontalConstraint)
-        }
-
-        //Add StackView
-        self.stackView = UIStackView(arrangedSubviews: [])
-        self.stackView.axis = .vertical
-        self.stackView.distribution = .fill
-        self.stackView.translatesAutoresizingMaskIntoConstraints = false
-        self.scrollView.addSubview(self.stackView)
-
-        //Add ScrollView Constraints
-        let stackViewHConstraint = NSLayoutConstraint.constraints(withVisualFormat: "H:|[stackView(==scrollView)]|", options: [], metrics: nil, views: ["stackView": self.stackView, "scrollView": self.scrollView])
-        scrollView.addConstraints(stackViewHConstraint)
-
-        let stackViewVConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|[stackView]|", options: [], metrics: nil, views: ["stackView": self.stackView, "scrollView": self.scrollView])
-        scrollView.addConstraints(stackViewVConstraint)
-
-        let scrollViewHeight = self.scrollView.heightAnchor.constraint(equalTo: self.stackView.heightAnchor, multiplier: 1, constant: 0)
-        scrollViewHeight.priority = .defaultLow
-        scrollViewHeight.isActive = true
-
-        self.addItemsToContentScrollView()
-    }
-
-    /** This method add all SVItems to scrollView content view */
-    private func addItemsToContentScrollView() {
-        self.stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
-
-        //Make sure self.items is not empty
-        if self.items.isEmpty {
-            let info = SVDescriptionItem(withDescription: "SnackView needs a non empty SVItem array to work properly.")
-            self.items = [info]
-        }
-
-        //Add BottomAlertItems to ScrollView
-        for item in self.items {
-            item.translatesAutoresizingMaskIntoConstraints = false
-            self.stackView.addArrangedSubview(item)
-        }
-
-        self.contentView.layoutIfNeeded()
-    }
-
-    /** This method return the max height of UIScrollView  */
-    private func getScrollViewMaxHeight() -> CGFloat {
-        let statusBarHeight = SafeAreaHelper().getTopSafeAreaHeight()
-        let titleBarHeight: CGFloat = 44
-        let safeAreaBottomHeight = SafeAreaHelper().getBottomSafeAreaHeight()
-
-        return UIScreen.main.bounds.height - statusBarHeight - titleBarHeight - safeAreaBottomHeight
-    }
-
-    // MARK: - Notifications handler
-    @objc func keyboardWillShow(notification: Notification) {
-        scrollView.alwaysBounceVertical = true
-
-        guard
-            let keyboardSize = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? CGRect,
-            let animationSpeed = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber
-            else { return }
-
-        self.keyboardHeight = keyboardSize.height
-        bottomContentViewConstant.constant = -self.keyboardHeight
-
-        UIView.animate(withDuration: animationSpeed.doubleValue) {
-            self.view.layoutIfNeeded()
-        }
-    }
-
-    @objc func keyboardWillHide(notification: Notification) {
-        scrollView.alwaysBounceVertical = false
-
-        guard
-            let keyboardSize = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? CGRect,
-            let animationSpeed = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber
-            else { return }
-
-        self.keyboardHeight = keyboardSize.height
-        self.bottomContentViewConstant.constant = 0
-
-        UIView.animate(withDuration: animationSpeed.doubleValue) {
-            self.view.layoutIfNeeded()
-        }
-    }
-
-    @objc func keyboardFrameDidChange(notification: Notification) {
-        if let constant = notification.userInfo?["constant"] as? CGFloat {
-            bottomContentViewConstant.constant = -constant
-        }
+        self.addItemsInsideStackView()
     }
 
     // MARK: - Private Custom Actions
-    @objc private func closeActionSelector() {
+    @objc internal func closeActionSelector() {
 
         DispatchQueue.main.async {
             //Hide the SnackView out the screen bounds and set visible
