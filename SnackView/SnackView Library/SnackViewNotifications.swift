@@ -13,10 +13,8 @@ extension SnackView {
     @objc func keyboardWillShow(notification: Notification) {
         scrollView.alwaysBounceVertical = true
 
-        guard
-            let keyboardSize = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? CGRect,
-            let animationSpeed = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber
-            else { return }
+        let keyboardSize = self.getKeyboardSizeFrom(notification: notification)
+        let animationSpeed = self.getAnimationDurationFrom(notification: notification)
 
         self.keyboardHeight = keyboardSize.height
         bottomContentViewConstant.constant = -self.keyboardHeight
@@ -29,10 +27,8 @@ extension SnackView {
     @objc func keyboardWillHide(notification: Notification) {
         scrollView.alwaysBounceVertical = false
 
-        guard
-            let keyboardSize = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? CGRect,
-            let animationSpeed = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber
-            else { return }
+        let keyboardSize = self.getKeyboardSizeFrom(notification: notification)
+        let animationSpeed = self.getAnimationDurationFrom(notification: notification)
 
         self.keyboardHeight = keyboardSize.height
         self.bottomContentViewConstant.constant = 0
@@ -46,5 +42,19 @@ extension SnackView {
         if let constant = notification.userInfo?["constant"] as? CGFloat {
             bottomContentViewConstant.constant = -constant
         }
+    }
+
+    private func getKeyboardSizeFrom(notification: Notification) -> CGRect {
+        if let keyboardSize = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? CGRect {
+            return keyboardSize
+        }
+        return CGRect.zero
+    }
+
+    private func getAnimationDurationFrom(notification: Notification) -> NSNumber {
+        if let animationDuration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber {
+            return animationDuration
+        }
+        return 0.25
     }
 }
