@@ -10,8 +10,8 @@ import UIKit
 
 /** SVDetailTextItem is an SVItem with which to show a title and a multi-line description text. */
 public class SVDetailTextItem: SVItem {
-    
-    //MARK: - Initialization Method
+
+    // MARK: - Initialization Method
     /**
      Initialization method for SVDetailTextItem view. You can customize this item with a title and a description text.
      - parameter title: The title to show
@@ -19,7 +19,7 @@ public class SVDetailTextItem: SVItem {
      */
     public init(withTitle title: String, andDescription description: String) {
         super.init()
-        
+
         //Add title item
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -29,16 +29,14 @@ public class SVDetailTextItem: SVItem {
         titleLabel.font = UIFont.systemFont(ofSize: 14)
         titleLabel.numberOfLines = 0
         self.addSubview(titleLabel)
-        
-        
+
         //Add constraints to titleLabel
-        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel(==\(self.leftContentWidth))]", options: [], metrics: nil, views: ["titleLabel":titleLabel])
+        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel(==\(self.leftContentWidth))]", options: [], metrics: nil, views: ["titleLabel": titleLabel])
         self.addConstraints(titleHContraints)
-        
-        let titleVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[titleLabel(>=28)]-|", options: [], metrics: nil, views: ["titleLabel":titleLabel])
+
+        let titleVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[titleLabel(>=28)]-|", options: [], metrics: nil, views: ["titleLabel": titleLabel])
         self.addConstraints(titleVContraints)
-        
-        
+
         //Add description item
         let descriptionLabel = UILabel()
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -48,16 +46,15 @@ public class SVDetailTextItem: SVItem {
         descriptionLabel.font = UIFont.systemFont(ofSize: 14)
         descriptionLabel.numberOfLines = 0
         self.addSubview(descriptionLabel)
-        
-        
+
         //Add constraints to descriptionLabel
-        let descriptionHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel]-[descriptionLabel]-|", options: [], metrics: nil, views: ["titleLabel":titleLabel, "descriptionLabel":descriptionLabel])
+        let descriptionHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel]-[descriptionLabel]-|", options: [], metrics: nil, views: ["titleLabel": titleLabel, "descriptionLabel": descriptionLabel])
         self.addConstraints(descriptionHContraints)
-        
-        let descriptionVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[descriptionLabel]-|", options: [], metrics: nil, views: ["descriptionLabel":descriptionLabel])
+
+        let descriptionVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[descriptionLabel]-|", options: [], metrics: nil, views: ["descriptionLabel": descriptionLabel])
         self.addConstraints(descriptionVContraints)
     }
-    
+
     required public convenience init?(coder aDecoder: NSCoder) {
         self.init(coder: aDecoder)
     }

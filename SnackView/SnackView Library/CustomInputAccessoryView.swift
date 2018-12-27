@@ -9,6 +9,8 @@
 import UIKit
 
 class CustomInputAccessoryView: UIView {
+//    var observer: NSKeyValueObservation? = nil
+//    let key = \CustomInputAccessoryView.frame
 
     override func willMove(toSuperview newSuperview: UIView?) {
         if let oldSuperView = self.superview {
@@ -16,14 +18,25 @@ class CustomInputAccessoryView: UIView {
         }
         newSuperview?.addObserver(self, forKeyPath: "center", options: NSKeyValueObservingOptions.new, context: nil)
         super.willMove(toSuperview: newSuperview)
+        //self.startObserving()
     }
 
-    override public func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if let _ = change?[NSKeyValueChangeKey.newKey]  {
+//    func startObserving() {
+//        observer = self.observe(key, changeHandler: { (foo, change) in
+//            print(foo)
+//            print(change)
+//        })
+//    }
+
+    override public func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+        if change?[NSKeyValueChangeKey.newKey] != nil {
             if let originY = self.superview?.frame.origin.y {
                 let screenHeight = UIScreen.main.bounds.height
                 let constant = screenHeight - originY
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "KeyboardFrameDidChange"), object: nil, userInfo: ["constant":constant])
+                let notificationName = NSNotification.Name(rawValue: "KeyboardFrameDidChange")
+                NotificationCenter.default.post(name: notificationName,
+                                                object: nil,
+                                                userInfo: ["constant": constant])
             }
         }
     }

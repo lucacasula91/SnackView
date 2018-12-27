@@ -9,24 +9,23 @@
 import UIKit
 
 class SVImageViewItem: SVItem {
-    
+
     public init(withImage image: UIImage) {
         super.init()
-        
+
         let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         self.addSubview(imageView)
-        
-        
+
         //Add constraints to descriptionLabel
-        let imageViewHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[imageView]|", options: [], metrics: nil, views: ["imageView":imageView])
+        let imageViewHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[imageView]|", options: [], metrics: nil, views: ["imageView": imageView])
         self.addConstraints(imageViewHContraints)
-        
-        let imageViewVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[imageView]|", options: [], metrics: nil, views: ["imageView":imageView])
+
+        let imageViewVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[imageView]|", options: [], metrics: nil, views: ["imageView": imageView])
         self.addConstraints(imageViewVContraints)
     }
-    
+
     required public convenience init?(coder aDecoder: NSCoder) {
         self.init(coder: aDecoder)
     }
