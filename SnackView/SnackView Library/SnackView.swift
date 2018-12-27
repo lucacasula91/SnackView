@@ -17,9 +17,11 @@ public class SnackView: UIViewController {
     private var scrollView: UIScrollView = UIScrollView()
     private var contentView: UIView = UIView()
     private var safeAreaView: UIView = UIView()
-    private var scrollContentView: UIView = UIView()
+    private var stackView: UIStackView = UIStackView()
+
     private var widthScrollContentView: CGFloat = 0
     private var heightScrollViewConstant: NSLayoutConstraint = NSLayoutConstraint()
+
     private var bottomContentViewConstant: NSLayoutConstraint = NSLayoutConstraint()
     private var customInputAccessoryView: UIView = UIView()
     private var keyboardHeight: CGFloat = 0
@@ -177,9 +179,6 @@ public class SnackView: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardFrameDidChange(notification:)), name: NSNotification.Name(rawValue: "KeyboardFrameDidChange"), object: nil)
-
-        //Rotation notification
-        NotificationCenter.default.addObserver(self, selector: #selector(deviceDidRotate), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
 
     /** This method creates a view that contains all the SnackView items */
@@ -247,24 +246,30 @@ public class SnackView: UIViewController {
             self.contentView.addConstraints(horizontalConstraint)
         }
 
-        //Add ScrollView content view
-        self.scrollContentView = UIView()
-        self.scrollContentView.translatesAutoresizingMaskIntoConstraints = false
-        self.scrollView.addSubview(self.scrollContentView)
+        //Add StackView
+        self.stackView = UIStackView(arrangedSubviews: [])
+        self.stackView.axis = .vertical
+        self.stackView.distribution = .fill
+        self.stackView.translatesAutoresizingMaskIntoConstraints = false
+        self.scrollView.addSubview(self.stackView)
 
         //Add ScrollView Constraints
-        let contentViewHConstraint = NSLayoutConstraint.constraints(withVisualFormat: "H:|[contentView(==scrollView)]|", options: [], metrics: nil, views: ["contentView": self.scrollContentView, "scrollView": self.scrollView])
-        scrollView.addConstraints(contentViewHConstraint)
+        let stackViewHConstraint = NSLayoutConstraint.constraints(withVisualFormat: "H:|[stackView(==scrollView)]|", options: [], metrics: nil, views: ["stackView": self.stackView, "scrollView": self.scrollView])
+        scrollView.addConstraints(stackViewHConstraint)
 
-        let contentViewVConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|[contentView]|", options: [], metrics: nil, views: ["contentView": self.scrollContentView, "scrollView": self.scrollView])
-        scrollView.addConstraints(contentViewVConstraint)
+        let stackViewVConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|[stackView]|", options: [], metrics: nil, views: ["stackView": self.stackView, "scrollView": self.scrollView])
+        scrollView.addConstraints(stackViewVConstraint)
+
+        let scrollViewHeight = self.scrollView.heightAnchor.constraint(equalTo: self.stackView.heightAnchor, multiplier: 1, constant: 0)
+        scrollViewHeight.priority = .defaultLow
+        scrollViewHeight.isActive = true
 
         self.addItemsToContentScrollView()
     }
 
     /** This method add all SVItems to scrollView content view */
     private func addItemsToContentScrollView() {
-        self.scrollContentView.subviews.forEach { $0.removeFromSuperview() }
+        self.stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
 
         //Make sure self.items is not empty
         if self.items.isEmpty {
@@ -275,47 +280,8 @@ public class SnackView: UIViewController {
         //Add BottomAlertItems to ScrollView
         for item in self.items {
             item.translatesAutoresizingMaskIntoConstraints = false
-            self.scrollContentView.addSubview(item)
+            self.stackView.addArrangedSubview(item)
         }
-
-        //Add BottomAlertItems Vertical Constraints
-        var verticalConstraintString = "V:|"
-        var verticalConstraintDictionary: [String: UIView] = [:]
-
-        for (index, item) in self.scrollContentView.subviews.enumerated() {
-            verticalConstraintString += "[item_\(index)]"
-            verticalConstraintDictionary["item_\(index)"] = item
-        }
-
-        verticalConstraintString += "|"
-
-        let scrollViewVerticalContraints = NSLayoutConstraint.constraints(withVisualFormat: verticalConstraintString, options: [], metrics: nil, views: verticalConstraintDictionary)
-        self.scrollContentView.addConstraints(scrollViewVerticalContraints)
-
-        //Add BottomAlertItems Horizontal Constraints
-        var heightValue: CGFloat = 0
-        for item in self.scrollContentView.subviews {
-            item.translatesAutoresizingMaskIntoConstraints = false
-
-            let horizontalConstraint = NSLayoutConstraint.constraints(withVisualFormat: "H:|[item]|", options: [], metrics: nil, views: ["item": item])
-            self.scrollContentView.addConstraints(horizontalConstraint)
-
-            //Set layout to calculate item height size
-            item.layoutIfNeeded()
-            heightValue += item.frame.size.height
-        }
-
-        //Set ScrollView content size
-        self.scrollView.contentSize = CGSize(width: scrollView.frame.width, height: heightValue)
-
-        //Set ScrollView height constraint
-        self.scrollView.removeConstraint(self.heightScrollViewConstant)
-
-        let maxHeight = self.getScrollViewMaxHeight()
-
-        self.heightScrollViewConstant = self.scrollView.heightAnchor.constraint(equalToConstant: heightValue > maxHeight ? maxHeight : heightValue)
-        self.scrollView.addConstraint(heightScrollViewConstant)
-        self.heightScrollViewConstant.isActive = true
 
         self.contentView.layoutIfNeeded()
     }
@@ -329,24 +295,6 @@ public class SnackView: UIViewController {
         return UIScreen.main.bounds.height - statusBarHeight - titleBarHeight - safeAreaBottomHeight
     }
 
-    /** This method calculate the height of SnackView according orientation and keyboard height */
-    fileprivate func calculateScrollViewHeight(withKeyboardHeight kbHeight: CGFloat?) {
-        var height: CGFloat = 0
-        for view in scrollContentView.subviews {
-            view.layoutIfNeeded()
-            height += view.frame.size.height
-        }
-
-        //Set ScrollView max height value
-        let maxScrollViewHeight = self.getScrollViewMaxHeight() - (kbHeight ?? 0)
-
-        if height < maxScrollViewHeight {
-            heightScrollViewConstant.constant = height
-        } else {
-            heightScrollViewConstant.constant = maxScrollViewHeight
-        }
-    }
-
     // MARK: - Notifications handler
     @objc func keyboardWillShow(notification: Notification) {
         scrollView.alwaysBounceVertical = true
@@ -357,7 +305,6 @@ public class SnackView: UIViewController {
             else { return }
 
         self.keyboardHeight = keyboardSize.height
-        self.calculateScrollViewHeight(withKeyboardHeight: self.keyboardHeight)
         bottomContentViewConstant.constant = -self.keyboardHeight
 
         UIView.animate(withDuration: animationSpeed.doubleValue) {
@@ -374,7 +321,6 @@ public class SnackView: UIViewController {
             else { return }
 
         self.keyboardHeight = keyboardSize.height
-        self.calculateScrollViewHeight(withKeyboardHeight: self.keyboardHeight)
         self.bottomContentViewConstant.constant = 0
 
         UIView.animate(withDuration: animationSpeed.doubleValue) {
@@ -386,11 +332,6 @@ public class SnackView: UIViewController {
         if let constant = notification.userInfo?["constant"] as? CGFloat {
             bottomContentViewConstant.constant = -constant
         }
-    }
-
-    @objc func deviceDidRotate() {
-        //Recalculate SnackView height
-        self.calculateScrollViewHeight(withKeyboardHeight: self.keyboardHeight)
     }
 
     // MARK: - Private Custom Actions
