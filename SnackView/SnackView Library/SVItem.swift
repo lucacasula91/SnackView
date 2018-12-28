@@ -31,24 +31,8 @@ open class SVItem: UIView {
         super.init(frame: CGRect.zero)
         self.backgroundColor = UIColor.clear
 
-        //Add separator line
-        if bottomLine == nil {
-            bottomLine = UIView()
-            bottomLine.backgroundColor = UIColor.lightGray
-            bottomLine.translatesAutoresizingMaskIntoConstraints = false
-            self.addSubview(bottomLine)
-
-            //Add constraints to bottomLine
-            let bottomLineHConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[bottomLine]|", options: [], metrics: nil, views: ["bottomLine": bottomLine])
-            let bottomLineVConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:[bottomLine(0.5)]|", options: [], metrics: nil, views: ["bottomLine": bottomLine])
-            self.addConstraints(bottomLineHConstraints + bottomLineVConstraints)
-
-            //Add minimum view height
-            self.heightConstraint = NSLayoutConstraint(item: self, attribute: .height, relatedBy: .greaterThanOrEqual, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50)
-            if let tmpConstraint = self.heightConstraint {
-                self.addConstraint(tmpConstraint)
-            }
-        }
+        // Add separator line
+        self.addBottomLine()
     }
 
     required public convenience init?(coder aDecoder: NSCoder) {
@@ -61,18 +45,39 @@ open class SVItem: UIView {
      - parameter active: Bool value
      */
     public func setMinimumHeightActive(active: Bool) {
-        if active {
-            if self.heightConstraint == nil {
-                self.heightConstraint = NSLayoutConstraint(item: self, attribute: .height, relatedBy: .greaterThanOrEqual, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50)
-                if let tmpConstraint = self.heightConstraint {
-                    self.addConstraint(tmpConstraint)
-                }
-            }
-        } else {
-            if let tmpConstraint = self.heightConstraint {
-                self.removeConstraint(tmpConstraint)
-                self.heightConstraint = nil
-            }
+
+        if active && self.heightConstraint == nil {
+            self.setDefaultHeightConstraint()
+            
+        } else if let tmpConstraint = self.heightConstraint {
+            self.removeConstraint(tmpConstraint)
+            self.heightConstraint = nil
+        }
+    }
+
+    // MARK: - Internal methods
+    internal func addBottomLine() {
+        if bottomLine == nil {
+            bottomLine = UIView()
+            bottomLine.backgroundColor = UIColor.lightGray
+            bottomLine.translatesAutoresizingMaskIntoConstraints = false
+            self.addSubview(bottomLine)
+
+            //Add constraints to bottomLine
+            let bottomLineHConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[bottomLine]|", options: [], metrics: nil, views: ["bottomLine": bottomLine])
+            let bottomLineVConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:[bottomLine(0.5)]|", options: [], metrics: nil, views: ["bottomLine": bottomLine])
+            self.addConstraints(bottomLineHConstraints + bottomLineVConstraints)
+
+            //Add minimum view height
+            self.setDefaultHeightConstraint()
+        }
+    }
+
+    internal func setDefaultHeightConstraint() {
+        self.heightConstraint = NSLayoutConstraint(item: self, attribute: .height, relatedBy: .greaterThanOrEqual, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50)
+
+        if let tmpConstraint = self.heightConstraint {
+            self.addConstraint(tmpConstraint)
         }
     }
 }
