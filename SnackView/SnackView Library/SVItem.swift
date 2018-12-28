@@ -33,6 +33,8 @@ open class SVItem: UIView {
 
         // Add separator line
         self.addBottomLine()
+
+        self.clipsToBounds = true
     }
 
     required public convenience init?(coder aDecoder: NSCoder) {
@@ -48,7 +50,7 @@ open class SVItem: UIView {
 
         if active && self.heightConstraint == nil {
             self.setDefaultHeightConstraint()
-            
+
         } else if let tmpConstraint = self.heightConstraint {
             self.removeConstraint(tmpConstraint)
             self.heightConstraint = nil

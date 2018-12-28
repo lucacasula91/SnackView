@@ -10,46 +10,49 @@ extension SnackView {
 
     // MARK: - SnackView Setup
 
+    /// Prepare the SnackView view controller with modalPresentationStyle and contentView hidden.
     internal func setupViewController() {
-        //Add custom input accessory view to handle keyboard dismiss interactively
+        // Add custom input accessory view to handle keyboard dismiss interactively
         self.customInputAccessoryView.frame.size.height = 44
         self.customInputAccessoryView.backgroundColor = UIColor.red
 
-        //Set the presentation style as over current context
+        // Set the presentation style as over current context
         self.modalPresentationStyle = .overCurrentContext
 
-        //Set SnackView hidden
+        // Set SnackView hidden
         self.contentView.isHidden = true
     }
 
+    /// Prepare SnackView for will appear state, set background color to clear and translate view off screen.
     internal func setBackgroundForWillAppear() {
         DispatchQueue.main.async {
             self.view.backgroundColor = UIColor.clear
 
-            //Hide the SnackView out the screen bounds and set visible
+            // Hide the SnackView out the screen bounds and set visible
             let contentViewHeight = self.contentView.frame.size.height + self.safeAreaView.frame.height
             self.contentView.transform = CGAffineTransform(translationX: 0, y: contentViewHeight)
 
-            //Set SnackView visible
+            // Set SnackView visible
             self.contentView.isHidden = false
         }
     }
 
+    /// Animate the SnackView presentation, set a background color with alpha 0.5 and then translate SnackView to original position.
     internal func showSnackViewWithAnimation() {
         DispatchQueue.main.async {
-            //Background Color Animation
-            UIView.animate(withDuration: 0.3, animations: {
+            // Background Color Animation
+            UIView.animate(withDuration: self.animationSpeed, animations: {
                 self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
             }) { (_) in
-                //Show SnackView Animation
-                UIView.animate(withDuration: 0.2, animations: {
+                // Show SnackView Animation
+                UIView.animate(withDuration: self.animationSpeed, animations: {
                     self.contentView.transform = CGAffineTransform.identity
                 })
             }
         }
     }
 
-    /** This method add notification observer for keyboard events */
+    /// This method add notification observer for keyboard events.
     internal func addNotificationsObserver() {
         let notificationCenter = NotificationCenter.default
 
@@ -72,18 +75,24 @@ extension SnackView {
                                        object: nil)
     }
 
+    // MARK: - SnackView skeleton
+
+    /// ContentView is a view that contains all the items of SnackView such as TitleBar, ScrollView with all the items inside and the safeArea view.
     internal func addContentViewWithConstraints() {
         self.contentView = UIView()
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.backgroundColor = UIColor.white.withAlphaComponent(0.75)
         self.view.addSubview(contentView)
 
-        //Use safe area layout guide if possible
+        /// Default top constraint anchor
+        var topConstraint = self.view.topAnchor
+
+        // Use safe area layout guide if possible
         if #available(iOS 11.0, *) {
-            self.contentView.topAnchor.constraint(greaterThanOrEqualTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
-        } else {
-            self.contentView.topAnchor.constraint(greaterThanOrEqualTo: self.view.topAnchor, constant: 0).isActive = true
+            topConstraint = self.view.safeAreaLayoutGuide.topAnchor
         }
+
+        self.contentView.topAnchor.constraint(greaterThanOrEqualTo: topConstraint, constant: 0).isActive = true
         self.contentView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
         self.contentView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
 
@@ -91,27 +100,28 @@ extension SnackView {
         self.view.addConstraint(bottomContentViewConstant)
     }
 
+    /// This method adds a UIVisualEffectView under ContentView to reproduce blur effect.
     internal func addVisualEffectViewToContentView() {
-        //Add Visual Effect
         let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+
         visualEffectView.frame = contentView.bounds
         visualEffectView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+
         self.contentView.addSubview(visualEffectView)
     }
 
-    internal func addTitleBarToContentView() {
-        //Title Bar View
+    /// Adds the three main views of SnackView, TitleBar, ScrollView and SafeArea View
+    internal func addMainSkeletonView() {
+        // Add TitleBar
         self.titleBar = SVTitleItem(withTitle: self.titleOptions.title, andCancelButton: self.titleOptions.closeButtonTitle)
         self.titleBar.translatesAutoresizingMaskIntoConstraints = false
         self.titleBar.cancelButton.addTarget(self, action: #selector(closeActionSelector), for: UIControlEvents.touchUpInside)
 
-        //Check if close button must be visible or hidden
+        // Check if close button must be visible or hidden
         self.titleBar.cancelButton.isHidden = self.titleOptions.closeButtonVisible ? false : true
         self.contentView.addSubview(self.titleBar)
-    }
 
-    internal func addScrollViewToContentView() {
-        //Scroll Content View
+        // Add ScrollView
         self.scrollView = UIScrollView()
         self.scrollView.translatesAutoresizingMaskIntoConstraints = false
         self.scrollView.keyboardDismissMode = .interactive
@@ -119,25 +129,28 @@ extension SnackView {
         self.scrollView.alwaysBounceVertical = false
         self.scrollView.backgroundColor = UIColor.clear
         self.contentView.addSubview(self.scrollView)
-    }
 
-    internal func addSafeAreaViewToContentView() {
-        //Safe Area View
+        // Safe Area View
         self.safeAreaView = UIView()
         self.safeAreaView.translatesAutoresizingMaskIntoConstraints = false
         self.safeAreaView.backgroundColor = UIColor.clear
         self.contentView.addSubview(self.safeAreaView)
     }
 
+    /// Adds the constraints for the three main views. Here is managed also the safeArea view constraints.
     internal func addMainConstraintsToContentView() {
-        //Add vertical constraints
-        let verticalContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[title(44)][scrollView]-|", options: [], metrics: nil, views: ["title": titleBar, "scrollView": scrollView])
+        // Add vertical constraints
+        let views = ["title": titleBar, "scrollView": scrollView] as [String: Any]
+        let verticalContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[title(44)][scrollView]-|",
+                                                                options: [],
+                                                                metrics: nil,
+                                                                views: views)
         self.contentView.addConstraints(verticalContraints)
 
         self.safeAreaView.topAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
         self.safeAreaView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
 
-        //Add horizontal constraints
+        // Add horizontal constraints
         let items = [self.titleBar, self.scrollView, self.safeAreaView] as [Any]
         for item in items {
             let horizontalConstraint = NSLayoutConstraint.constraints(withVisualFormat: "H:|[item]|", options: [], metrics: nil, views: ["item": item])
@@ -145,37 +158,47 @@ extension SnackView {
         }
     }
 
+    /// Insert a subview (UIStackView) inside the UIScrollView and manage constraints.
     internal func addStackViewInsideScrollViewWithConstraints() {
-        //Add StackView
+
+        // Add StackView
         self.stackView = UIStackView(arrangedSubviews: [])
         self.stackView.axis = .vertical
         self.stackView.distribution = .fill
         self.stackView.translatesAutoresizingMaskIntoConstraints = false
         self.scrollView.addSubview(self.stackView)
 
-        //Add ScrollView Constraints
-        let stackViewHConstraint = NSLayoutConstraint.constraints(withVisualFormat: "H:|[stackView(==scrollView)]|", options: [], metrics: nil, views: ["stackView": self.stackView, "scrollView": self.scrollView])
+        // Add ScrollView Constraints
+        let views = ["stackView": self.stackView, "scrollView": self.scrollView] as [String: Any]
+        let stackViewHConstraint = NSLayoutConstraint.constraints(withVisualFormat: "H:|[stackView(==scrollView)]|",
+                                                                  options: [],
+                                                                  metrics: nil,
+                                                                  views: views)
         scrollView.addConstraints(stackViewHConstraint)
 
-        let stackViewVConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|[stackView]|", options: [], metrics: nil, views: ["stackView": self.stackView, "scrollView": self.scrollView])
+        let stackViewVConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|[stackView]|",
+                                                                  options: [],
+                                                                  metrics: nil,
+                                                                  views: views)
         scrollView.addConstraints(stackViewVConstraint)
 
+        // Set scrollView height constraint with low priority
         let scrollViewHeight = self.scrollView.heightAnchor.constraint(equalTo: self.stackView.heightAnchor, multiplier: 1, constant: 0)
         scrollViewHeight.priority = .defaultLow
         scrollViewHeight.isActive = true
     }
 
-    /** This method add all SVItems to scrollView content view */
+    /// This method add all SVItems to scrollView content view.
     internal func addItemsInsideStackView() {
         self.stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
 
-        //Make sure self.items is not empty
+        // Make sure self.items is not empty
         if self.snackViewItems.isEmpty {
             let info = SVDescriptionItem(withDescription: "SnackView needs a non empty SVItem array to work properly.")
             self.snackViewItems = [info]
         }
 
-        //Add BottomAlertItems to ScrollView
+        // Add BottomAlertItems to ScrollView
         for item in self.snackViewItems {
             item.translatesAutoresizingMaskIntoConstraints = false
             self.stackView.addArrangedSubview(item)
@@ -184,4 +207,61 @@ extension SnackView {
         self.contentView.layoutIfNeeded()
     }
 
+    // MARK: - Layout SnackView
+
+    /// This method creates a view that contains all the SnackView items.
+    internal func layoutSnackViewSkeleton() {
+        self.view.subviews.forEach { $0.removeFromSuperview() }
+
+        self.addContentViewWithConstraints()
+        self.addVisualEffectViewToContentView()
+
+        self.addMainSkeletonView()
+        self.addMainConstraintsToContentView()
+        self.addStackViewInsideScrollViewWithConstraints()
+
+        self.addItemsInsideStackView()
+    }
+
+    // MARK: - Helper methods
+
+    /// This method creates a UIViewController which is the root view controller of UIWindow.
+    ///
+    /// - Returns: UIViewController to use to present the SnackView
+    internal func getPresenterViewController() -> UIViewController {
+        let containerViewController = UIViewController()
+        containerViewController.view.backgroundColor = UIColor.clear
+        containerViewController.view.isUserInteractionEnabled = true
+
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.rootViewController = containerViewController
+        window.backgroundColor = UIColor.clear
+        window.windowLevel = UIWindowLevelAlert+1
+        window.makeKeyAndVisible()
+        window.resignFirstResponder()
+
+        return containerViewController
+    }
+
+    // MARK: - Private custom selector
+
+    /// Animate the SnackView dismiss, translate SnackView off screen and set background color to clear.
+    @objc internal func closeActionSelector() {
+
+        DispatchQueue.main.async {
+            // Hide the SnackView out the screen bounds and set visible
+            let contentViewHeight = self.contentView.frame.size.height + self.safeAreaView.frame.height
+
+            // Background Color Animation
+            UIView.animate(withDuration: self.animationSpeed, animations: {
+                self.contentView.transform = CGAffineTransform(translationX: 0, y: contentViewHeight)
+            }) { (_) in
+                UIView.animate(withDuration: self.animationSpeed, animations: {
+                    self.view.backgroundColor = UIColor.clear
+                }) { (_) in
+                    self.dismiss(animated: false, completion: nil)
+                }
+            }
+        }
+    }
 }
