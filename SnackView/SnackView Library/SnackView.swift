@@ -8,11 +8,11 @@
 
 import UIKit
 
-public class SnackView: UIViewController {
+public class SnackView: UIViewController, SnackViewProtocol {
     
     //MARK: - Outlets and Variables
-    private var titleOptions: SVTitleOptions!
-    private var items: [SVItem] = []
+    public private(set) var titleOptions: SVTitleOptions!
+    public private(set) var items: [SVItem] = []
     private var scrollView: UIScrollView = UIScrollView()
     private var contentView: UIView = UIView()
     private var safeAreaView: UIView = UIView()
@@ -28,29 +28,20 @@ public class SnackView: UIViewController {
         return customInput
     }
     
+    private let dataSource: SnackViewProtocol
     
-    
-    //MARK: - Initialization methods
-    public init(withTitleOptions titleOptions:SVTitleOptions, andItems items: [SVItem]) {
-        super.init(nibName: nil, bundle: nil)
+    public init(with dataSource: SnackViewProtocol) {
+        self.dataSource = dataSource
         
-        //Set the title
-        self.titleOptions = titleOptions
-        self.items = items
-    }
-    
-    public init(withTitle title:String, andCloseButtonTitle closeTitle:String, andItems items: [SVItem]) {
-        super.init(nibName: nil, bundle: nil)
+        self.items = dataSource.items
+        self.titleOptions = SVTitleOptions(withTitle: self.dataSource.title, setCloseButtonVisible: true, setCloseButtonTitle: self.dataSource.closeTitle)
         
-        //Set the title
-        self.titleOptions = SVTitleOptions(withTitle: title, setCloseButtonVisible: true, setCloseButtonTitle: closeTitle)
-        self.items = items
+        super.init(nibName: nil, bundle: nil)
     }
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     //MARK: - System Methods
     override public func viewDidLoad() {
@@ -110,6 +101,7 @@ public class SnackView: UIViewController {
     
     //MARK: - Public Methods
     public func show() {
+        self.dataSource.show()
         
         let containerViewController = UIViewController()
         containerViewController.view.backgroundColor = UIColor.clear
