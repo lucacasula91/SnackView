@@ -4,18 +4,54 @@
 ***An easy way to present customizable bottom-half alert.***
 ![SnackView logo](http://www.lucacasula.it/SVItems/SnackViewPreview.jpg)
 
-<!--Replace kevnm67 with lucacasula91-->
-[![Build Status](https://travis-ci.com/kevnm67/SnackView.svg?branch=master)](https://travis-ci.com/kevnm67/SnackView)
-[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SnackView.svg)](https://img.shields.io/cocoapods/v/SnackView.svg)
-[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Platform](https://img.shields.io/cocoapods/p/SnackView.svg?style=flat)](https://github.com/lucacasula91/SnackView/wiki)
-![License](https://img.shields.io/cocoapods/l/SnackView.svg?style=flat)
-[![Downloads](https://img.shields.io/cocoapods/dt/SnackView.svg)](https://cocoapods.org/pods/SnackView)
-[![Twitter](https://img.shields.io/badge/twitter-@lucacasula91-green.svg?style=flat)](http://twitter.com/lucacasula91)
+<div align = "center">
 
-<!--Replace kevnm67 with lucacasula91-->
-[![Maintainability](https://api.codeclimate.com/v1/badges/a137e060dec2e19171fe/maintainability)](https://codeclimate.com/github/kevnm67/SnackView/maintainability)
-<!--[![Test Coverage](https://api.codeclimate.com/v1/badges/a137e060dec2e19171fe/test_coverage)](https://codeclimate.com/github/kevnm67/SnackView/test_coverage)-->
+  <!--Replace kevnm67 with lucacasula91-->
+
+  <a href="https://travis-ci.com/kevnm67/SnackView">
+    <img src="https://travis-ci.com/kevnm67/SnackView.svg?branch=master" />
+  </a>
+
+  <a href="https://codeclimate.com/github/kevnm67/SnackView/maintainability">
+    <img src="https://api.codeclimate.com/v1/badges/a137e060dec2e19171fe/maintainability" />
+  </a>
+  <a href="https://codeclimate.com/github/kevnm67/SnackView/test_coverage">
+    <img src="https://api.codeclimate.com/v1/badges/a137e060dec2e19171fe/test_coverage" />
+  </a>
+  <a href="https://github.com/lucacasula91/SnackView">
+    <img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" />
+  </a>
+
+  <a href="https://github.com/lucacasula91/SnackView">
+    <img src="https://img.shields.io/badge/compatible-swift4.2-orange.svg" />
+  </a>
+
+</div>
+
+<div align = "center">
+
+  <a href="https://img.shields.io/cocoapods/v/SnackView.svg">
+    <img src="https://img.shields.io/cocoapods/v/SnackView.svg" />
+  </a>
+
+  <a href="https://github.com/lucacasula91/SnackView/wiki">
+    <img src="https://img.shields.io/cocoapods/p/SnackView.svg?style=flat" />
+  </a>
+
+  <a href="https://cocoapods.org/pods/SnackView">
+    <img src="https://img.shields.io/cocoapods/dt/SnackView.svg" />
+  </a>
+
+  <a href="http://twitter.com/lucacasula91">
+    <img src="https://img.shields.io/badge/twitter-@lucacasula91-green.svg?style=flat" />
+  </a>
+
+  <a href="http://twitter.com/lucacasula91">
+    <img src="https://img.shields.io/cocoapods/l/SnackView.svg?style=flat" />
+  </a>
+
+</div>
+
 
 - [What's new](#whats-new)
   - [What's new in 1.0.8](#whats-new-in-108)
@@ -120,7 +156,7 @@ SnackView provides some SVItems ready to use, here below the list of SVItems ava
 
 ```swift
 SVApplicationItem(withIcon: UIImage(named: "AppIcon"),
-                 withTitle: "Ipsum lorem", 
+                 withTitle: "Ipsum lorem",
             andDescription: "Lorem ipsum dolor sit amet...")
 ```
 
@@ -141,7 +177,7 @@ SVDescriptionItem(withDescription: "Lorem ipsum dolor sit amet...")
 **SVTextFieldItem**
 
 ```swift
-SVTextFieldItem(withPlaceholder: "Create Password", 
+SVTextFieldItem(withPlaceholder: "Create Password",
                   isSecureField: true)
 ```
 
@@ -152,7 +188,7 @@ SVTextFieldItem(withPlaceholder: "Create Password",
 **SVDetailTextItem**
 
 ```swift
-SVDetailTextItem(withTitle: "Elit amet", 
+SVDetailTextItem(withTitle: "Elit amet",
                 andContent: "Lorem ipsum dolor sit amet...")
 ```
 
@@ -173,7 +209,7 @@ SVButtonItem(withTitle: "Continue") { /* Button action here */ }
 **SVSwitchItem**
 
 ```swift
-SVSwitchItem(withTitle: "Push Notifications", 
+SVSwitchItem(withTitle: "Push Notifications",
             andContent: "Activate to stay up to date...") { (isOn) in  /* Switch action here */ }
 ```
 
@@ -184,7 +220,7 @@ SVSwitchItem(withTitle: "Push Notifications",
 **SVLoaderItem**
 
 ```swift
-SVLoadingItem(withSize: .large, 
+SVLoadingItem(withSize: .large,
                andText: "Lorem ipsum dolor sit amet...")
 ```
 
@@ -193,33 +229,33 @@ SVLoadingItem(withSize: .large,
 ***
 
 # Create custom SVItems
-#### You can create custom items subclassing SVItem class. 
-Here below an example. 
+#### You can create custom items subclassing SVItem class.
+Here below an example.
 ```swift
 import UIKit
 import SnackView
 
 //Create a subclass of SVItem
 class SVCustomItem: SVItem {
-    
+
     //Pass all parameters in init method to customize your SVItem
     init(withColor color: UIColor) {
         super.init()
-        
+
         //Add an UIView
         let customView = UIView()
         customView.translatesAutoresizingMaskIntoConstraints = false
         customView.backgroundColor = color
         self.addSubview(customView)
-       
+
         //Add UIView contraints
          let vConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[customView(70)]-|", options: [], metrics: nil, views: ["customView":customView])
-        
+
         let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[customView]-|", options: [], metrics: nil, views: ["customView": customView])
-        
+
         self.addConstraints(vConstraints + hConstraints)
     }
-    
+
     required public convenience init?(coder aDecoder: NSCoder) {
         self.init(coder: aDecoder)
     }
@@ -237,5 +273,3 @@ Please consider to **open an issue** for the following reasons:
 * If you have questions or if you need help using SnackView
 * If you found a bug
 * If you have some feature request
-
-

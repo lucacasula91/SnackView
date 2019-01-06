@@ -110,7 +110,7 @@ public class SnackView: UIViewController, SnackViewProtocol {
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = containerViewController
         window.backgroundColor = UIColor.clear
-        window.windowLevel = UIWindowLevelAlert+1
+        window.windowLevel = UIWindow.Level.alert+1
         window.makeKeyAndVisible()
         window.resignFirstResponder()
         
@@ -162,12 +162,12 @@ public class SnackView: UIViewController, SnackViewProtocol {
     private func addNotificationsObserver() {
         
         //Keyboard notifications
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardFrameDidChange(notification:)), name: NSNotification.Name(rawValue:"KeyboardFrameDidChange"), object: nil)
         
         //Rotation notification
-        NotificationCenter.default.addObserver(self, selector: #selector(deviceDidRotate), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceDidRotate), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
     /** This method creates a view that contains all the SnackView items */
@@ -202,7 +202,7 @@ public class SnackView: UIViewController, SnackViewProtocol {
         //Title Bar View
         let title = SVTitleItem(withTitle: self.titleOptions.title, andCancelButton: self.titleOptions.closeButtonTitle)
         title.translatesAutoresizingMaskIntoConstraints = false
-        title.cancelButton.addTarget(self, action: #selector(closeActionSelector), for: UIControlEvents.touchUpInside)
+        title.cancelButton.addTarget(self, action: #selector(closeActionSelector), for: UIControl.Event.touchUpInside)
         
         //Check if close button must be visible or hidden
         title.cancelButton.isHidden = self.titleOptions.closeButtonVisible ? false : true
@@ -345,8 +345,8 @@ public class SnackView: UIViewController, SnackViewProtocol {
         scrollView.alwaysBounceVertical = true
         
         guard
-            let keyboardSize = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? CGRect,
-            let animationSpeed = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber
+            let keyboardSize = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect,
+            let animationSpeed = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber
             else { return }
         
         self.keyboardHeight = keyboardSize.height
@@ -362,8 +362,8 @@ public class SnackView: UIViewController, SnackViewProtocol {
         scrollView.alwaysBounceVertical = false
         
         guard
-            let keyboardSize = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? CGRect,
-            let animationSpeed = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber
+            let keyboardSize = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect,
+            let animationSpeed = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber
             else { return }
         
         self.keyboardHeight = keyboardSize.height
