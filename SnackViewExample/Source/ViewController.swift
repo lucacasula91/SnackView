@@ -12,6 +12,7 @@ import UIKit
 class ViewController: UIViewController {
 
     var snackView: SnackView?
+    var dataSource = SnackViewDataSource()
 
     // MARK: Lifecycle
 
@@ -22,27 +23,26 @@ class ViewController: UIViewController {
     }
 
     fileprivate func configureDataSource() {
-        let dataSource = SnackViewDataSource()
         snackView = SnackView(with: dataSource)
     }
 
     // MARK: Actions
 
     @IBAction func showCustomItem(_ sender: Any) {
-        var dataSource = SnackViewDataSource()
-        dataSource.itemType = .custom
-
-        SnackView(with: dataSource).show()
+        updateItems(type: .custom)
     }
 
     @IBAction func showMixedItems(_ sender: Any) {
-        var dataSource = SnackViewDataSource()
-        dataSource.itemType = .mixed
-
-        SnackView(with: dataSource).show()
+        updateItems(type: .mixed)
     }
 
     @IBAction func showSnackView(_ sender: Any) {
+        updateItems(type: .password)
+    }
+
+    fileprivate func updateItems(type: SnackViewDataSource.SVType) {
+        dataSource.itemType = type
+        snackView?.update(withItems: dataSource.items)
         snackView?.show()
     }
 }
