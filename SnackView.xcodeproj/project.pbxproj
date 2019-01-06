@@ -48,6 +48,11 @@
 		FF42AE2F21E2888600F4ECEB /* UIViewController+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE2E21E2888600F4ECEB /* UIViewController+Hierarchy.swift */; };
 		FF42AE3121E2919600F4ECEB /* SVItemsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE3021E2919600F4ECEB /* SVItemsTests.swift */; };
 		FF42AE3321E295E000F4ECEB /* SnackViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE3221E295E000F4ECEB /* SnackViewProtocol.swift */; };
+		FF42AE3521E2AEA800F4ECEB /* SnackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F4AEF0205969CD00341940 /* SnackView.framework */; };
+		FF42AE3721E2AECC00F4ECEB /* SnackView.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38F4AEF0205969CD00341940 /* SnackView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF42AE3B21E2AF4A00F4ECEB /* SnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE3A21E2AF4A00F4ECEB /* SnackViewDataSource.swift */; };
+		FF42AE3D21E2B08A00F4ECEB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF42AE3C21E2B08A00F4ECEB /* Default-568h@2x.png */; };
+		FF42AE4121E2B5C000F4ECEB /* SVCustomItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE4021E2B5C000F4ECEB /* SVCustomItem.swift */; };
 		FF511B0721E250D000911490 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF511B0521E250D000911490 /* Nimble.framework */; };
 		FF511B0821E250D000911490 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF511B0621E250D000911490 /* Quick.framework */; };
 		FF511B0921E250DF00911490 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FF511B0621E250D000911490 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -73,6 +78,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		FF42AE3621E2AEAC00F4ECEB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FF42AE3721E2AECC00F4ECEB /* SnackView.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FF511B0221E24EFE00911490 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -114,10 +129,13 @@
 		FF42AE1321E2844200F4ECEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FF42AE1521E2844300F4ECEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF42AE1821E2844300F4ECEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FF42AE1A21E2844300F4ECEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF42AE2E21E2888600F4ECEB /* UIViewController+Hierarchy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Hierarchy.swift"; sourceTree = "<group>"; };
 		FF42AE3021E2919600F4ECEB /* SVItemsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVItemsTests.swift; sourceTree = "<group>"; };
 		FF42AE3221E295E000F4ECEB /* SnackViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewProtocol.swift; sourceTree = "<group>"; };
+		FF42AE3A21E2AF4A00F4ECEB /* SnackViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewDataSource.swift; sourceTree = "<group>"; };
+		FF42AE3C21E2B08A00F4ECEB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FF42AE3E21E2B0DE00F4ECEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF42AE4021E2B5C000F4ECEB /* SVCustomItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVCustomItem.swift; sourceTree = "<group>"; };
 		FF511B0521E250D000911490 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Example/Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		FF511B0621E250D000911490 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Example/Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		FF511B0D21E273BA00911490 /* MockSnackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSnackView.swift; sourceTree = "<group>"; };
@@ -145,6 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF42AE3521E2AEA800F4ECEB /* SnackView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,14 +238,33 @@
 		FF42AE0D21E2844200F4ECEB /* SnackViewExample */ = {
 			isa = PBXGroup;
 			children = (
-				FF42AE0E21E2844200F4ECEB /* AppDelegate.swift */,
-				FF42AE1021E2844200F4ECEB /* ViewController.swift */,
-				FF42AE1221E2844200F4ECEB /* Main.storyboard */,
-				FF42AE1521E2844300F4ECEB /* Assets.xcassets */,
-				FF42AE1721E2844300F4ECEB /* LaunchScreen.storyboard */,
-				FF42AE1A21E2844300F4ECEB /* Info.plist */,
+				FF42AE3821E2AF0700F4ECEB /* Source */,
+				FF42AE3921E2AF1600F4ECEB /* Supporting Files */,
 			);
 			path = SnackViewExample;
+			sourceTree = "<group>";
+		};
+		FF42AE3821E2AF0700F4ECEB /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				FF42AE0E21E2844200F4ECEB /* AppDelegate.swift */,
+				FF42AE1221E2844200F4ECEB /* Main.storyboard */,
+				FF42AE3A21E2AF4A00F4ECEB /* SnackViewDataSource.swift */,
+				FF42AE4021E2B5C000F4ECEB /* SVCustomItem.swift */,
+				FF42AE1021E2844200F4ECEB /* ViewController.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		FF42AE3921E2AF1600F4ECEB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FF42AE3E21E2B0DE00F4ECEB /* Info.plist */,
+				FF42AE3C21E2B08A00F4ECEB /* Default-568h@2x.png */,
+				FF42AE1521E2844300F4ECEB /* Assets.xcassets */,
+				FF42AE1721E2844300F4ECEB /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		FF511B0421E250CF00911490 /* Frameworks */ = {
@@ -306,6 +344,7 @@
 				FF42AE0821E2844200F4ECEB /* Sources */,
 				FF42AE0921E2844200F4ECEB /* Frameworks */,
 				FF42AE0A21E2844200F4ECEB /* Resources */,
+				FF42AE3621E2AEAC00F4ECEB /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -388,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF42AE1921E2844300F4ECEB /* LaunchScreen.storyboard in Resources */,
+				FF42AE3D21E2B08A00F4ECEB /* Default-568h@2x.png in Resources */,
 				FF42AE1621E2844300F4ECEB /* Assets.xcassets in Resources */,
 				FF42AE1421E2844300F4ECEB /* Main.storyboard in Resources */,
 			);
@@ -463,7 +503,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF42AE4121E2B5C000F4ECEB /* SVCustomItem.swift in Sources */,
 				FF42AE1121E2844200F4ECEB /* ViewController.swift in Sources */,
+				FF42AE3B21E2AF4A00F4ECEB /* SnackViewDataSource.swift in Sources */,
 				FF42AE0F21E2844200F4ECEB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -735,7 +777,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = SnackViewExample/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SnackViewExample/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -753,7 +795,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = SnackViewExample/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SnackViewExample/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_FAST_MATH = YES;
