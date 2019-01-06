@@ -10,6 +10,8 @@ import Foundation
 
 @testable import SnackView
 
+// codebeat:disable[TOO_MANY_IVARS]
+
 class MockSnackView: SnackViewProtocol {
 
     var invokedShow = false
@@ -80,3 +82,5 @@ extension MockSnackView {
         return [buttonItem, titleItem]
     }
 }
+
+// codebeat:enable[TOO_MANY_IVARS]
