@@ -30,11 +30,27 @@ platform :ios do
   #---------------- | Before all
   #
   before_all do
+    run_bootstrap
   end
 
   #############
   ## TESTING ##
   #############
+  desc ''
+  desc 'Ensure carthage is ready to go.'
+  desc ':configuration Optionally set the configuration.  Default is release.'
+  lane :run_bootstrap do |options|
+    carthage(
+      command: 'bootstrap',
+      platform: 'iOS',
+      no_build: false,
+      no_skip_current: false,
+      verbose: false,
+      use_binaries: false,
+      configuration: options[:configuration] || 'Release',
+      cache_builds: true
+    )
+  end
 
   desc ''
   desc 'Run tests using scan and slather.'
