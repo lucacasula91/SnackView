@@ -53,10 +53,10 @@
 		FF42AE3B21E2AF4A00F4ECEB /* SnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE3A21E2AF4A00F4ECEB /* SnackViewDataSource.swift */; };
 		FF42AE3D21E2B08A00F4ECEB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF42AE3C21E2B08A00F4ECEB /* Default-568h@2x.png */; };
 		FF42AE4121E2B5C000F4ECEB /* SVCustomItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE4021E2B5C000F4ECEB /* SVCustomItem.swift */; };
-		FF511B0721E250D000911490 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF511B0521E250D000911490 /* Nimble.framework */; };
-		FF511B0821E250D000911490 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF511B0621E250D000911490 /* Quick.framework */; };
-		FF511B0921E250DF00911490 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FF511B0621E250D000911490 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FF511B0A21E250E500911490 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FF511B0521E250D000911490 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF42AE4421E2D56D00F4ECEB /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF42AE4221E2D56D00F4ECEB /* Nimble.framework */; };
+		FF42AE4521E2D56D00F4ECEB /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF42AE4321E2D56D00F4ECEB /* Quick.framework */; };
+		FF42AE4621E2D57D00F4ECEB /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FF42AE4321E2D56D00F4ECEB /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF42AE4721E2D58200F4ECEB /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FF42AE4221E2D56D00F4ECEB /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FF511B0E21E273BA00911490 /* MockSnackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF511B0D21E273BA00911490 /* MockSnackView.swift */; };
 /* End PBXBuildFile section */
 
@@ -94,8 +94,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FF511B0A21E250E500911490 /* Nimble.framework in CopyFiles */,
-				FF511B0921E250DF00911490 /* Quick.framework in CopyFiles */,
+				FF42AE4721E2D58200F4ECEB /* Nimble.framework in CopyFiles */,
+				FF42AE4621E2D57D00F4ECEB /* Quick.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +136,8 @@
 		FF42AE3C21E2B08A00F4ECEB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FF42AE3E21E2B0DE00F4ECEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF42AE4021E2B5C000F4ECEB /* SVCustomItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVCustomItem.swift; sourceTree = "<group>"; };
+		FF42AE4221E2D56D00F4ECEB /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		FF42AE4321E2D56D00F4ECEB /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		FF511B0521E250D000911490 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Example/Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		FF511B0621E250D000911490 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Example/Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		FF511B0D21E273BA00911490 /* MockSnackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSnackView.swift; sourceTree = "<group>"; };
@@ -153,8 +155,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF511B0721E250D000911490 /* Nimble.framework in Frameworks */,
-				FF511B0821E250D000911490 /* Quick.framework in Frameworks */,
+				FF42AE4421E2D56D00F4ECEB /* Nimble.framework in Frameworks */,
+				FF42AE4521E2D56D00F4ECEB /* Quick.framework in Frameworks */,
 				38F4AEFA205969CD00341940 /* SnackView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,6 +272,8 @@
 		FF511B0421E250CF00911490 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FF42AE4221E2D56D00F4ECEB /* Nimble.framework */,
+				FF42AE4321E2D56D00F4ECEB /* Quick.framework */,
 				FF511B0521E250D000911490 /* Nimble.framework */,
 				FF511B0621E250D000911490 /* Quick.framework */,
 			);
@@ -739,6 +743,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Example/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SnackViewTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -760,6 +765,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Example/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SnackViewTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
