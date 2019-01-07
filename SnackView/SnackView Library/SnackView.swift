@@ -13,7 +13,7 @@ public class SnackView: UIViewController {
 
     // MARK: - Outlets and Variables
     internal var titleOptions: SVTitleOptions!
-    internal var snackViewItems: [SVItem] = []
+    public internal(set) var items: [SVItem] = []
     internal var contentView: UIView = UIView()
     internal var titleBar: SVTitleItem!
     internal var scrollView: UIScrollView = UIScrollView()
@@ -35,7 +35,7 @@ public class SnackView: UIViewController {
 
         // Set the title
         self.titleOptions = titleOptions
-        self.snackViewItems = items
+        self.items = items
     }
 
     public init(withTitle title: String, andCloseButtonTitle closeTitle: String, andItems items: [SVItem]) {
@@ -43,7 +43,7 @@ public class SnackView: UIViewController {
 
         // Set the title
         self.titleOptions = SVTitleOptions(withTitle: title, setCloseButtonVisible: true, setCloseButtonTitle: closeTitle)
-        self.snackViewItems = items
+        self.items = items
     }
 
     required public init?(coder aDecoder: NSCoder) {
