@@ -12,6 +12,8 @@ public class SVImageViewItem: SVItem {
 
     public init(withImage image: UIImage, andContentMode contentMode: UIViewContentMode, andHeight height: CGFloat? = nil) {
         super.init()
+        
+        self.setMinimumHeightActive(active: false)
 
         let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false

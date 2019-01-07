@@ -194,13 +194,11 @@ extension SnackView {
 
         // Add BottomAlertItems to ScrollView
         for item in self.items {
-            item.translatesAutoresizingMaskIntoConstraints = false
             self.stackView.addArrangedSubview(item)
         }
 
         self.checkSnackViewContainsItemsOrAddDescriptionItem()
 
-        self.contentView.layoutIfNeeded()
     }
 
     internal func checkSnackViewContainsItemsOrAddDescriptionItem() {
