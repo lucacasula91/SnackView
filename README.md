@@ -6,8 +6,6 @@
 
 <div align = "center">
 
-  <!--Replace kevnm67 with lucacasula91-->
-
   <a href="https://travis-ci.com/kevnm67/SnackView">
     <img src="https://travis-ci.com/kevnm67/SnackView.svg?branch=master" />
   </a>
