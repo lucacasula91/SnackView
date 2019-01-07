@@ -192,19 +192,24 @@ extension SnackView {
     internal func addItemsInsideStackView() {
         self.stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
 
-        // Make sure self.items is not empty
-        if self.items.isEmpty {
-            let info = SVDescriptionItem(withDescription: "SnackView needs a non empty SVItem array to work properly.")
-            self.items = [info]
-        }
-
         // Add BottomAlertItems to ScrollView
         for item in self.items {
             item.translatesAutoresizingMaskIntoConstraints = false
             self.stackView.addArrangedSubview(item)
         }
 
+        self.checkSnackViewContainsItemsOrAddDescriptionItem()
+
         self.contentView.layoutIfNeeded()
+    }
+
+    internal func checkSnackViewContainsItemsOrAddDescriptionItem() {
+        if self.stackView.arrangedSubviews.isEmpty {
+            let info = SVDescriptionItem(withDescription: "SnackView needs a non empty SVItem array to work properly.")
+
+            self.stackView.addArrangedSubview(info)
+        }
+        self.view.layoutIfNeeded()
     }
 
     // MARK: - Layout SnackView

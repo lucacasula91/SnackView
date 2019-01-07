@@ -14,6 +14,9 @@ public class SnackView: UIViewController {
     // MARK: - Outlets and Variables
     internal var titleOptions: SVTitleOptions!
     public internal(set) var items: [SVItem] = []
+    public var itemsInside: [SVItem] {
+        return stackView.arrangedSubviews as! [SVItem]
+    }
     internal var contentView: UIView = UIView()
     internal var titleBar: SVTitleItem!
     internal var scrollView: UIScrollView = UIScrollView()

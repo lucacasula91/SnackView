@@ -22,6 +22,16 @@ extension SnackView {
         self.closeActionSelector()
     }
 
+    func getItemsCount() -> Int {
+        return self.stackView.arrangedSubviews.count
+    }
+
+    func getItems() -> [SVItem] {
+        if let items = self.stackView.arrangedSubviews as? [SVItem] {
+            return items
+        }
+        return []
+    }
     // MARK: - SVItem management methods
 
     /// Insert a new SVItem to SnackView view controller. You can specify the index in which to insert SVItem, if it is passed **nil** SVItem is added with endIndex value.
@@ -40,6 +50,8 @@ extension SnackView {
         }) { (_) in
             self.scrollView.scrollRectToVisible(item.frame, animated: true)
         }
+        
+        self.checkSnackViewContainsItemsOrAddDescriptionItem()
     }
 
     /// Remove a SVItem from SnackView view controller.
@@ -50,6 +62,8 @@ extension SnackView {
             item.isHidden = true
         }) { (_) in
             self.stackView.removeArrangedSubview(item)
+            
+            self.checkSnackViewContainsItemsOrAddDescriptionItem()
         }
     }
 
@@ -64,14 +78,19 @@ extension SnackView {
         if let item = self.stackView.arrangedSubviews[index] as? SVItem {
             self.remove(item: item)
         }
+
+        self.checkSnackViewContainsItemsOrAddDescriptionItem()
     }
 
     /// Replace all the content present in SnackView with a new one SVItem array
     ///
     /// - Parameter items: Array of SVItem with which to replace items already present in SnackView
     open func updateWith(items: [SVItem]) {
+
         self.stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         items.forEach { self.stackView.addArrangedSubview($0) }
+
+        self.checkSnackViewContainsItemsOrAddDescriptionItem()
     }
 
 }

@@ -25,7 +25,7 @@ class SnackViewTests: QuickSpec {
 
         describe("initialization") {
             it("has two items") {
-                expect(snackView?.items).to(haveCount(2))
+                expect(snackView?.getItems()).to(haveCount(2))
             }
 
             it("did not invoke Show ") {
@@ -37,7 +37,7 @@ class SnackViewTests: QuickSpec {
                 it("should append an SVDescriptionItem") {
                     snackView?.updateWith(items: [])
 
-                    expect(snackView?.items.first).to(beAKindOf(SVDescriptionItem.self))
+                    expect(snackView?.getItems().first).to(beAKindOf(SVDescriptionItem.self))
                 }
             }
         }
@@ -50,14 +50,16 @@ class SnackViewTests: QuickSpec {
                 it("adds the item to first index of its items") {
                     snackView?.insert(item: applicationItem, atIndex: 0)
 
-                    expect(snackView?.items.first).to(equal(applicationItem))
+                    expect(snackView?.getItems().first).to(equal(applicationItem))
                 }
             }
 
             context("when the first item is removed") {
-                it("has a count of 1") {
-                    snackView?.remove(item: (snackView?.items.first)!)
-                    expect(snackView?.items).to(haveCount(1))
+                it("has a count of 2") {
+                    let firstItem = snackView?.getItems().first
+
+                    snackView?.remove(item: firstItem!)
+                    expect(snackView?.getItems()).to(haveCount(2))
                 }
             }
         }
