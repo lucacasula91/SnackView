@@ -1,5 +1,6 @@
-language: objective-c
+language: swift
 os: osx
+osx_image: xcode10.1
 before_install:
 - rvm install 2.5.1
 - bundle install --without=documentation
