@@ -30,6 +30,11 @@ Run tests using scan and slather.
 fastlane ios screenshots
 ```
 Generate new localized screenshots
+### ios create_release
+```
+fastlane ios create_release
+```
+Generate github release
 
 ----
 
