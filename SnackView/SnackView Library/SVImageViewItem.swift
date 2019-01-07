@@ -8,25 +8,35 @@
 
 import UIKit
 
-class SVImageViewItem: SVItem {
-    
-    public init(withImage image: UIImage) {
+public class SVImageViewItem: SVItem {
+
+    public init(withImage image: UIImage, andContentMode contentMode: UIViewContentMode, andHeight height: CGFloat? = nil) {
         super.init()
-        
+
         let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = contentMode
         self.addSubview(imageView)
-        
-        
+
         //Add constraints to descriptionLabel
-        let imageViewHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[imageView]|", options: [], metrics: nil, views: ["imageView":imageView])
+        let views = ["imageView": imageView] as [String: Any]
+        let imageViewHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[imageView]|",
+                                                                  options: [],
+                                                                  metrics: nil,
+                                                                  views: views)
+
+        let imageViewVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[imageView]|",
+                                                                  options: [],
+                                                                  metrics: nil,
+                                                                  views: views)
         self.addConstraints(imageViewHContraints)
-        
-        let imageViewVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[imageView]|", options: [], metrics: nil, views: ["imageView":imageView])
         self.addConstraints(imageViewVContraints)
+
+        if let customHeight = height {
+            imageView.heightAnchor.constraint(equalToConstant: customHeight).isActive = true
+        }
     }
-    
+
     required public convenience init?(coder aDecoder: NSCoder) {
         self.init(coder: aDecoder)
     }

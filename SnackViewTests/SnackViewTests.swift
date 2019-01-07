@@ -20,7 +20,6 @@ class SnackViewTests: QuickSpec {
         beforeEach {
             snackViewSpy = MockSnackView()
             snackView = SnackView(with: snackViewSpy!)
-
             _ = snackView?.view
         }
 
@@ -36,7 +35,7 @@ class SnackViewTests: QuickSpec {
             context("when no SVItems") {
 
                 it("should append an SVDescriptionItem") {
-                    snackView?.update(withItems: [])
+                    snackView?.updateWith(items: [])
 
                     expect(snackView?.items.first).to(beAKindOf(SVDescriptionItem.self))
                 }
@@ -49,7 +48,7 @@ class SnackViewTests: QuickSpec {
 
             context("when an application item is inserted at index 0") {
                 it("adds the item to first index of its items") {
-                    snackView?.insertItem(item: applicationItem, atIndex: 0)
+                    snackView?.insert(item: applicationItem, atIndex: 0)
 
                     expect(snackView?.items.first).to(equal(applicationItem))
                 }
@@ -57,7 +56,7 @@ class SnackViewTests: QuickSpec {
 
             context("when the first item is removed") {
                 it("has a count of 1") {
-                    snackView?.removeItem(item: (snackView?.items.first)!)
+                    snackView?.remove(item: (snackView?.items.first)!)
                     expect(snackView?.items).to(haveCount(1))
                 }
             }

@@ -13,8 +13,8 @@ import UIKit
  It can be useful to show the icon with title and description of an application, of an in-app purchase or to show a list of steps.
  */
 public class SVApplicationItem: SVItem {
-    
-    //MARK: - Initialization Method
+
+    // MARK: - Initialization Method
     /**
      Initialization method for SVApplicationItem view. You can customize this item with image, title and description text.
      - parameter icon: The image you want to show at left of title and description text
@@ -23,41 +23,36 @@ public class SVApplicationItem: SVItem {
      */
     public init(withIcon icon: UIImage, withTitle title: String, andDescription description: String) {
         super.init()
-        
+
         //Create left container
         let imageContainer = UIView()
         imageContainer.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(imageContainer)
-        
-        
+
         //Add constraints for left container
-        let imageContainerHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[imageContainer(==\(self.leftContentWidth))]", options: [], metrics: nil, views: ["imageContainer":imageContainer])
+        let imageContainerHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[imageContainer(==\(self.leftContentWidth))]", options: [], metrics: nil, views: ["imageContainer": imageContainer])
         self.addConstraints(imageContainerHContraints)
-        
-        let imageContainerVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[imageContainer]-|", options: [], metrics: nil, views: ["imageContainer":imageContainer])
+
+        let imageContainerVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[imageContainer]-|", options: [], metrics: nil, views: ["imageContainer": imageContainer])
         self.addConstraints(imageContainerVContraints)
-        
-        
+
         //Add image view into container
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = icon
         imageContainer.addSubview(imageView)
-        
-        
+
         //Add constraints to imageView
-        let imageHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[imageView(40)]|", options: [], metrics: nil, views: ["imageView":imageView])
+        let imageHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[imageView(40)]|", options: [], metrics: nil, views: ["imageView": imageView])
         imageContainer.addConstraints(imageHContraints)
-        
-        let imageVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[imageView(40)]-(>=0)-|", options: [], metrics: nil, views: ["imageView":imageView])
+
+        let imageVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[imageView(40)]-(>=0)-|", options: [], metrics: nil, views: ["imageView": imageView])
         imageContainer.addConstraints(imageVContraints)
-        
-        
+
         //Customize the UI of imageView
         imageView.layer.cornerRadius = 9
         imageView.layer.masksToBounds = true
-        
-        
+
         //Add title label
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -66,16 +61,14 @@ public class SVApplicationItem: SVItem {
         titleLabel.font = UIFont.systemFont(ofSize: 14)
         titleLabel.numberOfLines = 0
         self.addSubview(titleLabel)
-        
-        
+
         //Add constraints to titleLabel
-        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[imageContainer]-[titleLabel]-|", options: [], metrics: nil, views: ["titleLabel":titleLabel, "imageContainer":imageContainer])
+        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[imageContainer]-[titleLabel]-|", options: [], metrics: nil, views: ["titleLabel": titleLabel, "imageContainer": imageContainer])
         self.addConstraints(titleHContraints)
-        
-        let titleVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[titleLabel]", options: [], metrics: nil, views: ["titleLabel":titleLabel])
+
+        let titleVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[titleLabel]", options: [], metrics: nil, views: ["titleLabel": titleLabel])
         self.addConstraints(titleVContraints)
-        
-        
+
         //Add description label
         let descriptionLabel = UILabel()
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -84,19 +77,16 @@ public class SVApplicationItem: SVItem {
         descriptionLabel.font = UIFont.systemFont(ofSize: 14)
         descriptionLabel.numberOfLines = 0
         self.addSubview(descriptionLabel)
-        
-        
+
         //Add constraints to descriptionLabel
-        let descriptionHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[imageContainer]-[descriptionLabel]-|", options: [], metrics: nil, views: ["imageContainer":imageContainer, "descriptionLabel":descriptionLabel])
+        let descriptionHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[imageContainer]-[descriptionLabel]-|", options: [], metrics: nil, views: ["imageContainer": imageContainer, "descriptionLabel": descriptionLabel])
         self.addConstraints(descriptionHContraints)
-        
-        let descriptionVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:[titleLabel][descriptionLabel]-|", options: [], metrics: nil, views: ["titleLabel":titleLabel, "descriptionLabel":descriptionLabel])
+
+        let descriptionVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:[titleLabel][descriptionLabel]-|", options: [], metrics: nil, views: ["titleLabel": titleLabel, "descriptionLabel": descriptionLabel])
         self.addConstraints(descriptionVContraints)
     }
-    
-    
+
     required public convenience init?(coder aDecoder: NSCoder) {
         self.init(coder: aDecoder)
     }
 }
-

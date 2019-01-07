@@ -42,7 +42,7 @@ class ViewController: UIViewController {
 
     fileprivate func updateItems(type: SnackViewDataSource.SVType) {
         dataSource.itemType = type
-        snackView?.update(withItems: dataSource.items)
+        snackView?.updateWith(items: dataSource.items)
         snackView?.show()
     }
 }

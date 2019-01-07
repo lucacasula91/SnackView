@@ -32,7 +32,7 @@ class MockSnackView: SnackViewProtocol {
     var invokedInsertItemCount = 0
     var invokedInsertItemParameters: (item: SVItem, index: Int?)?
     var invokedInsertItemParametersList = [(item: SVItem, index: Int?)]()
-    func insertItem(item: SVItem, atIndex index: Int?) {
+    func insert(item: SVItem, atIndex index: Int?) {
         invokedInsertItem = true
         invokedInsertItemCount += 1
         invokedInsertItemParameters = (item, index)
@@ -43,7 +43,7 @@ class MockSnackView: SnackViewProtocol {
     var invokedRemoveItemCount = 0
     var invokedRemoveItemParameters: (item: SVItem, Void)?
     var invokedRemoveItemParametersList = [(item: SVItem, Void)]()
-    func removeItem(item: SVItem) {
+    func remove(item: SVItem) {
         invokedRemoveItem = true
         invokedRemoveItemCount += 1
         invokedRemoveItemParameters = (item, ())
@@ -54,7 +54,7 @@ class MockSnackView: SnackViewProtocol {
     var invokedRemoveItemAtIndexCount = 0
     var invokedRemoveItemAtIndexParameters: (index: Int, Void)?
     var invokedRemoveItemAtIndexParametersList = [(index: Int, Void)]()
-    func removeItemAtIndex(index: Int) {
+    func removeItemAt(index: Int) {
         invokedRemoveItemAtIndex = true
         invokedRemoveItemAtIndexCount += 1
         invokedRemoveItemAtIndexParameters = (index, ())
@@ -65,7 +65,7 @@ class MockSnackView: SnackViewProtocol {
     var invokedUpdateCount = 0
     var invokedUpdateParameters: (items: [SVItem], Void)?
     var invokedUpdateParametersList = [(items: [SVItem], Void)]()
-    func update(withItems items: [SVItem]) {
+    func updateWith(items: [SVItem]) {
         invokedUpdate = true
         invokedUpdateCount += 1
         invokedUpdateParameters = (items, ())

@@ -10,20 +10,19 @@ import UIKit
 
 /** SVTitleOptions is a struct with which to customize the appearance of SVTitleItem. */
 public struct SVTitleOptions {
-    
-    //MARK: - Variables
-    
+
+    // MARK: - Variables
+
     /** The title of SVTitleItem */
-    var title:String
-    
+    var title: String
+
     /** A boolean value with which to set visible or hidden the close button. */
-    var closeButtonVisible:Bool
-    
+    var closeButtonVisible: Bool
+
     /** The title of the close button */
-    var closeButtonTitle:String
-    
-    
-    //MARK: - Initialization Method
+    var closeButtonTitle: String
+
+    // MARK: - Initialization Method
     /**
      Initialization method for SVTitleOptions struct. You can customize SVTitleItem with title, can also choose to set Close button hidden and change the title of Close button.
      - parameter title: The title of SVTitleItem

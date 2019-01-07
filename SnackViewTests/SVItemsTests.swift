@@ -28,7 +28,7 @@ class SVItemsTests: QuickSpec {
             let detailedTextItem = SVDetailTextItem(withTitle: "Details", andDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.")
 
             it("has a height greater than the minimum value") {
-                snackView?.insertItem(item: detailedTextItem, atIndex: 0)
+                snackView?.insert(item: detailedTextItem, atIndex: 0)
 
                 expect(detailedTextItem.frame.height).to(beGreaterThan(50))
             }
@@ -58,7 +58,7 @@ class SVItemsTests: QuickSpec {
 
             it("has a height greater than or equal to 50") {
                 let littleLoaderItem = SVLoaderItem(withSize: .little, andText: nil)
-                snackView?.insertItem(item: littleLoaderItem, atIndex: 0)
+                snackView?.insert(item: littleLoaderItem, atIndex: 0)
 
                 expect(littleLoaderItem.frame.height).to(beGreaterThanOrEqualTo(50))
             }
@@ -67,7 +67,7 @@ class SVItemsTests: QuickSpec {
 
                 it("has a height greater than or equal to 70") {
                     let largerLoaderItem = SVLoaderItem(withSize: .large, andText: nil)
-                    snackView?.insertItem(item: largerLoaderItem, atIndex: 0)
+                    snackView?.insert(item: largerLoaderItem, atIndex: 0)
 
                     expect(largerLoaderItem.frame.height).to(beGreaterThanOrEqualTo(70))
                 }

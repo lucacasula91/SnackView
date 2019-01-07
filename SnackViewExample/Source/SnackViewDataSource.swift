@@ -64,6 +64,9 @@ extension SnackViewDataSource {
                 SVApplicationItem(withIcon: #imageLiteral(resourceName: "Icon"),
                                   withTitle: "Ipsum lorem",
                                   andDescription: "Lorem ipsum dolor sit amet..."),
-                SVButtonItem(withTitle: "Continue") { print("Button tapped") }]
+                SVButtonItem(withTitle: "Continue") {
+                    print("Button tapped")
+
+            }]
     }
 }
