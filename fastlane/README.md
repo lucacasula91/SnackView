@@ -16,6 +16,15 @@ or alternatively using `brew cask install fastlane`
 
 # Available Actions
 ## iOS
+### ios run_bootstrap
+```
+fastlane ios run_bootstrap
+```
+
+
+Ensure carthage is ready to go.
+
+:configuration Optionally set the configuration.  Default is release.
 ### ios test_with_coverage
 ```
 fastlane ios test_with_coverage
@@ -30,6 +39,11 @@ Run tests using scan and slather.
 fastlane ios screenshots
 ```
 Generate new localized screenshots
+### ios create_release
+```
+fastlane ios create_release
+```
+Generate github release
 
 ----
 
