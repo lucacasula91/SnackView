@@ -30,7 +30,11 @@ public class SnackView: UIViewController {
     }
     
     private let dataSource: SnackViewProtocol
-    
+
+
+    /// Initialization method for SnackView object
+    ///
+    /// - Parameter dataSource: Class conformed to SnackViewProtocol
     public init(with dataSource: SnackViewProtocol) {
         self.dataSource = dataSource
         

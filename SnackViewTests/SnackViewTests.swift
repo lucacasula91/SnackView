@@ -62,6 +62,27 @@ class SnackViewTests: QuickSpec {
                     expect(snackView?.getItems()).to(haveCount(2))
                 }
             }
+
+            context("when remove item by index") {
+                it("has a count of 2") {
+
+                    snackView?.removeItemAt(index: 0)
+                    expect(snackView?.getItems()).to(haveCount(2))
+                }
+            }
+
+            context("when update with new items array") {
+                it("SnackView items count must be equal to new array items") {
+
+                    let firstTextField = SVTextFieldItem(withPlaceholder: "First", isSecureField: false)
+                    let secondTextField = SVTextFieldItem(withPlaceholder: "Second", isSecureField: false)
+                    let thirdTextField = SVTextFieldItem(withPlaceholder: "Third", isSecureField: false)
+                    let newArray = [firstTextField, secondTextField, thirdTextField]
+
+                    snackView?.updateWith(items: newArray)
+                    expect(snackView?.getItems()).to(haveCount(newArray.count))
+                }
+            }
         }
 
         describe("Presenting a SnackView") {
