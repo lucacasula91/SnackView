@@ -227,6 +227,15 @@
 		51822D8C21E4D4EC00380738 /* SnackView Items */ = {
 			isa = PBXGroup;
 			children = (
+				38F4AF0B205969E800341940 /* SVItem.swift */,
+				38F4AF10205969E800341940 /* SVApplicationItem.swift */,
+				38F4AF0A205969E700341940 /* SVButtonItem.swift */,
+				38F4AF0C205969E800341940 /* SVDescriptionItem.swift */,
+				38F4AF0E205969E800341940 /* SVDetailTextItem.swift */,
+				38EA7C3520862B7700B6F88D /* SVLoaderItem.swift */,
+				385DCCC4207BD55E00E280E3 /* SVSwitchItem.swift */,
+				38F4AF11205969E900341940 /* SVTextFieldItem.swift */,
+				38F4AF0F205969E800341940 /* SVTitleItem.swift */,
 				8EDE06212099FC6D0017A700 /* SVImageViewItem.swift */,
 			);
 			path = "SnackView Items";
@@ -235,6 +244,7 @@
 		51822D8D21E4D51300380738 /* SnackView Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				38F4AF13205969E900341940 /* SVTitleOptions.swift */,
 				38F4AF12205969E900341940 /* CustomInputAccessoryView.swift */,
 				381CFE692091BC1800379B26 /* SafeAreaHelper.swift */,
 				51822D8A21E4D06F00380738 /* MockDataSource.swift */,
@@ -250,16 +260,6 @@
 				51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */,
 				51F4CB1021E388CF0096E48D /* SnackViewNotifications.swift */,
 				51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */,
-				38F4AF0B205969E800341940 /* SVItem.swift */,
-				38F4AF10205969E800341940 /* SVApplicationItem.swift */,
-				38F4AF0A205969E700341940 /* SVButtonItem.swift */,
-				38F4AF0C205969E800341940 /* SVDescriptionItem.swift */,
-				38F4AF0E205969E800341940 /* SVDetailTextItem.swift */,
-				38EA7C3520862B7700B6F88D /* SVLoaderItem.swift */,
-				385DCCC4207BD55E00E280E3 /* SVSwitchItem.swift */,
-				38F4AF11205969E900341940 /* SVTextFieldItem.swift */,
-				38F4AF0F205969E800341940 /* SVTitleItem.swift */,
-				38F4AF13205969E900341940 /* SVTitleOptions.swift */,
 				51822D8D21E4D51300380738 /* SnackView Utilities */,
 				51822D8C21E4D4EC00380738 /* SnackView Items */,
 				8EDE061F2099F5DF0017A700 /* SnackViewAssets.xcassets */,
