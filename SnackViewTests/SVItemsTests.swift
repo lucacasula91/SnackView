@@ -73,6 +73,34 @@ class SVItemsTests: QuickSpec {
                 }
             }
         }
+
+        describe("SVImageViewItem") {
+            context("After being initialized with a little image") {
+                it("height must be less than 50") {
+                    let littleImage = ImageCreator.getImageWith(size: CGSize(width: 320, height: 25))
+
+                    let imageViewItem = SVImageViewItem(withImage: littleImage,
+                                                        andContentMode: UIViewContentMode.scaleAspectFill)
+                    snackView?.insert(item: imageViewItem, atIndex: 0)
+
+                    expect(imageViewItem.frame.height).to(beLessThan(50))
+                }
+            }
+
+            context("After being initialized with a large image") {
+                it("height must be equal to image height") {
+                    let largeImage = ImageCreator.getImageWith(size: CGSize(width: 320, height: 125))
+
+                    let imageViewItem = SVImageViewItem(withImage: largeImage,
+                                                        andContentMode: UIViewContentMode.scaleAspectFill)
+                    snackView?.insert(item: imageViewItem, atIndex: 0)
+
+                    expect(imageViewItem.frame.height).to(equal(125))
+                }
+
+            }
+
+        }
     }
 }
 

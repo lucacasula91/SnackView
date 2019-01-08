@@ -41,6 +41,7 @@
 		51F4CB1121E388CF0096E48D /* SnackViewPublicMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */; };
 		51F4CB1221E388CF0096E48D /* SnackViewInternalMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */; };
 		51F4CB1321E388CF0096E48D /* SnackViewNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB1021E388CF0096E48D /* SnackViewNotifications.swift */; };
+		51F4CB1721E492670096E48D /* ImageCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB1621E492670096E48D /* ImageCreator.swift */; };
 		8EDE06202099F5DF0017A700 /* SnackViewAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EDE061F2099F5DF0017A700 /* SnackViewAssets.xcassets */; };
 		8EDE06222099FC6D0017A700 /* SVImageViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDE06212099FC6D0017A700 /* SVImageViewItem.swift */; };
 		FF42AE0F21E2844200F4ECEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE0E21E2844200F4ECEB /* AppDelegate.swift */; };
@@ -127,6 +128,7 @@
 		51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewPublicMethods.swift; sourceTree = "<group>"; };
 		51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewInternalMethods.swift; sourceTree = "<group>"; };
 		51F4CB1021E388CF0096E48D /* SnackViewNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewNotifications.swift; sourceTree = "<group>"; };
+		51F4CB1621E492670096E48D /* ImageCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCreator.swift; sourceTree = "<group>"; };
 		8EDE061F2099F5DF0017A700 /* SnackViewAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SnackViewAssets.xcassets; sourceTree = "<group>"; };
 		8EDE06212099FC6D0017A700 /* SVImageViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVImageViewItem.swift; sourceTree = "<group>"; };
 		FF42AE0C21E2844200F4ECEB /* SnackViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnackViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -294,6 +296,7 @@
 			children = (
 				FF511B0D21E273BA00911490 /* MockSnackView.swift */,
 				FF42AE2E21E2888600F4ECEB /* UIViewController+Hierarchy.swift */,
+				51F4CB1621E492670096E48D /* ImageCreator.swift */,
 			);
 			path = "Test Utilities";
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				FF511B0E21E273BA00911490 /* MockSnackView.swift in Sources */,
 				FF42AE2F21E2888600F4ECEB /* UIViewController+Hierarchy.swift in Sources */,
 				FF42AE3121E2919600F4ECEB /* SVItemsTests.swift in Sources */,
+				51F4CB1721E492670096E48D /* ImageCreator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
