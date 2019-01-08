@@ -13,8 +13,7 @@
 [![Downloads](https://img.shields.io/cocoapods/dt/SnackView.svg)](https://cocoapods.org/pods/SnackView)
 [![Twitter](https://img.shields.io/badge/twitter-@lucacasula91-green.svg?style=flat)](http://twitter.com/lucacasula91)
 
-<!--Replace kevnm67 with lucacasula91-->
-[![Maintainability](https://api.codeclimate.com/v1/badges/a137e060dec2e19171fe/maintainability)](https://codeclimate.com/github/kevnm67/SnackView/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/9aeb1378d61a9f9a3fe4/maintainability)](https://codeclimate.com/github/lucacasula91/SnackView/maintainability)
 <!--[![Test Coverage](https://api.codeclimate.com/v1/badges/a137e060dec2e19171fe/test_coverage)](https://codeclimate.com/github/kevnm67/SnackView/test_coverage)-->
 
 - [What's new](#whats-new)
