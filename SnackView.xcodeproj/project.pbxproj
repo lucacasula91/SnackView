@@ -38,7 +38,9 @@
 		38F4AF1B205969E900341940 /* SVTextFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF11205969E900341940 /* SVTextFieldItem.swift */; };
 		38F4AF1C205969E900341940 /* CustomInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF12205969E900341940 /* CustomInputAccessoryView.swift */; };
 		38F4AF1D205969E900341940 /* SVTitleOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF13205969E900341940 /* SVTitleOptions.swift */; };
+		511780C621E5E84E00EBD9F8 /* SnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511780C521E5E84E00EBD9F8 /* SnackViewDataSource.swift */; };
 		51822D8B21E4D06F00380738 /* MockDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51822D8A21E4D06F00380738 /* MockDataSource.swift */; };
+		518449D721ECDDC400EE1E6C /* SnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518449D621ECDDC300EE1E6C /* SnackViewDataSource.swift */; };
 		51F4CB1121E388CF0096E48D /* SnackViewPublicMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */; };
 		51F4CB1221E388CF0096E48D /* SnackViewInternalMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */; };
 		51F4CB1321E388CF0096E48D /* SnackViewNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB1021E388CF0096E48D /* SnackViewNotifications.swift */; };
@@ -52,10 +54,8 @@
 		FF42AE1921E2844300F4ECEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF42AE1721E2844300F4ECEB /* LaunchScreen.storyboard */; };
 		FF42AE2F21E2888600F4ECEB /* UIViewController+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE2E21E2888600F4ECEB /* UIViewController+Hierarchy.swift */; };
 		FF42AE3121E2919600F4ECEB /* SVItemsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE3021E2919600F4ECEB /* SVItemsTests.swift */; };
-		FF42AE3321E295E000F4ECEB /* SnackViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE3221E295E000F4ECEB /* SnackViewProtocol.swift */; };
 		FF42AE3521E2AEA800F4ECEB /* SnackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F4AEF0205969CD00341940 /* SnackView.framework */; };
 		FF42AE3721E2AECC00F4ECEB /* SnackView.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38F4AEF0205969CD00341940 /* SnackView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FF42AE3B21E2AF4A00F4ECEB /* SnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE3A21E2AF4A00F4ECEB /* SnackViewDataSource.swift */; };
 		FF42AE3D21E2B08A00F4ECEB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF42AE3C21E2B08A00F4ECEB /* Default-568h@2x.png */; };
 		FF42AE4121E2B5C000F4ECEB /* SVCustomItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE4021E2B5C000F4ECEB /* SVCustomItem.swift */; };
 		FF42AE4421E2D56D00F4ECEB /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF42AE4221E2D56D00F4ECEB /* Nimble.framework */; };
@@ -126,7 +126,9 @@
 		38F4AF11205969E900341940 /* SVTextFieldItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVTextFieldItem.swift; sourceTree = "<group>"; };
 		38F4AF12205969E900341940 /* CustomInputAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInputAccessoryView.swift; sourceTree = "<group>"; };
 		38F4AF13205969E900341940 /* SVTitleOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVTitleOptions.swift; sourceTree = "<group>"; };
+		511780C521E5E84E00EBD9F8 /* SnackViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewDataSource.swift; sourceTree = "<group>"; };
 		51822D8A21E4D06F00380738 /* MockDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataSource.swift; sourceTree = "<group>"; };
+		518449D621ECDDC300EE1E6C /* SnackViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SnackViewDataSource.swift; path = /Users/bf462at/Documents/SnackView/SnackViewExample/Source/SnackViewDataSource.swift; sourceTree = "<absolute>"; };
 		51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewPublicMethods.swift; sourceTree = "<group>"; };
 		51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewInternalMethods.swift; sourceTree = "<group>"; };
 		51F4CB1021E388CF0096E48D /* SnackViewNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewNotifications.swift; sourceTree = "<group>"; };
@@ -141,8 +143,6 @@
 		FF42AE1821E2844300F4ECEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF42AE2E21E2888600F4ECEB /* UIViewController+Hierarchy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Hierarchy.swift"; sourceTree = "<group>"; };
 		FF42AE3021E2919600F4ECEB /* SVItemsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVItemsTests.swift; sourceTree = "<group>"; };
-		FF42AE3221E295E000F4ECEB /* SnackViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewProtocol.swift; sourceTree = "<group>"; };
-		FF42AE3A21E2AF4A00F4ECEB /* SnackViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewDataSource.swift; sourceTree = "<group>"; };
 		FF42AE3C21E2B08A00F4ECEB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FF42AE3E21E2B0DE00F4ECEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF42AE4021E2B5C000F4ECEB /* SVCustomItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVCustomItem.swift; sourceTree = "<group>"; };
@@ -217,9 +217,9 @@
 			isa = PBXGroup;
 			children = (
 				38F4AEFE205969CD00341940 /* SnackViewTests.swift */,
+				FF42AE3021E2919600F4ECEB /* SVItemsTests.swift */,
 				FF511B0C21E273A300911490 /* Test Utilities */,
 				38F4AF00205969CD00341940 /* Info.plist */,
-				FF42AE3021E2919600F4ECEB /* SVItemsTests.swift */,
 			);
 			path = SnackViewTests;
 			sourceTree = "<group>";
@@ -256,7 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				38F4AF0D205969E800341940 /* SnackView.swift */,
-				FF42AE3221E295E000F4ECEB /* SnackViewProtocol.swift */,
+				511780C521E5E84E00EBD9F8 /* SnackViewDataSource.swift */,
 				51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */,
 				51F4CB1021E388CF0096E48D /* SnackViewNotifications.swift */,
 				51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */,
@@ -281,7 +281,7 @@
 			children = (
 				FF42AE0E21E2844200F4ECEB /* AppDelegate.swift */,
 				FF42AE1221E2844200F4ECEB /* Main.storyboard */,
-				FF42AE3A21E2AF4A00F4ECEB /* SnackViewDataSource.swift */,
+				518449D621ECDDC300EE1E6C /* SnackViewDataSource.swift */,
 				FF42AE4021E2B5C000F4ECEB /* SVCustomItem.swift */,
 				FF42AE1021E2844200F4ECEB /* ViewController.swift */,
 			);
@@ -517,8 +517,8 @@
 				38EA7C3620862B7700B6F88D /* SVLoaderItem.swift in Sources */,
 				38F4AF1D205969E900341940 /* SVTitleOptions.swift in Sources */,
 				38F4AF17205969E900341940 /* SnackView.swift in Sources */,
-				FF42AE3321E295E000F4ECEB /* SnackViewProtocol.swift in Sources */,
 				38F4AF15205969E900341940 /* SVItem.swift in Sources */,
+				511780C621E5E84E00EBD9F8 /* SnackViewDataSource.swift in Sources */,
 				385DCCC5207BD55E00E280E3 /* SVSwitchItem.swift in Sources */,
 				38F4AF19205969E900341940 /* SVTitleItem.swift in Sources */,
 				8EDE06222099FC6D0017A700 /* SVImageViewItem.swift in Sources */,
@@ -545,7 +545,7 @@
 			files = (
 				FF42AE4121E2B5C000F4ECEB /* SVCustomItem.swift in Sources */,
 				FF42AE1121E2844200F4ECEB /* ViewController.swift in Sources */,
-				FF42AE3B21E2AF4A00F4ECEB /* SnackViewDataSource.swift in Sources */,
+				518449D721ECDDC400EE1E6C /* SnackViewDataSource.swift in Sources */,
 				FF42AE0F21E2844200F4ECEB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

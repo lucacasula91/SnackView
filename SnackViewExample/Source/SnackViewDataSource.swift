@@ -1,72 +1,78 @@
 //
-//  SnackViewDataSource.swift
-//  SnackViewExample
+//  NewSnackViewDataSource.swift
+//  
 //
-//  Created by Kevin Morton on 1/6/19.
-//  Copyright © 2019 LucaCasula. All rights reserved.
+//  Created by Luca Casula on 14/01/19.
 //
 
-import Foundation
+import UIKit
 import SnackView
 
-struct SnackViewDataSource: SnackViewProtocol {
-    
-    enum SVType {
+struct SnackViewDataSourceManager {
+
+    // MARK: - Properties
+    var currentType: ExampleType = .password
+
+    enum ExampleType {
         case password
         case custom
         case mixed
     }
-    
-    var itemType: SVType = .password
-    
-    var title: String {
-        switch itemType {
-        case .password:
-            return "Create Password"
-        case .custom:
-            return "Custom item"
-        case .mixed:
-            return "Mixed SVItems"
+
+    // MARK: - Fileprivate methods
+    fileprivate func getItems(for type: ExampleType) -> [SVItem] {
+        switch type {
+        case .password:     return self.getPasswordItem()
+        case .custom:       return self.getCustomItem()
+        case .mixed:        return self.getMixedItems()
         }
     }
-    
-    var items: [SVItem] {
-        switch itemType {
-        case .password:
-            return passwordItems
-        case .custom:
-            return [SVCustomItem(with: .green)]
-        case .mixed:
-            return mixedItems
-        }
+
+    fileprivate func getPasswordItem() -> [SVItem] {
+        let newPasswordItem = SVTextFieldItem(withPlaceholder: "New Password", isSecureField: true)
+        let repeatPasswordItem = SVTextFieldItem(withPlaceholder: "Repeat Password", isSecureField: true)
+        let continueButtonItem = SVButtonItem(withTitle: "Continue") { print("Continue button tapped") }
+
+        return [newPasswordItem, repeatPasswordItem, continueButtonItem]
     }
-    
-    func show() {}
-    func close() {}
+
+    fileprivate func getCustomItem() -> [SVItem] {
+        let greenCustomItem = SVCustomItem(with: .green)
+        let grayCustomItem = SVCustomItem(with: .gray)
+
+        return [greenCustomItem, grayCustomItem]
+    }
+
+    fileprivate func getMixedItems() -> [SVItem] {
+        let loaderItem = SVLoaderItem(withSize: .large, andText: "Lorem ipsum dolor sit amet.")
+        let switchItem = SVSwitchItem(withTitle: "Push Notifications",
+                                      andDescription: "Activate to stay up to date...") { isOn in
+                                        print("switch toggled: \(isOn)") }
+        let applicationItem = SVApplicationItem(withIcon: #imageLiteral(resourceName: "Icon"),
+                                                withTitle: "Ipsum lorem",
+                                                andDescription: "Lorem ipsum dolor sit amet")
+        return [loaderItem, switchItem, applicationItem]
+    }
+
 }
 
-extension SnackViewDataSource {
-    
-    var passwordItems: [SVItem] {
-        let newPassword = SVTextFieldItem(withPlaceholder: "New Password", isSecureField: true)
-        let repeatPassword = SVTextFieldItem(withPlaceholder: "Repeat Password", isSecureField: true)
-        let continueButton = SVButtonItem(withTitle: "Continue") {
-            print("Continue button tapped")
-        }
-        
-        return [newPassword, repeatPassword, continueButton]
-    }
-    
-    var mixedItems: [SVItem] {
-        return [SVLoaderItem(withSize: .large, andText: "Lorem ipsum dolor sit amet..."),
-                SVSwitchItem(withTitle: "Push Notifications", andDescription: "Activate to stay up to date...") { _ in
-                    print("switch toggled") },
-                SVApplicationItem(withIcon: #imageLiteral(resourceName: "Icon"),
-                                  withTitle: "Ipsum lorem",
-                                  andDescription: "Lorem ipsum dolor sit amet..."),
-                SVButtonItem(withTitle: "Continue") {
-                    print("Button tapped")
+// MARK: - SnackViewDataSource
+extension SnackViewDataSourceManager: SnackViewDataSource {
 
-            }]
+    func titleFor(snackView: SnackView) -> String {
+        switch currentType {
+        case .password:     return "Create Password"
+        case .custom:       return "Custom item"
+        case .mixed:        return "Mixed items"
+        }
+    }
+
+    func cancelTitleFor(snackView: SnackView) -> String? {
+        return "Close"
+    }
+
+    func itemsFor(snackView: SnackView) -> [SVItem] {
+        let items = self.getItems(for: currentType)
+        return items
     }
 }

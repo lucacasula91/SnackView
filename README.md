@@ -4,7 +4,6 @@
 ***An easy way to present customizable bottom-half alert.***
 ![SnackView logo](http://www.lucacasula.it/SVItems/SnackViewPreview.jpg)
 
-[![Build Status](https://travis-ci.org/lucacasula91/SnackView.svg?branch=master)](https://travis-ci.org/lucacasula91/SnackView)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SnackView.svg)](https://img.shields.io/cocoapods/v/SnackView.svg)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Platform](https://img.shields.io/cocoapods/p/SnackView.svg?style=flat)](https://github.com/lucacasula91/SnackView/wiki)
@@ -15,9 +14,11 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/9aeb1378d61a9f9a3fe4/maintainability)](https://codeclimate.com/github/lucacasula91/SnackView/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/9aeb1378d61a9f9a3fe4/test_coverage)](https://codeclimate.com/github/lucacasula91/SnackView/test_coverage)
 
+[![Build Status](https://travis-ci.org/lucacasula91/SnackView.svg?branch=master)](https://travis-ci.org/lucacasula91/SnackView)
+
 - [What's new](#whats-new)
-  - [What's new in 1.0.8](#whats-new-in-108)
-	- [What's new in 1.0.7](#whats-new-in-107)
+  - [What's new in 2.0.0](#whats-new-in-200)
+
 - [Installation](#installation)
 	- [CocoaPods](#cocoapods)
 	- [Carthage](#carthage)
@@ -29,13 +30,10 @@
 - [Contributing](#contributing)
 
 ## What's new
-### What's new in 1.0.8
-- Fixed crash that occurs when SnackView was init with an empty SVItem array.
+### What's new in 2.0.0
+- Rewritten and reorganized part of the code
+- 
 
-### What's new in 1.0.7
-- Fixed an issue with constraints when keyboard did appear
-- Fixed an issue with constraints with device rotation
-- Added documentation for some methods
 
 ## Installation
 

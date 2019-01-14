@@ -12,7 +12,7 @@ import UIKit
 class ViewController: UIViewController {
 
     var snackView: SnackView?
-    var dataSource = SnackViewDataSource()
+    var dataSource = SnackViewDataSourceManager()
 
     // MARK: Lifecycle
 
@@ -40,9 +40,9 @@ class ViewController: UIViewController {
         updateItems(type: .password)
     }
 
-    fileprivate func updateItems(type: SnackViewDataSource.SVType) {
-        dataSource.itemType = type
-        snackView?.updateWith(items: dataSource.items)
+    fileprivate func updateItems(type: SnackViewDataSourceManager.ExampleType) {
+        dataSource.currentType = type
+
         snackView?.show()
     }
 }

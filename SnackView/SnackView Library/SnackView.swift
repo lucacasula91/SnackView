@@ -29,23 +29,29 @@ public class SnackView: UIViewController {
         return customInput
     }
     
-    private let dataSource: SnackViewProtocol
+    //private let dataSource: SnackViewProtocol
+    internal let dataSource: SnackViewDataSource
 
 
     /// Initialization method for SnackView object
     ///
     /// - Parameter dataSource: Class conformed to SnackViewProtocol
-    public init(with dataSource: SnackViewProtocol) {
+    public init(with dataSource: SnackViewDataSource) {
         self.dataSource = dataSource
-        
-        self.items = dataSource.items
-        self.titleOptions = SVTitleOptions(withTitle: self.dataSource.title, setCloseButtonVisible: true, setCloseButtonTitle: self.dataSource.closeTitle)
-        
         super.init(nibName: nil, bundle: nil)
+
+        let title = dataSource.titleFor(snackView: self)
+        let cancelTitle = dataSource.cancelTitleFor(snackView: self)
+        let isCancelButtonVisible = dataSource.cancelTitleFor(snackView: self) != nil
+        let items = dataSource.itemsFor(snackView: self)
+
+        self.items = items
+        self.titleOptions = SVTitleOptions(withTitle: title, setCloseButtonVisible: isCancelButtonVisible, setCloseButtonTitle: cancelTitle)
+        
     }
 
     @available(*, deprecated, message: "This method will be removed later. Please use 'init(with: SnackViewProtocol)' instead.")
-    public init(withTitleOptions titleOptions:SVTitleOptions, andItems items: [SVItem]) {
+    public init(withTitleOptions titleOptions: SVTitleOptions, andItems items: [SVItem]) {
 
         // Workaround to initialize dataSource
         let tmpDataSource = MockDataSource(withTitleOptions: titleOptions, andItems: items)
@@ -58,7 +64,7 @@ public class SnackView: UIViewController {
     }
 
     @available(*, deprecated, message: "This method will be removed later. Please use 'init(with: SnackViewProtocol)' instead.")
-    public init(withTitle title:String, andCloseButtonTitle closeTitle:String, andItems items: [SVItem]) {
+    public init(withTitle title: String, andCloseButtonTitle closeTitle: String, andItems items: [SVItem]) {
 
         // Workaround to initialize dataSource
         let tmpDataSource = MockDataSource(withTitle: title, andCloseButtonTitle: closeTitle, andItems: items)

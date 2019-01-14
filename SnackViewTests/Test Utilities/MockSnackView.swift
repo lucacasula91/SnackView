@@ -12,7 +12,23 @@ import Foundation
 
 // codebeat:disable[TOO_MANY_IVARS]
 
-class MockSnackView: SnackViewProtocol {
+class MockSnackView: SnackViewDataSource {
+
+    func titleFor(snackView: SnackView) -> String {
+        return "SnackView Test"
+    }
+
+    func cancelTitleFor(snackView: SnackView) -> String? {
+        return "Cancel"
+    }
+
+    func itemsFor(snackView: SnackView) -> [SVItem] {
+        let buttonItem = SVButtonItem(withTitle: "Do something", withButtonAction: {})
+        let titleItem = SVTitleItem(withTitle: "SnackView item", andCancelButton: "Done")
+
+        return [buttonItem, titleItem]
+    }
+
 
     var invokedShow = false
     var invokedShowCount = 0
