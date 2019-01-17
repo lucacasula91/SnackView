@@ -88,11 +88,18 @@ extension SnackView {
     ///
     /// - Parameter items: Array of SVItem with which to replace items already present in SnackView
     open func updateWith(items: [SVItem]) {
+        let oldItems = self.stackView.arrangedSubviews
 
-        self.stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
-        items.forEach { self.stackView.addArrangedSubview($0) }
-
-        self.checkSnackViewContainsItemsOrAddDescriptionItem()
+        let newItems = items
+        newItems.forEach { $0.isHidden = true}
+        newItems.forEach { self.stackView.addArrangedSubview($0)}
+        
+        UIView.animate(withDuration: self.animationSpeed, animations: {
+            newItems.forEach {$0.isHidden = false}
+            oldItems.forEach {$0.isHidden = true}
+        }) { (_) in
+            self.checkSnackViewContainsItemsOrAddDescriptionItem()
+        }
     }
 
 }

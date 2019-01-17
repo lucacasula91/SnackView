@@ -222,8 +222,6 @@ extension SnackView {
         self.addMainSkeletonView()
         self.addMainConstraintsToContentView()
         self.addStackViewInsideScrollViewWithConstraints()
-
-        self.addItemsInsideStackView()
     }
 
     // MARK: - Helper methods

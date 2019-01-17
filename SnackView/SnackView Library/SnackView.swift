@@ -105,6 +105,11 @@ public class SnackView: UIViewController {
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        // Populate stackview with items
+        let items = self.dataSource.itemsFor(snackView: self)
+        self.items = items
+        self.addItemsInsideStackView()
+        
         self.setBackgroundForWillAppear()
     }
 
