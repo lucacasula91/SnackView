@@ -77,117 +77,6 @@ extension SnackView {
 
     // MARK: - SnackView skeleton
 
-    /// ContentView is a view that contains all the items of SnackView such as TitleBar, ScrollView with all the items inside and the safeArea view.
-    internal func addContentViewWithConstraints() {
-        self.contentView = UIView()
-        self.contentView.translatesAutoresizingMaskIntoConstraints = false
-        self.contentView.backgroundColor = UIColor.white.withAlphaComponent(0.75)
-        self.view.addSubview(contentView)
-
-        /// Default top constraint anchor
-        var topConstraint = self.view.topAnchor
-
-        // Use safe area layout guide if possible
-        if #available(iOS 11.0, *) {
-            topConstraint = self.view.safeAreaLayoutGuide.topAnchor
-        }
-
-        self.contentView.topAnchor.constraint(greaterThanOrEqualTo: topConstraint, constant: 0).isActive = true
-        self.contentView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-        self.contentView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
-
-        self.bottomContentViewConstant = self.contentView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-        self.view.addConstraint(bottomContentViewConstant)
-    }
-
-    /// This method adds a UIVisualEffectView under ContentView to reproduce blur effect.
-    internal func addVisualEffectViewToContentView() {
-        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
-
-        visualEffectView.frame = contentView.bounds
-        visualEffectView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-
-        self.contentView.addSubview(visualEffectView)
-    }
-
-    /// Adds the three main views of SnackView, TitleBar, ScrollView and SafeArea View
-    internal func addMainSkeletonView() {
-        // Add TitleBar
-        self.titleBar = SVTitleItem(withTitle: self.titleOptions.title, andCancelButton: self.titleOptions.closeButtonTitle)
-        self.titleBar.translatesAutoresizingMaskIntoConstraints = false
-        self.titleBar.cancelButton.addTarget(self, action: #selector(closeActionSelector), for: UIControlEvents.touchUpInside)
-
-        // Check if close button must be visible or hidden
-        self.titleBar.cancelButton.isHidden = self.titleOptions.closeButtonVisible ? false : true
-        self.contentView.addSubview(self.titleBar)
-
-        // Add ScrollView
-        self.scrollView = UIScrollView()
-        self.scrollView.translatesAutoresizingMaskIntoConstraints = false
-        self.scrollView.keyboardDismissMode = .interactive
-        self.scrollView.bounces = true
-        self.scrollView.alwaysBounceVertical = false
-        self.scrollView.backgroundColor = UIColor.clear
-        self.contentView.addSubview(self.scrollView)
-
-        // Safe Area View
-        self.safeAreaView = UIView()
-        self.safeAreaView.translatesAutoresizingMaskIntoConstraints = false
-        self.safeAreaView.backgroundColor = UIColor.clear
-        self.contentView.addSubview(self.safeAreaView)
-    }
-
-    /// Adds the constraints for the three main views. Here is managed also the safeArea view constraints.
-    internal func addMainConstraintsToContentView() {
-        // Add vertical constraints
-        let views = ["title": titleBar, "scrollView": scrollView] as [String: Any]
-        let verticalContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[title(44)][scrollView]-|",
-                                                                options: [],
-                                                                metrics: nil,
-                                                                views: views)
-        self.contentView.addConstraints(verticalContraints)
-
-        self.safeAreaView.topAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
-        self.safeAreaView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-
-        // Add horizontal constraints
-        let items = [self.titleBar, self.scrollView, self.safeAreaView] as [Any]
-        for item in items {
-            let horizontalConstraint = NSLayoutConstraint.constraints(withVisualFormat: "H:|[item]|", options: [], metrics: nil, views: ["item": item])
-            self.contentView.addConstraints(horizontalConstraint)
-        }
-    }
-
-    /// Insert a subview (UIStackView) inside the UIScrollView and manage constraints.
-    internal func addStackViewInsideScrollViewWithConstraints() {
-
-        // Add StackView
-        self.stackView = UIStackView(arrangedSubviews: [])
-        self.stackView.axis = .vertical
-        self.stackView.distribution = .fill
-        self.stackView.translatesAutoresizingMaskIntoConstraints = false
-        self.scrollView.addSubview(self.stackView)
-
-        // Add ScrollView Constraints
-        let views = ["stackView": self.stackView, "scrollView": self.scrollView] as [String: Any]
-        let stackViewHConstraint = NSLayoutConstraint.constraints(withVisualFormat: "H:|[stackView(==scrollView)]|",
-                                                                  options: [],
-                                                                  metrics: nil,
-                                                                  views: views)
-        scrollView.addConstraints(stackViewHConstraint)
-
-        let stackViewVConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|[stackView]|",
-                                                                  options: [],
-                                                                  metrics: nil,
-                                                                  views: views)
-        scrollView.addConstraints(stackViewVConstraint)
-
-        // Set scrollView height constraint with low priority
-        let scrollViewHeight = self.scrollView.heightAnchor.constraint(equalTo: self.stackView.heightAnchor, multiplier: 1, constant: 0)
-        scrollViewHeight.priority = .defaultLow
-        scrollViewHeight.isActive = true
-    }
-
     /// This method add all SVItems to scrollView content view.
     internal func addItemsInsideStackView() {
         self.stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
@@ -212,16 +101,27 @@ extension SnackView {
 
     // MARK: - Layout SnackView
 
+    internal func addContentViewBottomConstraint() {
+        bottomContentViewConstant?.isActive = false
+        bottomContentViewConstant = nil
+        bottomContentViewConstant = self.contentView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0)
+        bottomContentViewConstant?.isActive = true
+    }
+
     /// This method creates a view that contains all the SnackView items.
-    internal func layoutSnackViewSkeleton() {
-        self.view.subviews.forEach { $0.removeFromSuperview() }
+    internal func addScrollViewBottomConstraint() {
 
-        self.addContentViewWithConstraints()
-        self.addVisualEffectViewToContentView()
+        scrollViewBottomConstraint?.isActive = false
+        scrollViewBottomConstraint = nil
 
-        self.addMainSkeletonView()
-        self.addMainConstraintsToContentView()
-        self.addStackViewInsideScrollViewWithConstraints()
+        var bottomAnchor = self.view.bottomAnchor
+        if #available(iOS 11.0, *) {
+            bottomAnchor = self.view.safeAreaLayoutGuide.bottomAnchor
+        }
+
+//        scrollViewBottomConstraint = self.scrollView.bottomAnchor.constraint(greaterThanOrEqualTo: bottomAnchor)
+        scrollViewBottomConstraint = self.scrollView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0)
+        scrollViewBottomConstraint?.isActive = true
     }
 
     // MARK: - Helper methods

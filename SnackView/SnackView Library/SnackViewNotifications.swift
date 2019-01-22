@@ -17,7 +17,7 @@ extension SnackView {
         let animationSpeed = self.getAnimationDurationFrom(notification: notification)
 
         self.keyboardHeight = keyboardSize.height
-        bottomContentViewConstant.constant = -self.keyboardHeight
+        scrollViewBottomConstraint?.constant = -self.keyboardHeight
 
         UIView.animate(withDuration: animationSpeed.doubleValue) {
             self.view.layoutIfNeeded()
@@ -31,7 +31,7 @@ extension SnackView {
         let animationSpeed = self.getAnimationDurationFrom(notification: notification)
 
         self.keyboardHeight = keyboardSize.height
-        self.bottomContentViewConstant.constant = 0
+        self.scrollViewBottomConstraint?.constant = 0
 
         UIView.animate(withDuration: animationSpeed.doubleValue) {
             self.view.layoutIfNeeded()
@@ -40,7 +40,7 @@ extension SnackView {
 
     @objc func keyboardFrameDidChange(notification: Notification) {
         if let constant = notification.userInfo?["constant"] as? CGFloat {
-            bottomContentViewConstant.constant = -constant
+            scrollViewBottomConstraint?.constant = -constant
         }
     }
 

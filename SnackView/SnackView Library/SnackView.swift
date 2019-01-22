@@ -14,12 +14,14 @@ public class SnackView: UIViewController {
     // MARK: - Outlets and Variables
     internal var titleOptions: SVTitleOptions!
     public internal(set) var items: [SVItem] = []
-    internal var contentView: UIView = UIView()
+    @IBOutlet internal var contentView: UIView!
+    @IBOutlet internal var effectView: UIView!
+    @IBOutlet internal var stackView: UIStackView!
+    @IBOutlet internal var scrollView: UIScrollView!
     internal var titleBar: SVTitleItem!
-    internal var scrollView: UIScrollView = UIScrollView()
-    internal var stackView: UIStackView = UIStackView()
     internal var safeAreaView: UIView = UIView()
-    internal var bottomContentViewConstant: NSLayoutConstraint = NSLayoutConstraint()
+    internal var scrollViewBottomConstraint: NSLayoutConstraint?
+    internal var bottomContentViewConstant: NSLayoutConstraint?
     internal var customInputAccessoryView: UIView = UIView()
     internal var keyboardHeight: CGFloat = 0
     internal var animationSpeed: TimeInterval = 0.25
@@ -32,13 +34,13 @@ public class SnackView: UIViewController {
     //private let dataSource: SnackViewProtocol
     internal let dataSource: SnackViewDataSource
 
-
     /// Initialization method for SnackView object
     ///
     /// - Parameter dataSource: Class conformed to SnackViewProtocol
     public init(with dataSource: SnackViewDataSource) {
+
         self.dataSource = dataSource
-        super.init(nibName: nil, bundle: nil)
+        super.init(nibName: "SnackViewSkeleton", bundle: Bundle(for: type(of: self)))
 
         let title = dataSource.titleFor(snackView: self)
         let cancelTitle = dataSource.cancelTitleFor(snackView: self)
@@ -95,8 +97,9 @@ public class SnackView: UIViewController {
 
         self.setupViewController()
 
-        // Create the SnackView skeleton view
-        self.layoutSnackViewSkeleton()
+        // Add constraints to contentView and scrollView
+        self.addContentViewBottomConstraint()
+        self.addScrollViewBottomConstraint()
 
         // Register SnackView for keyboard notifications
         self.addNotificationsObserver()
