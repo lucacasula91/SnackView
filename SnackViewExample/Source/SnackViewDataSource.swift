@@ -8,7 +8,7 @@
 import UIKit
 import SnackView
 
-struct SnackViewDataSourceManager {
+class SnackViewDataSourceManager {
 
     // MARK: - Properties
     var currentType: ExampleType = .password
