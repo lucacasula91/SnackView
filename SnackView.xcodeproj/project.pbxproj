@@ -41,6 +41,8 @@
 		511780C621E5E84E00EBD9F8 /* SnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511780C521E5E84E00EBD9F8 /* SnackViewDataSource.swift */; };
 		51822D8B21E4D06F00380738 /* MockDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51822D8A21E4D06F00380738 /* MockDataSource.swift */; };
 		518449D721ECDDC400EE1E6C /* SnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518449D621ECDDC300EE1E6C /* SnackViewDataSource.swift */; };
+		5192725A21F86BC100E0965C /* SVCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192725921F86BC100E0965C /* SVCustomButton.swift */; };
+		5192725E21F86EE800E0965C /* SVGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192725D21F86EE800E0965C /* SVGradientView.swift */; };
 		51D95A0E21F709B100D3145B /* SnackViewSkeleton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51D95A0D21F709B100D3145B /* SnackViewSkeleton.xib */; };
 		51F4CB1121E388CF0096E48D /* SnackViewPublicMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */; };
 		51F4CB1221E388CF0096E48D /* SnackViewInternalMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */; };
@@ -130,6 +132,8 @@
 		511780C521E5E84E00EBD9F8 /* SnackViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewDataSource.swift; sourceTree = "<group>"; };
 		51822D8A21E4D06F00380738 /* MockDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataSource.swift; sourceTree = "<group>"; };
 		518449D621ECDDC300EE1E6C /* SnackViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SnackViewDataSource.swift; path = /Users/bf462at/Documents/SnackView/SnackViewExample/Source/SnackViewDataSource.swift; sourceTree = "<absolute>"; };
+		5192725921F86BC100E0965C /* SVCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVCustomButton.swift; sourceTree = "<group>"; };
+		5192725D21F86EE800E0965C /* SVGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGradientView.swift; sourceTree = "<group>"; };
 		51D95A0D21F709B100D3145B /* SnackViewSkeleton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SnackViewSkeleton.xib; sourceTree = "<group>"; };
 		51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewPublicMethods.swift; sourceTree = "<group>"; };
 		51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewInternalMethods.swift; sourceTree = "<group>"; wrapsLines = 0; };
@@ -254,6 +258,25 @@
 			path = "SnackView Utilities";
 			sourceTree = "<group>";
 		};
+		5192725B21F86EC200E0965C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				518449D621ECDDC300EE1E6C /* SnackViewDataSource.swift */,
+				FF42AE1021E2844200F4ECEB /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		5192725C21F86ECC00E0965C /* Custom Items */ = {
+			isa = PBXGroup;
+			children = (
+				5192725921F86BC100E0965C /* SVCustomButton.swift */,
+				FF42AE4021E2B5C000F4ECEB /* SVCustomItem.swift */,
+				5192725D21F86EE800E0965C /* SVGradientView.swift */,
+			);
+			path = "Custom Items";
+			sourceTree = "<group>";
+		};
 		8E030710209746A800A5326E /* SnackView Library */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,9 +307,8 @@
 			children = (
 				FF42AE0E21E2844200F4ECEB /* AppDelegate.swift */,
 				FF42AE1221E2844200F4ECEB /* Main.storyboard */,
-				518449D621ECDDC300EE1E6C /* SnackViewDataSource.swift */,
-				FF42AE4021E2B5C000F4ECEB /* SVCustomItem.swift */,
-				FF42AE1021E2844200F4ECEB /* ViewController.swift */,
+				5192725B21F86EC200E0965C /* ViewController */,
+				5192725C21F86ECC00E0965C /* Custom Items */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -548,7 +570,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF42AE4121E2B5C000F4ECEB /* SVCustomItem.swift in Sources */,
+				5192725A21F86BC100E0965C /* SVCustomButton.swift in Sources */,
 				FF42AE1121E2844200F4ECEB /* ViewController.swift in Sources */,
+				5192725E21F86EE800E0965C /* SVGradientView.swift in Sources */,
 				518449D721ECDDC400EE1E6C /* SnackViewDataSource.swift in Sources */,
 				FF42AE0F21E2844200F4ECEB /* AppDelegate.swift in Sources */,
 			);
@@ -823,6 +847,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 486MB7T8V9;
 				INFOPLIST_FILE = "$(SRCROOT)/SnackViewExample/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -841,6 +866,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 486MB7T8V9;
 				INFOPLIST_FILE = "$(SRCROOT)/SnackViewExample/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

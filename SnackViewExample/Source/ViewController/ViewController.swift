@@ -11,10 +11,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // MARK: - Properties
+
     var snackView: SnackView?
     var dataSource = SnackViewDataSourceManager()
 
-    // MARK: Lifecycle
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +24,18 @@ class ViewController: UIViewController {
         configureDataSource()
     }
 
+    // MARK: - Fileprivate methods
+
     fileprivate func configureDataSource() {
         snackView = SnackView(with: dataSource)
     }
 
-    // MARK: Actions
+    fileprivate func updateItems(type: SnackViewDataSourceManager.ExampleType) {
+        dataSource.currentType = type
+        snackView?.show()
+    }
+
+    // MARK: - Actions
 
     @IBAction func showCustomItem(_ sender: Any) {
         updateItems(type: .custom)
@@ -40,10 +49,5 @@ class ViewController: UIViewController {
         updateItems(type: .password)
     }
 
-    fileprivate func updateItems(type: SnackViewDataSourceManager.ExampleType) {
-        dataSource.currentType = type
-
-        snackView?.show()
-    }
 }
 
