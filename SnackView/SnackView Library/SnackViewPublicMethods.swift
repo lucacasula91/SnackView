@@ -12,9 +12,9 @@ extension SnackView {
 
     /// Present SnackView with custom animation.
     open func show() {
-        if let itemsToShow = self.dataSource?.itemsFor(snackView: self) {
-            self.updateWith(items: itemsToShow)
-        }
+//        if let itemsToShow = self.dataSource?.itemsFor(snackView: self) {
+//            self.updateWith(items: itemsToShow)
+//        }
 
         let presenter = self.getPresenterViewController()
         presenter.present(self, animated: false, completion: nil)
@@ -26,14 +26,11 @@ extension SnackView {
     }
 
     func getItemsCount() -> Int {
-        return self.stackView.arrangedSubviews.count
+        return (self.items ?? []).count
     }
 
     func getItems() -> [SVItem] {
-        if let items = self.stackView.arrangedSubviews as? [SVItem] {
-            return items
-        }
-        return []
+        return self.items ?? []
     }
     // MARK: - SVItem management methods
 
@@ -43,6 +40,12 @@ extension SnackView {
     ///   - item: The SVItem to add to SnackView
     ///   - index: The index in which insert the new SVItem
     open func insert(item: SVItem, atIndex index: Int?) {
+        if let unwrappedIndex = index {
+            self.items?.insert(item , at: unwrappedIndex)
+        } else {
+            self.items?.append(item)
+        }
+
         item.isHidden = true
 
         let itemIndex = index ?? stackView.arrangedSubviews.endIndex
@@ -65,7 +68,11 @@ extension SnackView {
             item.isHidden = true
         }) { (_) in
             self.stackView.removeArrangedSubview(item)
-            
+
+            if let items = self.stackView.arrangedSubviews as? [SVItem] {
+                self.items = items
+            }
+
             self.checkSnackViewContainsItemsOrAddDescriptionItem()
         }
     }
@@ -81,8 +88,6 @@ extension SnackView {
         if let item = self.stackView.arrangedSubviews[index] as? SVItem {
             self.remove(item: item)
         }
-
-        self.checkSnackViewContainsItemsOrAddDescriptionItem()
     }
 
     /// Replace all the content present in SnackView with a new one SVItem array
@@ -99,6 +104,8 @@ extension SnackView {
             newItems.forEach {$0.isHidden = false}
             oldItems.forEach {$0.isHidden = true}
         }) { (_) in
+            self.items = items
+
             self.checkSnackViewContainsItemsOrAddDescriptionItem()
         }
     }

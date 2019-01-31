@@ -12,41 +12,34 @@ import os.log
 public class SnackView: UIViewController {
 
     // MARK: - Outlets and Variables
+    internal weak var dataSource: SnackViewDataSource?
+
+    @available(*, deprecated, message: "This property will be removed later.")
     internal var titleOptions: SVTitleOptions!
-    public internal(set) var items: [SVItem]? = []
-    internal var contentView: UIView = UIView()
-    internal var titleBar: SVTitleItem!
-    internal var scrollView: UIScrollView = UIScrollView()
-    internal var stackView: UIStackView = UIStackView()
-    internal var safeAreaView: UIView = UIView()
-    internal var bottomContentViewConstant: NSLayoutConstraint = NSLayoutConstraint()
-    internal var customInputAccessoryView: UIView = UIView()
-    internal var keyboardHeight: CGFloat = 0
-    internal var animationSpeed: TimeInterval = 0.25
+
+    public internal(set) var items: [SVItem]?                       = []
+    internal var contentView: UIView                                = UIView()
+    internal var titleBar: SVTitleItem                              = SVTitleItem()
+    internal var scrollView: UIScrollView                           = UIScrollView()
+    internal var stackView: UIStackView                             = UIStackView()
+    internal var safeAreaView: UIView                               = UIView()
+    internal var bottomContentViewConstant: NSLayoutConstraint      = NSLayoutConstraint()
+    internal var customInputAccessoryView: UIView                   = UIView()
+    internal var keyboardHeight: CGFloat                            = 0
+    internal var animationSpeed: TimeInterval                       = 0.25
     override public var inputAccessoryView: UIView? {
         let customInput = CustomInputAccessoryView()
         customInput.frame.size.height = 0.1
         return customInput
     }
     
-    //private let dataSource: SnackViewProtocol
-    internal weak var dataSource: SnackViewDataSource?
-
     /// Initialization method for SnackView object
     ///
     /// - Parameter dataSource: Class conformed to SnackViewProtocol
     public init(with dataSource: SnackViewDataSource) {
         self.dataSource = dataSource
+
         super.init(nibName: nil, bundle: nil)
-
-        let title = self.dataSource?.titleFor(snackView: self) ?? ""
-        let cancelTitle = self.dataSource?.cancelTitleFor(snackView: self)
-        let isCancelButtonVisible = self.dataSource?.cancelTitleFor(snackView: self) != nil
-        let items = self.dataSource?.itemsFor(snackView: self) ?? []
-
-        self.items = items
-        self.titleOptions = SVTitleOptions(withTitle: title, setCloseButtonVisible: isCancelButtonVisible, setCloseButtonTitle: cancelTitle)
-        
     }
 
     @available(*, deprecated, message: "This method will be removed later. Please use 'init(with: SnackViewProtocol)' instead.")
@@ -93,24 +86,16 @@ public class SnackView: UIViewController {
         super.viewDidLoad()
 
         self.setupViewController()
-
-        // Create the SnackView skeleton view
         self.layoutSnackViewSkeleton()
-
-        // Register SnackView for keyboard notifications
-        self.addNotificationsObserver()
+        self.addKeyboardNotificationsObserver()
     }
 
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        // Populate stackview with items
-        if let items = self.dataSource?.itemsFor(snackView: self) {
-            self.items = items
-        }
-        self.addItemsInsideStackView()
-        
         self.setBackgroundForWillAppear()
+        self.getDataFromDataSource()
+        self.addItemsInsideStackView()
     }
 
     override public func viewDidAppear(_ animated: Bool) {

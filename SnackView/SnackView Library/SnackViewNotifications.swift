@@ -55,6 +55,6 @@ extension SnackView {
         if let animationDuration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber {
             return animationDuration
         }
-        return 0.25
+        return NSNumber(value: self.animationSpeed)
     }
 }

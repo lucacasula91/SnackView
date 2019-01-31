@@ -43,7 +43,6 @@
 		518449D721ECDDC400EE1E6C /* SnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518449D621ECDDC300EE1E6C /* SnackViewDataSource.swift */; };
 		5192725A21F86BC100E0965C /* SVCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192725921F86BC100E0965C /* SVCustomButton.swift */; };
 		5192725E21F86EE800E0965C /* SVGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192725D21F86EE800E0965C /* SVGradientView.swift */; };
-		51D95A0E21F709B100D3145B /* SnackViewSkeleton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51D95A0D21F709B100D3145B /* SnackViewSkeleton.xib */; };
 		51F4CB1121E388CF0096E48D /* SnackViewPublicMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */; };
 		51F4CB1221E388CF0096E48D /* SnackViewInternalMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */; };
 		51F4CB1321E388CF0096E48D /* SnackViewNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB1021E388CF0096E48D /* SnackViewNotifications.swift */; };
@@ -134,7 +133,6 @@
 		518449D621ECDDC300EE1E6C /* SnackViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SnackViewDataSource.swift; path = /Users/bf462at/Documents/SnackView/SnackViewExample/Source/SnackViewDataSource.swift; sourceTree = "<absolute>"; };
 		5192725921F86BC100E0965C /* SVCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVCustomButton.swift; sourceTree = "<group>"; };
 		5192725D21F86EE800E0965C /* SVGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGradientView.swift; sourceTree = "<group>"; };
-		51D95A0D21F709B100D3145B /* SnackViewSkeleton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SnackViewSkeleton.xib; sourceTree = "<group>"; };
 		51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewPublicMethods.swift; sourceTree = "<group>"; };
 		51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewInternalMethods.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		51F4CB1021E388CF0096E48D /* SnackViewNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewNotifications.swift; sourceTree = "<group>"; };
@@ -281,7 +279,6 @@
 			isa = PBXGroup;
 			children = (
 				38F4AF0D205969E800341940 /* SnackView.swift */,
-				51D95A0D21F709B100D3145B /* SnackViewSkeleton.xib */,
 				511780C521E5E84E00EBD9F8 /* SnackViewDataSource.swift */,
 				51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */,
 				51F4CB1021E388CF0096E48D /* SnackViewNotifications.swift */,
@@ -472,7 +469,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EDE06202099F5DF0017A700 /* SnackViewAssets.xcassets in Resources */,
-				51D95A0E21F709B100D3145B /* SnackViewSkeleton.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
