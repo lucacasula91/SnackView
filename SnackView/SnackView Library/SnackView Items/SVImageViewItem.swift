@@ -10,7 +10,7 @@ import UIKit
 
 public class SVImageViewItem: SVItem {
 
-    public init(withImage image: UIImage, andContentMode contentMode: UIViewContentMode, andHeight height: CGFloat? = nil) {
+    public init(withImage image: UIImage, andContentMode contentMode: UIView.ContentMode, andHeight height: CGFloat? = nil) {
         super.init()
         
         self.setMinimumHeightActive(active: false)

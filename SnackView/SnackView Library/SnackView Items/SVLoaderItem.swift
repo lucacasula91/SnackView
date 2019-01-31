@@ -34,7 +34,7 @@ public class SVLoaderItem: SVItem {
         self.heightAnchor.constraint(greaterThanOrEqualToConstant: size == .little ? 50 : 70).isActive = true
 
         //Add activity indicator view
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: size == .little ? .gray : .whiteLarge )
+        let activityIndicator = UIActivityIndicatorView(style: size == .little ? .gray : .whiteLarge )
         activityIndicator.color = UIColor.gray
         activityIndicator.startAnimating()
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false

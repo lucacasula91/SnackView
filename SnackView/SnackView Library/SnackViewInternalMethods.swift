@@ -56,13 +56,13 @@ extension SnackView {
     internal func addNotificationsObserver() {
         let notificationCenter = NotificationCenter.default
 
-        let keyboardWillShow = NSNotification.Name.UIKeyboardWillShow
+        let keyboardWillShow = UIResponder.keyboardWillShowNotification
         notificationCenter.addObserver(self,
                                        selector: #selector(keyboardWillShow(notification:)),
                                        name: keyboardWillShow,
                                        object: nil)
 
-        let keyboardWillHide = NSNotification.Name.UIKeyboardWillHide
+        let keyboardWillHide = UIResponder.keyboardWillHideNotification
         notificationCenter.addObserver(self,
                                        selector: #selector(keyboardWillHide(notification:)),
                                        name: keyboardWillHide,
@@ -115,7 +115,7 @@ extension SnackView {
         // Add TitleBar
         self.titleBar = SVTitleItem(withTitle: self.titleOptions.title, andCancelButton: self.titleOptions.closeButtonTitle)
         self.titleBar.translatesAutoresizingMaskIntoConstraints = false
-        self.titleBar.cancelButton.addTarget(self, action: #selector(closeActionSelector), for: UIControlEvents.touchUpInside)
+        self.titleBar.cancelButton.addTarget(self, action: #selector(closeActionSelector), for: UIControl.Event.touchUpInside)
 
         // Check if close button must be visible or hidden
         self.titleBar.cancelButton.isHidden = self.titleOptions.closeButtonVisible ? false : true
@@ -193,7 +193,7 @@ extension SnackView {
         self.stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
 
         // Add BottomAlertItems to ScrollView
-        for item in self.items {
+        for item in self.items ?? [] {
             self.stackView.addArrangedSubview(item)
         }
 
@@ -203,8 +203,8 @@ extension SnackView {
 
     internal func checkSnackViewContainsItemsOrAddDescriptionItem() {
         if self.stackView.arrangedSubviews.isEmpty {
-            let info = SVDescriptionItem(withDescription: "SnackView needs a non empty SVItem array to work properly.")
 
+            let info = SVDescriptionItem(withDescription: "SnackView needs a non empty SVItem array to work properly.")
             self.stackView.addArrangedSubview(info)
         }
         self.view.layoutIfNeeded()
@@ -237,7 +237,7 @@ extension SnackView {
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = containerViewController
         window.backgroundColor = UIColor.clear
-        window.windowLevel = UIWindowLevelAlert+1
+        window.windowLevel = UIWindow.Level.alert+1
         window.makeKeyAndVisible()
         window.resignFirstResponder()
 

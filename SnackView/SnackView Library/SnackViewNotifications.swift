@@ -45,14 +45,14 @@ extension SnackView {
     }
 
     private func getKeyboardSizeFrom(notification: Notification) -> CGRect {
-        if let keyboardSize = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? CGRect {
+        if let keyboardSize = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
             return keyboardSize
         }
         return CGRect.zero
     }
 
     private func getAnimationDurationFrom(notification: Notification) -> NSNumber {
-        if let animationDuration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber {
+        if let animationDuration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber {
             return animationDuration
         }
         return 0.25

@@ -27,9 +27,9 @@ public class SVButtonItem: SVItem {
         //Add button item
         let buttonItem = UIButton()
         buttonItem.translatesAutoresizingMaskIntoConstraints = false
-        buttonItem.setTitle(title, for: UIControlState())
-        buttonItem.setTitleColor(color, for: UIControlState.normal)
-        buttonItem.setTitleColor(color.withAlphaComponent(0.5), for: UIControlState.highlighted)
+        buttonItem.setTitle(title, for: UIControl.State())
+        buttonItem.setTitleColor(color, for: UIControl.State.normal)
+        buttonItem.setTitleColor(color.withAlphaComponent(0.5), for: UIControl.State.highlighted)
         buttonItem.addTarget(self, action: #selector(buttonSelector), for: .touchUpInside)
         self.addSubview(buttonItem)
 

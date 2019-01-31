@@ -13,7 +13,7 @@ public class SnackView: UIViewController {
 
     // MARK: - Outlets and Variables
     internal var titleOptions: SVTitleOptions!
-    public internal(set) var items: [SVItem] = []
+    public internal(set) var items: [SVItem]? = []
     internal var contentView: UIView = UIView()
     internal var titleBar: SVTitleItem!
     internal var scrollView: UIScrollView = UIScrollView()
@@ -30,8 +30,7 @@ public class SnackView: UIViewController {
     }
     
     //private let dataSource: SnackViewProtocol
-    internal let dataSource: SnackViewDataSource
-
+    internal weak var dataSource: SnackViewDataSource?
 
     /// Initialization method for SnackView object
     ///
@@ -40,10 +39,10 @@ public class SnackView: UIViewController {
         self.dataSource = dataSource
         super.init(nibName: nil, bundle: nil)
 
-        let title = dataSource.titleFor(snackView: self)
-        let cancelTitle = dataSource.cancelTitleFor(snackView: self)
-        let isCancelButtonVisible = dataSource.cancelTitleFor(snackView: self) != nil
-        let items = dataSource.itemsFor(snackView: self)
+        let title = self.dataSource?.titleFor(snackView: self) ?? ""
+        let cancelTitle = self.dataSource?.cancelTitleFor(snackView: self)
+        let isCancelButtonVisible = self.dataSource?.cancelTitleFor(snackView: self) != nil
+        let items = self.dataSource?.itemsFor(snackView: self) ?? []
 
         self.items = items
         self.titleOptions = SVTitleOptions(withTitle: title, setCloseButtonVisible: isCancelButtonVisible, setCloseButtonTitle: cancelTitle)
@@ -85,7 +84,7 @@ public class SnackView: UIViewController {
         if #available(iOS 10.0, *) {
             os_log("SnackView has been deinitialized.")
         } else {
-            NSLog("SnackView<\(self.titleOptions.title)> has been deinitialized.")
+            NSLog("SnackView has been deinitialized.")
         }
     }
 
@@ -106,8 +105,9 @@ public class SnackView: UIViewController {
         super.viewWillAppear(animated)
 
         // Populate stackview with items
-        let items = self.dataSource.itemsFor(snackView: self)
-        self.items = items
+        if let items = self.dataSource?.itemsFor(snackView: self) {
+            self.items = items
+        }
         self.addItemsInsideStackView()
         
         self.setBackgroundForWillAppear()

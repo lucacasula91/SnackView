@@ -9,7 +9,7 @@
 import UIKit
 
 /// Description
-public protocol SnackViewDataSource {
+public protocol SnackViewDataSource: class {
 
     /// Description
     ///
