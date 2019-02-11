@@ -11,18 +11,22 @@ import UIKit
 /** SVDescriptionItem is an SVItem with which to show a multi-line description text. */
 public class SVDescriptionItem: SVItem {
 
+    // MARK: - Properties
+    private(set) var descriptionText: String
+
     // MARK: - Initialization Method
     /**
      Initialization method for SVDescriptionItem view. You can customize this item with a description text.
      - parameter description: The text you want to show
      */
     public init(withDescription description: String) {
+        self.descriptionText = description
         super.init()
 
         //Add label item
         let descriptionLabel = UILabel()
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.text = description
+        descriptionLabel.text = self.descriptionText
         descriptionLabel.textColor = grayTextColor
         descriptionLabel.font = UIFont.systemFont(ofSize: 14)
         descriptionLabel.numberOfLines = 0
@@ -37,6 +41,6 @@ public class SVDescriptionItem: SVItem {
     }
 
     required public convenience init?(coder aDecoder: NSCoder) {
-        self.init(coder: aDecoder)
+        return nil
     }
 }

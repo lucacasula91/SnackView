@@ -14,13 +14,13 @@ public struct SVTitleOptions {
     // MARK: - Variables
 
     /** The title of SVTitleItem */
-    var title: String
+    private(set) var title: String
 
     /** A boolean value with which to set visible or hidden the close button. */
-    var closeButtonVisible: Bool
+    private(set) var closeButtonVisible: Bool
 
     /** The title of the close button */
-    var closeButtonTitle: String
+    private(set) var closeButtonTitle: String
 
     // MARK: - Initialization Method
     /**

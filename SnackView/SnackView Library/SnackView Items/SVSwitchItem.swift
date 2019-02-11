@@ -11,14 +11,24 @@ import UIKit
 /** SVSwitchItem is an SVItem with which to show a title, a description and a UISwitch */
 public class SVSwitchItem: SVItem {
 
+    // MARK: - Properties
+    private(set) var title: String
+    private(set) var descriptionText: String?
+    private(set) var currentState: Bool
+
     // MARK: - Initialization Method
     /**
      Initialization method for SVSwitchItem view. You can customize this item with a title, a description text and an action to assign when UISwitch value change.
      - parameter title: The title you want to show
      - parameter description: The description text you want to show. This parameter is nullable
+     - parameter state: The initial state of UISwitch
      - parameter switchAction: The action to perform when UISwitch value change
      */
-    public init(withTitle title: String, andDescription description: String?, withSwitchAction switchAction:@escaping (_ switchValue: Bool) -> Void) {
+    public init(withTitle title: String, andDescription description: String?, withState state: Bool, withSwitchAction switchAction:@escaping (_ switchValue: Bool) -> Void) {
+        self.title = title
+        self.descriptionText = description
+        self.currentState = state
+
         super.init()
 
         //Assign the UISwitch action to tmpAction
@@ -79,12 +89,16 @@ public class SVSwitchItem: SVItem {
     }
 
     required public convenience init?(coder aDecoder: NSCoder) {
-        self.init(coder: aDecoder)
+        return nil
     }
 
     // MARK: - Custom stuff
     var tmpAction:(_ switchValue: Bool) -> Void = {_ in }
     @objc func switchSelector(switchItem: UISwitch) {
-        self.tmpAction(switchItem.isOn)
+        let currentState = switchItem.isOn
+        
+        self.tmpAction(currentState)
+        self.currentState = currentState
     }
+
 }

@@ -89,14 +89,4 @@ class MockSnackView: SnackViewDataSource {
     }
 }
 
-extension MockSnackView {
-    var items: [SVItem] {
-
-        let buttonItem = SVButtonItem(withTitle: "Do something", withButtonAction: {})
-        let titleItem = SVTitleItem(withTitle: "SnackView item", andCancelButton: "Done")
-
-        return [buttonItem, titleItem]
-    }
-}
-
 // codebeat:enable[TOO_MANY_IVARS]

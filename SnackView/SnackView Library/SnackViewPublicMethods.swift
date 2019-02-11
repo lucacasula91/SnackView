@@ -25,13 +25,6 @@ extension SnackView {
         self.closeActionSelector()
     }
 
-    func getItemsCount() -> Int {
-        return (self.items ?? []).count
-    }
-
-    func getItems() -> [SVItem] {
-        return self.items ?? []
-    }
     // MARK: - SVItem management methods
 
     /// Insert a new SVItem to SnackView view controller. You can specify the index in which to insert SVItem, if it is passed **nil** SVItem is added with endIndex value.

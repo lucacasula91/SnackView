@@ -14,6 +14,11 @@ import UIKit
  */
 public class SVApplicationItem: SVItem {
 
+    // MARK: - Properties
+    private(set) var icon: UIImage
+    private(set) var title: String
+    private(set) var descriptionText: String
+
     // MARK: - Initialization Method
     /**
      Initialization method for SVApplicationItem view. You can customize this item with image, title and description text.
@@ -22,6 +27,10 @@ public class SVApplicationItem: SVItem {
      - parameter description: The description text of application or in-app purchase
      */
     public init(withIcon icon: UIImage, withTitle title: String, andDescription description: String) {
+        self.icon = icon
+        self.title = title
+        self.descriptionText = description
+
         super.init()
 
         //Create left container
@@ -85,8 +94,9 @@ public class SVApplicationItem: SVItem {
         let descriptionVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:[titleLabel][descriptionLabel]-|", options: [], metrics: nil, views: ["titleLabel": titleLabel, "descriptionLabel": descriptionLabel])
         self.addConstraints(descriptionVContraints)
     }
-
+    
     required public convenience init?(coder aDecoder: NSCoder) {
-        self.init(coder: aDecoder)
+        return nil
     }
+    
 }

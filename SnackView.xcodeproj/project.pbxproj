@@ -39,6 +39,7 @@
 		38F4AF1C205969E900341940 /* CustomInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF12205969E900341940 /* CustomInputAccessoryView.swift */; };
 		38F4AF1D205969E900341940 /* SVTitleOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF13205969E900341940 /* SVTitleOptions.swift */; };
 		511780C621E5E84E00EBD9F8 /* SnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511780C521E5E84E00EBD9F8 /* SnackViewDataSource.swift */; };
+		512E7E3C2211D01400FCCE7F /* MockDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512E7E3B2211D01400FCCE7F /* MockDataSourceTests.swift */; };
 		51822D8B21E4D06F00380738 /* MockDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51822D8A21E4D06F00380738 /* MockDataSource.swift */; };
 		518449D721ECDDC400EE1E6C /* SnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518449D621ECDDC300EE1E6C /* SnackViewDataSource.swift */; };
 		5192725A21F86BC100E0965C /* SVCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192725921F86BC100E0965C /* SVCustomButton.swift */; };
@@ -129,6 +130,7 @@
 		38F4AF12205969E900341940 /* CustomInputAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInputAccessoryView.swift; sourceTree = "<group>"; };
 		38F4AF13205969E900341940 /* SVTitleOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVTitleOptions.swift; sourceTree = "<group>"; };
 		511780C521E5E84E00EBD9F8 /* SnackViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewDataSource.swift; sourceTree = "<group>"; };
+		512E7E3B2211D01400FCCE7F /* MockDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataSourceTests.swift; sourceTree = "<group>"; };
 		51822D8A21E4D06F00380738 /* MockDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataSource.swift; sourceTree = "<group>"; };
 		518449D621ECDDC300EE1E6C /* SnackViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SnackViewDataSource.swift; path = /Users/bf462at/Documents/SnackView/SnackViewExample/Source/SnackViewDataSource.swift; sourceTree = "<absolute>"; };
 		5192725921F86BC100E0965C /* SVCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVCustomButton.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		38F4AEFD205969CD00341940 /* SnackViewTests */ = {
 			isa = PBXGroup;
 			children = (
+				512E7E3B2211D01400FCCE7F /* MockDataSourceTests.swift */,
 				38F4AEFE205969CD00341940 /* SnackViewTests.swift */,
 				FF42AE3021E2919600F4ECEB /* SVItemsTests.swift */,
 				FF511B0C21E273A300911490 /* Test Utilities */,
@@ -555,6 +558,7 @@
 			files = (
 				38F4AEFF205969CD00341940 /* SnackViewTests.swift in Sources */,
 				FF511B0E21E273BA00911490 /* MockSnackView.swift in Sources */,
+				512E7E3C2211D01400FCCE7F /* MockDataSourceTests.swift in Sources */,
 				FF42AE2F21E2888600F4ECEB /* UIViewController+Hierarchy.swift in Sources */,
 				FF42AE3121E2919600F4ECEB /* SVItemsTests.swift in Sources */,
 				51F4CB1721E492670096E48D /* ImageCreator.swift in Sources */,

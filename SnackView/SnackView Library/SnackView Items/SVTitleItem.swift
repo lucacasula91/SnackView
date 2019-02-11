@@ -93,10 +93,6 @@ class SVTitleItem: SVItem {
 
     }
 
-    required convenience init?(coder aDecoder: NSCoder) {
-        self.init(coder: aDecoder)
-    }
-
     public func setTitle(_ title: String) {
         self.titleLabel.text = title
     }

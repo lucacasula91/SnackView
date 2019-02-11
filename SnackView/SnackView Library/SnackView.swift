@@ -70,15 +70,11 @@ public class SnackView: UIViewController {
     }
 
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return nil
     }
 
     deinit {
-        if #available(iOS 10.0, *) {
-            os_log("SnackView has been deinitialized.")
-        } else {
-            NSLog("SnackView has been deinitialized.")
-        }
+        NSLog("SnackView has been deinitialized.")
     }
 
     // MARK: - System Methods

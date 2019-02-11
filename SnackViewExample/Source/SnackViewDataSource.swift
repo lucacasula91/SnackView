@@ -46,7 +46,8 @@ class SnackViewDataSourceManager {
     fileprivate func getMixedItems() -> [SVItem] {
         let loaderItem = SVLoaderItem(withSize: .large, andText: "Lorem ipsum dolor sit amet.")
         let switchItem = SVSwitchItem(withTitle: "Push Notifications",
-                                      andDescription: "Activate to stay up to date...") { isOn in
+                                      andDescription: "Activate to stay up to date...",
+                                      withState: false) { isOn in
                                         print("switch toggled: \(isOn)") }
         let applicationItem = SVApplicationItem(withIcon: #imageLiteral(resourceName: "Icon"),
                                                 withTitle: "Ipsum lorem",

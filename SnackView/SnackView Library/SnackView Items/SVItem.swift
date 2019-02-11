@@ -19,9 +19,9 @@ open class SVItem: UIView {
 
     // MARK: - Private variables
     private var bottomLine: UIView!
-    private var heightConstraint: NSLayoutConstraint?
 
     // MARK: - Public Variables
+    private(set) var heightConstraint: NSLayoutConstraint?
     public let leftContentWidth: CGFloat = 111
     public let grayTextColor = #colorLiteral(red: 0.5553562641, green: 0.5649003983, blue: 0.5733956099, alpha: 1)
     public let blueButtonColor = #colorLiteral(red: 0, green: 0.4779834747, blue: 0.9985283017, alpha: 1)
@@ -38,7 +38,7 @@ open class SVItem: UIView {
     }
 
     required public convenience init?(coder aDecoder: NSCoder) {
-        self.init(coder: aDecoder)
+        return nil
     }
 
     // MARK: - Public Method
@@ -48,12 +48,14 @@ open class SVItem: UIView {
      */
     public func setMinimumHeightActive(active: Bool) {
 
-        if active && self.heightConstraint == nil {
+        if active {
             self.setDefaultHeightConstraint()
-
-        } else if let tmpConstraint = self.heightConstraint {
-            self.removeConstraint(tmpConstraint)
-            self.heightConstraint = nil
+        }
+        else {
+            if let tmpConstraint = self.heightConstraint {
+                self.removeConstraint(tmpConstraint)
+                self.heightConstraint = nil
+            }
         }
     }
 
