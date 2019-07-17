@@ -32,6 +32,7 @@ extension SnackView {
     /// - Parameters:
     ///   - item: The SVItem to add to SnackView
     ///   - index: The index in which insert the new SVItem
+    @available(*, deprecated, message: "This method will be removed later.")
     open func insert(item: SVItem, atIndex index: Int?) {
         if let unwrappedIndex = index {
             self.items?.insert(item , at: unwrappedIndex)
@@ -56,6 +57,7 @@ extension SnackView {
     /// Remove a SVItem from SnackView view controller.
     ///
     /// - Parameter item: The SVItem to remove from SnackView
+    @available(*, deprecated, message: "This method will be removed later.")
     open func remove(item: SVItem) {
         UIView.animate(withDuration: self.animationSpeed, animations: {
             item.isHidden = true
@@ -73,6 +75,7 @@ extension SnackView {
     /// Remove a SVItem from SnackView view controller according a specific index.
     ///
     /// - Parameter index: The row index where remove SVItem
+    @available(*, deprecated, message: "This method will be removed later.")
     open func removeItemAt(index: Int) {
         guard index < self.stackView.arrangedSubviews.count else {
             NSLog("SnackView: Cannot remove item at index \(index). Index out of range.")
@@ -86,6 +89,7 @@ extension SnackView {
     /// Replace all the content present in SnackView with a new one SVItem array
     ///
     /// - Parameter items: Array of SVItem with which to replace items already present in SnackView
+    @available(*, deprecated, message: "This method will be removed later.")
     open func updateWith(items: [SVItem]) {
         let oldItems = self.stackView.arrangedSubviews
 

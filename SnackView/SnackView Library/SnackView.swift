@@ -32,7 +32,8 @@ public class SnackView: UIViewController {
         customInput.frame.size.height = 0.1
         return customInput
     }
-    
+
+    // MARK: - Initialization Methods
     /// Initialization method for SnackView object
     ///
     /// - Parameter dataSource: Class conformed to SnackViewProtocol
@@ -77,7 +78,7 @@ public class SnackView: UIViewController {
         NSLog("SnackView has been deinitialized.")
     }
 
-    // MARK: - System Methods
+    // MARK: - UIViewController Methods
     override public func viewDidLoad() {
         super.viewDidLoad()
 
