@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,22 +22,32 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SnackView" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rL-Dm-jsv">
-                                        <rect key="frame" x="104.33333333333333" y="80" width="166.33333333333337" height="38.333333333333343"/>
+                                        <rect key="frame" x="12" y="80" width="166.33333333333334" height="38.333333333333343"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's new?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccd-LK-VSH">
+                                        <rect key="frame" x="12" y="118.33333333333333" width="132.66666666666666" height="26.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="1rL-Dm-jsv" firstAttribute="top" secondItem="LxX-Pp-30r" secondAttribute="top" constant="80" id="T4I-n3-yLC"/>
-                                    <constraint firstItem="1rL-Dm-jsv" firstAttribute="centerX" secondItem="LxX-Pp-30r" secondAttribute="centerX" id="qZd-dK-53L"/>
+                                    <constraint firstItem="ccd-LK-VSH" firstAttribute="top" secondItem="1rL-Dm-jsv" secondAttribute="bottom" id="9Pl-4O-yxs"/>
+                                    <constraint firstItem="1rL-Dm-jsv" firstAttribute="top" secondItem="LxX-Pp-30r" secondAttribute="topMargin" constant="28" id="IKp-Ta-pvw"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ccd-LK-VSH" secondAttribute="trailing" symbolic="YES" id="ILw-NT-l73"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1rL-Dm-jsv" secondAttribute="trailing" symbolic="YES" id="ODp-OR-RIz"/>
+                                    <constraint firstItem="ccd-LK-VSH" firstAttribute="leading" secondItem="1rL-Dm-jsv" secondAttribute="leading" id="gwy-Yr-VFI"/>
+                                    <constraint firstItem="1rL-Dm-jsv" firstAttribute="leading" secondItem="LxX-Pp-30r" secondAttribute="leading" constant="12" id="p9m-q1-UYK"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                        <color key="value" red="0.93993258476257324" green="0.48258429017750609" blue="0.3868104506414532" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="value" red="0.94290353546679861" green="0.36514921095215391" blue="0.34752788021891801" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                        <color key="value" red="0.79773306846618652" green="0.61530526715860123" blue="0.2335094879430856" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="value" red="0.84276497867745415" green="0.69857441328536174" blue="0.2335094879430856" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -60,7 +70,7 @@
                                                         <rect key="frame" x="263" y="8" width="80" height="44"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="I28-7T-fbF"/>
-                                                            <constraint firstAttribute="width" constant="80" id="qJu-cb-68H"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="qJu-cb-68H"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                         <state key="normal" title="Show"/>
@@ -99,7 +109,7 @@
                                                         <rect key="frame" x="263" y="8" width="80" height="44"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="JEV-f8-2jA"/>
-                                                            <constraint firstAttribute="width" constant="80" id="oXX-nq-QgB"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="oXX-nq-QgB"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                         <state key="normal" title="Show"/>
@@ -141,7 +151,7 @@
                                                         <rect key="frame" x="263" y="8" width="80" height="44"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="JvB-r3-May"/>
-                                                            <constraint firstAttribute="width" constant="80" id="lew-7Q-IEF"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="lew-7Q-IEF"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                         <state key="normal" title="Show"/>

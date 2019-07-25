@@ -12,10 +12,6 @@ extension SnackView {
 
     /// Present SnackView with custom animation.
     open func show() {
-//        if let itemsToShow = self.dataSource?.itemsFor(snackView: self) {
-//            self.updateWith(items: itemsToShow)
-//        }
-
         let presenter = self.getPresenterViewController()
         presenter.present(self, animated: false, completion: nil)
     }
