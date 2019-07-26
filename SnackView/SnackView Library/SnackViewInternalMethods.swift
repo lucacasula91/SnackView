@@ -230,7 +230,7 @@ extension SnackView {
         let resourceBundle = Bundle(url: bundleURL!)
 
         if let image = UIImage(named: "Code_preview", in: resourceBundle, compatibleWith: nil) {
-            let imageCode = SVImageViewItem(withImage: image, andContentMode: UIView.ContentMode.scaleToFill, andHeight: 149)
+            let imageCode = SVImageViewItem(with: image, andContentMode: UIView.ContentMode.scaleToFill, andHeight: 149)
             return imageCode
         }
 

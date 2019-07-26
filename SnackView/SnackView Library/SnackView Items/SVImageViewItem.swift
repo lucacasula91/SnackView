@@ -15,7 +15,7 @@ public class SVImageViewItem: SVItem {
     private(set) var currentContentMode: UIView.ContentMode
     private(set) var currentHeight: CGFloat?
 
-    public init(withImage image: UIImage, andContentMode contentMode: UIView.ContentMode, andHeight height: CGFloat? = nil) {
+    public init(with image: UIImage, andContentMode contentMode: UIView.ContentMode, andHeight height: CGFloat? = nil) {
         self.image = image
         self.currentContentMode = contentMode
         self.currentHeight = height

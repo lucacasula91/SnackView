@@ -4,6 +4,7 @@
 ***An easy way to present customizable bottom-half alert.***
 ![SnackView logo](http://www.lucacasula.it/SVItems/SnackViewPreview.jpg)
 
+[![Build Status](https://travis-ci.org/lucacasula91/SnackView.svg?branch=master)](https://travis-ci.org/lucacasula91/SnackView)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SnackView.svg)](https://img.shields.io/cocoapods/v/SnackView.svg)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Platform](https://img.shields.io/cocoapods/p/SnackView.svg?style=flat)](https://github.com/lucacasula91/SnackView/wiki)
@@ -14,11 +15,9 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/9aeb1378d61a9f9a3fe4/maintainability)](https://codeclimate.com/github/lucacasula91/SnackView/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/9aeb1378d61a9f9a3fe4/test_coverage)](https://codeclimate.com/github/lucacasula91/SnackView/test_coverage)
 
-[![Build Status](https://travis-ci.org/lucacasula91/SnackView.svg?branch=master)](https://travis-ci.org/lucacasula91/SnackView)
-
 - [What's new](#whats-new)
-  - [What's new in 2.0.0](#whats-new-in-200)
-
+  - [What's new in 1.0.9](#whats-new-in-109)
+	- [What's new in 1.0.8](#whats-new-in-108)
 - [Installation](#installation)
 	- [CocoaPods](#cocoapods)
 	- [Carthage](#carthage)
@@ -30,10 +29,14 @@
 - [Contributing](#contributing)
 
 ## What's new
-### What's new in 2.0.0
-- Rewritten and reorganized part of the code
-- 
 
+### What's new in 1.0.9
+- New SnackViewDataSource protocol with which create your SnackView.
+- New SVImageViewItem class with which display images.
+- A lot of code improvements.
+
+### What's new in 1.0.8
+- Fixed crash that occurs when SnackView was init with an empty SVItem array.
 
 ## Installation
 
@@ -84,23 +87,39 @@ The first step is to create an array of SVItem. SVItem is the class of every ele
 Here an example of simple SnackView alert:
 
 ```swift
-//SVItem array
-let items: Array<SVItem>!
+class MyCustomClass: UIViewController {
 
-//Define all the view you want to display
-let newPassword = SVTextFieldItem(withPlaceholder: "New Password", isSecureField: true)
+    override func viewDidLoad() {  }
 
-let repeatPassword = SVTextFieldItem(withPlaceholder: "Repeat Password", isSecureField: true)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
 
-let continueButton = SVButtonItem(withTitle: "Continue") {
-    /* Handle action here */
+        // Present the SnackView
+        let dataSource = self
+        SnackView(with: dataSource).show()
+    }
 }
 
-//Populate the SVItem array
-items = [newPassword, repeatPassword, continueButton]
+// MARK: - SnackViewDataSource Section
+extension MyCustomClass: SnackViewDataSource {
 
-//Present the alert on screen.
-SnackView(withTitle: "Create password", andCloseButtonTitle: "Cancel", andItems: items).show()
+    func titleFor(snackView: SnackView) -> String {
+        return "What's New"
+    }
+
+    func cancelTitleFor(snackView: SnackView) -> String? {
+        return "Dismiss"
+    }
+
+    func itemsFor(snackView: SnackView) -> [SVItem] {
+        let descriptionItem = SVDescriptionItem(withDescription: "In this last release of SnackView we...")
+        let imageItem = SVImageViewItem(withImage: UIImage(named: "hat_is_new")!,
+                                        andContentMode: .scaleAspectFill)
+
+        return [descriptionItem, imageItem]
+    }
+}
+
 ```
 
 The result will be:
@@ -187,6 +206,18 @@ SVLoadingItem(withSize: .large,
 ![SnackView alert Item](http://www.lucacasula.it/SVItems/SVLoaderDescriptionItem.svg)
 
 ***
+
+**SVImaveViewItem**
+
+```swift
+SVImageViewItem(with: UIImage(named: "hat_is_new")!,
+                              andContentMode: .scaleAspectFill)
+```
+
+![SnackView alert Item](http://www.lucacasula.it/SVItems/SVImageViewItem.svg)
+
+***
+
 
 # Create custom SVItems
 #### You can create custom items subclassing SVItem class. 
