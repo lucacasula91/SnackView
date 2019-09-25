@@ -12,6 +12,9 @@ extension SnackView {
 
     /// Present SnackView with custom animation.
     open func show() {
+        
+        self.modalPresentationStyle = .overFullScreen
+        
         let presenter = self.getPresenterViewController()
         presenter.present(self, animated: false, completion: nil)
     }

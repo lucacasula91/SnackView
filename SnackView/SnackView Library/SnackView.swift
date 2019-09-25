@@ -17,16 +17,17 @@ public class SnackView: UIViewController {
     @available(*, deprecated, message: "This property will be removed later.")
     internal var titleOptions: SVTitleOptions!
 
-    public internal(set) var items: [SVItem]?                       = []
-    internal var contentView: UIView                                = UIView()
-    internal var titleBar: SVTitleItem                              = SVTitleItem()
-    internal var scrollView: UIScrollView                           = UIScrollView()
-    internal var stackView: UIStackView                             = UIStackView()
-    internal var safeAreaView: UIView                               = UIView()
-    internal var bottomContentViewConstant: NSLayoutConstraint      = NSLayoutConstraint()
-    internal var customInputAccessoryView: UIView                   = UIView()
-    internal var keyboardHeight: CGFloat                            = 0
-    internal var animationSpeed: TimeInterval                       = 0.25
+    public internal(set) var items: [SVItem]? = []
+    internal var window: UIWindow?
+    internal var contentView = UIView()
+    internal var titleBar = SVTitleItem()
+    internal var scrollView = UIScrollView()
+    internal var stackView = UIStackView()
+    internal var safeAreaView = UIView()
+    internal var bottomContentViewConstant = NSLayoutConstraint()
+    internal var customInputAccessoryView = UIView()
+    internal var keyboardHeight: CGFloat = 0
+    internal var animationSpeed: TimeInterval = 0.25
     override public var inputAccessoryView: UIView? {
         let customInput = CustomInputAccessoryView()
         customInput.frame.size.height = 0.1

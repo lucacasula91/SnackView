@@ -80,11 +80,14 @@ public class SVTextFieldItem: SVItem {
         self.addSubview(textField)
 
         //Add constraints to textField
-        let textFieldHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[titleLabel]-[textfield]-|", options: [], metrics: nil, views: ["titleLabel": titleLabel, "textfield": textField])
-        self.addConstraints(textFieldHContraints)
+        if let _textField = textField {
+            let textFieldHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[titleLabel]-[textfield]-|", options: [], metrics: nil, views: ["titleLabel": titleLabel, "textfield": _textField])
+            self.addConstraints(textFieldHContraints)
 
-        let textFieldVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[textfield]-|", options: [], metrics: nil, views: ["textfield": textField])
-        self.addConstraints(textFieldVContraints)
+            let textFieldVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[textfield]-|", options: [], metrics: nil, views: ["textfield": _textField])
+            self.addConstraints(textFieldVContraints)
+        }
+        
     }
 
     required public convenience init?(coder aDecoder: NSCoder) {

@@ -258,15 +258,17 @@ extension SnackView {
     /// - Returns: UIViewController to use to present the SnackView
     internal func getPresenterViewController() -> UIViewController {
         let containerViewController = UIViewController()
+        containerViewController.modalPresentationStyle = .overFullScreen
         containerViewController.view.backgroundColor = UIColor.clear
         containerViewController.view.isUserInteractionEnabled = true
 
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = containerViewController
-        window.backgroundColor = UIColor.clear
-        window.windowLevel = UIWindow.Level.alert+1
-        window.makeKeyAndVisible()
-        window.resignFirstResponder()
+        window = nil
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = containerViewController
+        window?.backgroundColor = UIColor.clear
+        window?.windowLevel = UIWindow.Level.alert+1
+        window?.makeKeyAndVisible()
+        window?.resignFirstResponder()
 
         return containerViewController
     }
@@ -287,7 +289,12 @@ extension SnackView {
                 UIView.animate(withDuration: self.animationSpeed, animations: {
                     self.view.backgroundColor = UIColor.clear
                 }) { (_) in
-                    self.dismiss(animated: false, completion: nil)
+                    self.dismiss(animated: false) {
+                        self.window?.rootViewController = nil
+                        self.window?.resignFirstResponder()
+                        self.window?.removeFromSuperview()
+                        self.window = nil 
+                    }
                 }
             }
         }
