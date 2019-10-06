@@ -31,9 +31,16 @@
 ## What's new
 
 ### What's new in 1.0.9
+![SnackView DataSource](http://www.lucacasula.it/SVItems/News_SnackViewDataSource.svg)
 - New SnackViewDataSource protocol with which create your SnackView.
+  ![SnackView NewItem](http://www.lucacasula.it/SVItems/News_SVImageViewItem.svg)
+
 - New SVImageViewItem class with which display images.
-- A lot of code improvements.
+
+- Dark mode is not compatible yet, for now SnackView continue to show light UI.
+
+  
+
 
 ### What's new in 1.0.8
 - Fixed crash that occurs when SnackView was init with an empty SVItem array.
@@ -57,7 +64,7 @@ To integrate SnackView into your Xcode project using CocoaPods, specify it in yo
 
 ```ruby
 use_frameworks!
-pod 'SnackView', '~> 1.0.2'
+pod 'SnackView', '~> 1.0.9'
 ```
 
 Then, run the following command:
@@ -122,9 +129,7 @@ extension MyCustomClass: SnackViewDataSource {
 
 ```
 
-The result will be:
 
-![SnackView alert](http://www.lucacasula.it/SVItems/SnackViewAlertPreview.jpg)
 
 ***
 
