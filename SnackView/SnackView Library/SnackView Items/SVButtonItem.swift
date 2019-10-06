@@ -11,6 +11,10 @@ import UIKit
 /** SVButtonItem is an SVItem consisting of a simple button that can perform the action that you want. */
 public class SVButtonItem: SVItem {
 
+    // MARK: - Properties
+    private(set) var title: String
+    private(set) var tint: UIColor
+
     // MARK: - Initialization Method
     /**
      Initialization method for SVButtonItem view. You can customize this item with title, tint color and action.
@@ -19,6 +23,8 @@ public class SVButtonItem: SVItem {
      - parameter buttonAction: A closure in which to write the action that the button must perform
      */
     public init(withTitle title: String, tintColor color: UIColor = #colorLiteral(red: 0, green: 0.4779834747, blue: 0.9985283017, alpha: 1), withButtonAction buttonAction: @escaping () -> Void) {
+        self.title = title
+        self.tint = color
         super.init()
 
         //Assign the action block to tmpAction variable
@@ -27,9 +33,9 @@ public class SVButtonItem: SVItem {
         //Add button item
         let buttonItem = UIButton()
         buttonItem.translatesAutoresizingMaskIntoConstraints = false
-        buttonItem.setTitle(title, for: UIControlState())
-        buttonItem.setTitleColor(color, for: UIControlState.normal)
-        buttonItem.setTitleColor(color.withAlphaComponent(0.5), for: UIControlState.highlighted)
+        buttonItem.setTitle(title, for: UIControl.State())
+        buttonItem.setTitleColor(color, for: UIControl.State.normal)
+        buttonItem.setTitleColor(color.withAlphaComponent(0.5), for: UIControl.State.highlighted)
         buttonItem.addTarget(self, action: #selector(buttonSelector), for: .touchUpInside)
         self.addSubview(buttonItem)
 
@@ -42,12 +48,12 @@ public class SVButtonItem: SVItem {
     }
 
     required public convenience init?(coder aDecoder: NSCoder) {
-        self.init(coder: aDecoder)
+        return nil
     }
 
     // MARK: - Custom Stuff
     private var tmpAction:() -> Void = {}
-    @objc private func buttonSelector() {
+    @objc public func buttonSelector() {
         self.tmpAction()
     }
 }

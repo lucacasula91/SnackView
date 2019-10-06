@@ -20,6 +20,10 @@ public class SVLoaderItem: SVItem {
         case large
     }
 
+    // MARK: - Properties
+    private(set) var size: ActivityIndicatorSize
+    private(set) var text: String?
+
     // MARK: - Initialization Method
     /**
      Initialization method for SVLoaderItem view. You can customize this item with size of the activity indicator view and a custom text message.
@@ -27,6 +31,8 @@ public class SVLoaderItem: SVItem {
      - parameter text: A text that can appear on top of activity indicator view
      */
     public init(withSize size: ActivityIndicatorSize, andText text: String?) {
+        self.size = size
+        self.text = text
         super.init()
 
         //Disable auto height to handle it manually
@@ -34,7 +40,7 @@ public class SVLoaderItem: SVItem {
         self.heightAnchor.constraint(greaterThanOrEqualToConstant: size == .little ? 50 : 70).isActive = true
 
         //Add activity indicator view
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: size == .little ? .gray : .whiteLarge )
+        let activityIndicator = UIActivityIndicatorView(style: size == .little ? .gray : .whiteLarge )
         activityIndicator.color = UIColor.gray
         activityIndicator.startAnimating()
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
@@ -66,6 +72,6 @@ public class SVLoaderItem: SVItem {
     }
 
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return nil
     }
 }

@@ -11,6 +11,10 @@ import UIKit
 /** SVDetailTextItem is an SVItem with which to show a title and a multi-line description text. */
 public class SVDetailTextItem: SVItem {
 
+    // MARK: - Properties
+    private(set) var title: String
+    private(set) var descriptionText: String
+
     // MARK: - Initialization Method
     /**
      Initialization method for SVDetailTextItem view. You can customize this item with a title and a description text.
@@ -18,12 +22,14 @@ public class SVDetailTextItem: SVItem {
      - parameter description: The description text to show
      */
     public init(withTitle title: String, andDescription description: String) {
+        self.title = title
+        self.descriptionText = description
         super.init()
 
         //Add title item
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.text = title.uppercased()
+        titleLabel.text = self.title.uppercased()
         titleLabel.textAlignment = .right
         titleLabel.textColor = grayTextColor
         titleLabel.font = UIFont.systemFont(ofSize: 14)
@@ -40,7 +46,7 @@ public class SVDetailTextItem: SVItem {
         //Add description item
         let descriptionLabel = UILabel()
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.text = description
+        descriptionLabel.text = self.descriptionText
         descriptionLabel.textAlignment = .left
         descriptionLabel.textColor = UIColor.black
         descriptionLabel.font = UIFont.systemFont(ofSize: 14)
@@ -56,6 +62,6 @@ public class SVDetailTextItem: SVItem {
     }
 
     required public convenience init?(coder aDecoder: NSCoder) {
-        self.init(coder: aDecoder)
+        return nil
     }
 }

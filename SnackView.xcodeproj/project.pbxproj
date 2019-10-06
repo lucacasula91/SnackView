@@ -38,13 +38,18 @@
 		38F4AF1B205969E900341940 /* SVTextFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF11205969E900341940 /* SVTextFieldItem.swift */; };
 		38F4AF1C205969E900341940 /* CustomInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF12205969E900341940 /* CustomInputAccessoryView.swift */; };
 		38F4AF1D205969E900341940 /* SVTitleOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF13205969E900341940 /* SVTitleOptions.swift */; };
+		511780C621E5E84E00EBD9F8 /* SnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511780C521E5E84E00EBD9F8 /* SnackViewDataSource.swift */; };
+		512E7E3C2211D01400FCCE7F /* MockDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512E7E3B2211D01400FCCE7F /* MockDataSourceTests.swift */; };
 		51822D8B21E4D06F00380738 /* MockDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51822D8A21E4D06F00380738 /* MockDataSource.swift */; };
+		5192725A21F86BC100E0965C /* SVCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192725921F86BC100E0965C /* SVCustomButton.swift */; };
+		5192725E21F86EE800E0965C /* SVGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192725D21F86EE800E0965C /* SVGradientView.swift */; };
 		51F4CB1121E388CF0096E48D /* SnackViewPublicMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */; };
 		51F4CB1221E388CF0096E48D /* SnackViewInternalMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */; };
 		51F4CB1321E388CF0096E48D /* SnackViewNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB1021E388CF0096E48D /* SnackViewNotifications.swift */; };
 		51F4CB1721E492670096E48D /* ImageCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB1621E492670096E48D /* ImageCreator.swift */; };
 		8EDE06202099F5DF0017A700 /* SnackViewAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EDE061F2099F5DF0017A700 /* SnackViewAssets.xcassets */; };
 		8EDE06222099FC6D0017A700 /* SVImageViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDE06212099FC6D0017A700 /* SVImageViewItem.swift */; };
+		8EFCF5922212149800F68700 /* SnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFCF5912212149800F68700 /* SnackViewDataSource.swift */; };
 		FF42AE0F21E2844200F4ECEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE0E21E2844200F4ECEB /* AppDelegate.swift */; };
 		FF42AE1121E2844200F4ECEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE1021E2844200F4ECEB /* ViewController.swift */; };
 		FF42AE1421E2844300F4ECEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF42AE1221E2844200F4ECEB /* Main.storyboard */; };
@@ -52,10 +57,8 @@
 		FF42AE1921E2844300F4ECEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF42AE1721E2844300F4ECEB /* LaunchScreen.storyboard */; };
 		FF42AE2F21E2888600F4ECEB /* UIViewController+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE2E21E2888600F4ECEB /* UIViewController+Hierarchy.swift */; };
 		FF42AE3121E2919600F4ECEB /* SVItemsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE3021E2919600F4ECEB /* SVItemsTests.swift */; };
-		FF42AE3321E295E000F4ECEB /* SnackViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE3221E295E000F4ECEB /* SnackViewProtocol.swift */; };
 		FF42AE3521E2AEA800F4ECEB /* SnackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F4AEF0205969CD00341940 /* SnackView.framework */; };
 		FF42AE3721E2AECC00F4ECEB /* SnackView.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38F4AEF0205969CD00341940 /* SnackView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FF42AE3B21E2AF4A00F4ECEB /* SnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE3A21E2AF4A00F4ECEB /* SnackViewDataSource.swift */; };
 		FF42AE3D21E2B08A00F4ECEB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF42AE3C21E2B08A00F4ECEB /* Default-568h@2x.png */; };
 		FF42AE4121E2B5C000F4ECEB /* SVCustomItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE4021E2B5C000F4ECEB /* SVCustomItem.swift */; };
 		FF42AE4421E2D56D00F4ECEB /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF42AE4221E2D56D00F4ECEB /* Nimble.framework */; };
@@ -126,13 +129,18 @@
 		38F4AF11205969E900341940 /* SVTextFieldItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVTextFieldItem.swift; sourceTree = "<group>"; };
 		38F4AF12205969E900341940 /* CustomInputAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInputAccessoryView.swift; sourceTree = "<group>"; };
 		38F4AF13205969E900341940 /* SVTitleOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVTitleOptions.swift; sourceTree = "<group>"; };
+		511780C521E5E84E00EBD9F8 /* SnackViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewDataSource.swift; sourceTree = "<group>"; };
+		512E7E3B2211D01400FCCE7F /* MockDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataSourceTests.swift; sourceTree = "<group>"; };
 		51822D8A21E4D06F00380738 /* MockDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataSource.swift; sourceTree = "<group>"; };
+		5192725921F86BC100E0965C /* SVCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVCustomButton.swift; sourceTree = "<group>"; };
+		5192725D21F86EE800E0965C /* SVGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGradientView.swift; sourceTree = "<group>"; };
 		51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewPublicMethods.swift; sourceTree = "<group>"; };
-		51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewInternalMethods.swift; sourceTree = "<group>"; };
+		51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewInternalMethods.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		51F4CB1021E388CF0096E48D /* SnackViewNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewNotifications.swift; sourceTree = "<group>"; };
 		51F4CB1621E492670096E48D /* ImageCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCreator.swift; sourceTree = "<group>"; };
 		8EDE061F2099F5DF0017A700 /* SnackViewAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SnackViewAssets.xcassets; sourceTree = "<group>"; };
 		8EDE06212099FC6D0017A700 /* SVImageViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVImageViewItem.swift; sourceTree = "<group>"; };
+		8EFCF5912212149800F68700 /* SnackViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewDataSource.swift; sourceTree = "<group>"; };
 		FF42AE0C21E2844200F4ECEB /* SnackViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnackViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF42AE0E21E2844200F4ECEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF42AE1021E2844200F4ECEB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -141,8 +149,6 @@
 		FF42AE1821E2844300F4ECEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF42AE2E21E2888600F4ECEB /* UIViewController+Hierarchy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Hierarchy.swift"; sourceTree = "<group>"; };
 		FF42AE3021E2919600F4ECEB /* SVItemsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVItemsTests.swift; sourceTree = "<group>"; };
-		FF42AE3221E295E000F4ECEB /* SnackViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewProtocol.swift; sourceTree = "<group>"; };
-		FF42AE3A21E2AF4A00F4ECEB /* SnackViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewDataSource.swift; sourceTree = "<group>"; };
 		FF42AE3C21E2B08A00F4ECEB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FF42AE3E21E2B0DE00F4ECEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF42AE4021E2B5C000F4ECEB /* SVCustomItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVCustomItem.swift; sourceTree = "<group>"; };
@@ -216,10 +222,11 @@
 		38F4AEFD205969CD00341940 /* SnackViewTests */ = {
 			isa = PBXGroup;
 			children = (
+				512E7E3B2211D01400FCCE7F /* MockDataSourceTests.swift */,
 				38F4AEFE205969CD00341940 /* SnackViewTests.swift */,
+				FF42AE3021E2919600F4ECEB /* SVItemsTests.swift */,
 				FF511B0C21E273A300911490 /* Test Utilities */,
 				38F4AF00205969CD00341940 /* Info.plist */,
-				FF42AE3021E2919600F4ECEB /* SVItemsTests.swift */,
 			);
 			path = SnackViewTests;
 			sourceTree = "<group>";
@@ -252,11 +259,30 @@
 			path = "SnackView Utilities";
 			sourceTree = "<group>";
 		};
+		5192725B21F86EC200E0965C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8EFCF5912212149800F68700 /* SnackViewDataSource.swift */,
+				FF42AE1021E2844200F4ECEB /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		5192725C21F86ECC00E0965C /* Custom Items */ = {
+			isa = PBXGroup;
+			children = (
+				5192725921F86BC100E0965C /* SVCustomButton.swift */,
+				FF42AE4021E2B5C000F4ECEB /* SVCustomItem.swift */,
+				5192725D21F86EE800E0965C /* SVGradientView.swift */,
+			);
+			path = "Custom Items";
+			sourceTree = "<group>";
+		};
 		8E030710209746A800A5326E /* SnackView Library */ = {
 			isa = PBXGroup;
 			children = (
 				38F4AF0D205969E800341940 /* SnackView.swift */,
-				FF42AE3221E295E000F4ECEB /* SnackViewProtocol.swift */,
+				511780C521E5E84E00EBD9F8 /* SnackViewDataSource.swift */,
 				51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */,
 				51F4CB1021E388CF0096E48D /* SnackViewNotifications.swift */,
 				51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */,
@@ -281,9 +307,8 @@
 			children = (
 				FF42AE0E21E2844200F4ECEB /* AppDelegate.swift */,
 				FF42AE1221E2844200F4ECEB /* Main.storyboard */,
-				FF42AE3A21E2AF4A00F4ECEB /* SnackViewDataSource.swift */,
-				FF42AE4021E2B5C000F4ECEB /* SVCustomItem.swift */,
-				FF42AE1021E2844200F4ECEB /* ViewController.swift */,
+				5192725B21F86EC200E0965C /* ViewController */,
+				5192725C21F86ECC00E0965C /* Custom Items */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -406,7 +431,7 @@
 					};
 					38F4AEEF205969CD00341940 = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1100;
 						ProvisioningStyle = Automatic;
 					};
 					38F4AEF8205969CD00341940 = {
@@ -416,6 +441,7 @@
 					};
 					FF42AE0B21E2844200F4ECEB = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1100;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -517,8 +543,8 @@
 				38EA7C3620862B7700B6F88D /* SVLoaderItem.swift in Sources */,
 				38F4AF1D205969E900341940 /* SVTitleOptions.swift in Sources */,
 				38F4AF17205969E900341940 /* SnackView.swift in Sources */,
-				FF42AE3321E295E000F4ECEB /* SnackViewProtocol.swift in Sources */,
 				38F4AF15205969E900341940 /* SVItem.swift in Sources */,
+				511780C621E5E84E00EBD9F8 /* SnackViewDataSource.swift in Sources */,
 				385DCCC5207BD55E00E280E3 /* SVSwitchItem.swift in Sources */,
 				38F4AF19205969E900341940 /* SVTitleItem.swift in Sources */,
 				8EDE06222099FC6D0017A700 /* SVImageViewItem.swift in Sources */,
@@ -533,6 +559,7 @@
 			files = (
 				38F4AEFF205969CD00341940 /* SnackViewTests.swift in Sources */,
 				FF511B0E21E273BA00911490 /* MockSnackView.swift in Sources */,
+				512E7E3C2211D01400FCCE7F /* MockDataSourceTests.swift in Sources */,
 				FF42AE2F21E2888600F4ECEB /* UIViewController+Hierarchy.swift in Sources */,
 				FF42AE3121E2919600F4ECEB /* SVItemsTests.swift in Sources */,
 				51F4CB1721E492670096E48D /* ImageCreator.swift in Sources */,
@@ -544,8 +571,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF42AE4121E2B5C000F4ECEB /* SVCustomItem.swift in Sources */,
+				5192725A21F86BC100E0965C /* SVCustomButton.swift in Sources */,
 				FF42AE1121E2844200F4ECEB /* ViewController.swift in Sources */,
-				FF42AE3B21E2AF4A00F4ECEB /* SnackViewDataSource.swift in Sources */,
+				5192725E21F86EE800E0965C /* SVGradientView.swift in Sources */,
+				8EFCF5922212149800F68700 /* SnackViewDataSource.swift in Sources */,
 				FF42AE0F21E2844200F4ECEB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -660,7 +689,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -715,7 +744,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -741,7 +770,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -764,7 +793,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = LucaCasula.SnackView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -785,7 +814,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = LucaCasula.SnackViewTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SnackViewExample.app/SnackViewExample";
 			};
@@ -807,7 +836,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = LucaCasula.SnackViewTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SnackViewExample.app/SnackViewExample";
 			};
@@ -819,6 +848,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 486MB7T8V9;
 				INFOPLIST_FILE = "$(SRCROOT)/SnackViewExample/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -826,7 +856,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = LucaCasula.SnackViewExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -837,13 +867,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 486MB7T8V9;
 				INFOPLIST_FILE = "$(SRCROOT)/SnackViewExample/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = LucaCasula.SnackViewExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

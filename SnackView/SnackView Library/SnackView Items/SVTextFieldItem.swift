@@ -14,6 +14,9 @@ import UIKit
  */
 public class SVTextFieldItem: SVItem {
 
+    private(set) var placeholder: String
+    private(set) var isSecure: Bool
+
     // MARK: - Private variables
     private var textField: UITextField!
 
@@ -47,6 +50,8 @@ public class SVTextFieldItem: SVItem {
      ```
      */
     public init(withPlaceholder placeholder: String, isSecureField isSecure: Bool) {
+        self.placeholder = placeholder
+        self.isSecure = isSecure
         super.init()
 
         //Add title item
@@ -75,15 +80,18 @@ public class SVTextFieldItem: SVItem {
         self.addSubview(textField)
 
         //Add constraints to textField
-        let textFieldHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[titleLabel]-[textfield]-|", options: [], metrics: nil, views: ["titleLabel": titleLabel, "textfield": textField])
-        self.addConstraints(textFieldHContraints)
+        if let _textField = textField {
+            let textFieldHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[titleLabel]-[textfield]-|", options: [], metrics: nil, views: ["titleLabel": titleLabel, "textfield": _textField])
+            self.addConstraints(textFieldHContraints)
 
-        let textFieldVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[textfield]-|", options: [], metrics: nil, views: ["textfield": textField])
-        self.addConstraints(textFieldVContraints)
+            let textFieldVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[textfield]-|", options: [], metrics: nil, views: ["textfield": _textField])
+            self.addConstraints(textFieldVContraints)
+        }
+        
     }
 
     required public convenience init?(coder aDecoder: NSCoder) {
-        self.init(coder: aDecoder)
+        return nil
     }
 
     // MARK: - Custom stuff

@@ -12,15 +12,20 @@ import os.log
 public class SnackView: UIViewController {
 
     // MARK: - Outlets and Variables
+    internal weak var dataSource: SnackViewDataSource?
+
+    @available(*, deprecated, message: "This property will be removed later.")
     internal var titleOptions: SVTitleOptions!
-    public internal(set) var items: [SVItem] = []
-    internal var contentView: UIView = UIView()
-    internal var titleBar: SVTitleItem!
-    internal var scrollView: UIScrollView = UIScrollView()
-    internal var stackView: UIStackView = UIStackView()
-    internal var safeAreaView: UIView = UIView()
-    internal var bottomContentViewConstant: NSLayoutConstraint = NSLayoutConstraint()
-    internal var customInputAccessoryView: UIView = UIView()
+
+    public internal(set) var items: [SVItem]? = []
+    internal var window: UIWindow?
+    internal var contentView = UIView()
+    internal var titleBar = SVTitleItem()
+    internal var scrollView = UIScrollView()
+    internal var stackView = UIStackView()
+    internal var safeAreaView = UIView()
+    internal var bottomContentViewConstant = NSLayoutConstraint()
+    internal var customInputAccessoryView = UIView()
     internal var keyboardHeight: CGFloat = 0
     internal var animationSpeed: TimeInterval = 0.25
     override public var inputAccessoryView: UIView? {
@@ -28,24 +33,19 @@ public class SnackView: UIViewController {
         customInput.frame.size.height = 0.1
         return customInput
     }
-    
-    private let dataSource: SnackViewProtocol
 
-
+    // MARK: - Initialization Methods
     /// Initialization method for SnackView object
     ///
     /// - Parameter dataSource: Class conformed to SnackViewProtocol
-    public init(with dataSource: SnackViewProtocol) {
+    public init(with dataSource: SnackViewDataSource) {
         self.dataSource = dataSource
-        
-        self.items = dataSource.items
-        self.titleOptions = SVTitleOptions(withTitle: self.dataSource.title, setCloseButtonVisible: true, setCloseButtonTitle: self.dataSource.closeTitle)
-        
+
         super.init(nibName: nil, bundle: nil)
     }
 
     @available(*, deprecated, message: "This method will be removed later. Please use 'init(with: SnackViewProtocol)' instead.")
-    public init(withTitleOptions titleOptions:SVTitleOptions, andItems items: [SVItem]) {
+    public init(withTitleOptions titleOptions: SVTitleOptions, andItems items: [SVItem]) {
 
         // Workaround to initialize dataSource
         let tmpDataSource = MockDataSource(withTitleOptions: titleOptions, andItems: items)
@@ -58,7 +58,7 @@ public class SnackView: UIViewController {
     }
 
     @available(*, deprecated, message: "This method will be removed later. Please use 'init(with: SnackViewProtocol)' instead.")
-    public init(withTitle title:String, andCloseButtonTitle closeTitle:String, andItems items: [SVItem]) {
+    public init(withTitle title: String, andCloseButtonTitle closeTitle: String, andItems items: [SVItem]) {
 
         // Workaround to initialize dataSource
         let tmpDataSource = MockDataSource(withTitle: title, andCloseButtonTitle: closeTitle, andItems: items)
@@ -72,34 +72,33 @@ public class SnackView: UIViewController {
     }
 
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return nil
     }
 
     deinit {
-        if #available(iOS 10.0, *) {
-            os_log("SnackView has been deinitialized.")
-        } else {
-            NSLog("SnackView<\(self.titleOptions.title)> has been deinitialized.")
-        }
+        NSLog("SnackView has been deinitialized.")
     }
 
-    // MARK: - System Methods
+    // MARK: - UIViewController Methods
     override public func viewDidLoad() {
         super.viewDidLoad()
 
         self.setupViewController()
-
-        // Create the SnackView skeleton view
         self.layoutSnackViewSkeleton()
+        self.addKeyboardNotificationsObserver()
 
-        // Register SnackView for keyboard notifications
-        self.addNotificationsObserver()
+        if #available(iOS 13.0, *) {
+            self.overrideUserInterfaceStyle = .light
+        } 
+
     }
 
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         self.setBackgroundForWillAppear()
+        self.getDataFromDataSource()
+        self.addItemsInsideStackView()
     }
 
     override public func viewDidAppear(_ animated: Bool) {

@@ -26,19 +26,20 @@ extension SnackView {
     /// Prepare SnackView for will appear state, set background color to clear and translate view off screen.
     internal func setBackgroundForWillAppear() {
         DispatchQueue.main.async {
+            // Set SnackView visible
+            self.contentView.isHidden = false
+
             self.view.backgroundColor = UIColor.clear
 
             // Hide the SnackView out the screen bounds and set visible
             let contentViewHeight = self.contentView.frame.size.height + self.safeAreaView.frame.height
             self.contentView.transform = CGAffineTransform(translationX: 0, y: contentViewHeight)
-
-            // Set SnackView visible
-            self.contentView.isHidden = false
         }
     }
 
     /// Animate the SnackView presentation, set a background color with alpha 0.5 and then translate SnackView to original position.
     internal func showSnackViewWithAnimation() {
+
         DispatchQueue.main.async {
             // Background Color Animation
             UIView.animate(withDuration: self.animationSpeed, animations: {
@@ -53,16 +54,16 @@ extension SnackView {
     }
 
     /// This method add notification observer for keyboard events.
-    internal func addNotificationsObserver() {
+    internal func addKeyboardNotificationsObserver() {
         let notificationCenter = NotificationCenter.default
 
-        let keyboardWillShow = NSNotification.Name.UIKeyboardWillShow
+        let keyboardWillShow = UIResponder.keyboardWillShowNotification
         notificationCenter.addObserver(self,
                                        selector: #selector(keyboardWillShow(notification:)),
                                        name: keyboardWillShow,
                                        object: nil)
 
-        let keyboardWillHide = NSNotification.Name.UIKeyboardWillHide
+        let keyboardWillHide = UIResponder.keyboardWillHideNotification
         notificationCenter.addObserver(self,
                                        selector: #selector(keyboardWillHide(notification:)),
                                        name: keyboardWillHide,
@@ -113,12 +114,9 @@ extension SnackView {
     /// Adds the three main views of SnackView, TitleBar, ScrollView and SafeArea View
     internal func addMainSkeletonView() {
         // Add TitleBar
-        self.titleBar = SVTitleItem(withTitle: self.titleOptions.title, andCancelButton: self.titleOptions.closeButtonTitle)
+        self.titleBar = SVTitleItem()
         self.titleBar.translatesAutoresizingMaskIntoConstraints = false
-        self.titleBar.cancelButton.addTarget(self, action: #selector(closeActionSelector), for: UIControlEvents.touchUpInside)
-
-        // Check if close button must be visible or hidden
-        self.titleBar.cancelButton.isHidden = self.titleOptions.closeButtonVisible ? false : true
+        self.titleBar.cancelButton.addTarget(self, action: #selector(closeActionSelector), for: UIControl.Event.touchUpInside)
         self.contentView.addSubview(self.titleBar)
 
         // Add ScrollView
@@ -188,26 +186,55 @@ extension SnackView {
         scrollViewHeight.isActive = true
     }
 
+    internal func getDataFromDataSource() {
+        let title = self.dataSource?.titleFor(snackView: self) ?? ""
+        self.titleBar.setTitle(title)
+
+        let cancelTitle = self.dataSource?.cancelTitleFor(snackView: self)
+        self.titleBar.setCancelTitle(cancelTitle)
+
+        let items = self.dataSource?.itemsFor(snackView: self) ?? []
+        self.items = items
+    }
+    
     /// This method add all SVItems to scrollView content view.
     internal func addItemsInsideStackView() {
         self.stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
 
         // Add BottomAlertItems to ScrollView
-        for item in self.items {
+        var items = [SVItem]()
+        if let tmpItems = self.items { items = tmpItems }
+        for item in items {
             self.stackView.addArrangedSubview(item)
         }
 
         self.checkSnackViewContainsItemsOrAddDescriptionItem()
-
     }
 
     internal func checkSnackViewContainsItemsOrAddDescriptionItem() {
         if self.stackView.arrangedSubviews.isEmpty {
-            let info = SVDescriptionItem(withDescription: "SnackView needs a non empty SVItem array to work properly.")
 
+            if let image = self.getCodePreviewImage() {
+                self.stackView.addArrangedSubview(image)
+            }
+
+            let info = SVDescriptionItem(withDescription: "SnackView needs a non empty SVItem array to work properly.")
             self.stackView.addArrangedSubview(info)
         }
         self.view.layoutIfNeeded()
+    }
+
+    private func getCodePreviewImage() -> SVImageViewItem? {
+        let frameworkBundle = Bundle(for: SnackView.self)
+        let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent("SnackView.bundle")
+        let resourceBundle = Bundle(url: bundleURL!)
+
+        if let image = UIImage(named: "Code_preview", in: resourceBundle, compatibleWith: nil) {
+            let imageCode = SVImageViewItem(with: image, andContentMode: UIView.ContentMode.scaleToFill, andHeight: 149)
+            return imageCode
+        }
+
+        return nil
     }
 
     // MARK: - Layout SnackView
@@ -222,8 +249,6 @@ extension SnackView {
         self.addMainSkeletonView()
         self.addMainConstraintsToContentView()
         self.addStackViewInsideScrollViewWithConstraints()
-
-        self.addItemsInsideStackView()
     }
 
     // MARK: - Helper methods
@@ -233,15 +258,17 @@ extension SnackView {
     /// - Returns: UIViewController to use to present the SnackView
     internal func getPresenterViewController() -> UIViewController {
         let containerViewController = UIViewController()
+        containerViewController.modalPresentationStyle = .overFullScreen
         containerViewController.view.backgroundColor = UIColor.clear
         containerViewController.view.isUserInteractionEnabled = true
 
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = containerViewController
-        window.backgroundColor = UIColor.clear
-        window.windowLevel = UIWindowLevelAlert+1
-        window.makeKeyAndVisible()
-        window.resignFirstResponder()
+        window = nil
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = containerViewController
+        window?.backgroundColor = UIColor.clear
+        window?.windowLevel = UIWindow.Level.alert+1
+        window?.makeKeyAndVisible()
+        window?.resignFirstResponder()
 
         return containerViewController
     }
@@ -262,7 +289,12 @@ extension SnackView {
                 UIView.animate(withDuration: self.animationSpeed, animations: {
                     self.view.backgroundColor = UIColor.clear
                 }) { (_) in
-                    self.dismiss(animated: false, completion: nil)
+                    self.dismiss(animated: false) {
+                        self.window?.rootViewController = nil
+                        self.window?.resignFirstResponder()
+                        self.window?.removeFromSuperview()
+                        self.window = nil 
+                    }
                 }
             }
         }
