@@ -38,6 +38,7 @@
 - New SVImageViewItem class with which display images.
 
 - Dark mode is not compatible yet, for now SnackView continue to show light UI.
+- UIWindowSceneDelegate system is not compatible yet.
 
   
 
