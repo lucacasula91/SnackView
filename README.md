@@ -4,7 +4,7 @@
 ***An easy way to present customizable bottom-half alert.***
 ![SnackView logo](http://www.lucacasula.it/SVItems/SnackViewPreview.jpg)
 
-[![Build Status](https://travis-ci.org/lucacasula91/SnackView.svg?branch=master)](https://travis-ci.org/lucacasula91/SnackView)
+#[![Build Status](https://travis-ci.org/lucacasula91/SnackView.svg?branch=master)](https://travis-ci.org/lucacasula91/SnackView)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SnackView.svg)](https://img.shields.io/cocoapods/v/SnackView.svg)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Platform](https://img.shields.io/cocoapods/p/SnackView.svg?style=flat)](https://github.com/lucacasula91/SnackView/wiki)
