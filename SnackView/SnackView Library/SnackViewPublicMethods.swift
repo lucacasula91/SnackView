@@ -24,6 +24,11 @@ extension SnackView {
         self.closeActionSelector()
     }
 
+    /// Reload the content of SnackView in case of update.
+    open func reloadData() {
+        self.addItemsInsideStackView()
+    }
+
     // MARK: - SVItem management methods
 
     /// Insert a new SVItem to SnackView view controller. You can specify the index in which to insert SVItem, if it is passed **nil** SVItem is added with endIndex value.

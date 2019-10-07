@@ -264,6 +264,15 @@ extension SnackView {
 
         window = nil
         window = UIWindow(frame: UIScreen.main.bounds)
+
+        if #available(iOS 13.0, *) {
+           let _scene = UIApplication.shared.connectedScenes.filter { $0.activationState == .foregroundActive }.first
+            if
+                let scene = _scene as? UIWindowScene {
+                self.window = UIWindow(windowScene: scene)
+            }
+        }
+
         window?.rootViewController = containerViewController
         window?.backgroundColor = UIColor.clear
         window?.windowLevel = UIWindow.Level.alert+1
