@@ -203,7 +203,7 @@ extension SnackView {
 
         // Add BottomAlertItems to ScrollView
         var items = [SVItem]()
-        if let tmpItems = self.items { items = tmpItems }
+        if let tmpItems = self.dataSource?.itemsFor(snackView: self) { items = tmpItems }
         for item in items {
             self.stackView.addArrangedSubview(item)
         }
