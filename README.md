@@ -38,7 +38,7 @@
 - New SVImageViewItem class with which display images.
 
 - Dark mode is not compatible yet, for now SnackView continue to show light UI.
-- UIWindowSceneDelegate system is not compatible yet.
+- Compatible with the new UIWindowSceneDelegate system. 
 
   
 
@@ -81,6 +81,10 @@ $ pod install
 ```ogdl
 github "lucacasula91/SnackView"
 ```
+
+SnackView 1.0.9 is not available yet on Carthage.
+
+
 
 ### Manual installation
 
@@ -131,6 +135,28 @@ extension MyCustomClass: SnackViewDataSource {
 ```
 
 
+
+------
+
+## Deprecated methods
+
+With SnackView 1.0.9 the current method are now deprecated:
+
+
+
+- init(withTitleOptions: andItems:)
+- init(withTitle: andCloseButtonTitle: andItems:)
+
+**SnackViewDataSource** contains all you need to handle title, cancel button title and items to display. For more info please see the SnackViewDataSource protocol documentation code.
+
+
+
+- func insert(item: atIndex:)
+- func remove(item:)
+- func removeItemAt(index:)
+- func updateWith(items:)
+
+Please start using the new **SnackViewDataSource** instead, all the above operations can be performed simply by changing the return content in the `func itemsFor(snackView:)` method of SnackViewDataSource and call the `reloadData()` function to perform an update.
 
 ***
 
