@@ -32,15 +32,13 @@
 
 ### What's new in 1.0.9
 ![SnackView DataSource](http://www.lucacasula.it/SVItems/News_SnackViewDataSource.svg)
-- New SnackViewDataSource protocol with which create your SnackView.
-  ![SnackView NewItem](http://www.lucacasula.it/SVItems/News_SVImageViewItem.svg)
+New SnackViewDataSource protocol with which create your SnackView.
 
-- New SVImageViewItem class with which display images.
+![SnackView NewItem](http://www.lucacasula.it/SVItems/News_SVImageViewItem.svg)
+New SVImageViewItem class with which display images.
 
 - Dark mode is not compatible yet, for now SnackView continue to show light UI.
 - Compatible with the new UIWindowSceneDelegate system. 
-
-  
 
 
 ### What's new in 1.0.8
