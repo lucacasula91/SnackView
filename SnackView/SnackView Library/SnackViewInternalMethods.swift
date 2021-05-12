@@ -5,6 +5,7 @@
 //  Created by Luca Casula on 27/12/18.
 //  Copyright © 2018 LucaCasula. All rights reserved.
 //
+import UIKit
 
 extension SnackView {
 
@@ -214,27 +215,20 @@ extension SnackView {
     internal func checkSnackViewContainsItemsOrAddDescriptionItem() {
         if self.stackView.arrangedSubviews.isEmpty {
 
-            if let image = self.getCodePreviewImage() {
-                self.stackView.addArrangedSubview(image)
-            }
+            self.titleBar.setTitle("Invalid configuration")
+            self.titleBar.setCancelTitle("Close")
 
-            let info = SVDescriptionItem(withDescription: "SnackView needs a non empty SVItem array to work properly.")
-            self.stackView.addArrangedSubview(info)
+            let description = SVDescriptionItem(withDescription: "It seems thet SnackView isn't properly configured.\nHere's what could have gone wrong.")
+            self.stackView.addArrangedSubview(description)
+
+            let firstCause = SVDetailTextItem(withTitle: "Empty items array", andDescription: "Maybe you are trying to show an empty items array.")
+            self.stackView.addArrangedSubview(firstCause)
+
+            let secondCause = SVDetailTextItem(withTitle: "DataSource with weak reference", andDescription: "If you have a standalone datasource class, you need to keep the reference from the UIViewController that want to present the SnackView.")
+            self.stackView.addArrangedSubview(secondCause)
+
         }
         self.view.layoutIfNeeded()
-    }
-
-    private func getCodePreviewImage() -> SVImageViewItem? {
-        let frameworkBundle = Bundle(for: SnackView.self)
-        let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent("SnackView.bundle")
-        let resourceBundle = Bundle(url: bundleURL!)
-
-        if let image = UIImage(named: "Code_preview", in: resourceBundle, compatibleWith: nil) {
-            let imageCode = SVImageViewItem(with: image, andContentMode: UIView.ContentMode.scaleToFill, andHeight: 149)
-            return imageCode
-        }
-
-        return nil
     }
 
     // MARK: - Layout SnackView

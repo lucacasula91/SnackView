@@ -5,6 +5,7 @@
 //  Created by Luca Casula on 27/12/18.
 //  Copyright © 2018 LucaCasula. All rights reserved.
 //
+import UIKit
 
 extension SnackView {
 
