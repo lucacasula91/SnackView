@@ -66,7 +66,7 @@ public class SVApplicationItem: SVItem {
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.text = title
-        titleLabel.textColor = UIColor.black
+        titleLabel.textColor = self.primaryTextColor
         titleLabel.font = UIFont.systemFont(ofSize: 14)
         titleLabel.numberOfLines = 0
         self.addSubview(titleLabel)
@@ -82,7 +82,7 @@ public class SVApplicationItem: SVItem {
         let descriptionLabel = UILabel()
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.text = description
-        descriptionLabel.textColor = grayTextColor
+        descriptionLabel.textColor = secondaryTextColor
         descriptionLabel.font = UIFont.systemFont(ofSize: 14)
         descriptionLabel.numberOfLines = 0
         self.addSubview(descriptionLabel)

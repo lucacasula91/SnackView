@@ -50,7 +50,7 @@ public class SVLoaderItem: SVItem {
         if let unwrappedText = text {
             let messageLabel = UILabel()
             messageLabel.translatesAutoresizingMaskIntoConstraints = false
-            messageLabel.textColor = self.grayTextColor
+            messageLabel.textColor = self.secondaryTextColor
             messageLabel.numberOfLines = 0
             messageLabel.textAlignment = .center
             messageLabel.text = unwrappedText

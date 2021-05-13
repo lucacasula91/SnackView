@@ -27,7 +27,7 @@ public class SVDescriptionItem: SVItem {
         let descriptionLabel = UILabel()
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.text = self.descriptionText
-        descriptionLabel.textColor = grayTextColor
+        descriptionLabel.textColor = secondaryTextColor
         descriptionLabel.font = UIFont.systemFont(ofSize: 14)
         descriptionLabel.numberOfLines = 0
         self.addSubview(descriptionLabel)

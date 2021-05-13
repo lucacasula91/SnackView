@@ -39,7 +39,7 @@ public class SVSwitchItem: SVItem {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.text = title.uppercased()
         titleLabel.textAlignment = .right
-        titleLabel.textColor = grayTextColor
+        titleLabel.textColor = secondaryTextColor
         titleLabel.font = UIFont.systemFont(ofSize: 14)
         titleLabel.numberOfLines = 0
         self.addSubview(titleLabel)
@@ -55,7 +55,7 @@ public class SVSwitchItem: SVItem {
         let switchItem = UISwitch()
         switchItem.translatesAutoresizingMaskIntoConstraints = false
         switchItem.addTarget(self, action: #selector(switchSelector(switchItem:)), for: .valueChanged)
-        switchItem.tintColor = self.grayTextColor
+        switchItem.tintColor = self.secondaryTextColor
         self.addSubview(switchItem)
 
         //Add constraints to switchItem
@@ -72,7 +72,7 @@ public class SVSwitchItem: SVItem {
             descriptionLabel.text = text
         }
         descriptionLabel.textAlignment = .left
-        descriptionLabel.textColor = UIColor.black
+        descriptionLabel.textColor = self.primaryTextColor
         descriptionLabel.font = UIFont.systemFont(ofSize: 14)
         descriptionLabel.numberOfLines = 0
         self.addSubview(descriptionLabel)

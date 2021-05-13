@@ -31,7 +31,7 @@ public class SVDetailTextItem: SVItem {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.text = self.title.uppercased()
         titleLabel.textAlignment = .right
-        titleLabel.textColor = grayTextColor
+        titleLabel.textColor = secondaryTextColor
         titleLabel.font = UIFont.systemFont(ofSize: 14)
         titleLabel.numberOfLines = 0
         self.addSubview(titleLabel)
@@ -48,7 +48,7 @@ public class SVDetailTextItem: SVItem {
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.text = self.descriptionText
         descriptionLabel.textAlignment = .left
-        descriptionLabel.textColor = UIColor.black
+        descriptionLabel.textColor = self.primaryTextColor
         descriptionLabel.font = UIFont.systemFont(ofSize: 14)
         descriptionLabel.numberOfLines = 0
         self.addSubview(descriptionLabel)

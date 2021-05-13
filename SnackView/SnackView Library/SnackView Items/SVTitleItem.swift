@@ -45,8 +45,8 @@ class SVTitleItem: SVItem {
         //Add cancel Button
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         cancelButton.setTitle(self.cancelButtonTitle, for: UIControl.State())
-        cancelButton.setTitleColor(#colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1), for: UIControl.State.normal)
-        cancelButton.setTitleColor(#colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1).withAlphaComponent(0.5), for: UIControl.State.highlighted)
+        cancelButton.setTitleColor(blueButtonColor, for: UIControl.State.normal)
+        cancelButton.setTitleColor(blueButtonColor.withAlphaComponent(0.5), for: UIControl.State.highlighted)
         self.addSubview(cancelButton)
 
         let cancelButtonHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[cancelButton]-|", options: [], metrics: nil, views: ["cancelButton": cancelButton])
@@ -70,6 +70,7 @@ class SVTitleItem: SVItem {
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
         self.titleLabel.text = "SnackView"
         self.titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        self.titleLabel.textColor = self.primaryTextColor
         self.addSubview(self.titleLabel)
 
         let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel]", options: [], metrics: nil, views: ["titleLabel": titleLabel])
@@ -81,8 +82,8 @@ class SVTitleItem: SVItem {
         //Add cancel Button
         self.cancelButton.translatesAutoresizingMaskIntoConstraints = false
         self.cancelButton.setTitle("Cancel", for: UIControl.State())
-        self.cancelButton.setTitleColor(#colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1), for: UIControl.State.normal)
-        self.cancelButton.setTitleColor(#colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1).withAlphaComponent(0.5), for: UIControl.State.highlighted)
+        self.cancelButton.setTitleColor(blueButtonColor, for: UIControl.State.normal)
+        self.cancelButton.setTitleColor(blueButtonColor.withAlphaComponent(0.5), for: UIControl.State.highlighted)
         self.addSubview(self.cancelButton)
 
         let cancelButtonHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[cancelButton]-|", options: [], metrics: nil, views: ["cancelButton": cancelButton])

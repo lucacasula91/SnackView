@@ -87,10 +87,6 @@ public class SnackView: UIViewController {
         self.layoutSnackViewSkeleton()
         self.addKeyboardNotificationsObserver()
 
-        if #available(iOS 13.0, *) {
-            self.overrideUserInterfaceStyle = .light
-        } 
-
     }
 
     override public func viewWillAppear(_ animated: Bool) {

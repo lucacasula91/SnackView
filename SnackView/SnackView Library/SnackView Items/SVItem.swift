@@ -23,8 +23,38 @@ open class SVItem: UIView {
     // MARK: - Public Variables
     private(set) var heightConstraint: NSLayoutConstraint?
     public let leftContentWidth: CGFloat = 111
-    public let grayTextColor = #colorLiteral(red: 0.5553562641, green: 0.5649003983, blue: 0.5733956099, alpha: 1)
-    public let blueButtonColor = #colorLiteral(red: 0, green: 0.4779834747, blue: 0.9985283017, alpha: 1)
+    public var primaryTextColor: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.label
+        } else {
+            return #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        }
+    }
+
+    public var secondaryTextColor: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.secondaryLabel
+        } else {
+            return #colorLiteral(red: 0.5553562641, green: 0.5649003983, blue: 0.5733956099, alpha: 1)
+        }
+    }
+
+    public var blueButtonColor: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.systemBlue
+        } else {
+            return #colorLiteral(red: 0, green: 0.4779834747, blue: 0.9985283017, alpha: 1)
+        }
+    }
+
+    public var separatorColor: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.separator
+        } else {
+            return #colorLiteral(red: 0.8010786772, green: 0.8010975718, blue: 0.8010874391, alpha: 1)
+        }
+    }
+    
 
     // MARK: - Init Method
     public init() {
@@ -63,7 +93,7 @@ open class SVItem: UIView {
     internal func addBottomLine() {
         if bottomLine == nil {
             bottomLine = UIView()
-            bottomLine.backgroundColor = UIColor.lightGray
+            bottomLine.backgroundColor = self.separatorColor
             bottomLine.translatesAutoresizingMaskIntoConstraints = false
             self.addSubview(bottomLine)
 

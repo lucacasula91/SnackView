@@ -83,7 +83,12 @@ extension SnackView {
     internal func addContentViewWithConstraints() {
         self.contentView = UIView()
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
+
         self.contentView.backgroundColor = UIColor.white.withAlphaComponent(0.75)
+        if #available(iOS 13.0, *) {
+            self.contentView.backgroundColor = UIColor.tertiarySystemBackground
+        }
+
         self.view.addSubview(contentView)
 
         /// Default top constraint anchor
@@ -104,7 +109,14 @@ extension SnackView {
 
     /// This method adds a UIVisualEffectView under ContentView to reproduce blur effect.
     internal func addVisualEffectViewToContentView() {
-        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+
+        var effect: UIBlurEffect = UIBlurEffect(style: .light)
+
+        if #available(iOS 13.0, *) {
+            effect = UIBlurEffect(style: .regular)
+        }
+
+        let visualEffectView = UIVisualEffectView(effect: effect)
 
         visualEffectView.frame = contentView.bounds
         visualEffectView.autoresizingMask = [.flexibleHeight, .flexibleWidth]

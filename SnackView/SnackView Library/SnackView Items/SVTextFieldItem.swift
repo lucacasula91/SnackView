@@ -59,7 +59,7 @@ public class SVTextFieldItem: SVItem {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.text = placeholder.uppercased()
         titleLabel.textAlignment = .right
-        titleLabel.textColor = grayTextColor
+        titleLabel.textColor = secondaryTextColor
         titleLabel.font = UIFont.systemFont(ofSize: 14)
         titleLabel.numberOfLines = 0
         self.addSubview(titleLabel)
