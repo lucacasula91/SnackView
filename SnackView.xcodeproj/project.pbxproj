@@ -33,7 +33,6 @@
 		514047FA234B4B4B0020F126 /* SVCustomItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE4021E2B5C000F4ECEB /* SVCustomItem.swift */; };
 		514047FB234B4B4B0020F126 /* SVGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192725D21F86EE800E0965C /* SVGradientView.swift */; };
 		514C7B98264D6B6E00644BAA /* SVSliderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514C7B97264D6B6E00644BAA /* SVSliderItem.swift */; };
-		51822D8B21E4D06F00380738 /* MockDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51822D8A21E4D06F00380738 /* MockDataSource.swift */; };
 		5192725A21F86BC100E0965C /* SVCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192725921F86BC100E0965C /* SVCustomButton.swift */; };
 		5192725E21F86EE800E0965C /* SVGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192725D21F86EE800E0965C /* SVGradientView.swift */; };
 		51A519BF234B4AAD00A1398C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A519BE234B4AAD00A1398C /* AppDelegate.swift */; };
@@ -43,6 +42,7 @@
 		51A519C8234B4AAE00A1398C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51A519C7234B4AAE00A1398C /* Assets.xcassets */; };
 		51A519CB234B4AAE00A1398C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51A519C9234B4AAE00A1398C /* LaunchScreen.storyboard */; };
 		51ADB77D264E9B2300D6488C /* SnackViewItemsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ADB77C264E9B2300D6488C /* SnackViewItemsTests.swift */; };
+		51ADB790264EB5E300D6488C /* MockSnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ADB78F264EB5E300D6488C /* MockSnackViewDataSource.swift */; };
 		51F4CB1121E388CF0096E48D /* SnackViewPublicMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */; };
 		51F4CB1221E388CF0096E48D /* SnackViewInternalMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */; };
 		51F4CB1321E388CF0096E48D /* SnackViewNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB1021E388CF0096E48D /* SnackViewNotifications.swift */; };
@@ -126,7 +126,6 @@
 		5133D42E264E876B006EB850 /* SnackViewTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SnackViewTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		5133D42F264E876B006EB850 /* SnackViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewTests.swift; sourceTree = "<group>"; };
 		514C7B97264D6B6E00644BAA /* SVSliderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVSliderItem.swift; sourceTree = "<group>"; };
-		51822D8A21E4D06F00380738 /* MockDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataSource.swift; sourceTree = "<group>"; };
 		5192725921F86BC100E0965C /* SVCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVCustomButton.swift; sourceTree = "<group>"; };
 		5192725D21F86EE800E0965C /* SVGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGradientView.swift; sourceTree = "<group>"; };
 		51A519BC234B4AAD00A1398C /* SnackViewExample_UIWindowScene.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnackViewExample_UIWindowScene.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +137,7 @@
 		51A519CA234B4AAE00A1398C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51A519CC234B4AAE00A1398C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51ADB77C264E9B2300D6488C /* SnackViewItemsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewItemsTests.swift; sourceTree = "<group>"; };
+		51ADB78F264EB5E300D6488C /* MockSnackViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSnackViewDataSource.swift; sourceTree = "<group>"; };
 		51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewPublicMethods.swift; sourceTree = "<group>"; };
 		51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewInternalMethods.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		51F4CB1021E388CF0096E48D /* SnackViewNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewNotifications.swift; sourceTree = "<group>"; };
@@ -226,9 +226,10 @@
 		38F4AEFD205969CD00341940 /* SnackViewTests */ = {
 			isa = PBXGroup;
 			children = (
-				51ADB77C264E9B2300D6488C /* SnackViewItemsTests.swift */,
 				38F4AF00205969CD00341940 /* Info.plist */,
+				51ADB78F264EB5E300D6488C /* MockSnackViewDataSource.swift */,
 				5133D42F264E876B006EB850 /* SnackViewTests.swift */,
+				51ADB77C264E9B2300D6488C /* SnackViewItemsTests.swift */,
 				5133D42E264E876B006EB850 /* SnackViewTests-Bridging-Header.h */,
 			);
 			path = SnackViewTests;
@@ -277,7 +278,6 @@
 				38F4AF13205969E900341940 /* SVTitleOptions.swift */,
 				38F4AF12205969E900341940 /* CustomInputAccessoryView.swift */,
 				381CFE692091BC1800379B26 /* SafeAreaHelper.swift */,
-				51822D8A21E4D06F00380738 /* MockDataSource.swift */,
 			);
 			path = "SnackView Utilities";
 			sourceTree = "<group>";
@@ -553,7 +553,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				381CFE6A2091BC1800379B26 /* SafeAreaHelper.swift in Sources */,
-				51822D8B21E4D06F00380738 /* MockDataSource.swift in Sources */,
 				38F4AF18205969E900341940 /* SVDetailTextItem.swift in Sources */,
 				51F4CB1321E388CF0096E48D /* SnackViewNotifications.swift in Sources */,
 				51F4CB1221E388CF0096E48D /* SnackViewInternalMethods.swift in Sources */,
@@ -579,6 +578,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51ADB790264EB5E300D6488C /* MockSnackViewDataSource.swift in Sources */,
 				51ADB77D264E9B2300D6488C /* SnackViewItemsTests.swift in Sources */,
 				5133D430264E876B006EB850 /* SnackViewTests.swift in Sources */,
 			);

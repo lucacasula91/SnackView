@@ -5,41 +5,20 @@
 //  Created by Luca Casula on 14/05/2021.
 //  Copyright © 2021 LucaCasula. All rights reserved.
 //
-
+//
 import Nimble
 import Quick
 
 @testable import SnackView
 
-class MockSnackView: SnackViewDataSource {
-
-    private var items: [SVItem] = []
-
-    func titleFor(snackView: SnackView) -> String {
-        return "Mock SnackView"
-    }
-
-    func cancelTitleFor(snackView: SnackView) -> String? {
-        "Cancel"
-    }
-
-    func itemsFor(snackView: SnackView) -> [SVItem] {
-        return self.items
-    }
-
-    public func set(items: [SVItem]) {
-        self.items = items
-    }
-}
-
 class SVItemsTests: QuickSpec {
     override func spec() {
 
         var snackView: SnackView?
-        var snackViewSpy: MockSnackView?
+        var snackViewSpy: MockSnackViewDataSource?
 
         beforeEach {
-            snackViewSpy = MockSnackView()
+            snackViewSpy = MockSnackViewDataSource()
             snackView = SnackView(with: snackViewSpy!)
 
             _ = snackView?.view
@@ -97,8 +76,22 @@ class SVItemsTests: QuickSpec {
                             done()
                         }
                     }
-                    
+
                     expect(snackView?.presentingViewController?.title).to(equal("SnackView Container"))
+                }
+            }
+
+            context("when dismissed") {
+                it("had to have window property nil.") {
+                    snackView?.close()
+
+                    waitUntil(timeout: DispatchTimeInterval.seconds(3)) { (done) in
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                            done()
+                        }
+                    }
+
+                    expect(snackView?.window).to(beNil())
                 }
             }
 

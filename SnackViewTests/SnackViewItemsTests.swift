@@ -15,10 +15,10 @@ class SnackViewItemsTests: QuickSpec {
     override func spec() {
 
         var snackView: SnackView?
-        var snackViewSpy: MockSnackView?
+        var snackViewSpy: MockSnackViewDataSource?
 
         beforeEach {
-            snackViewSpy = MockSnackView()
+            snackViewSpy = MockSnackViewDataSource()
             snackView = SnackView(with: snackViewSpy!)
 
             _ = snackView?.view
@@ -34,6 +34,7 @@ class SnackViewItemsTests: QuickSpec {
                 expect(detailedTextItem.frame.height).to(beGreaterThan(50))
             }
         }
+
         describe("SVDetailTextItem from init with coder") {
             let archiver = NSKeyedArchiver(forWritingWith: NSMutableData())
             let detailedTextItem = SVDetailTextItem(coder: archiver)
@@ -107,10 +108,45 @@ class SnackViewItemsTests: QuickSpec {
                 titleItem.setTitle("My second title")
                 expect(titleItem.title).to(equal("My second title"))
             }
-
-
         }
 
+        describe("SVTitleItem from init with coder") {
+            let archiver = NSKeyedArchiver(forWritingWith: NSMutableData())
+            let titleItem = SVTitleItem(coder: archiver)
+
+            it("had to return nil.") {
+                expect(titleItem).to(beNil())
+            }
+        }
+
+        describe("SVImageView") {
+            let image: UIImage = #imageLiteral(resourceName: "Icon")
+            let imageView = SVImageViewItem(with: image, andContentMode: UIView.ContentMode.center, andHeight: 123.0)
+
+            it("had to have 'image' property non nil.") {
+                snackViewSpy?.set(items: [imageView])
+                snackView?.reloadData()
+
+                expect(imageView.image).toNot(beNil())
+            }
+
+            it("had to have 'height' constraint setted to 123.") {
+                snackViewSpy?.set(items: [imageView])
+                snackView?.reloadData()
+
+                expect(imageView.currentHeight).to(equal(123))
+            }
+
+            describe("SVTitleItem from init with coder") {
+                let archiver = NSKeyedArchiver(forWritingWith: NSMutableData())
+                let imageView = SVImageViewItem(coder: archiver)
+
+                it("had to return nil.") {
+                    expect(imageView).to(beNil())
+                }
+            }
+
+        }
     }
 }
 

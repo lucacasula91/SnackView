@@ -204,14 +204,14 @@ extension SnackView {
     }
 
     internal func getDataFromDataSource() {
-        let title = self.dataSource?.titleFor(snackView: self) ?? ""
+        var title: String = ""
+        if let _title = self.dataSource?.titleFor(snackView: self) { title = _title }
         self.titleBar.setTitle(title)
 
         let cancelTitle = self.dataSource?.cancelTitleFor(snackView: self)
         self.titleBar.setCancelTitle(cancelTitle)
 
-        let items = self.dataSource?.itemsFor(snackView: self) ?? []
-        self.items = items
+        if let _items = self.dataSource?.itemsFor(snackView: self) { self.items = _items }
     }
     
     /// This method add all SVItems to scrollView content view.
@@ -257,8 +257,6 @@ extension SnackView {
 
     /// This method creates a view that contains all the SnackView items.
     internal func layoutSnackViewSkeleton() {
-        self.view.subviews.forEach { $0.removeFromSuperview() }
-
         self.addContentViewWithConstraints()
         self.addVisualEffectViewToContentView()
 
