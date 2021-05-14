@@ -274,6 +274,7 @@ extension SnackView {
     /// - Returns: UIViewController to use to present the SnackView
     internal func getPresenterViewController() -> UIViewController {
         let containerViewController = UIViewController()
+        containerViewController.title = "SnackView Container"
         containerViewController.modalPresentationStyle = .overFullScreen
         containerViewController.view.backgroundColor = UIColor.clear
         containerViewController.view.isUserInteractionEnabled = true

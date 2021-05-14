@@ -14,9 +14,6 @@ public class SnackView: UIViewController {
     // MARK: - Outlets and Variables
     internal weak var dataSource: SnackViewDataSource?
 
-    @available(*, deprecated, message: "This property will be removed later.")
-    internal var titleOptions: SVTitleOptions!
-
     public internal(set) var items: [SVItem]? = []
     internal var window: UIWindow?
     internal var contentView = UIView()
@@ -42,33 +39,6 @@ public class SnackView: UIViewController {
         self.dataSource = dataSource
 
         super.init(nibName: nil, bundle: nil)
-    }
-
-    @available(*, deprecated, message: "This method will be removed later. Please use 'init(with: SnackViewProtocol)' instead.")
-    public init(withTitleOptions titleOptions: SVTitleOptions, andItems items: [SVItem]) {
-
-        // Workaround to initialize dataSource
-        let tmpDataSource = MockDataSource(withTitleOptions: titleOptions, andItems: items)
-        dataSource = tmpDataSource
-        super.init(nibName: nil, bundle: nil)
-
-        //Set the title
-        self.titleOptions = titleOptions
-        self.items = items
-    }
-
-    @available(*, deprecated, message: "This method will be removed later. Please use 'init(with: SnackViewProtocol)' instead.")
-    public init(withTitle title: String, andCloseButtonTitle closeTitle: String, andItems items: [SVItem]) {
-
-        // Workaround to initialize dataSource
-        let tmpDataSource = MockDataSource(withTitle: title, andCloseButtonTitle: closeTitle, andItems: items)
-        dataSource = tmpDataSource
-
-        super.init(nibName: nil, bundle: nil)
-
-        //Set the title
-        self.titleOptions = SVTitleOptions(withTitle: title, setCloseButtonVisible: true, setCloseButtonTitle: closeTitle)
-        self.items = items
     }
 
     required public init?(coder aDecoder: NSCoder) {

@@ -72,6 +72,37 @@ class SVItemsTests: QuickSpec {
             }
         }
 
+        describe("SnackView from init with coder") {
+            let archiver = NSKeyedArchiver(forWritingWith: NSMutableData())
+            let mySnackView = SnackView(coder: archiver)
+
+            it("had to return nil.") {
+                expect(mySnackView).to(beNil())
+            }
+        }
+
+        describe("SnackView") {
+            it("had to have not nil inputAccessoryView property.") {
+                expect(snackView?.inputAccessoryView).toNot(beNil())
+            }
+        }
+
+        describe("SnackView") {
+            context("when presented") {
+                it("had to have a parent called 'SnackView Container'.") {
+                    snackView?.show()
+
+                    waitUntil(timeout: DispatchTimeInterval.seconds(3)) { (done) in
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                            done()
+                        }
+                    }
+                    
+                    expect(snackView?.presentingViewController?.title).to(equal("SnackView Container"))
+                }
+            }
+
+        }
     }
 }
 
