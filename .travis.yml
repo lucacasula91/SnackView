@@ -2,7 +2,7 @@ language: swift
 os: osx
 osx_image: xcode12.4
 before_install:
-- rvm install 
+- rvm install 2.5.1
 - bundle install --without=documentation
 - carthage update --use-xcframeworks
 env:
