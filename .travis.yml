@@ -37,7 +37,7 @@ stages:
 branches:
   only:
   - master
-  - develop
+  - development
   - "/^(hotfix)$*/"
   except:
   - "/^[^\\/]+\\/\\d+(?:\\.\\d+)+\\/\\d+$/"
