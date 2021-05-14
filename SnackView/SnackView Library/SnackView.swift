@@ -86,15 +86,13 @@ public class SnackView: UIViewController {
         self.setupViewController()
         self.layoutSnackViewSkeleton()
         self.addKeyboardNotificationsObserver()
-
+        self.getDataFromDataSource()
+        self.addItemsInsideStackView()
     }
 
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
         self.setBackgroundForWillAppear()
-        self.getDataFromDataSource()
-        self.addItemsInsideStackView()
     }
 
     override public func viewDidAppear(_ animated: Bool) {

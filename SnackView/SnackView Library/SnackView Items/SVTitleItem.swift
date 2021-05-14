@@ -95,6 +95,7 @@ class SVTitleItem: SVItem {
     }
 
     public func setTitle(_ title: String) {
+        self.title = title
         self.titleLabel.text = title
     }
 
@@ -103,7 +104,7 @@ class SVTitleItem: SVItem {
             self.cancelButton.isHidden = true
             return
         }
-
+        self.cancelButtonTitle = cancelTitle
         self.cancelButton.isHidden = false
         self.cancelButton.setTitle(cancelTitle, for: UIControl.State())
     }

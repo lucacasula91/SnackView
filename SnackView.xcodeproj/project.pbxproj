@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,10 +23,16 @@
 		38F4AF1C205969E900341940 /* CustomInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF12205969E900341940 /* CustomInputAccessoryView.swift */; };
 		38F4AF1D205969E900341940 /* SVTitleOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF13205969E900341940 /* SVTitleOptions.swift */; };
 		511780C621E5E84E00EBD9F8 /* SnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511780C521E5E84E00EBD9F8 /* SnackViewDataSource.swift */; };
+		5133D426264E868B006EB850 /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5133D417264E85AC006EB850 /* Quick.xcframework */; };
+		5133D427264E868B006EB850 /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5133D416264E85AC006EB850 /* Nimble.xcframework */; };
+		5133D42A264E8740006EB850 /* Nimble.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5133D416264E85AC006EB850 /* Nimble.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5133D42B264E8740006EB850 /* Quick.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5133D417264E85AC006EB850 /* Quick.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5133D430264E876B006EB850 /* SnackViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5133D42F264E876B006EB850 /* SnackViewTests.swift */; };
 		514047F8234B4B3D0020F126 /* SnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFCF5912212149800F68700 /* SnackViewDataSource.swift */; };
 		514047F9234B4B4B0020F126 /* SVCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192725921F86BC100E0965C /* SVCustomButton.swift */; };
 		514047FA234B4B4B0020F126 /* SVCustomItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE4021E2B5C000F4ECEB /* SVCustomItem.swift */; };
 		514047FB234B4B4B0020F126 /* SVGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192725D21F86EE800E0965C /* SVGradientView.swift */; };
+		514C7B98264D6B6E00644BAA /* SVSliderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514C7B97264D6B6E00644BAA /* SVSliderItem.swift */; };
 		51822D8B21E4D06F00380738 /* MockDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51822D8A21E4D06F00380738 /* MockDataSource.swift */; };
 		5192725A21F86BC100E0965C /* SVCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192725921F86BC100E0965C /* SVCustomButton.swift */; };
 		5192725E21F86EE800E0965C /* SVGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192725D21F86EE800E0965C /* SVGradientView.swift */; };
@@ -36,6 +42,7 @@
 		51A519C6234B4AAD00A1398C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51A519C4234B4AAD00A1398C /* Main.storyboard */; };
 		51A519C8234B4AAE00A1398C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51A519C7234B4AAE00A1398C /* Assets.xcassets */; };
 		51A519CB234B4AAE00A1398C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51A519C9234B4AAE00A1398C /* LaunchScreen.storyboard */; };
+		51ADB77D264E9B2300D6488C /* SnackViewItemsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ADB77C264E9B2300D6488C /* SnackViewItemsTests.swift */; };
 		51F4CB1121E388CF0096E48D /* SnackViewPublicMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */; };
 		51F4CB1221E388CF0096E48D /* SnackViewInternalMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */; };
 		51F4CB1321E388CF0096E48D /* SnackViewNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB1021E388CF0096E48D /* SnackViewNotifications.swift */; };
@@ -87,6 +94,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				5133D42A264E8740006EB850 /* Nimble.xcframework in CopyFiles */,
+				5133D42B264E8740006EB850 /* Quick.xcframework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +121,11 @@
 		38F4AF12205969E900341940 /* CustomInputAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInputAccessoryView.swift; sourceTree = "<group>"; };
 		38F4AF13205969E900341940 /* SVTitleOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVTitleOptions.swift; sourceTree = "<group>"; };
 		511780C521E5E84E00EBD9F8 /* SnackViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewDataSource.swift; sourceTree = "<group>"; };
+		5133D416264E85AC006EB850 /* Nimble.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nimble.xcframework; path = Carthage/Build/Nimble.xcframework; sourceTree = "<group>"; };
+		5133D417264E85AC006EB850 /* Quick.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Quick.xcframework; path = Carthage/Build/Quick.xcframework; sourceTree = "<group>"; };
+		5133D42E264E876B006EB850 /* SnackViewTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SnackViewTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		5133D42F264E876B006EB850 /* SnackViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewTests.swift; sourceTree = "<group>"; };
+		514C7B97264D6B6E00644BAA /* SVSliderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVSliderItem.swift; sourceTree = "<group>"; };
 		51822D8A21E4D06F00380738 /* MockDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataSource.swift; sourceTree = "<group>"; };
 		5192725921F86BC100E0965C /* SVCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVCustomButton.swift; sourceTree = "<group>"; };
 		5192725D21F86EE800E0965C /* SVGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGradientView.swift; sourceTree = "<group>"; };
@@ -123,6 +137,7 @@
 		51A519C7234B4AAE00A1398C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51A519CA234B4AAE00A1398C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51A519CC234B4AAE00A1398C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51ADB77C264E9B2300D6488C /* SnackViewItemsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewItemsTests.swift; sourceTree = "<group>"; };
 		51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewPublicMethods.swift; sourceTree = "<group>"; };
 		51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewInternalMethods.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		51F4CB1021E388CF0096E48D /* SnackViewNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewNotifications.swift; sourceTree = "<group>"; };
@@ -152,6 +167,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5133D426264E868B006EB850 /* Quick.xcframework in Frameworks */,
+				5133D427264E868B006EB850 /* Nimble.xcframework in Frameworks */,
 				38F4AEFA205969CD00341940 /* SnackView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,7 +226,10 @@
 		38F4AEFD205969CD00341940 /* SnackViewTests */ = {
 			isa = PBXGroup;
 			children = (
+				51ADB77C264E9B2300D6488C /* SnackViewItemsTests.swift */,
 				38F4AF00205969CD00341940 /* Info.plist */,
+				5133D42F264E876B006EB850 /* SnackViewTests.swift */,
+				5133D42E264E876B006EB850 /* SnackViewTests-Bridging-Header.h */,
 			);
 			path = SnackViewTests;
 			sourceTree = "<group>";
@@ -241,6 +261,7 @@
 				38F4AF0A205969E700341940 /* SVButtonItem.swift */,
 				38F4AF0C205969E800341940 /* SVDescriptionItem.swift */,
 				38F4AF0E205969E800341940 /* SVDetailTextItem.swift */,
+				514C7B97264D6B6E00644BAA /* SVSliderItem.swift */,
 				38EA7C3520862B7700B6F88D /* SVLoaderItem.swift */,
 				385DCCC4207BD55E00E280E3 /* SVSwitchItem.swift */,
 				38F4AF11205969E900341940 /* SVTextFieldItem.swift */,
@@ -341,6 +362,8 @@
 		FF511B0421E250CF00911490 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5133D416264E85AC006EB850 /* Nimble.xcframework */,
+				5133D417264E85AC006EB850 /* Quick.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -449,6 +472,7 @@
 					};
 					38F4AEF8205969CD00341940 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1240;
 						ProvisioningStyle = Automatic;
 						TestTargetID = FF42AE0B21E2844200F4ECEB;
 					};
@@ -536,6 +560,7 @@
 				38F4AF1B205969E900341940 /* SVTextFieldItem.swift in Sources */,
 				38F4AF1A205969E900341940 /* SVApplicationItem.swift in Sources */,
 				38F4AF14205969E900341940 /* SVButtonItem.swift in Sources */,
+				514C7B98264D6B6E00644BAA /* SVSliderItem.swift in Sources */,
 				51F4CB1121E388CF0096E48D /* SnackViewPublicMethods.swift in Sources */,
 				38EA7C3620862B7700B6F88D /* SVLoaderItem.swift in Sources */,
 				38F4AF1D205969E900341940 /* SVTitleOptions.swift in Sources */,
@@ -554,6 +579,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51ADB77D264E9B2300D6488C /* SnackViewItemsTests.swift in Sources */,
+				5133D430264E876B006EB850 /* SnackViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -746,7 +773,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -772,10 +800,15 @@
 				INFOPLIST_FILE = SnackView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = LucaCasula.SnackView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -800,10 +833,15 @@
 				INFOPLIST_FILE = SnackView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = LucaCasula.SnackView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -814,6 +852,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 486MB7T8V9;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -823,9 +862,15 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = SnackViewTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = LucaCasula.SnackViewTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SnackViewTests/SnackViewTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SnackViewExample.app/SnackViewExample";
@@ -837,6 +882,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 486MB7T8V9;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -846,9 +892,14 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = SnackViewTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = LucaCasula.SnackViewTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SnackViewTests/SnackViewTests-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SnackViewExample.app/SnackViewExample";
@@ -864,7 +915,10 @@
 				DEVELOPMENT_TEAM = 486MB7T8V9;
 				INFOPLIST_FILE = Examples/SnackViewExample_UIWindowScene/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.LucaCasula.SnackViewExample-UIWindowScene";
@@ -883,7 +937,10 @@
 				DEVELOPMENT_TEAM = 486MB7T8V9;
 				INFOPLIST_FILE = Examples/SnackViewExample_UIWindowScene/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.LucaCasula.SnackViewExample-UIWindowScene";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -901,7 +958,10 @@
 				DEVELOPMENT_TEAM = 486MB7T8V9;
 				INFOPLIST_FILE = "Examples/SnackViewExample/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = LucaCasula.SnackViewExample;
@@ -920,7 +980,10 @@
 				DEVELOPMENT_TEAM = 486MB7T8V9;
 				INFOPLIST_FILE = "Examples/SnackViewExample/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = LucaCasula.SnackViewExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";

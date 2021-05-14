@@ -15,7 +15,7 @@ extension SnackView {
     internal func setupViewController() {
         // Add custom input accessory view to handle keyboard dismiss interactively
         self.customInputAccessoryView.frame.size.height = 44
-        self.customInputAccessoryView.backgroundColor = UIColor.red
+        self.customInputAccessoryView.backgroundColor = UIColor.clear
 
         // Set the presentation style as over current context
         self.modalPresentationStyle = .overCurrentContext
@@ -42,9 +42,14 @@ extension SnackView {
     internal func showSnackViewWithAnimation() {
 
         DispatchQueue.main.async {
+            var backgroundColor: UIColor = UIColor.black
+            if #available(iOS 13.0, *) {
+                backgroundColor = UIColor.label
+            }
+
             // Background Color Animation
             UIView.animate(withDuration: self.animationSpeed, animations: {
-                self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+                self.view.backgroundColor = backgroundColor.withAlphaComponent(0.4)
             }) { (_) in
                 // Show SnackView Animation
                 UIView.animate(withDuration: self.animationSpeed, animations: {
@@ -109,7 +114,6 @@ extension SnackView {
 
     /// This method adds a UIVisualEffectView under ContentView to reproduce blur effect.
     internal func addVisualEffectViewToContentView() {
-
         var effect: UIBlurEffect = UIBlurEffect(style: .light)
 
         if #available(iOS 13.0, *) {
@@ -212,12 +216,17 @@ extension SnackView {
     
     /// This method add all SVItems to scrollView content view.
     internal func addItemsInsideStackView() {
+        self.items = []
         self.stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
 
         // Add BottomAlertItems to ScrollView
-        var items = [SVItem]()
-        if let tmpItems = self.dataSource?.itemsFor(snackView: self) { items = tmpItems }
-        for item in items {
+        var _items = [SVItem]()
+        if let tmpItems = self.dataSource?.itemsFor(snackView: self) {
+            _items = tmpItems
+            self.items = _items
+        }
+
+        for item in _items {
             self.stackView.addArrangedSubview(item)
         }
 
@@ -239,6 +248,7 @@ extension SnackView {
             let secondCause = SVDetailTextItem(withTitle: "DataSource with weak reference", andDescription: "If you have a standalone datasource class, you need to keep the reference from the UIViewController that want to present the SnackView.")
             self.stackView.addArrangedSubview(secondCause)
 
+            self.items = [description, firstCause, secondCause]
         }
         self.view.layoutIfNeeded()
     }
