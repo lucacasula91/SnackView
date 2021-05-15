@@ -10,7 +10,7 @@
 		381CFE6A2091BC1800379B26 /* SafeAreaHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381CFE692091BC1800379B26 /* SafeAreaHelper.swift */; };
 		385DCCC5207BD55E00E280E3 /* SVSwitchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DCCC4207BD55E00E280E3 /* SVSwitchItem.swift */; };
 		38EA7C3620862B7700B6F88D /* SVLoaderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA7C3520862B7700B6F88D /* SVLoaderItem.swift */; };
-		38F4AEFA205969CD00341940 /* SnackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F4AEF0205969CD00341940 /* SnackView.framework */; };
+		38F4AEFA205969CD00341940 /* SnackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F4AEF0205969CD00341940 /* SnackView.framework */; platformFilter = ios; };
 		38F4AF01205969CD00341940 /* SnackView.h in Headers */ = {isa = PBXBuildFile; fileRef = 38F4AEF3205969CD00341940 /* SnackView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		38F4AF14205969E900341940 /* SVButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF0A205969E700341940 /* SVButtonItem.swift */; };
 		38F4AF15205969E900341940 /* SVItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF0B205969E800341940 /* SVItem.swift */; };
@@ -23,10 +23,10 @@
 		38F4AF1C205969E900341940 /* CustomInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF12205969E900341940 /* CustomInputAccessoryView.swift */; };
 		38F4AF1D205969E900341940 /* SVTitleOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF13205969E900341940 /* SVTitleOptions.swift */; };
 		511780C621E5E84E00EBD9F8 /* SnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511780C521E5E84E00EBD9F8 /* SnackViewDataSource.swift */; };
-		5133D426264E868B006EB850 /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5133D417264E85AC006EB850 /* Quick.xcframework */; };
-		5133D427264E868B006EB850 /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5133D416264E85AC006EB850 /* Nimble.xcframework */; };
-		5133D42A264E8740006EB850 /* Nimble.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5133D416264E85AC006EB850 /* Nimble.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5133D42B264E8740006EB850 /* Quick.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5133D417264E85AC006EB850 /* Quick.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5133D426264E868B006EB850 /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5133D417264E85AC006EB850 /* Quick.xcframework */; platformFilter = ios; settings = {ATTRIBUTES = (Required, ); }; };
+		5133D427264E868B006EB850 /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5133D416264E85AC006EB850 /* Nimble.xcframework */; platformFilter = ios; };
+		5133D42A264E8740006EB850 /* Nimble.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5133D416264E85AC006EB850 /* Nimble.xcframework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5133D42B264E8740006EB850 /* Quick.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5133D417264E85AC006EB850 /* Quick.xcframework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5133D430264E876B006EB850 /* SnackViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5133D42F264E876B006EB850 /* SnackViewTests.swift */; };
 		514047F8234B4B3D0020F126 /* SnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFCF5912212149800F68700 /* SnackViewDataSource.swift */; };
 		514047F9234B4B4B0020F126 /* SVCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192725921F86BC100E0965C /* SVCustomButton.swift */; };
@@ -616,6 +616,7 @@
 /* Begin PBXTargetDependency section */
 		38F4AEFC205969CD00341940 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = 38F4AEEF205969CD00341940 /* SnackView */;
 			targetProxy = 38F4AEFB205969CD00341940 /* PBXContainerItemProxy */;
 		};

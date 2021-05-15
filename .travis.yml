@@ -4,6 +4,7 @@ osx_image: xcode12.4
 before_install:
 - rvm install 2.5.1
 - bundle install --without=documentation
+- bundle update fastlane
 - carthage update --use-xcframeworks
 env:
   global:
