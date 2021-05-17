@@ -147,6 +147,32 @@ class SnackViewItemsTests: QuickSpec {
             }
 
         }
+
+        describe("SVSwitchItem") {
+            var switchValueChanged: Bool = false
+            let switchItem = SVSwitchItem(withTitle: "My Title", andDescription: "My Description", withState: false, withSwitchAction: { _ in switchValueChanged = true })
+
+            it("had to have 'title', 'description' and 'currentState' property non nil.") {
+                snackViewSpy?.set(items: [switchItem])
+                snackView?.reloadData()
+
+                expect(switchItem.title).to(equal("My Title"))
+                expect(switchItem.descriptionText).to(equal("My Description"))
+                expect(switchItem.currentState).to(beFalse())
+
+                switchItem.switchSelector(switchItem: UISwitch())
+                expect(switchValueChanged).to(beTrue())
+            }
+
+            describe("SVSwitchItem from init with coder") {
+                let archiver = NSKeyedArchiver(requiringSecureCoding: false)
+                let switchItem = SVSwitchItem(coder: archiver)
+
+                it("had to return nil.") {
+                    expect(switchItem).to(beNil())
+                }
+            }
+        }
     }
 }
 
