@@ -28,6 +28,12 @@
 		514047FA234B4B4B0020F126 /* SVCustomItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE4021E2B5C000F4ECEB /* SVCustomItem.swift */; };
 		514047FB234B4B4B0020F126 /* SVGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192725D21F86EE800E0965C /* SVGradientView.swift */; };
 		514C7B98264D6B6E00644BAA /* SVSliderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514C7B97264D6B6E00644BAA /* SVSliderItem.swift */; };
+		5187CA8126524BFE007443CD /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5187CA7F26524BFE007443CD /* Quick.xcframework */; };
+		5187CA8226524BFF007443CD /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5187CA8026524BFE007443CD /* Nimble.xcframework */; };
+		5187CA8526524C0F007443CD /* Nimble.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5187CA8026524BFE007443CD /* Nimble.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5187CA8626524C0F007443CD /* Quick.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5187CA7F26524BFE007443CD /* Quick.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5187CA8926524E5B007443CD /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5187CA8026524BFE007443CD /* Nimble.xcframework */; };
+		5187CA8C26524E5E007443CD /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5187CA7F26524BFE007443CD /* Quick.xcframework */; };
 		5192725A21F86BC100E0965C /* SVCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192725921F86BC100E0965C /* SVCustomButton.swift */; };
 		5192725E21F86EE800E0965C /* SVGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192725D21F86EE800E0965C /* SVGradientView.swift */; };
 		51A519BF234B4AAD00A1398C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A519BE234B4AAD00A1398C /* AppDelegate.swift */; };
@@ -36,10 +42,6 @@
 		51A519C6234B4AAD00A1398C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51A519C4234B4AAD00A1398C /* Main.storyboard */; };
 		51A519C8234B4AAE00A1398C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51A519C7234B4AAE00A1398C /* Assets.xcassets */; };
 		51A519CB234B4AAE00A1398C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51A519C9234B4AAE00A1398C /* LaunchScreen.storyboard */; };
-		51AB2C9D26504CE400BE2891 /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51AB2C9B26504CE400BE2891 /* Quick.xcframework */; };
-		51AB2C9E26504CE400BE2891 /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51AB2C9C26504CE400BE2891 /* Nimble.xcframework */; };
-		51AB2CA626504D0D00BE2891 /* Nimble.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 51AB2CA426504D0D00BE2891 /* Nimble.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		51AB2CA726504D0D00BE2891 /* Quick.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 51AB2CA526504D0D00BE2891 /* Quick.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		51ADB77D264E9B2300D6488C /* SnackViewItemsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ADB77C264E9B2300D6488C /* SnackViewItemsTests.swift */; };
 		51ADB790264EB5E300D6488C /* MockSnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ADB78F264EB5E300D6488C /* MockSnackViewDataSource.swift */; };
 		51F4CB1121E388CF0096E48D /* SnackViewPublicMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */; };
@@ -83,8 +85,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				51AB2CA626504D0D00BE2891 /* Nimble.xcframework in CopyFiles */,
-				51AB2CA726504D0D00BE2891 /* Quick.xcframework in CopyFiles */,
+				5187CA8526524C0F007443CD /* Nimble.xcframework in CopyFiles */,
+				5187CA8626524C0F007443CD /* Quick.xcframework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +124,8 @@
 		5133D42E264E876B006EB850 /* SnackViewTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SnackViewTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		5133D42F264E876B006EB850 /* SnackViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewTests.swift; sourceTree = "<group>"; };
 		514C7B97264D6B6E00644BAA /* SVSliderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVSliderItem.swift; sourceTree = "<group>"; };
+		5187CA7F26524BFE007443CD /* Quick.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Quick.xcframework; path = Carthage/Build/Quick.xcframework; sourceTree = "<group>"; };
+		5187CA8026524BFE007443CD /* Nimble.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nimble.xcframework; path = Carthage/Build/Nimble.xcframework; sourceTree = "<group>"; };
 		5192725921F86BC100E0965C /* SVCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVCustomButton.swift; sourceTree = "<group>"; };
 		5192725D21F86EE800E0965C /* SVGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGradientView.swift; sourceTree = "<group>"; };
 		51A519BC234B4AAD00A1398C /* SnackViewExample_UIWindowScene.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnackViewExample_UIWindowScene.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,10 +136,6 @@
 		51A519C7234B4AAE00A1398C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51A519CA234B4AAE00A1398C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51A519CC234B4AAE00A1398C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		51AB2C9B26504CE400BE2891 /* Quick.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Quick.xcframework; path = Carthage/Build/Quick.xcframework; sourceTree = "<group>"; };
-		51AB2C9C26504CE400BE2891 /* Nimble.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nimble.xcframework; path = Carthage/Build/Nimble.xcframework; sourceTree = "<group>"; };
-		51AB2CA426504D0D00BE2891 /* Nimble.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nimble.xcframework; path = Carthage/Build/Nimble.xcframework; sourceTree = "<group>"; };
-		51AB2CA526504D0D00BE2891 /* Quick.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Quick.xcframework; path = Carthage/Build/Quick.xcframework; sourceTree = "<group>"; };
 		51ADB77C264E9B2300D6488C /* SnackViewItemsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewItemsTests.swift; sourceTree = "<group>"; };
 		51ADB78F264EB5E300D6488C /* MockSnackViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSnackViewDataSource.swift; sourceTree = "<group>"; };
 		51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewPublicMethods.swift; sourceTree = "<group>"; };
@@ -160,6 +160,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5187CA8926524E5B007443CD /* Nimble.xcframework in Frameworks */,
+				5187CA8C26524E5E007443CD /* Quick.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,8 +169,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51AB2C9D26504CE400BE2891 /* Quick.xcframework in Frameworks */,
-				51AB2C9E26504CE400BE2891 /* Nimble.xcframework in Frameworks */,
+				5187CA8126524BFE007443CD /* Quick.xcframework in Frameworks */,
+				5187CA8226524BFF007443CD /* Nimble.xcframework in Frameworks */,
 				38F4AEFA205969CD00341940 /* SnackView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,8 +196,6 @@
 		38F4AEE6205969CD00341940 = {
 			isa = PBXGroup;
 			children = (
-				51AB2CA426504D0D00BE2891 /* Nimble.xcframework */,
-				51AB2CA526504D0D00BE2891 /* Quick.xcframework */,
 				38F4AEF2205969CD00341940 /* SnackView */,
 				38F4AEFD205969CD00341940 /* SnackViewTests */,
 				514047FE234B4BC60020F126 /* Examples */,
@@ -363,8 +363,8 @@
 		FF511B0421E250CF00911490 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				51AB2C9C26504CE400BE2891 /* Nimble.xcframework */,
-				51AB2C9B26504CE400BE2891 /* Quick.xcframework */,
+				5187CA8026524BFE007443CD /* Nimble.xcframework */,
+				5187CA7F26524BFE007443CD /* Quick.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -722,6 +722,8 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
+				VALIDATE_PRODUCT = NO;
+				VALIDATE_WORKSPACE = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -780,6 +782,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
+				VALIDATE_WORKSPACE = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -817,6 +820,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
 		};
@@ -863,6 +867,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 486MB7T8V9;
 				ENABLE_BITCODE = NO;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "i386 x86_64";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "armv7 arm64e arm64";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Example/Carthage/Build/iOS",
@@ -883,6 +890,7 @@
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SnackViewExample.app/SnackViewExample";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
 		};
@@ -895,6 +903,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 486MB7T8V9;
 				ENABLE_BITCODE = NO;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=*]" = "x_86_64 i386";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 arm64e armv7";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Example/Carthage/Build/iOS",

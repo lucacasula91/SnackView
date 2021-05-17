@@ -22,21 +22,26 @@ class SVItemsTests: QuickSpec {
             snackView = SnackView(with: snackViewSpy!)
 
             _ = snackView?.view
+            snackView?.reloadData()
         }
 
         describe("SnackView with invalid configuration") {
+            sleep(2)
 
-            it("had to be titled 'Invalid configuration'") {
-                expect(snackView?.titleBar.titleLabel.text).to(equal("Invalid configuration"))
+            context(".viewWillAppear") {
+                it("had to be titled 'Invalid configuration'") {
+                    expect(snackView?.titleBar.titleLabel.text).to(equal("Invalid configuration"))
+                }
+
+                it("had to contains 'Close' button.") {
+                    expect(snackView?.titleBar.cancelButtonTitle).to(equal("Close"))
+                }
+
+                it("had to contains three elements.") {
+                    expect(snackView?.items?.count).to(equal(3))
+                }
             }
 
-            it("had to contains 'Close' button.") {
-                expect(snackView?.titleBar.cancelButtonTitle).to(equal("Close"))
-            }
-
-            it("had to contains three elements.") {
-                expect(snackView?.items?.count).to(equal(3))
-            }
         }
 
         describe("SnackView reloadData method") {

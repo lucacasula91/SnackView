@@ -36,7 +36,7 @@ class SnackViewItemsTests: QuickSpec {
         }
 
         describe("SVDetailTextItem from init with coder") {
-            let archiver = NSKeyedArchiver(forWritingWith: NSMutableData())
+            let archiver = NSKeyedArchiver(requiringSecureCoding: false)
             let detailedTextItem = SVDetailTextItem(coder: archiver)
 
             it("had to return nil.") {
@@ -56,7 +56,7 @@ class SnackViewItemsTests: QuickSpec {
         }
 
         describe("SVDescriptionItem from init with coder") {
-            let archiver = NSKeyedArchiver(forWritingWith: NSMutableData())
+            let archiver = NSKeyedArchiver(requiringSecureCoding: false)
             let descriptionItem = SVDescriptionItem(coder: archiver)
 
             it("had to return nil.") {
@@ -80,7 +80,7 @@ class SnackViewItemsTests: QuickSpec {
         }
 
         describe("SVTextFieldItem from init with coder") {
-            let archiver = NSKeyedArchiver(forWritingWith: NSMutableData())
+            let archiver = NSKeyedArchiver(requiringSecureCoding: false)
             let textFieldItem = SVTextFieldItem(coder: archiver)
 
             it("had to return nil.") {
@@ -111,7 +111,7 @@ class SnackViewItemsTests: QuickSpec {
         }
 
         describe("SVTitleItem from init with coder") {
-            let archiver = NSKeyedArchiver(forWritingWith: NSMutableData())
+            let archiver = NSKeyedArchiver(requiringSecureCoding: false)
             let titleItem = SVTitleItem(coder: archiver)
 
             it("had to return nil.") {
@@ -138,7 +138,7 @@ class SnackViewItemsTests: QuickSpec {
             }
 
             describe("SVTitleItem from init with coder") {
-                let archiver = NSKeyedArchiver(forWritingWith: NSMutableData())
+                let archiver = NSKeyedArchiver(requiringSecureCoding: false)
                 let imageView = SVImageViewItem(coder: archiver)
 
                 it("had to return nil.") {
