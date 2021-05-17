@@ -219,6 +219,40 @@ class SnackViewItemsTests: QuickSpec {
                 }
             }
         }
+
+        describe("SVLoaderItem") {
+            context("when contains text") {
+                let loaderItem = SVLoaderItem(withSize: .little, andText: "Loading content")
+
+                it("had to have 'text' property non nil.") {
+                    snackViewSpy?.set(items: [loaderItem])
+                    snackView?.reloadData()
+
+                    expect(loaderItem.text).to(equal("Loading content"))
+                    expect(loaderItem.size).to(equal(.little))
+                }
+            }
+
+            context("when initialized without text") {
+                let loaderItem = SVLoaderItem(withSize: .large, andText: nil)
+
+                it("had to have 'text' property nil.") {
+                    snackViewSpy?.set(items: [loaderItem])
+                    snackView?.reloadData()
+
+                    expect(loaderItem.size).to(equal(.large))
+                }
+            }
+
+            describe("SVLoaderItem from init with coder") {
+                let archiver = NSKeyedArchiver(requiringSecureCoding: false)
+                let loaderItem = SVLoaderItem(coder: archiver)
+
+                it("had to return nil.") {
+                    expect(loaderItem).to(beNil())
+                }
+            }
+        }
     }
 }
 
