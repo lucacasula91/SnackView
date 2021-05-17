@@ -42,11 +42,7 @@ extension SnackView {
     internal func showSnackViewWithAnimation() {
 
         DispatchQueue.main.async {
-            var backgroundColor: UIColor = UIColor.black
-            if #available(iOS 13.0, *) {
-                backgroundColor = UIColor.label
-            }
-
+            let backgroundColor: UIColor = UIColor.black
             // Background Color Animation
             UIView.animate(withDuration: self.animationSpeed, animations: {
                 self.view.backgroundColor = backgroundColor.withAlphaComponent(0.4)
@@ -117,11 +113,10 @@ extension SnackView {
         var effect: UIBlurEffect = UIBlurEffect(style: .light)
 
         if #available(iOS 13.0, *) {
-            effect = UIBlurEffect(style: .regular)
+            effect = UIBlurEffect(style: .systemMaterial)
         }
 
         let visualEffectView = UIVisualEffectView(effect: effect)
-
         visualEffectView.frame = contentView.bounds
         visualEffectView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
 
