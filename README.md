@@ -15,9 +15,10 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/9aeb1378d61a9f9a3fe4/maintainability)](https://codeclimate.com/github/lucacasula91/SnackView/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/9aeb1378d61a9f9a3fe4/test_coverage)](https://codeclimate.com/github/lucacasula91/SnackView/test_coverage)
 
+- [Roadmap](#roadmap)
 - [What's new](#whats-new)
-  - [What's new in 1.0.9](#whats-new-in-109)
-	- [What's new in 1.0.8](#whats-new-in-108)
+  - [What's new in 1.1.0](#whats-new-in-110)
+	- [What's new in 1.0.9](#whats-new-in-101)
 - [Installation](#installation)
 	- [CocoaPods](#cocoapods)
 	- [Carthage](#carthage)
