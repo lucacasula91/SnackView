@@ -253,6 +253,26 @@ class SnackViewItemsTests: QuickSpec {
                 }
             }
         }
+
+        describe("SVSlider") {
+            let sliderItem = SVSliderItem(withTitle: "My Slider", minimum: 10, maximum: 20, current: 13)
+
+            it("had to have 'currentValue' property non nil.") {
+                snackViewSpy?.set(items: [sliderItem])
+                snackView?.reloadData()
+
+                expect(sliderItem.currentValue).to(equal(13))
+            }
+            
+            describe("SVSliderItem from init with coder") {
+                let archiver = NSKeyedArchiver(requiringSecureCoding: false)
+                let sliderItem = SVSliderItem(coder: archiver)
+
+                it("had to return nil.") {
+                    expect(sliderItem).to(beNil())
+                }
+            }
+        }
     }
 }
 
