@@ -2,14 +2,13 @@
 
 # SnackView
 ***An easy way to present customizable bottom-half alert.***
-![SnackView logo](http://www.lucacasula.it/SVItems/SnackViewPreview.jpg)
+![SnackView logo](http://www.lucacasula.it/SVItems/NewSnackViewPreview.jpg)
 
 
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SnackView.svg)](https://img.shields.io/cocoapods/v/SnackView.svg)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Platform](https://img.shields.io/cocoapods/p/SnackView.svg?style=flat)](https://github.com/lucacasula91/SnackView/wiki)
 ![License](https://img.shields.io/cocoapods/l/SnackView.svg?style=flat)
-[![Downloads](https://img.shields.io/cocoapods/dt/SnackView.svg)](https://cocoapods.org/pods/SnackView)
 [![Twitter](https://img.shields.io/badge/twitter-@lucacasula91-green.svg?style=flat)](http://twitter.com/lucacasula91)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/9aeb1378d61a9f9a3fe4/maintainability)](https://codeclimate.com/github/lucacasula91/SnackView/maintainability)
@@ -43,7 +42,6 @@
 ### What's new in 1.0.9
 - New SnackViewDataSource protocol with which create your SnackView.
 - New SVImageViewItem class with which display images.
-- Dark mode is not compatible yet, for now SnackView continue to show light UI.
 - Compatible with the new UIWindowSceneDelegate system. 
 
 
@@ -66,7 +64,7 @@ To integrate SnackView into your Xcode project using CocoaPods, specify it in yo
 
 ```ruby
 use_frameworks!
-pod 'SnackView', '~> 1.0.9'
+pod 'SnackView', '~> 1.1.0'
 ```
 
 Then, run the following command:
@@ -82,9 +80,6 @@ $ pod install
 ```ogdl
 github "lucacasula91/SnackView"
 ```
-
-SnackView 1.0.9 is not available yet on Carthage.
-
 
 
 ### Manual installation
