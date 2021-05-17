@@ -173,6 +173,52 @@ class SnackViewItemsTests: QuickSpec {
                 }
             }
         }
+
+        describe("SVApplicationItem") {
+            let applicationItem = SVApplicationItem(withIcon: #imageLiteral(resourceName: "Icon"), withTitle: "My Application", andDescription: "My Description")
+
+            it("had to have 'title', 'description' and 'icon' property non nil.") {
+                snackViewSpy?.set(items: [applicationItem])
+                snackView?.reloadData()
+
+                expect(applicationItem.title).to(equal("My Application"))
+                expect(applicationItem.descriptionText).to(equal("My Description"))
+                expect(applicationItem.icon).toNot(beNil())
+            }
+
+            describe("SVApplicationItem from init with coder") {
+                let archiver = NSKeyedArchiver(requiringSecureCoding: false)
+                let applicationItem = SVApplicationItem(coder: archiver)
+
+                it("had to return nil.") {
+                    expect(applicationItem).to(beNil())
+                }
+            }
+        }
+
+        describe("SVButtonItem") {
+            var buttonClicked: Bool = false
+            let buttonItem = SVButtonItem(withTitle: "My Button", withButtonAction: { buttonClicked = true })
+
+            it("had to have 'title' property non nil.") {
+                snackViewSpy?.set(items: [buttonItem])
+                snackView?.reloadData()
+
+                expect(buttonItem.title).to(equal("My Button"))
+
+                buttonItem.buttonSelector()
+                expect(buttonClicked).to(beTrue())
+            }
+
+            describe("SVButton from init with coder") {
+                let archiver = NSKeyedArchiver(requiringSecureCoding: false)
+                let buttonItem = SVButtonItem(coder: archiver)
+
+                it("had to return nil.") {
+                    expect(buttonItem).to(beNil())
+                }
+            }
+        }
     }
 }
 
