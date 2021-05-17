@@ -28,21 +28,23 @@
 - [Create custom SVItems](#create-custom-svitems)
 - [Contributing](#contributing)
 
+## Roadmap
+![SnackView RoadMap](http://www.lucacasula.it/SVItems/SnackView_RoadMap.svg)
+
 ## What's new
 
+### What's new in 1.1.0
+- Added support for Dark mode.
+- Added item SVSliderItem.
+- Removed deprecated methods and files. 
+
+
 ### What's new in 1.0.9
-![SnackView DataSource](http://www.lucacasula.it/SVItems/News_SnackViewDataSource.svg)
-New SnackViewDataSource protocol with which create your SnackView.
-
-![SnackView NewItem](http://www.lucacasula.it/SVItems/News_SVImageViewItem.svg)
-New SVImageViewItem class with which display images.
-
+- New SnackViewDataSource protocol with which create your SnackView.
+- New SVImageViewItem class with which display images.
 - Dark mode is not compatible yet, for now SnackView continue to show light UI.
 - Compatible with the new UIWindowSceneDelegate system. 
 
-
-### What's new in 1.0.8
-- Fixed crash that occurs when SnackView was init with an empty SVItem array.
 
 ## Installation
 
