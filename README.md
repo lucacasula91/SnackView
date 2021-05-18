@@ -29,7 +29,7 @@
 - [Contributing](#contributing)
 
 ## Roadmap
-![SnackView RoadMap](http://www.lucacasula.it/SVItems/SnackView_RoadMap.svg)
+![SnackView RoadMap](http://www.lucacasula.it/SVItems/NewSnackView_RoadMap.svg)
 
 ## What's new
 
