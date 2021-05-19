@@ -12,10 +12,16 @@ import UIKit
 public class SVSliderItem: SVItem {
 
     // MARK: - Properties
-    private var titleLabel: UILabel?
-    private var slider: UISlider?
+    private var titleLabel: UILabel
+    private var slider: UISlider
     private(set) var title: String
-    public var currentValue: Float { return self.slider?.value ?? 0}
+    public var currentValue: Float {
+        set {
+            self.slider.value = newValue
+            self.sliderValueDidChanged(self.slider)
+        }
+        get {return self.slider.value}
+    }
 
     // MARK: - Initialization Method
 
@@ -28,6 +34,8 @@ public class SVSliderItem: SVItem {
      */
     public init(withTitle title: String, minimum: Float, maximum: Float, current: Float) {
         self.title = title
+        self.titleLabel = UILabel()
+        self.slider = UISlider()
         super.init()
 
         self.addTitleLabel()
@@ -43,47 +51,43 @@ public class SVSliderItem: SVItem {
     // MARK: - Private Methods
 
     private func addTitleLabel() {
-        let titleLabel = UILabel()
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.text = self.title.uppercased()
-        titleLabel.textAlignment = .right
-        titleLabel.textColor = secondaryTextColor
-        titleLabel.font = UIFont.systemFont(ofSize: 14)
-        titleLabel.numberOfLines = 0
-        self.addSubview(titleLabel)
-        self.titleLabel = titleLabel
+        self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.titleLabel.text = self.title.uppercased()
+        self.titleLabel.textAlignment = .right
+        self.titleLabel.textColor = secondaryTextColor
+        self.titleLabel.font = UIFont.systemFont(ofSize: 14)
+        self.titleLabel.numberOfLines = 0
+        self.addSubview(self.titleLabel)
 
         //Add constraints to titleLabel
-        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel(==\(self.leftContentWidth))]", options: [], metrics: nil, views: ["titleLabel": titleLabel])
+        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel(==\(self.leftContentWidth))]", options: [], metrics: nil, views: ["titleLabel": self.titleLabel])
         self.addConstraints(titleHContraints)
 
-        let titleVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[titleLabel(>=28)]-|", options: [], metrics: nil, views: ["titleLabel": titleLabel])
+        let titleVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[titleLabel(>=28)]-|", options: [], metrics: nil, views: ["titleLabel": self.titleLabel])
         self.addConstraints(titleVContraints)
     }
 
     private func addSliderItem(withMinimumValue minimum: Float, andMaximumValue maximum: Float, andCurrentValue current: Float) {
         //Add UISlider item
-        let slider = UISlider()
-        slider.translatesAutoresizingMaskIntoConstraints = false
-        slider.minimumValue = minimum
-        slider.maximumValue = maximum
-        slider.value = current
-        slider.addTarget(self, action: #selector(sliderValueDidChanged(_:)), for: .valueChanged)
-        self.addSubview(slider)
-        self.slider = slider
+        self.slider.translatesAutoresizingMaskIntoConstraints = false
+        self.slider.minimumValue = minimum
+        self.slider.maximumValue = maximum
+        self.slider.value = current
+        self.slider.addTarget(self, action: #selector(sliderValueDidChanged(_:)), for: .valueChanged)
+        self.addSubview(self.slider)
 
         //Add constraints to slider item
         let sliderHContraints = NSLayoutConstraint.constraints(withVisualFormat:
                                                                 "H:|-[titleLabel]-[slider]-|",
                                                                options: [],
                                                                metrics: nil,
-                                                               views: ["titleLabel": titleLabel as Any, "slider": slider])
+                                                               views: ["titleLabel": titleLabel as Any, "slider": self.slider])
         self.addConstraints(sliderHContraints)
 
         let descriptionVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[slider]-|",
                                                                     options: [],
                                                                     metrics: nil,
-                                                                    views: ["slider": slider])
+                                                                    views: ["slider": self.slider])
         self.addConstraints(descriptionVContraints)
     }
 
@@ -93,7 +97,7 @@ public class SVSliderItem: SVItem {
 
     private func setTitle(for value: Float) {
         let formattedValue = String(format: "%.2f", value)
-        self.titleLabel?.text = "\(self.title)\n\(formattedValue)"
+        self.titleLabel.text = "\(self.title)\n\(formattedValue)"
     }
 
 }

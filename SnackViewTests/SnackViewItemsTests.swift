@@ -263,6 +263,13 @@ class SnackViewItemsTests: QuickSpec {
 
                 expect(sliderItem.currentValue).to(equal(13))
             }
+
+            context("if currentValue is manually changed") {
+                it("had to have 'currentValue' property to 18.") {
+                    sliderItem.currentValue = 18
+                    expect(sliderItem.currentValue).to(equal(18))
+                }
+            }
             
             describe("SVSliderItem from init with coder") {
                 let archiver = NSKeyedArchiver(requiringSecureCoding: false)
@@ -270,6 +277,47 @@ class SnackViewItemsTests: QuickSpec {
 
                 it("had to return nil.") {
                     expect(sliderItem).to(beNil())
+                }
+            }
+        }
+
+        describe("SVSegmentedControllerItem") {
+            var _selectedIndex: Int? = nil
+            let segmentedItem = SVSegmentedControllerItem(withTitle: "Application theme", segments: ["Light", "Dark", "Automatic"]) { (selectedIndex) in
+                _selectedIndex = selectedIndex
+            }
+
+            it("had to be titled 'Application Theme'"){
+
+            }
+            context("if no action has been made") {
+                it("had to have 'selectedIndex' property ti nil.") {
+                    snackViewSpy?.set(items: [segmentedItem])
+                    snackView?.reloadData()
+
+                    expect(_selectedIndex).to(beNil())
+                    expect(segmentedItem.title).to(equal("Application theme"))
+                }
+            }
+
+
+            context("if user change the selection had to change the index for selectedSegment property") {
+                it("had to have 'selectedIndex' property ti nil.") {
+                    snackViewSpy?.set(items: [segmentedItem])
+                    snackView?.reloadData()
+
+                    segmentedItem.selectedSegment = 2
+                    expect(_selectedIndex).to(equal(2))
+                    expect(segmentedItem.selectedSegment).to(equal(2))
+                }
+            }
+
+            describe("SVSegmentedControllerItem from init with coder") {
+                let archiver = NSKeyedArchiver(requiringSecureCoding: false)
+                let segmentedItem = SVSegmentedControllerItem(coder: archiver)
+
+                it("had to return nil.") {
+                    expect(segmentedItem).to(beNil())
                 }
             }
         }
