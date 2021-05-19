@@ -6,16 +6,22 @@
 //  Copyright © 2021 LucaCasula. All rights reserved.
 //
 
-import Foundation
-/** SVSliderItem is an SVItem with which to show a title and a UISlider item. */
+import UIKit
+
+/** SVSegmentedControllerItem is an SVItem with which to show a title and a UISegmentedController item. */
 public class SVSegmentedControllerItem: SVItem {
 
     // MARK: - Properties
     private var titleLabel: UILabel
     private var segmentedController: UISegmentedControl
+
+    // Title property of the SVSegmentedControllerItem
     private(set) var title: String
 
+    // Segments to show within the SVSegmentedControllerItem
     private(set) var segments: [String]
+
+    // The index of the selected segment
     public var selectedSegment: Int {
         set {
             self.segmentedController.selectedSegmentIndex = newValue
@@ -26,13 +32,19 @@ public class SVSegmentedControllerItem: SVItem {
     }
 
     // MARK: - Initialization Method
+
+    /// Initialization method for SVSegmentedControllerItem view. You can customize this item with a title and a segment array.
+    /// - Parameters:
+    ///   - title: Title of the SVSegmentedControllerItem
+    ///   - segments: String array of the segment to show
+    ///   - selectionDidChange: Completion handler invoked at the change selection event
     public init(withTitle title: String, segments: [String], selectionDidChange: @escaping (Int) -> Void) {
         self.title = title
         self.segments = segments
         self.titleLabel = UILabel()
         self.segmentedController = UISegmentedControl()
 
-        //Assign the UISwitch action to tmpAction
+        //Assign the action to tmpAction
         self.tmpAction = selectionDidChange
         super.init()
 
