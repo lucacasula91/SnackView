@@ -25,6 +25,7 @@
 		51251DDA26539D7B00029209 /* SVSegmentedControllerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51251DD926539D7B00029209 /* SVSegmentedControllerItem.swift */; };
 		5133D430264E876B006EB850 /* SnackViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5133D42F264E876B006EB850 /* SnackViewTests.swift */; };
 		514C7B98264D6B6E00644BAA /* SVSliderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514C7B97264D6B6E00644BAA /* SVSliderItem.swift */; };
+		51789F182656960B006D10E4 /* SVStepperItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51789F172656960B006D10E4 /* SVStepperItem.swift */; };
 		5187CA8126524BFE007443CD /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5187CA7F26524BFE007443CD /* Quick.xcframework */; };
 		5187CA8226524BFF007443CD /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5187CA8026524BFE007443CD /* Nimble.xcframework */; };
 		5187CA8526524C0F007443CD /* Nimble.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5187CA8026524BFE007443CD /* Nimble.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -116,6 +117,7 @@
 		5133D42E264E876B006EB850 /* SnackViewTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SnackViewTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		5133D42F264E876B006EB850 /* SnackViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewTests.swift; sourceTree = "<group>"; };
 		514C7B97264D6B6E00644BAA /* SVSliderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVSliderItem.swift; sourceTree = "<group>"; };
+		51789F172656960B006D10E4 /* SVStepperItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVStepperItem.swift; sourceTree = "<group>"; };
 		5187CA7F26524BFE007443CD /* Quick.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Quick.xcframework; path = Carthage/Build/Quick.xcframework; sourceTree = "<group>"; };
 		5187CA8026524BFE007443CD /* Nimble.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nimble.xcframework; path = Carthage/Build/Nimble.xcframework; sourceTree = "<group>"; };
 		5192725921F86BC100E0965C /* SVCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVCustomButton.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				38F4AF0F205969E800341940 /* SVTitleItem.swift */,
 				8EDE06212099FC6D0017A700 /* SVImageViewItem.swift */,
 				51251DD926539D7B00029209 /* SVSegmentedControllerItem.swift */,
+				51789F172656960B006D10E4 /* SVStepperItem.swift */,
 			);
 			path = "SnackView Items";
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				38F4AF1A205969E900341940 /* SVApplicationItem.swift in Sources */,
 				38F4AF14205969E900341940 /* SVButtonItem.swift in Sources */,
 				514C7B98264D6B6E00644BAA /* SVSliderItem.swift in Sources */,
+				51789F182656960B006D10E4 /* SVStepperItem.swift in Sources */,
 				51F4CB1121E388CF0096E48D /* SnackViewPublicMethods.swift in Sources */,
 				38EA7C3620862B7700B6F88D /* SVLoaderItem.swift in Sources */,
 				38F4AF17205969E900341940 /* SnackView.swift in Sources */,
