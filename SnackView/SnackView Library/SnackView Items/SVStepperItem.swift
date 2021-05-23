@@ -8,7 +8,7 @@
 
 import UIKit
 
-/** SVStepperItem is an SVItem with which to show a title and a UISegmentedController item. */
+/** SVStepperItem is an SVItem with which to show a title and a UIStepper item. */
 public class SVStepperItem: SVItem {
 
     // MARK: - Properties
@@ -30,12 +30,12 @@ public class SVStepperItem: SVItem {
 
     // MARK: - Initialization Method
 
-    /// Initialization method for SVStepperItem view. You can customize this item with a title and a segment array.
+    /// Initialization method for SVStepperItem view.
     /// - Parameters:
     ///   - title: Title of the SVStepperItem
-    ///   - minimum: String array of the segment to show
-    ///   - maximum: String array of the segment to show
-    ///   - current: String array of the segment to show
+    ///   - minimum: Minimum value of the UIStepper controller
+    ///   - maximum: Maximum value of the UIStepper controller
+    ///   - current: Current value of the UIStepper controller
     ///   - amountDidChange: Completion handler invoked at the change of amount
     public init(withTitle title: String, minimum: Double, maximum: Double, current: Double, amountDidChange: @escaping (Double) -> Void) {
         self.title = title
@@ -49,7 +49,7 @@ public class SVStepperItem: SVItem {
 
         self.addTitleLabel()
         self.addCountLabel(with: current)
-        self.addSegmentedController(withMinimum: minimum, maximum: maximum, andCurrent: current)
+        self.addStepperController(withMinimum: minimum, maximum: maximum, andCurrent: current)
     }
 
     required public convenience init?(coder aDecoder: NSCoder) {
@@ -97,7 +97,7 @@ public class SVStepperItem: SVItem {
         self.addConstraints(countLabelVContraints)
     }
 
-    private func addSegmentedController(withMinimum minimum: Double, maximum: Double, andCurrent current: Double) {
+    private func addStepperController(withMinimum minimum: Double, maximum: Double, andCurrent current: Double) {
         self.stepper.addTarget(self, action: #selector(stepperDidChangeAmount(_:)), for: .valueChanged)
         self.stepper.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(self.stepper)
