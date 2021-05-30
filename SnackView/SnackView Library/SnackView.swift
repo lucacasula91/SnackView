@@ -39,6 +39,7 @@ public class SnackView: UIViewController {
         self.dataSource = dataSource
 
         super.init(nibName: nil, bundle: nil)
+        self.contentView.isHidden = true
     }
 
     required public init?(coder aDecoder: NSCoder) {
