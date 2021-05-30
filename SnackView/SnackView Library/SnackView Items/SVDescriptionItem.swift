@@ -12,6 +12,7 @@ import UIKit
 public class SVDescriptionItem: SVItem {
 
     // MARK: - Properties
+    private var descriptionLabel: UILabel
     private(set) var descriptionText: String
 
     // MARK: - Initialization Method
@@ -20,16 +21,23 @@ public class SVDescriptionItem: SVItem {
      - parameter description: The text you want to show
      */
     public init(withDescription description: String) {
+        self.descriptionLabel = UILabel()
         self.descriptionText = description
         super.init()
+    }
 
-        //Add label item
-        let descriptionLabel = UILabel()
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.text = self.descriptionText
-        descriptionLabel.textColor = secondaryTextColor
-        descriptionLabel.font = UIFont.systemFont(ofSize: 14)
-        descriptionLabel.numberOfLines = 0
+    required public convenience init?(coder aDecoder: NSCoder) {
+        return nil
+    }
+
+    // MARK: - Private Methods
+    private func addDescriptionLabel() {
+        self.descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.descriptionLabel.text = self.descriptionText
+        self.descriptionLabel.textColor = secondaryTextColor
+        self.descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        self.descriptionLabel.adjustsFontForContentSizeCategory = true
+        self.descriptionLabel.numberOfLines = 0
         self.addSubview(descriptionLabel)
 
         //Add constraints to descriptionLabel
@@ -40,7 +48,4 @@ public class SVDescriptionItem: SVItem {
         self.addConstraints(descriptionVContraints)
     }
 
-    required public convenience init?(coder aDecoder: NSCoder) {
-        return nil
-    }
 }

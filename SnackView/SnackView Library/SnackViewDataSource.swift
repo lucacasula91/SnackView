@@ -12,12 +12,12 @@ import UIKit
  The methods adopted by the object you use to manage data and provide SVItem array for a SnackView
 
  SnackView manage only the presentation of their data; they do not manage the data itself. To manage the data, you provide the SnackView with a data source object—that is, an object that implements the SnackViewDataSource protocol. A data source object responds to data-related requests from the SnackView. It also manages the SnackView's data directly, or coordinates with other parts of your app to manage that data. Other responsibilities of the data source object include:
- Reporting the title for a specific SnackView.
- Providing the title for the cancel / dismiss button for a specific SnackView.
- Providing the SVItem array containing the items to display for a specific SnackView.
+ - Reporting the title for a specific SnackView.
+ - Providing the title for the cancel / dismiss button for a specific SnackView.
+ - Providing the SVItem array containing the items to display for a specific SnackView.
  
  */
-public protocol SnackViewDataSource: class {
+public protocol SnackViewDataSource: AnyObject {
 
     /// Tells the data source to return the title for a specific SnackView.
     ///
