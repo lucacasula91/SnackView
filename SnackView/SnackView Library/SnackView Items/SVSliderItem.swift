@@ -56,6 +56,8 @@ public class SVSliderItem: SVItem {
         self.titleLabel.textAlignment = .right
         self.titleLabel.textColor = secondaryTextColor
         self.titleLabel.font = UIFont.systemFont(ofSize: 14)
+        self.titleLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        self.titleLabel.adjustsFontForContentSizeCategory = true
         self.titleLabel.numberOfLines = 0
         self.addSubview(self.titleLabel)
 
@@ -84,11 +86,7 @@ public class SVSliderItem: SVItem {
                                                                views: ["titleLabel": titleLabel as Any, "slider": self.slider])
         self.addConstraints(sliderHContraints)
 
-        let descriptionVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[slider]-|",
-                                                                    options: [],
-                                                                    metrics: nil,
-                                                                    views: ["slider": self.slider])
-        self.addConstraints(descriptionVContraints)
+        self.slider.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
     }
 
     @objc private func sliderValueDidChanged(_ sender: UISlider) {

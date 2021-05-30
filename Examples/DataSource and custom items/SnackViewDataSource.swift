@@ -29,12 +29,12 @@ class SnackViewDataSourceManager {
     }
 
     fileprivate func getPasswordItem() -> [SVItem] {
-        let detailItem = SVDetailTextItem(withTitle: "My custom title", andDescription: "Lorem ipsum dolor sit amet")
+        let sliderItem = SVSliderItem(withTitle: "My Slider", minimum: 10, maximum: 60, current: 23)
         let newPasswordItem = SVTextFieldItem(withPlaceholder: "New Password", isSecureField: true)
         let repeatPasswordItem = SVTextFieldItem(withPlaceholder: "Repeat Password", isSecureField: true)
         let continueButtonItem = SVButtonItem(withTitle: "Continue") { print("Continue button tapped") }
 
-        return [detailItem, newPasswordItem, repeatPasswordItem, continueButtonItem]
+        return [sliderItem, newPasswordItem, repeatPasswordItem, continueButtonItem]
     }
 
     fileprivate func getCustomItem() -> [SVItem] {
