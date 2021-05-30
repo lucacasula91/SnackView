@@ -24,6 +24,8 @@ public class SVDescriptionItem: SVItem {
         self.descriptionLabel = UILabel()
         self.descriptionText = description
         super.init()
+
+        self.addDescriptionLabel()
     }
 
     required public convenience init?(coder aDecoder: NSCoder) {

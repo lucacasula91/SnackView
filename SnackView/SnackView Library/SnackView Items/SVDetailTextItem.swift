@@ -12,6 +12,8 @@ import UIKit
 public class SVDetailTextItem: SVItem {
 
     // MARK: - Properties
+    private var titleLabel: UILabel
+    private var descriptionLabel: UILabel
     private(set) var title: String
     private(set) var descriptionText: String
 
@@ -22,19 +24,30 @@ public class SVDetailTextItem: SVItem {
      - parameter description: The description text to show
      */
     public init(withTitle title: String, andDescription description: String) {
+        self.titleLabel = UILabel()
+        self.descriptionLabel = UILabel()
         self.title = title
         self.descriptionText = description
         super.init()
 
-        //Add title item
-        let titleLabel = UILabel()
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.text = self.title.uppercased()
-        titleLabel.textAlignment = .right
-        titleLabel.textColor = secondaryTextColor
-        titleLabel.font = UIFont.systemFont(ofSize: 14)
-        titleLabel.numberOfLines = 0
-        self.addSubview(titleLabel)
+        self.addTitleLabel()
+        self.addDescriptionLabel()
+    }
+
+    required public convenience init?(coder aDecoder: NSCoder) {
+        return nil
+    }
+
+    // MARK: - Private Methods
+    private func addTitleLabel() {
+        self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.titleLabel.text = self.title.uppercased()
+        self.titleLabel.textAlignment = .right
+        self.titleLabel.textColor = secondaryTextColor
+        self.titleLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        self.titleLabel.adjustsFontForContentSizeCategory = true
+        self.titleLabel.numberOfLines = 0
+        self.addSubview(self.titleLabel)
 
         //Add constraints to titleLabel
         let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel(==\(self.leftContentWidth))]", options: [], metrics: nil, views: ["titleLabel": titleLabel])
@@ -42,15 +55,16 @@ public class SVDetailTextItem: SVItem {
 
         let titleVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[titleLabel(>=28)]-|", options: [], metrics: nil, views: ["titleLabel": titleLabel])
         self.addConstraints(titleVContraints)
+    }
 
-        //Add description item
-        let descriptionLabel = UILabel()
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.text = self.descriptionText
-        descriptionLabel.textAlignment = .left
-        descriptionLabel.textColor = self.primaryTextColor
-        descriptionLabel.font = UIFont.systemFont(ofSize: 14)
-        descriptionLabel.numberOfLines = 0
+    private func addDescriptionLabel() {
+        self.descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.descriptionLabel.text = self.descriptionText
+        self.descriptionLabel.textAlignment = .left
+        self.descriptionLabel.textColor = self.primaryTextColor
+        self.descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        self.descriptionLabel.adjustsFontForContentSizeCategory = true
+        self.descriptionLabel.numberOfLines = 0
         self.addSubview(descriptionLabel)
 
         //Add constraints to descriptionLabel
@@ -59,9 +73,5 @@ public class SVDetailTextItem: SVItem {
 
         let descriptionVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[descriptionLabel]-|", options: [], metrics: nil, views: ["descriptionLabel": descriptionLabel])
         self.addConstraints(descriptionVContraints)
-    }
-
-    required public convenience init?(coder aDecoder: NSCoder) {
-        return nil
     }
 }
