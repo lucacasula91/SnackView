@@ -36,6 +36,7 @@
 		51F4CB1121E388CF0096E48D /* SnackViewPublicMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */; };
 		51F4CB1221E388CF0096E48D /* SnackViewInternalMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */; };
 		51F4CB1321E388CF0096E48D /* SnackViewNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB1021E388CF0096E48D /* SnackViewNotifications.swift */; };
+		8ECDDA00266A2D07001D2A8D /* SVSpacerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECDD9FF266A2D07001D2A8D /* SVSpacerItem.swift */; };
 		8EDE06202099F5DF0017A700 /* SnackViewAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EDE061F2099F5DF0017A700 /* SnackViewAssets.xcassets */; };
 		8EDE06222099FC6D0017A700 /* SVImageViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDE06212099FC6D0017A700 /* SVImageViewItem.swift */; };
 		8EFCF5922212149800F68700 /* SnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFCF5912212149800F68700 /* SnackViewDataSource.swift */; };
@@ -123,6 +124,7 @@
 		51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewPublicMethods.swift; sourceTree = "<group>"; };
 		51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewInternalMethods.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		51F4CB1021E388CF0096E48D /* SnackViewNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewNotifications.swift; sourceTree = "<group>"; };
+		8ECDD9FF266A2D07001D2A8D /* SVSpacerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVSpacerItem.swift; sourceTree = "<group>"; };
 		8EDE061F2099F5DF0017A700 /* SnackViewAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SnackViewAssets.xcassets; sourceTree = "<group>"; };
 		8EDE06212099FC6D0017A700 /* SVImageViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVImageViewItem.swift; sourceTree = "<group>"; };
 		8EFCF5912212149800F68700 /* SnackViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewDataSource.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				38F4AF0F205969E800341940 /* SVTitleItem.swift */,
 				8EDE06212099FC6D0017A700 /* SVImageViewItem.swift */,
 				51251DD926539D7B00029209 /* SVSegmentedControllerItem.swift */,
+				8ECDD9FF266A2D07001D2A8D /* SVSpacerItem.swift */,
 			);
 			path = "SnackView Items";
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				38F4AF15205969E900341940 /* SVItem.swift in Sources */,
 				511780C621E5E84E00EBD9F8 /* SnackViewDataSource.swift in Sources */,
 				385DCCC5207BD55E00E280E3 /* SVSwitchItem.swift in Sources */,
+				8ECDDA00266A2D07001D2A8D /* SVSpacerItem.swift in Sources */,
 				38F4AF19205969E900341940 /* SVTitleItem.swift in Sources */,
 				8EDE06222099FC6D0017A700 /* SVImageViewItem.swift in Sources */,
 				38F4AF16205969E900341940 /* SVDescriptionItem.swift in Sources */,
