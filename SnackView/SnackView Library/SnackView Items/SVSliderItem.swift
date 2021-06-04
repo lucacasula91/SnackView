@@ -62,10 +62,16 @@ public class SVSliderItem: SVItem {
         self.addSubview(self.titleLabel)
 
         //Add constraints to titleLabel
-        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel(==\(self.leftContentWidth))]", options: [], metrics: nil, views: ["titleLabel": self.titleLabel])
+        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel(==\(self.leftContentWidth))]",
+            options: [],
+            metrics: nil,
+            views: ["titleLabel": self.titleLabel])
         self.addConstraints(titleHContraints)
 
-        let titleVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[titleLabel(>=28)]-|", options: [], metrics: nil, views: ["titleLabel": self.titleLabel])
+        let titleVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[titleLabel(>=28)]-|",
+                                                              options: [],
+                                                              metrics: nil,
+                                                              views: ["titleLabel": self.titleLabel])
         self.addConstraints(titleVContraints)
     }
 
@@ -95,7 +101,8 @@ public class SVSliderItem: SVItem {
 
     private func setTitle(for value: Float) {
         let formattedValue = String(format: "%.2f", value)
-        self.titleLabel.text = "\(self.title)\n\(formattedValue)"
+        let title = self.title.uppercased()
+        self.titleLabel.text = "\(title)\n\(formattedValue)"
     }
 
 }
