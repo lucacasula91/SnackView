@@ -66,7 +66,8 @@ public class SVSegmentedControllerItem: SVItem {
         self.titleLabel.text = self.title.uppercased()
         self.titleLabel.textAlignment = .right
         self.titleLabel.textColor = secondaryTextColor
-        self.titleLabel.font = UIFont.systemFont(ofSize: 14)
+        self.titleLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        self.titleLabel.adjustsFontForContentSizeCategory = true
         self.titleLabel.numberOfLines = 0
         self.addSubview(self.titleLabel)
 
