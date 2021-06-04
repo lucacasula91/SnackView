@@ -28,6 +28,20 @@ public class SVSwitchItem: SVItem {
      - parameter description: The description text you want to show. This parameter is nullable
      - parameter state: The initial state of UISwitch
      - parameter switchAction: The action to perform when UISwitch value change
+
+     **Note that label text on the left will be rendered as uppercased text**.
+
+     To force the placeholder text to be rendered in multi-line please enter **\n** where you want the text to wrap.
+
+
+     **Here an example of wrapped text**:
+     ```
+     SVSwitchItem(withTitle: "Push\nNotifications",
+     andDescription: "Ipsum lorem sit...",
+     withState: false) { isSwitchOn in
+        print(isSwitchOn)
+     }
+     ```
      */
     public init(withTitle title: String, andDescription description: String?, withState state: Bool, withSwitchAction switchAction:@escaping (_ switchValue: Bool) -> Void) {
         self.titleLabel = UILabel()

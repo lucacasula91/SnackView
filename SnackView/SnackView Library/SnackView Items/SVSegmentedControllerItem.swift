@@ -33,11 +33,25 @@ public class SVSegmentedControllerItem: SVItem {
 
     // MARK: - Initialization Method
 
-    /// Initialization method for SVSegmentedControllerItem view. You can customize this item with a title and a segment array.
-    /// - Parameters:
-    ///   - title: Title of the SVSegmentedControllerItem
-    ///   - segments: String array of the segment to show
-    ///   - selectionDidChange: Completion handler invoked at the change selection event
+    /**
+     Initialization method for SVSegmentedControllerItem view. You can customize this item with a title and a segment array.
+
+     - parameter title: Title of the SVSegmentedControllerItem
+     - parameter segments: String array of the segment to show
+     - parameter selectionDidChange: Completion handler invoked at the change selection event
+
+     **Note that label text on the left will be rendered as uppercased text**.
+
+     To force the placeholder text to be rendered in multi-line please enter **\n** where you want the text to wrap.
+
+     **Here an example of wrapped text**:
+     ```
+     SVSwitchItem(withTitle: "App\nTheme",
+     segments: ["Dark", "Light"]) { selectedIndex in
+        print(selectedIndex)
+     }
+     ```
+     */
     public init(withTitle title: String, segments: [String], selectionDidChange: @escaping (Int) -> Void) {
         self.title = title
         self.segments = segments

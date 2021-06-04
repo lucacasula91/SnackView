@@ -22,6 +22,17 @@ public class SVDetailTextItem: SVItem {
      Initialization method for SVDetailTextItem view. You can customize this item with a title and a description text.
      - parameter title: The title to show
      - parameter description: The description text to show
+
+        **Note that label text on the left will be rendered as uppercased text**.
+
+        To force the placeholder text to be rendered in multi-line please enter **\n** where you want the text to wrap.
+
+
+        **Here an example of wrapped text**:
+        ```
+        SVDetailTextItem(withTitle: "Terms and\nConditions",
+        andDescription: "Ipsum lorem sit...")
+        ```
      */
     public init(withTitle title: String, andDescription description: String) {
         self.titleLabel = UILabel()

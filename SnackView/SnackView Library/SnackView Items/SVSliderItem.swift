@@ -31,6 +31,19 @@ public class SVSliderItem: SVItem {
      - parameter minimum: The minimum value of the slider.
      - parameter maximum: The maximum value of the slider.
      - parameter current: The slider’s current value.
+
+     **Note that label text on the left will be rendered as uppercased text**.
+
+     To force the placeholder text to be rendered in multi-line please enter **\n** where you want the text to wrap.
+
+
+     **Here an example of wrapped text**:
+     ```
+     SVSliderItem(withTitle: "Photo\nSaturation",
+     minimum: 5,
+     maximum: 20,
+     current: 12)
+     ```
      */
     public init(withTitle title: String, minimum: Float, maximum: Float, current: Float) {
         self.title = title

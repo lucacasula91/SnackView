@@ -22,6 +22,8 @@ public class SVTextFieldItem: SVItem {
     private(set) var placeholder: String
     private(set) var isSecure: Bool
 
+
+    /// The current text that is displayed by the label.
     public var text: String? {
         get { return self.textField.text }
         set { self.textField.text = newValue }
@@ -37,8 +39,7 @@ public class SVTextFieldItem: SVItem {
      **Note that label text on the left will be rendered as uppercased text**.
      
      To force the placeholder text to be rendered in multi-line please enter **\n** where you want the text to wrap.
-     
-     
+
      **Here an example of wrapped text**:
      ```
      SVTextFieldItem(withPlaceholder: "Repeat\nPassword",
