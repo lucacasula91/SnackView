@@ -31,6 +31,19 @@ public class SVSliderItem: SVItem {
      - parameter minimum: The minimum value of the slider.
      - parameter maximum: The maximum value of the slider.
      - parameter current: The slider’s current value.
+
+     **Note that label text on the left will be rendered as uppercased text**.
+
+     To force the placeholder text to be rendered in multi-line please enter **\n** where you want the text to wrap.
+
+
+     **Here an example of wrapped text**:
+     ```
+     SVSliderItem(withTitle: "Photo\nSaturation",
+     minimum: 5,
+     maximum: 20,
+     current: 12)
+     ```
      */
     public init(withTitle title: String, minimum: Float, maximum: Float, current: Float) {
         self.title = title
@@ -56,14 +69,22 @@ public class SVSliderItem: SVItem {
         self.titleLabel.textAlignment = .right
         self.titleLabel.textColor = secondaryTextColor
         self.titleLabel.font = UIFont.systemFont(ofSize: 14)
+        self.titleLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        self.titleLabel.adjustsFontForContentSizeCategory = true
         self.titleLabel.numberOfLines = 0
         self.addSubview(self.titleLabel)
 
         //Add constraints to titleLabel
-        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel(==\(self.leftContentWidth))]", options: [], metrics: nil, views: ["titleLabel": self.titleLabel])
+        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel(==\(self.leftContentWidth))]",
+            options: [],
+            metrics: nil,
+            views: ["titleLabel": self.titleLabel])
         self.addConstraints(titleHContraints)
 
-        let titleVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[titleLabel(>=28)]-|", options: [], metrics: nil, views: ["titleLabel": self.titleLabel])
+        let titleVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[titleLabel(>=28)]-|",
+                                                              options: [],
+                                                              metrics: nil,
+                                                              views: ["titleLabel": self.titleLabel])
         self.addConstraints(titleVContraints)
     }
 
@@ -84,11 +105,7 @@ public class SVSliderItem: SVItem {
                                                                views: ["titleLabel": titleLabel as Any, "slider": self.slider])
         self.addConstraints(sliderHContraints)
 
-        let descriptionVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[slider]-|",
-                                                                    options: [],
-                                                                    metrics: nil,
-                                                                    views: ["slider": self.slider])
-        self.addConstraints(descriptionVContraints)
+        self.slider.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
     }
 
     @objc private func sliderValueDidChanged(_ sender: UISlider) {
@@ -97,7 +114,8 @@ public class SVSliderItem: SVItem {
 
     private func setTitle(for value: Float) {
         let formattedValue = String(format: "%.2f", value)
-        self.titleLabel.text = "\(self.title)\n\(formattedValue)"
+        let title = self.title.uppercased()
+        self.titleLabel.text = "\(title)\n\(formattedValue)"
     }
 
 }

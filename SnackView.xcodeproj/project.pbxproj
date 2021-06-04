@@ -29,10 +29,6 @@
 		5187CA8226524BFF007443CD /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5187CA8026524BFE007443CD /* Nimble.xcframework */; };
 		5187CA8526524C0F007443CD /* Nimble.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5187CA8026524BFE007443CD /* Nimble.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5187CA8626524C0F007443CD /* Quick.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5187CA7F26524BFE007443CD /* Quick.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		518954F0266A5BEF00E2A54E /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5187CA8026524BFE007443CD /* Nimble.xcframework */; };
-		518954F1266A5BEF00E2A54E /* Nimble.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5187CA8026524BFE007443CD /* Nimble.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		518954F3266A5BF100E2A54E /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5187CA7F26524BFE007443CD /* Quick.xcframework */; };
-		518954F4266A5BF100E2A54E /* Quick.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5187CA7F26524BFE007443CD /* Quick.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5192725A21F86BC100E0965C /* SVCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192725921F86BC100E0965C /* SVCustomButton.swift */; };
 		5192725E21F86EE800E0965C /* SVGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192725D21F86EE800E0965C /* SVGradientView.swift */; };
 		51ADB77D264E9B2300D6488C /* SnackViewItemsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ADB77C264E9B2300D6488C /* SnackViewItemsTests.swift */; };
@@ -40,6 +36,11 @@
 		51F4CB1121E388CF0096E48D /* SnackViewPublicMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */; };
 		51F4CB1221E388CF0096E48D /* SnackViewInternalMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */; };
 		51F4CB1321E388CF0096E48D /* SnackViewNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB1021E388CF0096E48D /* SnackViewNotifications.swift */; };
+		8ECDDA00266A2D07001D2A8D /* SVSpacerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECDD9FF266A2D07001D2A8D /* SVSpacerItem.swift */; };
+		8ECDDA03266A5270001D2A8D /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5187CA8026524BFE007443CD /* Nimble.xcframework */; };
+		8ECDDA04266A5270001D2A8D /* Nimble.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5187CA8026524BFE007443CD /* Nimble.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		8ECDDA08266A5283001D2A8D /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5187CA7F26524BFE007443CD /* Quick.xcframework */; };
+		8ECDDA09266A5283001D2A8D /* Quick.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5187CA7F26524BFE007443CD /* Quick.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		8EDE06202099F5DF0017A700 /* SnackViewAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EDE061F2099F5DF0017A700 /* SnackViewAssets.xcassets */; };
 		8EDE06222099FC6D0017A700 /* SVImageViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDE06212099FC6D0017A700 /* SVImageViewItem.swift */; };
 		8EFCF5922212149800F68700 /* SnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFCF5912212149800F68700 /* SnackViewDataSource.swift */; };
@@ -72,18 +73,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		518954F2266A5BEF00E2A54E /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				518954F1266A5BEF00E2A54E /* Nimble.xcframework in Embed Frameworks */,
-				518954F4266A5BF100E2A54E /* Quick.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		51AB2CA326504CF400BE2891 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -93,6 +82,18 @@
 				5187CA8526524C0F007443CD /* Nimble.xcframework in CopyFiles */,
 				5187CA8626524C0F007443CD /* Quick.xcframework in CopyFiles */,
 			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8ECDDA05266A5270001D2A8D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8ECDDA04266A5270001D2A8D /* Nimble.xcframework in Embed Frameworks */,
+				8ECDDA09266A5283001D2A8D /* Quick.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		FF42AE3621E2AEAC00F4ECEB /* CopyFiles */ = {
@@ -139,6 +140,7 @@
 		51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewPublicMethods.swift; sourceTree = "<group>"; };
 		51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewInternalMethods.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		51F4CB1021E388CF0096E48D /* SnackViewNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewNotifications.swift; sourceTree = "<group>"; };
+		8ECDD9FF266A2D07001D2A8D /* SVSpacerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVSpacerItem.swift; sourceTree = "<group>"; };
 		8EDE061F2099F5DF0017A700 /* SnackViewAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SnackViewAssets.xcassets; sourceTree = "<group>"; };
 		8EDE06212099FC6D0017A700 /* SVImageViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVImageViewItem.swift; sourceTree = "<group>"; };
 		8EFCF5912212149800F68700 /* SnackViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewDataSource.swift; sourceTree = "<group>"; };
@@ -158,8 +160,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				518954F0266A5BEF00E2A54E /* Nimble.xcframework in Frameworks */,
-				518954F3266A5BF100E2A54E /* Quick.xcframework in Frameworks */,
+				8ECDDA03266A5270001D2A8D /* Nimble.xcframework in Frameworks */,
+				8ECDDA08266A5283001D2A8D /* Quick.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +262,7 @@
 				38F4AF0F205969E800341940 /* SVTitleItem.swift */,
 				8EDE06212099FC6D0017A700 /* SVImageViewItem.swift */,
 				51251DD926539D7B00029209 /* SVSegmentedControllerItem.swift */,
+				8ECDD9FF266A2D07001D2A8D /* SVSpacerItem.swift */,
 			);
 			path = "SnackView Items";
 			sourceTree = "<group>";
@@ -367,7 +370,7 @@
 				38F4AEEC205969CD00341940 /* Frameworks */,
 				38F4AEED205969CD00341940 /* Headers */,
 				38F4AEEE205969CD00341940 /* Resources */,
-				518954F2266A5BEF00E2A54E /* Embed Frameworks */,
+				8ECDDA05266A5270001D2A8D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -513,6 +516,7 @@
 				38F4AF15205969E900341940 /* SVItem.swift in Sources */,
 				511780C621E5E84E00EBD9F8 /* SnackViewDataSource.swift in Sources */,
 				385DCCC5207BD55E00E280E3 /* SVSwitchItem.swift in Sources */,
+				8ECDDA00266A2D07001D2A8D /* SVSpacerItem.swift in Sources */,
 				38F4AF19205969E900341940 /* SVTitleItem.swift in Sources */,
 				8EDE06222099FC6D0017A700 /* SVImageViewItem.swift in Sources */,
 				38F4AF16205969E900341940 /* SVDescriptionItem.swift in Sources */,

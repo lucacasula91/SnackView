@@ -15,6 +15,11 @@ public class SVImageViewItem: SVItem {
     private(set) var currentContentMode: UIView.ContentMode
     private(set) var currentHeight: CGFloat?
 
+    /// An item in which present a UIImage with contentMode and height.
+    /// - Parameters:
+    ///   - image: The image to show in the SVImageViewItem item.
+    ///   - contentMode: Options to specify how a view adjusts its content when its size changes.
+    ///   - height: CGFloat value with which specify the height of the imageView.
     public init(with image: UIImage, andContentMode contentMode: UIView.ContentMode, andHeight height: CGFloat? = nil) {
         self.image = image
         self.currentContentMode = contentMode

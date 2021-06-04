@@ -23,6 +23,9 @@ open class SVItem: UIView {
     // MARK: - Public Variables
     private(set) var heightConstraint: NSLayoutConstraint?
     public let leftContentWidth: CGFloat = 111
+
+
+    /// The color for text labels that contain primary content.
     public var primaryTextColor: UIColor {
         if #available(iOS 13.0, *) {
             return UIColor.label
@@ -31,6 +34,7 @@ open class SVItem: UIView {
         }
     }
 
+    /// The color for text labels that contain secondary content.
     public var secondaryTextColor: UIColor {
         if #available(iOS 13.0, *) {
             return UIColor.secondaryLabel
@@ -39,6 +43,7 @@ open class SVItem: UIView {
         }
     }
 
+    /// A blue color that automatically adapts to the current trait environment.
     public var blueButtonColor: UIColor {
         if #available(iOS 13.0, *) {
             return UIColor.systemBlue
@@ -47,6 +52,7 @@ open class SVItem: UIView {
         }
     }
 
+    /// The color for thin borders or divider lines that allows some underlying content to be visible.
     public var separatorColor: UIColor {
         if #available(iOS 13.0, *) {
             return UIColor.separator

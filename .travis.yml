@@ -40,6 +40,7 @@ branches:
   only:
   - master
   - development
+  - develop
   - "/^(hotfix)$*/"
   except:
   - "/^[^\\/]+\\/\\d+(?:\\.\\d+)+\\/\\d+$/"

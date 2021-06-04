@@ -14,21 +14,19 @@ import UIKit
  */
 public class SVTextFieldItem: SVItem {
 
+    // MARK: - Private Properties
+    private var titleLabel: UILabel
+    private var textField: UITextField
+
+    // MARK: - Public Properties
     private(set) var placeholder: String
     private(set) var isSecure: Bool
 
-    // MARK: - Private variables
-    private var textField: UITextField!
 
-    // MARK: - Public variables
+    /// The current text that is displayed by the label.
     public var text: String? {
-        get {
-            return self.textField.text
-        }
-
-        set {
-            self.textField.text = newValue
-        }
+        get { return self.textField.text }
+        set { self.textField.text = newValue }
     }
 
     // MARK: - Initialization Method
@@ -41,58 +39,78 @@ public class SVTextFieldItem: SVItem {
      **Note that label text on the left will be rendered as uppercased text**.
      
      To force the placeholder text to be rendered in multi-line please enter **\n** where you want the text to wrap.
-     
-     
+
      **Here an example of wrapped text**:
      ```
-    SVTextFieldItem(withPlaceholder: "Repeat\nPassword",
-                      isSecureField: true)
+     SVTextFieldItem(withPlaceholder: "Repeat\nPassword",
+     isSecureField: true)
      ```
      */
     public init(withPlaceholder placeholder: String, isSecureField isSecure: Bool) {
+        self.titleLabel = UILabel()
+        self.textField = UITextField()
+
         self.placeholder = placeholder
         self.isSecure = isSecure
         super.init()
 
-        //Add title item
-        let titleLabel = UILabel()
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.text = placeholder.uppercased()
-        titleLabel.textAlignment = .right
-        titleLabel.textColor = secondaryTextColor
-        titleLabel.font = UIFont.systemFont(ofSize: 14)
-        titleLabel.numberOfLines = 0
-        self.addSubview(titleLabel)
-
-        //Add constraints to titleLabel
-        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel(==\(self.leftContentWidth))]", options: [], metrics: nil, views: ["titleLabel": titleLabel])
-        self.addConstraints(titleHContraints)
-
-        let titleVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[titleLabel(>=28)]-|", options: [], metrics: nil, views: ["titleLabel": titleLabel])
-        self.addConstraints(titleVContraints)
-
-        //Add text field item
-        textField = UITextField()
-        textField.isSecureTextEntry = isSecure
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.borderStyle = .none
-        textField.placeholder = self.removeNewLine(fromString: placeholder)
-        self.addSubview(textField)
-
-        //Add constraints to textField
-        if let _textField = textField {
-            let textFieldHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[titleLabel]-[textfield]-|", options: [], metrics: nil, views: ["titleLabel": titleLabel, "textfield": _textField])
-            self.addConstraints(textFieldHContraints)
-
-            let textFieldVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[textfield]-|", options: [], metrics: nil, views: ["textfield": _textField])
-            self.addConstraints(textFieldVContraints)
-        }
-        
+        self.addTitleLabel()
+        self.addTextField()
     }
 
     required public convenience init?(coder aDecoder: NSCoder) {
         return nil
     }
+
+    // MARK: - Private Methods
+    private func addTitleLabel() {
+        self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.titleLabel.text = placeholder.uppercased()
+        self.titleLabel.textAlignment = .right
+        self.titleLabel.textColor = secondaryTextColor
+        self.titleLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        self.titleLabel.adjustsFontForContentSizeCategory = true
+        self.titleLabel.numberOfLines = 0
+        self.addSubview(self.titleLabel)
+
+        //Add constraints to titleLabel
+        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel(==\(self.leftContentWidth))]",
+                                                              options: [],
+                                                              metrics: nil,
+                                                              views: ["titleLabel": titleLabel])
+        self.addConstraints(titleHContraints)
+
+        let titleVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[titleLabel(>=28)]-|",
+                                                              options: [],
+                                                              metrics: nil,
+                                                              views: ["titleLabel": titleLabel])
+        self.addConstraints(titleVContraints)
+    }
+
+    private func addTextField() {
+        self.textField.isSecureTextEntry = isSecure
+        self.textField.translatesAutoresizingMaskIntoConstraints = false
+        self.textField.borderStyle = .none
+        self.textField.font = UIFont.preferredFont(forTextStyle: .body)
+        self.textField.adjustsFontForContentSizeCategory = true
+        self.textField.placeholder = self.removeNewLine(fromString: placeholder)
+        self.addSubview(self.textField)
+
+        //Add constraints to textField
+        let textFieldHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[titleLabel]-[textfield]-|",
+                                                                  options: [],
+                                                                  metrics: nil,
+                                                                  views: ["titleLabel": titleLabel, "textfield": textField])
+        self.addConstraints(textFieldHContraints)
+
+        let textFieldVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[textfield]-|",
+                                                                  options: [],
+                                                                  metrics: nil,
+                                                                  views: ["textfield": textField])
+        self.addConstraints(textFieldVContraints)
+
+    }
+
 
     // MARK: - Custom stuff
 

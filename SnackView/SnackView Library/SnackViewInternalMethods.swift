@@ -151,7 +151,7 @@ extension SnackView {
     internal func addMainConstraintsToContentView() {
         // Add vertical constraints
         let views = ["title": titleBar, "scrollView": scrollView] as [String: Any]
-        let verticalContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[title(44)][scrollView]-|",
+        let verticalContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[title(>=44)][scrollView]-|",
                                                                 options: [],
                                                                 metrics: nil,
                                                                 views: views)

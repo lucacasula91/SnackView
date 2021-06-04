@@ -89,7 +89,8 @@ class SnackViewItemsTests: QuickSpec {
         }
 
         describe("SVTitleItem") {
-            let titleItem = SVTitleItem(withTitle: "My custom title", andCancelButton: "Close")
+            let titleItem = SVTitleItem()
+            titleItem.setTitle("My custom title")
 
             it("had to have 'My custom title' as title") {
                 expect(titleItem.title).to(equal("My custom title"))
