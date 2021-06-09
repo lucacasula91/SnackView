@@ -95,5 +95,4 @@ public class SVApplicationItem: SVItem {
         self.addVisualConstraint("V:[titleLabel][descriptionLabel]-|", for: ["titleLabel": titleLabel, "descriptionLabel": descriptionLabel])
     }
 
-    
 }
