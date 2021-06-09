@@ -43,11 +43,9 @@ public class SVDescriptionItem: SVItem {
         self.addSubview(descriptionLabel)
 
         //Add constraints to descriptionLabel
-        let descriptionHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[descriptionLabel]-|", options: [], metrics: nil, views: ["descriptionLabel": descriptionLabel])
-        self.addConstraints(descriptionHContraints)
-
-        let descriptionVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[descriptionLabel]-|", options: [], metrics: nil, views: ["descriptionLabel": descriptionLabel])
-        self.addConstraints(descriptionVContraints)
+        let views: [String: Any] = ["descriptionLabel": descriptionLabel]
+        self.addVisualConstraint("H:|-[descriptionLabel]-|", for: views)
+        self.addVisualConstraint("V:|-[descriptionLabel]-|", for: views)
     }
 
 }

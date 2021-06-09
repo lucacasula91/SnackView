@@ -54,17 +54,9 @@ public class SVButtonItem: SVItem {
         self.addSubview(self.buttonItem)
 
         //Add constraints to buttonItem
-        let buttonHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[buttonItem]-|",
-                                                               options: [],
-                                                               metrics: nil,
-                                                               views: ["buttonItem": buttonItem])
-        self.addConstraints(buttonHContraints)
-
-        let buttonVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[buttonItem]-|",
-                                                               options: [],
-                                                               metrics: nil,
-                                                               views: ["buttonItem": buttonItem])
-        self.addConstraints(buttonVContraints)
+        let views: [String: Any] = ["buttonItem": buttonItem]
+        self.addVisualConstraint("H:|-[buttonItem]-|", for: views)
+        self.addVisualConstraint("V:|-[buttonItem]-|", for: views)
     }
 
     // MARK: - Custom Stuff
