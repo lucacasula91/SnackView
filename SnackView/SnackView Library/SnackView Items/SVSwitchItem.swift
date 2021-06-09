@@ -12,9 +12,9 @@ import UIKit
 public class SVSwitchItem: SVItem {
 
     // MARK: - Private Properties
-    private var titleLabel: UILabel
-    private var switchItem: UISwitch
-    private var descriptionLabel: UILabel
+    private var titleLabel: UILabel = UILabel()
+    private var switchItem: UISwitch = UISwitch()
+    private var descriptionLabel: UILabel = UILabel()
 
     // MARK: - Properties
     private(set) var title: String
@@ -44,14 +44,15 @@ public class SVSwitchItem: SVItem {
      ```
      */
     public init(withTitle title: String, andDescription description: String?, withState state: Bool, withSwitchAction switchAction:@escaping (_ switchValue: Bool) -> Void) {
-        self.titleLabel = UILabel()
-        self.switchItem = UISwitch()
-        self.descriptionLabel = UILabel()
         self.title = title
         self.descriptionText = description
         self.currentState = state
 
         super.init()
+        [titleLabel, switchItem, descriptionLabel].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            self.addSubview($0)
+        }
         self.addTitleLabel()
         self.addSwitch()
         self.addDescriptionLabel()
@@ -66,47 +67,29 @@ public class SVSwitchItem: SVItem {
 
     // MARK: - Private Methods
     private func addTitleLabel() {
-        self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
         self.titleLabel.text = title.uppercased()
         self.titleLabel.textAlignment = .right
         self.titleLabel.textColor = secondaryTextColor
         self.titleLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
         self.titleLabel.adjustsFontForContentSizeCategory = true
         self.titleLabel.numberOfLines = 0
-        self.addSubview(self.titleLabel)
 
-        //Add constraints to titleLabel
-        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel(==\(self.leftContentWidth))]",
-            options: [],
-            metrics: nil,
-            views: ["titleLabel": titleLabel])
-        self.addConstraints(titleHContraints)
-
-        let titleVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[titleLabel(>=28)]-|",
-                                                              options: [],
-                                                              metrics: nil,
-                                                              views: ["titleLabel": titleLabel])
-        self.addConstraints(titleVContraints)
+        let views: [String: Any] = ["titleLabel": titleLabel]
+        self.addVisualConstraint("H:|-[titleLabel(==\(self.leftContentWidth))]", for: views)
+        self.addVisualConstraint("V:|-[titleLabel(>=28)]-|", for: views)
     }
 
     private func addSwitch() {
-        self.switchItem.translatesAutoresizingMaskIntoConstraints = false
         self.switchItem.addTarget(self, action: #selector(switchSelector(switchItem:)), for: .valueChanged)
         self.switchItem.tintColor = self.secondaryTextColor
-        self.addSubview(self.switchItem)
 
-        //Add constraints to switchItem
-        let switchHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[switch]-|",
-                                                               options: [],
-                                                               metrics: nil,
-                                                               views: ["switch": switchItem])
-        self.addConstraints(switchHContraints)
+        let views: [String: Any] = ["switch": switchItem]
+        self.addVisualConstraint("H:[switch]-|", for: views)
         self.switchItem.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
 
     }
 
     private func addDescriptionLabel() {
-        self.descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         if let text = descriptionText {
             descriptionLabel.text = text
         }
@@ -116,22 +99,11 @@ public class SVSwitchItem: SVItem {
         self.descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
         self.descriptionLabel.adjustsFontForContentSizeCategory = true
         self.descriptionLabel.numberOfLines = 0
-        self.addSubview(self.descriptionLabel)
 
-        //Add contraints to descriptionLabel
         descriptionLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-
-        let descriptionVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[descriptionLabel]-|",
-                                                                    options: [],
-                                                                    metrics: nil,
-                                                                    views: ["descriptionLabel": descriptionLabel])
-        self.addConstraints(descriptionVContraints)
-
-        let descriptionHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[titleLabel]-[descriptionLabel]-[switch]",
-                                                                    options: [],
-                                                                    metrics: nil,
-                                                                    views: ["titleLabel": titleLabel, "switch": switchItem, "descriptionLabel": descriptionLabel])
-        self.addConstraints(descriptionHContraints)
+        let views: [String: Any] = ["titleLabel": titleLabel, "switch": switchItem, "descriptionLabel": descriptionLabel]
+        self.addVisualConstraint("V:|-[descriptionLabel]-|", for: views)
+        self.addVisualConstraint("H:[titleLabel]-[descriptionLabel]-[switch]", for: views)
     }
 
     // MARK: - Custom stuff
