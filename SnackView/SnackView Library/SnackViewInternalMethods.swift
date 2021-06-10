@@ -13,10 +13,6 @@ extension SnackView {
 
     /// Prepare the SnackView view controller with modalPresentationStyle and contentView hidden.
     internal func setupViewController() {
-        // Add custom input accessory view to handle keyboard dismiss interactively
-        self.customInputAccessoryView.frame.size.height = 44
-        self.customInputAccessoryView.backgroundColor = UIColor.clear
-
         // Set the presentation style as over current context
         self.modalPresentationStyle = .overCurrentContext
 
@@ -41,17 +37,23 @@ extension SnackView {
     /// Animate the SnackView presentation, set a background color with alpha 0.5 and then translate SnackView to original position.
     internal func showSnackViewWithAnimation() {
 
-        DispatchQueue.main.async {
+        func animateBackgroundColor() {
             let backgroundColor: UIColor = UIColor.black
-            // Background Color Animation
             UIView.animate(withDuration: 0.25, animations: {
                 self.view.backgroundColor = backgroundColor.withAlphaComponent(0.4)
             }) { (_) in
-                // Show SnackView Animation
-                UIView.animate(withDuration: 0.25, animations: {
-                    self.contentView.transform = CGAffineTransform.identity
-                })
+                showSnackViewAnimation()
             }
+        }
+
+        func showSnackViewAnimation() {
+            UIView.animate(withDuration: 0.25, animations: {
+                self.contentView.transform = CGAffineTransform.identity
+            })
+        }
+
+        DispatchQueue.main.async {
+            animateBackgroundColor()
         }
     }
 
@@ -279,25 +281,33 @@ extension SnackView {
     /// Animate the SnackView dismiss, translate SnackView off screen and set background color to clear.
     @objc internal func closeActionSelector() {
 
-        DispatchQueue.main.async {
-            // Hide the SnackView out the screen bounds and set visible
+        func dismissAndClean() {
+            self.dismiss(animated: false) {
+                self.window?.rootViewController = nil
+                self.window?.resignFirstResponder()
+                self.window?.removeFromSuperview()
+                self.window = nil
+            }
+        }
+
+        func animateBackgroundColor() {
+            UIView.animate(withDuration: 0.25, animations: {
+                self.view.backgroundColor = UIColor.clear
+            }) { (_) in dismissAndClean() }
+        }
+
+        func animateContentView() {
             let contentViewHeight = self.contentView.frame.size.height + self.safeAreaView.frame.height
 
             // Background Color Animation
             UIView.animate(withDuration: 0.25, animations: {
                 self.contentView.transform = CGAffineTransform(translationX: 0, y: contentViewHeight)
-            }) { (_) in
-                UIView.animate(withDuration: 0.25, animations: {
-                    self.view.backgroundColor = UIColor.clear
-                }) { (_) in
-                    self.dismiss(animated: false) {
-                        self.window?.rootViewController = nil
-                        self.window?.resignFirstResponder()
-                        self.window?.removeFromSuperview()
-                        self.window = nil 
-                    }
-                }
-            }
+            }) { (_) in animateBackgroundColor() }
+        }
+
+        DispatchQueue.main.async {
+            // Hide the SnackView out the screen bounds and set visible
+            animateContentView()
         }
     }
 }

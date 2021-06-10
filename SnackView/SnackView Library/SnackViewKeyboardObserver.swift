@@ -14,16 +14,52 @@ class SnackViewConstant {
 
 class SnackViewKeyboardObserver {
 
+    // MARK: - Private Properties
     private var bottomContentViewConstant: NSLayoutConstraint
-    private var keyboardHeight: CGFloat = 0
     private var snackView: SnackView
     private var scrollView: UIScrollView
 
+    // MARK: - Init Method
     init(with constraint: NSLayoutConstraint, from snackView: SnackView, and scrollView: UIScrollView) {
         self.bottomContentViewConstant = constraint
         self.snackView = snackView
         self.scrollView = scrollView
 
+        self.addNotificationsObserver()
+    }
+
+    @objc func keyboardWillShow(notification: Notification) {
+        scrollView.alwaysBounceVertical = true
+
+        let keyboardSize = self.getKeyboardSizeFrom(notification: notification)
+        let animationSpeed = self.getAnimationDurationFrom(notification: notification)
+
+        bottomContentViewConstant.constant = -keyboardSize.height
+
+        UIView.animate(withDuration: animationSpeed.doubleValue) {
+            self.snackView.view.layoutIfNeeded()
+        }
+    }
+
+    @objc func keyboardWillHide(notification: Notification) {
+        scrollView.alwaysBounceVertical = false
+        let animationSpeed = self.getAnimationDurationFrom(notification: notification)
+
+        self.bottomContentViewConstant.constant = 0
+
+        UIView.animate(withDuration: animationSpeed.doubleValue) {
+            self.snackView.view.layoutIfNeeded()
+        }
+    }
+
+    @objc func keyboardFrameDidChange(notification: Notification) {
+        if let constant = notification.userInfo?["constant"] as? CGFloat {
+            bottomContentViewConstant.constant = -constant
+        }
+    }
+
+    // MARK: - Private Methods
+    private func addNotificationsObserver() {
         let notificationCenter = NotificationCenter.default
         let keyboardWillShow = UIResponder.keyboardWillShowNotification
         notificationCenter.addObserver(self,
@@ -43,42 +79,6 @@ class SnackViewKeyboardObserver {
                                        name: keyboardFrameDidChange,
                                        object: nil)
     }
-
-    @objc func keyboardWillShow(notification: Notification) {
-        scrollView.alwaysBounceVertical = true
-
-        let keyboardSize = self.getKeyboardSizeFrom(notification: notification)
-        let animationSpeed = self.getAnimationDurationFrom(notification: notification)
-
-        self.keyboardHeight = keyboardSize.height
-        bottomContentViewConstant.constant = -self.keyboardHeight
-
-        UIView.animate(withDuration: animationSpeed.doubleValue) {
-            self.snackView.view.layoutIfNeeded()
-        }
-    }
-
-    @objc func keyboardWillHide(notification: Notification) {
-        scrollView.alwaysBounceVertical = false
-
-        let keyboardSize = self.getKeyboardSizeFrom(notification: notification)
-        let animationSpeed = self.getAnimationDurationFrom(notification: notification)
-
-        self.keyboardHeight = keyboardSize.height
-        self.bottomContentViewConstant.constant = 0
-
-        UIView.animate(withDuration: animationSpeed.doubleValue) {
-            self.snackView.view.layoutIfNeeded()
-        }
-    }
-
-    @objc func keyboardFrameDidChange(notification: Notification) {
-        if let constant = notification.userInfo?["constant"] as? CGFloat {
-            bottomContentViewConstant.constant = -constant
-        }
-    }
-
-    // MARK: - Private Methods
 
     private func getKeyboardSizeFrom(notification: Notification) -> CGRect {
         if let keyboardSize = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {

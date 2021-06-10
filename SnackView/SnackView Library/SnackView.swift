@@ -22,7 +22,6 @@ public class SnackView: UIViewController {
     internal var stackView = UIStackView()
     internal var safeAreaView = UIView()
     internal var bottomContentViewConstant = NSLayoutConstraint()
-    internal var customInputAccessoryView = UIView()
     internal var keyboardObserver: SnackViewKeyboardObserver?
     override public var inputAccessoryView: UIView? {
         let customInput = CustomInputAccessoryView()
