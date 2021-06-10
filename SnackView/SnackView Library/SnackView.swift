@@ -23,8 +23,7 @@ public class SnackView: UIViewController {
     internal var safeAreaView = UIView()
     internal var bottomContentViewConstant = NSLayoutConstraint()
     internal var customInputAccessoryView = UIView()
-    internal var keyboardHeight: CGFloat = 0
-    internal var animationSpeed: TimeInterval = 0.25
+    internal var keyboardObserver: SnackViewKeyboardObserver?
     override public var inputAccessoryView: UIView? {
         let customInput = CustomInputAccessoryView()
         customInput.frame.size.height = 0.1

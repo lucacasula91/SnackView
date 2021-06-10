@@ -50,7 +50,7 @@ public class SVSliderItem: SVItem {
         super.init()
 
         [titleLabel, slider].forEach {
-            $0.translatesAutoresizingMaskIntoConstraints = true
+            $0.translatesAutoresizingMaskIntoConstraints = false
             self.addSubview($0)
         }
 
@@ -85,8 +85,8 @@ public class SVSliderItem: SVItem {
         self.slider.value = current
         self.slider.addTarget(self, action: #selector(sliderValueDidChanged(_:)), for: .valueChanged)
 
-        let views: [String: Any] = ["titleLabel": titleLabel as Any, "slider": self.slider]
-        self.addVisualConstraint("H:|-[titleLabel]-[slider]-|", for: views)
+        let views: [String: Any] = ["titleLabel": titleLabel, "slider": self.slider]
+        self.addVisualConstraint("[titleLabel]-[slider]-|", for: views)
         self.slider.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
     }
 

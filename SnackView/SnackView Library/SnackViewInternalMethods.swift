@@ -44,11 +44,11 @@ extension SnackView {
         DispatchQueue.main.async {
             let backgroundColor: UIColor = UIColor.black
             // Background Color Animation
-            UIView.animate(withDuration: self.animationSpeed, animations: {
+            UIView.animate(withDuration: 0.25, animations: {
                 self.view.backgroundColor = backgroundColor.withAlphaComponent(0.4)
             }) { (_) in
                 // Show SnackView Animation
-                UIView.animate(withDuration: self.animationSpeed, animations: {
+                UIView.animate(withDuration: 0.25, animations: {
                     self.contentView.transform = CGAffineTransform.identity
                 })
             }
@@ -57,25 +57,7 @@ extension SnackView {
 
     /// This method add notification observer for keyboard events.
     internal func addKeyboardNotificationsObserver() {
-        let notificationCenter = NotificationCenter.default
-
-        let keyboardWillShow = UIResponder.keyboardWillShowNotification
-        notificationCenter.addObserver(self,
-                                       selector: #selector(keyboardWillShow(notification:)),
-                                       name: keyboardWillShow,
-                                       object: nil)
-
-        let keyboardWillHide = UIResponder.keyboardWillHideNotification
-        notificationCenter.addObserver(self,
-                                       selector: #selector(keyboardWillHide(notification:)),
-                                       name: keyboardWillHide,
-                                       object: nil)
-
-        let keyboardFrameDidChange = NSNotification.Name(rawValue: "KeyboardFrameDidChange")
-        notificationCenter.addObserver(self,
-                                       selector: #selector(keyboardFrameDidChange(notification:)),
-                                       name: keyboardFrameDidChange,
-                                       object: nil)
+        self.keyboardObserver = SnackViewKeyboardObserver(with: self.bottomContentViewConstant, from: self, and: self.scrollView)
     }
 
     // MARK: - SnackView skeleton
@@ -302,10 +284,10 @@ extension SnackView {
             let contentViewHeight = self.contentView.frame.size.height + self.safeAreaView.frame.height
 
             // Background Color Animation
-            UIView.animate(withDuration: self.animationSpeed, animations: {
+            UIView.animate(withDuration: 0.25, animations: {
                 self.contentView.transform = CGAffineTransform(translationX: 0, y: contentViewHeight)
             }) { (_) in
-                UIView.animate(withDuration: self.animationSpeed, animations: {
+                UIView.animate(withDuration: 0.25, animations: {
                     self.view.backgroundColor = UIColor.clear
                 }) { (_) in
                     self.dismiss(animated: false) {
