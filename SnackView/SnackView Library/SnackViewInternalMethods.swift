@@ -11,18 +11,11 @@ extension SnackView {
 
     // MARK: - SnackView Setup
 
-    /// Prepare the SnackView view controller with modalPresentationStyle and contentView hidden.
-    internal func setupViewController() {
-        // Set the presentation style as over current context
-        self.modalPresentationStyle = .overCurrentContext
-    }
-
     /// Prepare SnackView for will appear state, set background color to clear and translate view off screen.
     internal func setBackgroundForWillAppear() {
         DispatchQueue.main.async {
             // Set SnackView visible
             self.skeletonView.isHidden = false
-
             self.view.backgroundColor = UIColor.clear
 
             // Hide the SnackView out the screen bounds and set visible
@@ -49,16 +42,7 @@ extension SnackView {
             })
         }
 
-        DispatchQueue.main.async {
-            animateBackgroundColor()
-        }
-    }
-
-    /// This method add notification observer for keyboard events.
-    internal func addKeyboardNotificationsObserver() {
-        let scrollView = self.skeletonView.scrollView.scrollView
-        let snackView: SnackView = self
-        self.keyboardObserver = SnackViewKeyboardObserver(with: self.bottomContentViewConstant, from: snackView, and: scrollView)
+        DispatchQueue.main.async { animateBackgroundColor() }
     }
 
     // MARK: - SnackView skeleton
@@ -99,22 +83,12 @@ extension SnackView {
             self.skeletonView.setTitle("Invalid configuration", andCancelTitle: "Close")
 
             let description = SVDescriptionItem(withDescription: "It seems thet SnackView isn't properly configured.\nHere's what could have gone wrong.")
-
             let firstCause = SVDetailTextItem(withTitle: "Empty items array", andDescription: "Maybe you are trying to show an empty items array.")
-
             let secondCause = SVDetailTextItem(withTitle: "DataSource with weak reference", andDescription: "If you have a standalone datasource class, you need to keep the reference from the UIViewController that want to present the SnackView.")
 
             return [description, firstCause, secondCause]
-        } else {
-            return items
         }
-    }
-    // MARK: - Layout SnackView
-
-    /// This method creates a view that contains all the SnackView items.
-    internal func layoutSnackViewSkeleton() {
-        self.addContentViewWithConstraints()
-        self.skeletonView.injectCancelButton(from: self)
+        return items
     }
 
     // MARK: - Helper methods
@@ -132,12 +106,9 @@ extension SnackView {
         window = nil
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        if #available(iOS 13.0, *) {
-           let _scene = UIApplication.shared.connectedScenes.filter { $0.activationState == .foregroundActive }.first
-            if
-                let scene = _scene as? UIWindowScene {
-                self.window = UIWindow(windowScene: scene)
-            }
+        if #available(iOS 13.0, *),
+           let scene = UIApplication.shared.connectedScenes.filter({ $0.activationState == .foregroundActive }).first as? UIWindowScene {
+            self.window = UIWindow(windowScene: scene)
         }
 
         window?.rootViewController = containerViewController
@@ -153,34 +124,33 @@ extension SnackView {
 
     /// Animate the SnackView dismiss, translate SnackView off screen and set background color to clear.
     @objc internal func closeActionSelector() {
-
-        func dismissAndClean() {
-            self.dismiss(animated: false) {
-                self.window?.rootViewController = nil
-                self.window?.resignFirstResponder()
-                self.window?.removeFromSuperview()
-                self.window = nil
-            }
-        }
-
-        func animateBackgroundColor() {
-            UIView.animate(withDuration: 0.25, animations: {
-                self.view.backgroundColor = UIColor.clear
-            }) { (_) in dismissAndClean() }
-        }
-
-        func animateContentView() {
-            let contentViewHeight = self.skeletonView.frame.size.height + self.skeletonView.getSafeAreaHeight()
-
-            // Background Color Animation
-            UIView.animate(withDuration: 0.25, animations: {
-                self.skeletonView.transform = CGAffineTransform(translationX: 0, y: contentViewHeight)
-            }) { (_) in animateBackgroundColor() }
-        }
-
         DispatchQueue.main.async {
             // Hide the SnackView out the screen bounds and set visible
-            animateContentView()
+            self.animateContentView()
         }
+    }
+
+    func dismissAndClean() {
+        self.dismiss(animated: false) {
+            self.window?.rootViewController = nil
+            self.window?.resignFirstResponder()
+            self.window?.removeFromSuperview()
+            self.window = nil
+        }
+    }
+
+    func animateBackgroundColor() {
+        UIView.animate(withDuration: 0.25, animations: {
+            self.view.backgroundColor = UIColor.clear
+        }) { (_) in self.dismissAndClean() }
+    }
+
+    func animateContentView() {
+        let contentViewHeight = self.skeletonView.frame.size.height + self.skeletonView.getSafeAreaHeight()
+
+        // Background Color Animation
+        UIView.animate(withDuration: 0.25, animations: {
+            self.skeletonView.transform = CGAffineTransform(translationX: 0, y: contentViewHeight)
+        }) { (_) in self.animateBackgroundColor() }
     }
 }

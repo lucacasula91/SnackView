@@ -48,9 +48,17 @@ public class SnackView: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
 
-        self.setupViewController()
-        self.layoutSnackViewSkeleton()
-        self.addKeyboardNotificationsObserver()
+        /// Prepare the SnackView view controller with modalPresentationStyle and contentView hidden.
+        self.modalPresentationStyle = .overCurrentContext
+        self.addContentViewWithConstraints()
+        self.skeletonView.injectCancelButton(from: self)
+
+        let scrollView = self.skeletonView.scrollView.scrollView
+        let snackView: SnackView = self
+        self.keyboardObserver = SnackViewKeyboardObserver(with: self.bottomContentViewConstant,
+                                                          from: snackView,
+                                                          and: scrollView)
+
     }
 
     override public func viewWillAppear(_ animated: Bool) {
@@ -64,4 +72,5 @@ public class SnackView: UIViewController {
 
         self.showSnackViewWithAnimation()
     }
+
 }
