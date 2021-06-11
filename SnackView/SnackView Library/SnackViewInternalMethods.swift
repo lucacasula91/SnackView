@@ -102,7 +102,12 @@ extension SnackView {
         containerViewController.modalPresentationStyle = .overFullScreen
         containerViewController.view.backgroundColor = UIColor.clear
         containerViewController.view.isUserInteractionEnabled = true
+        self.setupWindow(for: containerViewController)
 
+        return containerViewController
+    }
+
+    internal func setupWindow(for viewController: UIViewController) {
         window = nil
         window = UIWindow(frame: UIScreen.main.bounds)
 
@@ -111,15 +116,12 @@ extension SnackView {
             self.window = UIWindow(windowScene: scene)
         }
 
-        window?.rootViewController = containerViewController
+        window?.rootViewController = viewController
         window?.backgroundColor = UIColor.clear
         window?.windowLevel = UIWindow.Level.alert+1
         window?.makeKeyAndVisible()
         window?.resignFirstResponder()
-
-        return containerViewController
     }
-
     // MARK: - Private custom selector
 
     /// Animate the SnackView dismiss, translate SnackView off screen and set background color to clear.
@@ -130,7 +132,7 @@ extension SnackView {
         }
     }
 
-    func dismissAndClean() {
+    internal func dismissAndClean() {
         self.dismiss(animated: false) {
             self.window?.rootViewController = nil
             self.window?.resignFirstResponder()
@@ -139,13 +141,13 @@ extension SnackView {
         }
     }
 
-    func animateBackgroundColor() {
+    internal func animateBackgroundColor() {
         UIView.animate(withDuration: 0.25, animations: {
             self.view.backgroundColor = UIColor.clear
         }) { (_) in self.dismissAndClean() }
     }
 
-    func animateContentView() {
+    internal func animateContentView() {
         let contentViewHeight = self.skeletonView.frame.size.height + self.skeletonView.getSafeAreaHeight()
 
         // Background Color Animation

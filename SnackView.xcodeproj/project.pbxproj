@@ -234,19 +234,9 @@
 		514047FE234B4BC60020F126 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
-				514047FF234B4BDE0020F126 /* DataSource and custom items */,
 				FF42AE0D21E2844200F4ECEB /* SnackViewExample */,
 			);
 			path = Examples;
-			sourceTree = "<group>";
-		};
-		514047FF234B4BDE0020F126 /* DataSource and custom items */ = {
-			isa = PBXGroup;
-			children = (
-				8EFCF5912212149800F68700 /* SnackViewDataSource.swift */,
-				5192725C21F86ECC00E0965C /* Custom Items */,
-			);
-			path = "DataSource and custom items";
 			sourceTree = "<group>";
 		};
 		51822D8C21E4D4EC00380738 /* SnackView Items */ = {
@@ -282,6 +272,8 @@
 		5192725B21F86EC200E0965C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				8EFCF5912212149800F68700 /* SnackViewDataSource.swift */,
+				5192725C21F86ECC00E0965C /* Custom Items */,
 				FF42AE1021E2844200F4ECEB /* ViewController.swift */,
 			);
 			path = ViewController;
