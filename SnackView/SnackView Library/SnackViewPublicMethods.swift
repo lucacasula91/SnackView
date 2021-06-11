@@ -26,7 +26,10 @@ extension SnackView {
 
     /// Reload the content of SnackView in case of update.
     open func reloadData() {
-        self.addItemsInsideStackView()
+        if let items = self.dataSource?.itemsFor(snackView: self) {
+            self.items = items
+            self.skeletonView.reload(with: items)
+        }
     }
 
 }

@@ -97,6 +97,7 @@ class SnackViewItemsTests: QuickSpec {
             }
 
             it("had to have close button visible.") {
+                titleItem.setCancelTitle("Cancel")
                 expect(titleItem.cancelButton.isHidden).to(beFalse())
             }
 

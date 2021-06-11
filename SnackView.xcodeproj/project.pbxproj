@@ -24,6 +24,9 @@
 		511780C621E5E84E00EBD9F8 /* SnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511780C521E5E84E00EBD9F8 /* SnackViewDataSource.swift */; };
 		511C8CF7267344D400C13B07 /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5187CA8026524BFE007443CD /* Nimble.xcframework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		511C8CF8267344E100C13B07 /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5187CA7F26524BFE007443CD /* Quick.xcframework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		511C8CFA2673502C00C13B07 /* SVSkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511C8CF92673502C00C13B07 /* SVSkeletonView.swift */; };
+		511C8CFC267356CF00C13B07 /* UIView-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511C8CFB267356CF00C13B07 /* UIView-Extensions.swift */; };
+		511C8CFE267399AA00C13B07 /* SVScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511C8CFD267399AA00C13B07 /* SVScrollView.swift */; };
 		51251DDA26539D7B00029209 /* SVSegmentedControllerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51251DD926539D7B00029209 /* SVSegmentedControllerItem.swift */; };
 		5133D430264E876B006EB850 /* SnackViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5133D42F264E876B006EB850 /* SnackViewTests.swift */; };
 		514C7B98264D6B6E00644BAA /* SVSliderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514C7B97264D6B6E00644BAA /* SVSliderItem.swift */; };
@@ -123,6 +126,9 @@
 		38F4AF11205969E900341940 /* SVTextFieldItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVTextFieldItem.swift; sourceTree = "<group>"; };
 		38F4AF12205969E900341940 /* CustomInputAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInputAccessoryView.swift; sourceTree = "<group>"; };
 		511780C521E5E84E00EBD9F8 /* SnackViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewDataSource.swift; sourceTree = "<group>"; };
+		511C8CF92673502C00C13B07 /* SVSkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVSkeletonView.swift; sourceTree = "<group>"; };
+		511C8CFB267356CF00C13B07 /* UIView-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-Extensions.swift"; sourceTree = "<group>"; };
+		511C8CFD267399AA00C13B07 /* SVScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVScrollView.swift; sourceTree = "<group>"; };
 		51251DD926539D7B00029209 /* SVSegmentedControllerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVSegmentedControllerItem.swift; sourceTree = "<group>"; };
 		5133D42E264E876B006EB850 /* SnackViewTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SnackViewTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		5133D42F264E876B006EB850 /* SnackViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewTests.swift; sourceTree = "<group>"; };
@@ -268,6 +274,7 @@
 			children = (
 				38F4AF12205969E900341940 /* CustomInputAccessoryView.swift */,
 				381CFE692091BC1800379B26 /* SafeAreaHelper.swift */,
+				511C8CFB267356CF00C13B07 /* UIView-Extensions.swift */,
 			);
 			path = "SnackView Utilities";
 			sourceTree = "<group>";
@@ -294,6 +301,8 @@
 			isa = PBXGroup;
 			children = (
 				38F4AF0D205969E800341940 /* SnackView.swift */,
+				511C8CF92673502C00C13B07 /* SVSkeletonView.swift */,
+				511C8CFD267399AA00C13B07 /* SVScrollView.swift */,
 				511780C521E5E84E00EBD9F8 /* SnackViewDataSource.swift */,
 				51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */,
 				51E1D31F2671F98300919E4D /* SnackViewKeyboardObserver.swift */,
@@ -504,10 +513,13 @@
 				38F4AF1B205969E900341940 /* SVTextFieldItem.swift in Sources */,
 				51251DDA26539D7B00029209 /* SVSegmentedControllerItem.swift in Sources */,
 				38F4AF1A205969E900341940 /* SVApplicationItem.swift in Sources */,
+				511C8CFA2673502C00C13B07 /* SVSkeletonView.swift in Sources */,
+				511C8CFE267399AA00C13B07 /* SVScrollView.swift in Sources */,
 				38F4AF14205969E900341940 /* SVButtonItem.swift in Sources */,
 				514C7B98264D6B6E00644BAA /* SVSliderItem.swift in Sources */,
 				51F4CB1121E388CF0096E48D /* SnackViewPublicMethods.swift in Sources */,
 				38EA7C3620862B7700B6F88D /* SVLoaderItem.swift in Sources */,
+				511C8CFC267356CF00C13B07 /* UIView-Extensions.swift in Sources */,
 				38F4AF17205969E900341940 /* SnackView.swift in Sources */,
 				38F4AF15205969E900341940 /* SVItem.swift in Sources */,
 				511780C621E5E84E00EBD9F8 /* SnackViewDataSource.swift in Sources */,

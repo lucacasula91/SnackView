@@ -28,6 +28,7 @@ class ViewController: UIViewController {
 
     fileprivate func configureDataSource() {
         snackView = SnackView(with: dataSource)
+        dataSource.snackView = snackView
     }
 
     fileprivate func updateItems(type: SnackViewDataSourceManager.ExampleType) {

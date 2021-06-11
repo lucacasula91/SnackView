@@ -16,11 +16,7 @@ public class SnackView: UIViewController {
 
     public internal(set) var items: [SVItem]? = []
     internal var window: UIWindow?
-    internal var contentView = UIView()
-    internal var titleBar = SVTitleItem()
-    internal var scrollView = UIScrollView()
-    internal var stackView = UIStackView()
-    internal var safeAreaView = UIView()
+    internal var skeletonView: SVSkeletonView!
     internal var bottomContentViewConstant = NSLayoutConstraint()
     internal var keyboardObserver: SnackViewKeyboardObserver?
     override public var inputAccessoryView: UIView? {
@@ -35,9 +31,8 @@ public class SnackView: UIViewController {
     /// - Parameter dataSource: Class conformed to SnackViewProtocol
     public init(with dataSource: SnackViewDataSource) {
         self.dataSource = dataSource
-
         super.init(nibName: nil, bundle: nil)
-        self.contentView.isHidden = true
+        self.skeletonView = SVSkeletonView(with: dataSource, and: self)
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -61,7 +56,6 @@ public class SnackView: UIViewController {
         super.viewWillAppear(animated)
         self.setBackgroundForWillAppear()
         self.getDataFromDataSource()
-        self.addItemsInsideStackView()
     }
 
     override public func viewDidAppear(_ animated: Bool) {

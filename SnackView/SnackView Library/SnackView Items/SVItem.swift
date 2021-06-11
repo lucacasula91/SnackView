@@ -77,16 +77,6 @@ open class SVItem: UIView {
         return nil
     }
 
-    // MARK: - Public Method
-    public func addVisualConstraint(_ constrantFormat: String, for views: [String : Any]) {
-
-        let constraint = NSLayoutConstraint.constraints(withVisualFormat: constrantFormat,
-                                                                    options: [],
-                                                                    metrics: nil,
-                                                                    views: views)
-        self.addConstraints(constraint)
-    }
-
     /**
      Use this method to add or remove the automatic height constraint. SVItem has a minimum height value equal or greater than 50 pixels.
      - parameter active: Bool value
