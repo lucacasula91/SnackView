@@ -231,6 +231,15 @@
 			path = SnackViewTests;
 			sourceTree = "<group>";
 		};
+		511C8D002673BEC200C13B07 /* SnackViewDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				8EFCF5912212149800F68700 /* ExampleSnackViewDataSourceManager.swift */,
+				5192725C21F86ECC00E0965C /* Custom Items */,
+			);
+			path = SnackViewDataSource;
+			sourceTree = "<group>";
+		};
 		514047FE234B4BC60020F126 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,8 +281,6 @@
 		5192725B21F86EC200E0965C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				8EFCF5912212149800F68700 /* ExampleSnackViewDataSourceManager.swift */,
-				5192725C21F86ECC00E0965C /* Custom Items */,
 				FF42AE1021E2844200F4ECEB /* ViewController.swift */,
 			);
 			path = ViewController;
@@ -309,6 +316,7 @@
 		FF42AE0D21E2844200F4ECEB /* SnackViewExample */ = {
 			isa = PBXGroup;
 			children = (
+				511C8D002673BEC200C13B07 /* SnackViewDataSource */,
 				FF42AE3821E2AF0700F4ECEB /* Source */,
 				FF42AE3921E2AF1600F4ECEB /* Supporting Files */,
 			);

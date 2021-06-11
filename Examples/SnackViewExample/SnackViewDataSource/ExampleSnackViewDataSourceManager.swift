@@ -1,5 +1,5 @@
 //
-//  ExampleSnackViewDataSourceManager.swift
+//  NewSnackViewDataSource.swift
 //
 //
 //  Created by Luca Casula on 14/01/19.
@@ -8,7 +8,7 @@
 import UIKit
 import SnackView
 
-class ExampleSnackViewDataSourceManager {
+class SnackViewDataSourceManager {
 
     // MARK: - Properties
     var currentType: ExampleType = .password
@@ -29,12 +29,11 @@ class ExampleSnackViewDataSourceManager {
     }
 
     fileprivate func getPasswordItem() -> [SVItem] {
-        let sliderItem = SVSliderItem(withTitle: "My Slider", minimum: 10, maximum: 60, current: 23)
         let newPasswordItem = SVTextFieldItem(withPlaceholder: "New Password", isSecureField: true)
         let repeatPasswordItem = SVTextFieldItem(withPlaceholder: "Repeat Password", isSecureField: true)
         let continueButtonItem = SVButtonItem(withTitle: "Continue") { print("Continue button tapped") }
 
-        return [sliderItem, newPasswordItem, repeatPasswordItem, continueButtonItem]
+        return [newPasswordItem, repeatPasswordItem, continueButtonItem]
     }
 
     fileprivate func getCustomItem() -> [SVItem] {
@@ -53,14 +52,13 @@ class ExampleSnackViewDataSourceManager {
         let applicationItem = SVApplicationItem(withIcon: #imageLiteral(resourceName: "Icon"),
                                                 withTitle: "Ipsum lorem",
                                                 andDescription: "Lorem ipsum dolor sit amet")
-        let sliderItem = SVSliderItem(withTitle: "My Slider", minimum: 0, maximum: 100, current: 23)
-        return [loaderItem, switchItem, applicationItem, sliderItem]
+        return [loaderItem, switchItem, applicationItem]
     }
 
 }
 
 // MARK: - SnackViewDataSource
-extension ExampleSnackViewDataSourceManager: SnackViewDataSource {
+extension SnackViewDataSourceManager: SnackViewDataSource {
 
     func titleFor(snackView: SnackView) -> String {
         switch currentType {
