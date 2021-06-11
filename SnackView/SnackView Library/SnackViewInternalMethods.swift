@@ -65,8 +65,7 @@ extension SnackView {
 
     /// ContentView is a view that contains all the items of SnackView such as TitleBar, ScrollView with all the items inside and the safeArea view.
     internal func addContentViewWithConstraints() {
-        guard let dataSource = dataSource else { return }
-        self.skeletonView = SVSkeletonView(with: dataSource, and: self)
+        self.skeletonView = SVSkeletonView()
         self.skeletonView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(skeletonView)
 
@@ -92,14 +91,12 @@ extension SnackView {
         let cancelTitle = self.dataSource?.cancelTitleFor(snackView: self)
         self.skeletonView.setTitle(title, andCancelTitle: cancelTitle)
 
-        if var _items = self.dataSource?.itemsFor(snackView: self) {
-            self.items = checkIfItemArrayIsEmpty(_items)
-        }
+        self.reloadData()
     }
 
     internal func checkIfItemArrayIsEmpty(_ items: [SVItem]) -> [SVItem] {
         if items.isEmpty {
-            self.skeletonView.setTitle("Invalid Configuration", andCancelTitle: "Cancel")
+            self.skeletonView.setTitle("Invalid configuration", andCancelTitle: "Close")
 
             let description = SVDescriptionItem(withDescription: "It seems thet SnackView isn't properly configured.\nHere's what could have gone wrong.")
 
@@ -117,6 +114,7 @@ extension SnackView {
     /// This method creates a view that contains all the SnackView items.
     internal func layoutSnackViewSkeleton() {
         self.addContentViewWithConstraints()
+        self.skeletonView.injectCancelButton(from: self)
     }
 
     // MARK: - Helper methods

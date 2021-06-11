@@ -14,13 +14,13 @@ class SVSkeletonView: UIView {
     public var titleBar = SVTitleItem()
 
     // MARK: - Private Properties
-    internal var scrollView = SVScrollView(with: [])
+    internal var scrollView = SVScrollView()
     internal var safeAreaView = UIView()
 
     // MARK: - Initialization Method
-    init(with dataSource: SnackViewDataSource, and snackView: SnackView) {
+    init() {
         super.init(frame: CGRect.zero)
-        self.setupUI(for: dataSource, and: snackView)
+        self.setupUI()
     }
 
     required init?(coder: NSCoder) {
@@ -41,16 +41,19 @@ class SVSkeletonView: UIView {
         return safeAreaView.frame.height
     }
 
+    public func injectCancelButton(from snackView: SnackView) {
+        self.titleBar.cancelButton.addTarget(snackView, action: #selector(snackView.closeActionSelector), for: UIControl.Event.touchUpInside)
+    }
     // MARK: - Private Methods
 
-    internal func setupUI(for dataSource: SnackViewDataSource, and snackView: SnackView) {
+    internal func setupUI() {
         self.isHidden = true
         self.backgroundColor = UIColor.white.withAlphaComponent(0.75)
         if #available(iOS 13.0, *) {
             self.backgroundColor = UIColor.tertiarySystemBackground
         }
         self.addVisualEffectViewToContentView()
-        self.addMainSkeletonView(for: dataSource, and: snackView)
+        self.addMainSkeletonView()
         self.addMainConstraintsToContentView()
     }
 
@@ -70,16 +73,13 @@ class SVSkeletonView: UIView {
     }
 
     /// Adds the three main views of SnackView, TitleBar, ScrollView and SafeArea View
-    internal func addMainSkeletonView(for dataSource: SnackViewDataSource, and snackView: SnackView) {
+    internal func addMainSkeletonView() {
         // Add TitleBar
-        self.titleBar = SVTitleItem()
         self.titleBar.translatesAutoresizingMaskIntoConstraints = false
-        self.titleBar.cancelButton.addTarget(snackView, action: #selector(snackView.closeActionSelector), for: UIControl.Event.touchUpInside)
         self.addSubview(self.titleBar)
 
         // Add ScrollView
-        let items: [SVItem] = dataSource.itemsFor(snackView: snackView)
-        self.scrollView = SVScrollView(with: items)
+        self.scrollView = SVScrollView()
         self.scrollView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(self.scrollView)
 

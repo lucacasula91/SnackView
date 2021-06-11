@@ -17,14 +17,14 @@ class SVScrollView: UIView {
     internal var stackView = UIStackView(arrangedSubviews: [])
 
     // MARK: - Initialization Methods
-    init(with items: [SVItem]) {
+    init() {
         super.init(frame: CGRect.zero)
-        self.setupUI(with: items)
+        self.setupUI()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.setupUI(with: [])
+        self.setupUI()
     }
 
     // MARK: - Public Methods
@@ -33,10 +33,10 @@ class SVScrollView: UIView {
     }
 
     // MARK: - Private Method
-    internal func setupUI(with items: [SVItem]) {
+    internal func setupUI() {
         self.addScrollView()
         self.addStackViewInsideScrollViewWithConstraints()
-        self.addItemsInsideStackView(items)
+        //self.addItemsInsideStackView(items)
     }
 
     internal func addScrollView() {

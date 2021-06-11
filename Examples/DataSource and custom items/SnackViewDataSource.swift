@@ -1,6 +1,6 @@
 //
 //  NewSnackViewDataSource.swift
-//  
+//
 //
 //  Created by Luca Casula on 14/01/19.
 //
@@ -9,10 +9,10 @@ import UIKit
 import SnackView
 
 class SnackViewDataSourceManager {
-    var prova: Bool = false
+
     // MARK: - Properties
     var currentType: ExampleType = .password
-    var snackView: SnackView?
+
     enum ExampleType {
         case password
         case custom
@@ -29,27 +29,10 @@ class SnackViewDataSourceManager {
     }
 
     fileprivate func getPasswordItem() -> [SVItem] {
-        if prova {
-            let description = SVDescriptionItem(withDescription: "aslfj alskjlkas ksuds  iskns slis dkfj ise s0s8d skl slj aslfj alskjlkas ksuds  iskns slis dkfj ise s0s8d skl slj aslfj alskjlkas ksuds  iskns slis dkfj ise s0s8d skl slj aslfj alskjlkas ksuds  iskns slis dkfj ise s0s8d skl slj aslfj alskjlkas ksuds  iskns slis dkfj ise s0s8d skl slj aslfj alskjlkas ksuds  iskns slis dkfj ise s0s8d skl slj aslfj alskjlkas ksuds  iskns slis dkfj ise s0s8d skl slj aslfj alskjlkas ksuds  iskns slis dkfj ise s0s8d skl slj ")
-            let sliderItem1 = SVSliderItem(withTitle: "My Slider", minimum: 10, maximum: 60, current: 23)
-            let sliderItem2 = SVSliderItem(withTitle: "My Slider", minimum: 10, maximum: 60, current: 23)
-            let newPasswordItem = SVTextFieldItem(withPlaceholder: "New Password", isSecureField: true)
-            let repeatPasswordItem = SVTextFieldItem(withPlaceholder: "Repeat Password", isSecureField: true)
-            let continueButtonItem = SVButtonItem(withTitle: "cacca") {
-                self.prova = false
-                self.snackView?.reloadData()
-            }
-            return [description, sliderItem1, sliderItem2, newPasswordItem, repeatPasswordItem, continueButtonItem]
-
-        }
         let sliderItem = SVSliderItem(withTitle: "My Slider", minimum: 10, maximum: 60, current: 23)
         let newPasswordItem = SVTextFieldItem(withPlaceholder: "New Password", isSecureField: true)
         let repeatPasswordItem = SVTextFieldItem(withPlaceholder: "Repeat Password", isSecureField: true)
-        let continueButtonItem = SVButtonItem(withTitle: "Continue") {
-            self.prova = true
-            self.snackView?.reloadData()
-
-        }
+        let continueButtonItem = SVButtonItem(withTitle: "Continue") { print("Continue button tapped") }
 
         return [sliderItem, newPasswordItem, repeatPasswordItem, continueButtonItem]
     }

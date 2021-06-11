@@ -16,7 +16,7 @@ public class SnackView: UIViewController {
 
     public internal(set) var items: [SVItem]? = []
     internal var window: UIWindow?
-    internal var skeletonView: SVSkeletonView!
+    internal var skeletonView: SVSkeletonView
     internal var bottomContentViewConstant = NSLayoutConstraint()
     internal var keyboardObserver: SnackViewKeyboardObserver?
     override public var inputAccessoryView: UIView? {
@@ -31,8 +31,9 @@ public class SnackView: UIViewController {
     /// - Parameter dataSource: Class conformed to SnackViewProtocol
     public init(with dataSource: SnackViewDataSource) {
         self.dataSource = dataSource
+        self.skeletonView = SVSkeletonView()
+
         super.init(nibName: nil, bundle: nil)
-        self.skeletonView = SVSkeletonView(with: dataSource, and: self)
     }
 
     required public init?(coder aDecoder: NSCoder) {
