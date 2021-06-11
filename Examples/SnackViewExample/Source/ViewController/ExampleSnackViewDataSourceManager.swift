@@ -1,5 +1,5 @@
 //
-//  NewSnackViewDataSource.swift
+//  ExampleSnackViewDataSourceManager.swift
 //
 //
 //  Created by Luca Casula on 14/01/19.
@@ -8,7 +8,7 @@
 import UIKit
 import SnackView
 
-class SnackViewDataSourceManager {
+class ExampleSnackViewDataSourceManager {
 
     // MARK: - Properties
     var currentType: ExampleType = .password
@@ -60,7 +60,7 @@ class SnackViewDataSourceManager {
 }
 
 // MARK: - SnackViewDataSource
-extension SnackViewDataSourceManager: SnackViewDataSource {
+extension ExampleSnackViewDataSourceManager: SnackViewDataSource {
 
     func titleFor(snackView: SnackView) -> String {
         switch currentType {
