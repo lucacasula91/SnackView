@@ -36,7 +36,6 @@ class SVScrollView: UIView {
     internal func setupUI() {
         self.addScrollView()
         self.addStackViewInsideScrollViewWithConstraints()
-        //self.addItemsInsideStackView(items)
     }
 
     internal func addScrollView() {
@@ -79,7 +78,7 @@ class SVScrollView: UIView {
 }
 
 extension SVScrollView: UIScrollViewDelegate {
-    
+
     // This is a workaround to fix the paralax effect during an interactive dismiss of the keyboard.
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollView.contentInset.top = scrollView.contentOffset.y
