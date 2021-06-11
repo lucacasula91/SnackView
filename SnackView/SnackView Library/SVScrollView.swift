@@ -40,6 +40,7 @@ class SVScrollView: UIView {
     }
 
     internal func addScrollView() {
+        self.scrollView.delegate = self
         self.scrollView.translatesAutoresizingMaskIntoConstraints = false
         self.scrollView.keyboardDismissMode = .interactive
         self.scrollView.bounces = true
@@ -75,4 +76,16 @@ class SVScrollView: UIView {
         self.stackView.layoutIfNeeded()
     }
 
+}
+
+extension SVScrollView: UIScrollViewDelegate {
+    
+    // This is a workaround to fix the paralax effect during an interactive dismiss of the keyboard.
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollView.contentInset.top = scrollView.contentOffset.y
+    }
+
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        scrollView.contentInset.top = 0
+    }
 }
