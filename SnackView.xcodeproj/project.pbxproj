@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		381CFE6A2091BC1800379B26 /* SafeAreaHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381CFE692091BC1800379B26 /* SafeAreaHelper.swift */; };
 		385DCCC5207BD55E00E280E3 /* SVSwitchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DCCC4207BD55E00E280E3 /* SVSwitchItem.swift */; };
 		38EA7C3620862B7700B6F88D /* SVLoaderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA7C3520862B7700B6F88D /* SVLoaderItem.swift */; };
 		38F4AEFA205969CD00341940 /* SnackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F4AEF0205969CD00341940 /* SnackView.framework */; platformFilter = ios; };
@@ -108,7 +107,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		381CFE692091BC1800379B26 /* SafeAreaHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaHelper.swift; sourceTree = "<group>"; };
 		385DCCC4207BD55E00E280E3 /* SVSwitchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVSwitchItem.swift; sourceTree = "<group>"; };
 		38EA7C3520862B7700B6F88D /* SVLoaderItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVLoaderItem.swift; sourceTree = "<group>"; };
 		38F4AEF0205969CD00341940 /* SnackView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnackView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -272,7 +270,6 @@
 			isa = PBXGroup;
 			children = (
 				38F4AF12205969E900341940 /* CustomInputAccessoryView.swift */,
-				381CFE692091BC1800379B26 /* SafeAreaHelper.swift */,
 				511C8CFB267356CF00C13B07 /* UIView-Extensions.swift */,
 			);
 			path = "SnackView Utilities";
@@ -506,7 +503,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				381CFE6A2091BC1800379B26 /* SafeAreaHelper.swift in Sources */,
 				51E1D3202671F98300919E4D /* SnackViewKeyboardObserver.swift in Sources */,
 				38F4AF18205969E900341940 /* SVDetailTextItem.swift in Sources */,
 				51F4CB1221E388CF0096E48D /* SnackViewInternalMethods.swift in Sources */,

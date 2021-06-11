@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     // MARK: - Properties
 
     var snackView: SnackView?
-    var dataSource = ExampleSnackViewDataSourceManager()
+    var dataSource = SnackViewDataSourceManager()
 
     // MARK: - Lifecycle
 
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         snackView = SnackView(with: dataSource)
     }
 
-    fileprivate func updateItems(type: ExampleSnackViewDataSourceManager.ExampleType) {
+    fileprivate func updateItems(type: SnackViewDataSourceManager.ExampleType) {
         dataSource.currentType = type
         snackView?.show()
     }
