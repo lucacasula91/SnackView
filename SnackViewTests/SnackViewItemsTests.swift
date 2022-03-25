@@ -24,6 +24,56 @@ class SnackViewItemsTests: QuickSpec {
             _ = snackView?.view
         }
 
+        describe("SVSpacerItem from init with coder") {
+            let archiver = NSKeyedArchiver(requiringSecureCoding: false)
+            let spacerItem = SVSpacerItem(coder: archiver)
+
+            it("had to return nil.") {
+                expect(spacerItem).to(beNil())
+            }
+        }
+
+        describe("SVSpacerItem") {
+            let spacerItem = SVSpacerItem(withSize: .custom(height: 44))
+
+            it("with custom height need to have the same heigh") {
+                snackViewSpy?.set(items: [spacerItem])
+                snackView?.reloadData()
+
+                expect(spacerItem.frame.height).to(equal(44))
+            }
+        }
+
+        describe("SVSpacerItem") {
+            let spacerItem = SVSpacerItem(withSize: .little)
+            it("with medium height need to have 12 pixels of heigh") {
+                snackViewSpy?.set(items: [spacerItem])
+                snackView?.reloadData()
+
+                expect(spacerItem.frame.height).to(equal(12))
+            }
+        }
+
+        describe("SVSpacerItem") {
+            let spacerItem = SVSpacerItem(withSize: .medium)
+            it("with medium height need to have 36 pixels of heigh") {
+                snackViewSpy?.set(items: [spacerItem])
+                snackView?.reloadData()
+
+                expect(spacerItem.frame.height).to(equal(36))
+            }
+        }
+
+        describe("SVSpacerItem") {
+            let spacerItem = SVSpacerItem(withSize: .large)
+            it("with medium height need to have 60 pixels of heigh") {
+                snackViewSpy?.set(items: [spacerItem])
+                snackView?.reloadData()
+
+                expect(spacerItem.frame.height).to(equal(60))
+            }
+        }
+
         describe("SVDetailTextItem") {
             let detailedTextItem = SVDetailTextItem(withTitle: "Details", andDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.")
 
