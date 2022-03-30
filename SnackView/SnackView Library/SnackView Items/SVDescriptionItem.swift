@@ -12,6 +12,7 @@ import UIKit
 public class SVDescriptionItem: SVItem {
 
     // MARK: - Properties
+    private var descriptionLabel: UILabel
     private(set) var descriptionText: String
 
     // MARK: - Initialization Method
@@ -20,27 +21,31 @@ public class SVDescriptionItem: SVItem {
      - parameter description: The text you want to show
      */
     public init(withDescription description: String) {
+        self.descriptionLabel = UILabel()
         self.descriptionText = description
         super.init()
 
-        //Add label item
-        let descriptionLabel = UILabel()
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.text = self.descriptionText
-        descriptionLabel.textColor = secondaryTextColor
-        descriptionLabel.font = UIFont.systemFont(ofSize: 14)
-        descriptionLabel.numberOfLines = 0
-        self.addSubview(descriptionLabel)
-
-        //Add constraints to descriptionLabel
-        let descriptionHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[descriptionLabel]-|", options: [], metrics: nil, views: ["descriptionLabel": descriptionLabel])
-        self.addConstraints(descriptionHContraints)
-
-        let descriptionVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[descriptionLabel]-|", options: [], metrics: nil, views: ["descriptionLabel": descriptionLabel])
-        self.addConstraints(descriptionVContraints)
+        self.addDescriptionLabel()
     }
 
     required public convenience init?(coder aDecoder: NSCoder) {
         return nil
     }
+
+    // MARK: - Private Methods
+    private func addDescriptionLabel() {
+        self.descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.descriptionLabel.text = self.descriptionText
+        self.descriptionLabel.textColor = secondaryTextColor
+        self.descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        self.descriptionLabel.adjustsFontForContentSizeCategory = true
+        self.descriptionLabel.numberOfLines = 0
+        self.addSubview(descriptionLabel)
+
+        //Add constraints to descriptionLabel
+        let views: [String: Any] = ["descriptionLabel": descriptionLabel]
+        self.addVisualConstraint("H:|-[descriptionLabel]-|", for: views)
+        self.addVisualConstraint("V:|-[descriptionLabel]-|", for: views)
+    }
+
 }

@@ -16,15 +16,9 @@ public class SnackView: UIViewController {
 
     public internal(set) var items: [SVItem]? = []
     internal var window: UIWindow?
-    internal var contentView = UIView()
-    internal var titleBar = SVTitleItem()
-    internal var scrollView = UIScrollView()
-    internal var stackView = UIStackView()
-    internal var safeAreaView = UIView()
+    internal var skeletonView: SVSkeletonView
     internal var bottomContentViewConstant = NSLayoutConstraint()
-    internal var customInputAccessoryView = UIView()
-    internal var keyboardHeight: CGFloat = 0
-    internal var animationSpeed: TimeInterval = 0.25
+    internal var keyboardObserver: SnackViewKeyboardObserver?
     override public var inputAccessoryView: UIView? {
         let customInput = CustomInputAccessoryView()
         customInput.frame.size.height = 0.1
@@ -37,6 +31,7 @@ public class SnackView: UIViewController {
     /// - Parameter dataSource: Class conformed to SnackViewProtocol
     public init(with dataSource: SnackViewDataSource) {
         self.dataSource = dataSource
+        self.skeletonView = SVSkeletonView()
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -53,16 +48,23 @@ public class SnackView: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
 
-        self.setupViewController()
-        self.layoutSnackViewSkeleton()
-        self.addKeyboardNotificationsObserver()
+        /// Prepare the SnackView view controller with modalPresentationStyle and contentView hidden.
+        self.modalPresentationStyle = .overCurrentContext
+        self.addContentViewWithConstraints()
+        self.skeletonView.injectCancelButton(from: self)
+
+        let scrollView = self.skeletonView.scrollView.scrollView
+        let snackView: SnackView = self
+        self.keyboardObserver = SnackViewKeyboardObserver(with: self.bottomContentViewConstant,
+                                                          from: snackView,
+                                                          and: scrollView)
+
     }
 
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setBackgroundForWillAppear()
         self.getDataFromDataSource()
-        self.addItemsInsideStackView()
     }
 
     override public func viewDidAppear(_ animated: Bool) {
@@ -70,4 +72,5 @@ public class SnackView: UIViewController {
 
         self.showSnackViewWithAnimation()
     }
+
 }

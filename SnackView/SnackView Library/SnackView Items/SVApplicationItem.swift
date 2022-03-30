@@ -14,7 +14,12 @@ import UIKit
  */
 public class SVApplicationItem: SVItem {
 
-    // MARK: - Properties
+    // MARK: - Private Properties
+    private var titleLabel: UILabel = UILabel()
+    private var descriptionLabel: UILabel = UILabel()
+    private var imageContainer: UIView = UIView()
+
+    // MARK: - Public Properties
     private(set) var icon: UIImage
     private(set) var title: String
     private(set) var descriptionText: String
@@ -32,71 +37,62 @@ public class SVApplicationItem: SVItem {
         self.descriptionText = description
 
         super.init()
-
-        //Create left container
-        let imageContainer = UIView()
-        imageContainer.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(imageContainer)
-
-        //Add constraints for left container
-        let imageContainerHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[imageContainer(==\(self.leftContentWidth))]", options: [], metrics: nil, views: ["imageContainer": imageContainer])
-        self.addConstraints(imageContainerHContraints)
-
-        let imageContainerVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[imageContainer]-|", options: [], metrics: nil, views: ["imageContainer": imageContainer])
-        self.addConstraints(imageContainerVContraints)
-
-        //Add image view into container
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = icon
-        imageContainer.addSubview(imageView)
-
-        //Add constraints to imageView
-        let imageHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[imageView(40)]|", options: [], metrics: nil, views: ["imageView": imageView])
-        imageContainer.addConstraints(imageHContraints)
-
-        let imageVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[imageView(40)]-(>=0)-|", options: [], metrics: nil, views: ["imageView": imageView])
-        imageContainer.addConstraints(imageVContraints)
-
-        //Customize the UI of imageView
-        imageView.layer.cornerRadius = 9
-        imageView.layer.masksToBounds = true
-
-        //Add title label
-        let titleLabel = UILabel()
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.text = title
-        titleLabel.textColor = self.primaryTextColor
-        titleLabel.font = UIFont.systemFont(ofSize: 14)
-        titleLabel.numberOfLines = 0
-        self.addSubview(titleLabel)
-
-        //Add constraints to titleLabel
-        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[imageContainer]-[titleLabel]-|", options: [], metrics: nil, views: ["titleLabel": titleLabel, "imageContainer": imageContainer])
-        self.addConstraints(titleHContraints)
-
-        let titleVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[titleLabel]", options: [], metrics: nil, views: ["titleLabel": titleLabel])
-        self.addConstraints(titleVContraints)
-
-        //Add description label
-        let descriptionLabel = UILabel()
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.text = description
-        descriptionLabel.textColor = secondaryTextColor
-        descriptionLabel.font = UIFont.systemFont(ofSize: 14)
-        descriptionLabel.numberOfLines = 0
-        self.addSubview(descriptionLabel)
-
-        //Add constraints to descriptionLabel
-        let descriptionHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[imageContainer]-[descriptionLabel]-|", options: [], metrics: nil, views: ["imageContainer": imageContainer, "descriptionLabel": descriptionLabel])
-        self.addConstraints(descriptionHContraints)
-
-        let descriptionVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:[titleLabel][descriptionLabel]-|", options: [], metrics: nil, views: ["titleLabel": titleLabel, "descriptionLabel": descriptionLabel])
-        self.addConstraints(descriptionVContraints)
+        self.setupUI()
     }
     
     required public convenience init?(coder aDecoder: NSCoder) {
         return nil
     }
-    
+
+    // MARK: - Private Methods
+    private func setupUI() {
+        [imageContainer, titleLabel, descriptionLabel].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            self.addSubview($0)
+        }
+
+        self.addImageView()
+        self.addTitleLabel()
+        self.addDescriptionLabel()
+    }
+
+    private func addImageView() {
+        self.addVisualConstraint("H:|-[imageContainer(==\(self.leftContentWidth))]", for: ["imageContainer": imageContainer])
+        self.addVisualConstraint("V:|-[imageContainer]-|", for: ["imageContainer": imageContainer])
+
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = icon
+        imageContainer.addSubview(imageView)
+
+        self.addVisualConstraint("H:[imageView(40)]|", for: ["imageView": imageView])
+        self.addVisualConstraint("V:|[imageView(40)]-(>=0)-|", for: ["imageView": imageView])
+
+        //Customize the UI of imageView
+        imageView.layer.cornerRadius = 9
+        imageView.layer.masksToBounds = true
+    }
+
+    private func addTitleLabel() {
+        titleLabel.text = title
+        titleLabel.textColor = self.primaryTextColor
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        titleLabel.adjustsFontForContentSizeCategory = true
+        titleLabel.numberOfLines = 0
+
+        self.addVisualConstraint("H:[imageContainer]-[titleLabel]-|", for: ["titleLabel": titleLabel, "imageContainer": imageContainer])
+        self.addVisualConstraint("V:|-[titleLabel]", for: ["titleLabel": titleLabel])
+    }
+
+    private func addDescriptionLabel() {
+        descriptionLabel.text = self.descriptionText
+        descriptionLabel.textColor = secondaryTextColor
+        descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        descriptionLabel.adjustsFontForContentSizeCategory = true
+        descriptionLabel.numberOfLines = 0
+
+        self.addVisualConstraint("H:[imageContainer]-[descriptionLabel]-|", for: ["imageContainer": imageContainer, "descriptionLabel": descriptionLabel])
+        self.addVisualConstraint("V:[titleLabel][descriptionLabel]-|", for: ["titleLabel": titleLabel, "descriptionLabel": descriptionLabel])
+    }
+
 }

@@ -12,8 +12,8 @@ import UIKit
 public class SVSegmentedControllerItem: SVItem {
 
     // MARK: - Properties
-    private var titleLabel: UILabel
-    private var segmentedController: UISegmentedControl
+    private var titleLabel: UILabel = UILabel()
+    private var segmentedController: UISegmentedControl = UISegmentedControl()
 
     // Title property of the SVSegmentedControllerItem
     private(set) var title: String
@@ -33,21 +33,35 @@ public class SVSegmentedControllerItem: SVItem {
 
     // MARK: - Initialization Method
 
-    /// Initialization method for SVSegmentedControllerItem view. You can customize this item with a title and a segment array.
-    /// - Parameters:
-    ///   - title: Title of the SVSegmentedControllerItem
-    ///   - segments: String array of the segment to show
-    ///   - selectionDidChange: Completion handler invoked at the change selection event
+    /**
+     Initialization method for SVSegmentedControllerItem view. You can customize this item with a title and a segment array.
+
+     - parameter title: Title of the SVSegmentedControllerItem
+     - parameter segments: String array of the segment to show
+     - parameter selectionDidChange: Completion handler invoked at the change selection event
+
+     **Note that label text on the left will be rendered as uppercased text**.
+
+     To force the placeholder text to be rendered in multi-line please enter **\n** where you want the text to wrap.
+
+     **Here an example of wrapped text**:
+     ```
+     SVSwitchItem(withTitle: "App\nTheme",
+     segments: ["Dark", "Light"]) { selectedIndex in
+        print(selectedIndex)
+     }
+     ```
+     */
     public init(withTitle title: String, segments: [String], selectionDidChange: @escaping (Int) -> Void) {
         self.title = title
         self.segments = segments
-        self.titleLabel = UILabel()
-        self.segmentedController = UISegmentedControl()
-
-        //Assign the action to tmpAction
-        self.tmpAction = selectionDidChange
         super.init()
 
+        [titleLabel, segmentedController].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            self.addSubview($0)
+        }
+        self.tmpAction = selectionDidChange
         self.setupUI()
     }
 
@@ -62,49 +76,27 @@ public class SVSegmentedControllerItem: SVItem {
     }
 
     private func addTitleLabel() {
-        self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
         self.titleLabel.text = self.title.uppercased()
         self.titleLabel.textAlignment = .right
         self.titleLabel.textColor = secondaryTextColor
-        self.titleLabel.font = UIFont.systemFont(ofSize: 14)
+        self.titleLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        self.titleLabel.adjustsFontForContentSizeCategory = true
         self.titleLabel.numberOfLines = 0
-        self.addSubview(self.titleLabel)
 
-        //Add constraints to titleLabel
-        let titleHContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel(==\(self.leftContentWidth))]",
-                                                              options: [],
-                                                              metrics: nil,
-                                                              views: ["titleLabel": self.titleLabel])
-        self.addConstraints(titleHContraints)
-
-        let titleVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[titleLabel(>=28)]-|",
-                                                              options: [],
-                                                              metrics: nil,
-                                                              views: ["titleLabel": self.titleLabel])
-        self.addConstraints(titleVContraints)
+        let views: [String: Any] = ["titleLabel": self.titleLabel]
+        self.addVisualConstraint("H:|-[titleLabel(==\(self.leftContentWidth))]", for: views)
+        self.addVisualConstraint("V:|-[titleLabel(>=28)]-|", for: views)
     }
 
     private func addSegmentedController() {
         self.segmentedController.addTarget(self, action: #selector(segmentedControllerSelectionDidChange(_:)), for: .valueChanged)
-        self.segmentedController.translatesAutoresizingMaskIntoConstraints = false
         for (index, title) in segments.enumerated() {
             self.segmentedController.insertSegment(withTitle: title, at: index, animated: false)
         }
-        self.addSubview(self.segmentedController)
 
-        //Add constraints to slider item
-        let segmentControllerHContraints = NSLayoutConstraint.constraints(withVisualFormat:
-                                                                "H:|-[titleLabel]-[segment]-|",
-                                                               options: [],
-                                                               metrics: nil,
-                                                               views: ["titleLabel": titleLabel as Any, "segment": segmentedController])
-        self.addConstraints(segmentControllerHContraints)
-
-        let segmentControllerVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[segment]-|",
-                                                                    options: [],
-                                                                    metrics: nil,
-                                                                    views: ["segment": segmentedController])
-        self.addConstraints(segmentControllerVContraints)
+        let views: [String: Any] = ["titleLabel": titleLabel as Any, "segment": segmentedController]
+        self.addVisualConstraint("H:|-[titleLabel]-[segment]-|", for: views)
+        self.addVisualConstraint("V:|-[segment]-|", for: views)
     }
 
     // MARK: - Custom Stuff

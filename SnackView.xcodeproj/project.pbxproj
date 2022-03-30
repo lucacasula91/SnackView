@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		381CFE6A2091BC1800379B26 /* SafeAreaHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381CFE692091BC1800379B26 /* SafeAreaHelper.swift */; };
 		385DCCC5207BD55E00E280E3 /* SVSwitchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DCCC4207BD55E00E280E3 /* SVSwitchItem.swift */; };
 		38EA7C3620862B7700B6F88D /* SVLoaderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA7C3520862B7700B6F88D /* SVLoaderItem.swift */; };
 		38F4AEFA205969CD00341940 /* SnackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F4AEF0205969CD00341940 /* SnackView.framework */; platformFilter = ios; };
@@ -22,6 +21,13 @@
 		38F4AF1B205969E900341940 /* SVTextFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF11205969E900341940 /* SVTextFieldItem.swift */; };
 		38F4AF1C205969E900341940 /* CustomInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF12205969E900341940 /* CustomInputAccessoryView.swift */; };
 		511780C621E5E84E00EBD9F8 /* SnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511780C521E5E84E00EBD9F8 /* SnackViewDataSource.swift */; };
+		511C8CFA2673502C00C13B07 /* SVSkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511C8CF92673502C00C13B07 /* SVSkeletonView.swift */; };
+		511C8CFC267356CF00C13B07 /* UIView-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511C8CFB267356CF00C13B07 /* UIView-Extensions.swift */; };
+		511C8CFE267399AA00C13B07 /* SVScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511C8CFD267399AA00C13B07 /* SVScrollView.swift */; };
+		512104D327ECE41800A32EC4 /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51170A0527EB140000AA46B7 /* Nimble.xcframework */; };
+		512104D527ECE41800A32EC4 /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51170A0627EB140000AA46B7 /* Quick.xcframework */; };
+		512104DA27ECE42B00A32EC4 /* Nimble.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 51170A0527EB140000AA46B7 /* Nimble.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		512104DB27ECE42B00A32EC4 /* Quick.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 51170A0627EB140000AA46B7 /* Quick.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		51251DDA26539D7B00029209 /* SVSegmentedControllerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51251DD926539D7B00029209 /* SVSegmentedControllerItem.swift */; };
 		5133D430264E876B006EB850 /* SnackViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5133D42F264E876B006EB850 /* SnackViewTests.swift */; };
 		514C7B98264D6B6E00644BAA /* SVSliderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514C7B97264D6B6E00644BAA /* SVSliderItem.swift */; };
@@ -36,12 +42,13 @@
 		5192725E21F86EE800E0965C /* SVGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192725D21F86EE800E0965C /* SVGradientView.swift */; };
 		51ADB77D264E9B2300D6488C /* SnackViewItemsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ADB77C264E9B2300D6488C /* SnackViewItemsTests.swift */; };
 		51ADB790264EB5E300D6488C /* MockSnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ADB78F264EB5E300D6488C /* MockSnackViewDataSource.swift */; };
+		51E1D3202671F98300919E4D /* SnackViewKeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E1D31F2671F98300919E4D /* SnackViewKeyboardObserver.swift */; };
 		51F4CB1121E388CF0096E48D /* SnackViewPublicMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */; };
 		51F4CB1221E388CF0096E48D /* SnackViewInternalMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */; };
-		51F4CB1321E388CF0096E48D /* SnackViewNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB1021E388CF0096E48D /* SnackViewNotifications.swift */; };
+		8ECDDA00266A2D07001D2A8D /* SVSpacerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECDD9FF266A2D07001D2A8D /* SVSpacerItem.swift */; };
 		8EDE06202099F5DF0017A700 /* SnackViewAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EDE061F2099F5DF0017A700 /* SnackViewAssets.xcassets */; };
 		8EDE06222099FC6D0017A700 /* SVImageViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDE06212099FC6D0017A700 /* SVImageViewItem.swift */; };
-		8EFCF5922212149800F68700 /* SnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFCF5912212149800F68700 /* SnackViewDataSource.swift */; };
+		8EFCF5922212149800F68700 /* ExampleSnackViewDataSourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFCF5912212149800F68700 /* ExampleSnackViewDataSourceManager.swift */; };
 		FF42AE0F21E2844200F4ECEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE0E21E2844200F4ECEB /* AppDelegate.swift */; };
 		FF42AE1121E2844200F4ECEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE1021E2844200F4ECEB /* ViewController.swift */; };
 		FF42AE1421E2844300F4ECEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF42AE1221E2844200F4ECEB /* Main.storyboard */; };
@@ -71,14 +78,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		512104D927ECE42100A32EC4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				512104DA27ECE42B00A32EC4 /* Nimble.xcframework in CopyFiles */,
+				512104DB27ECE42B00A32EC4 /* Quick.xcframework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		51AB2CA326504CF400BE2891 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5187CA8526524C0F007443CD /* Nimble.xcframework in CopyFiles */,
-				5187CA8626524C0F007443CD /* Quick.xcframework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +111,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		381CFE692091BC1800379B26 /* SafeAreaHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaHelper.swift; sourceTree = "<group>"; };
 		385DCCC4207BD55E00E280E3 /* SVSwitchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVSwitchItem.swift; sourceTree = "<group>"; };
 		38EA7C3520862B7700B6F88D /* SVLoaderItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVLoaderItem.swift; sourceTree = "<group>"; };
 		38F4AEF0205969CD00341940 /* SnackView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnackView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,7 +127,12 @@
 		38F4AF10205969E800341940 /* SVApplicationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVApplicationItem.swift; sourceTree = "<group>"; };
 		38F4AF11205969E900341940 /* SVTextFieldItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVTextFieldItem.swift; sourceTree = "<group>"; };
 		38F4AF12205969E900341940 /* CustomInputAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInputAccessoryView.swift; sourceTree = "<group>"; };
+		51170A0527EB140000AA46B7 /* Nimble.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nimble.xcframework; path = Carthage/Build/Nimble.xcframework; sourceTree = "<group>"; };
+		51170A0627EB140000AA46B7 /* Quick.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Quick.xcframework; path = Carthage/Build/Quick.xcframework; sourceTree = "<group>"; };
 		511780C521E5E84E00EBD9F8 /* SnackViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewDataSource.swift; sourceTree = "<group>"; };
+		511C8CF92673502C00C13B07 /* SVSkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVSkeletonView.swift; sourceTree = "<group>"; };
+		511C8CFB267356CF00C13B07 /* UIView-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-Extensions.swift"; sourceTree = "<group>"; };
+		511C8CFD267399AA00C13B07 /* SVScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVScrollView.swift; sourceTree = "<group>"; };
 		51251DD926539D7B00029209 /* SVSegmentedControllerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVSegmentedControllerItem.swift; sourceTree = "<group>"; };
 		5133D42E264E876B006EB850 /* SnackViewTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SnackViewTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		5133D42F264E876B006EB850 /* SnackViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewTests.swift; sourceTree = "<group>"; };
@@ -124,12 +144,13 @@
 		5192725D21F86EE800E0965C /* SVGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGradientView.swift; sourceTree = "<group>"; };
 		51ADB77C264E9B2300D6488C /* SnackViewItemsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewItemsTests.swift; sourceTree = "<group>"; };
 		51ADB78F264EB5E300D6488C /* MockSnackViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSnackViewDataSource.swift; sourceTree = "<group>"; };
+		51E1D31F2671F98300919E4D /* SnackViewKeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewKeyboardObserver.swift; sourceTree = "<group>"; };
 		51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewPublicMethods.swift; sourceTree = "<group>"; };
 		51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewInternalMethods.swift; sourceTree = "<group>"; wrapsLines = 0; };
-		51F4CB1021E388CF0096E48D /* SnackViewNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewNotifications.swift; sourceTree = "<group>"; };
+		8ECDD9FF266A2D07001D2A8D /* SVSpacerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVSpacerItem.swift; sourceTree = "<group>"; };
 		8EDE061F2099F5DF0017A700 /* SnackViewAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SnackViewAssets.xcassets; sourceTree = "<group>"; };
 		8EDE06212099FC6D0017A700 /* SVImageViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVImageViewItem.swift; sourceTree = "<group>"; };
-		8EFCF5912212149800F68700 /* SnackViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewDataSource.swift; sourceTree = "<group>"; };
+		8EFCF5912212149800F68700 /* ExampleSnackViewDataSourceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleSnackViewDataSourceManager.swift; sourceTree = "<group>"; };
 		FF42AE0C21E2844200F4ECEB /* SnackViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnackViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF42AE0E21E2844200F4ECEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF42AE1021E2844200F4ECEB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -146,8 +167,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5187CA8926524E5B007443CD /* Nimble.xcframework in Frameworks */,
-				5187CA8C26524E5E007443CD /* Quick.xcframework in Frameworks */,
+				512104D327ECE41800A32EC4 /* Nimble.xcframework in Frameworks */,
+				512104D527ECE41800A32EC4 /* Quick.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,8 +176,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5187CA8126524BFE007443CD /* Quick.xcframework in Frameworks */,
-				5187CA8226524BFF007443CD /* Nimble.xcframework in Frameworks */,
 				38F4AEFA205969CD00341940 /* SnackView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,22 +234,21 @@
 			path = SnackViewTests;
 			sourceTree = "<group>";
 		};
+		511C8D002673BEC200C13B07 /* SnackViewDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				8EFCF5912212149800F68700 /* ExampleSnackViewDataSourceManager.swift */,
+				5192725C21F86ECC00E0965C /* Custom Items */,
+			);
+			path = SnackViewDataSource;
+			sourceTree = "<group>";
+		};
 		514047FE234B4BC60020F126 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
-				514047FF234B4BDE0020F126 /* DataSource and custom items */,
 				FF42AE0D21E2844200F4ECEB /* SnackViewExample */,
 			);
 			path = Examples;
-			sourceTree = "<group>";
-		};
-		514047FF234B4BDE0020F126 /* DataSource and custom items */ = {
-			isa = PBXGroup;
-			children = (
-				8EFCF5912212149800F68700 /* SnackViewDataSource.swift */,
-				5192725C21F86ECC00E0965C /* Custom Items */,
-			);
-			path = "DataSource and custom items";
 			sourceTree = "<group>";
 		};
 		51822D8C21E4D4EC00380738 /* SnackView Items */ = {
@@ -249,6 +267,7 @@
 				8EDE06212099FC6D0017A700 /* SVImageViewItem.swift */,
 				51251DD926539D7B00029209 /* SVSegmentedControllerItem.swift */,
 				51789F172656960B006D10E4 /* SVStepperItem.swift */,
+				8ECDD9FF266A2D07001D2A8D /* SVSpacerItem.swift */,
 			);
 			path = "SnackView Items";
 			sourceTree = "<group>";
@@ -257,7 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				38F4AF12205969E900341940 /* CustomInputAccessoryView.swift */,
-				381CFE692091BC1800379B26 /* SafeAreaHelper.swift */,
+				511C8CFB267356CF00C13B07 /* UIView-Extensions.swift */,
 			);
 			path = "SnackView Utilities";
 			sourceTree = "<group>";
@@ -284,10 +303,12 @@
 			isa = PBXGroup;
 			children = (
 				38F4AF0D205969E800341940 /* SnackView.swift */,
-				511780C521E5E84E00EBD9F8 /* SnackViewDataSource.swift */,
+				511C8CF92673502C00C13B07 /* SVSkeletonView.swift */,
+				511C8CFD267399AA00C13B07 /* SVScrollView.swift */,
 				51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */,
-				51F4CB1021E388CF0096E48D /* SnackViewNotifications.swift */,
 				51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */,
+				511780C521E5E84E00EBD9F8 /* SnackViewDataSource.swift */,
+				51E1D31F2671F98300919E4D /* SnackViewKeyboardObserver.swift */,
 				51822D8D21E4D51300380738 /* SnackView Utilities */,
 				51822D8C21E4D4EC00380738 /* SnackView Items */,
 				8EDE061F2099F5DF0017A700 /* SnackViewAssets.xcassets */,
@@ -298,6 +319,7 @@
 		FF42AE0D21E2844200F4ECEB /* SnackViewExample */ = {
 			isa = PBXGroup;
 			children = (
+				511C8D002673BEC200C13B07 /* SnackViewDataSource */,
 				FF42AE3821E2AF0700F4ECEB /* Source */,
 				FF42AE3921E2AF1600F4ECEB /* Supporting Files */,
 			);
@@ -328,8 +350,8 @@
 		FF511B0421E250CF00911490 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5187CA8026524BFE007443CD /* Nimble.xcframework */,
-				5187CA7F26524BFE007443CD /* Quick.xcframework */,
+				51170A0527EB140000AA46B7 /* Nimble.xcframework */,
+				51170A0627EB140000AA46B7 /* Quick.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -352,10 +374,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 38F4AF04205969CD00341940 /* Build configuration list for PBXNativeTarget "SnackView" */;
 			buildPhases = (
-				38F4AEEB205969CD00341940 /* Sources */,
 				38F4AEEC205969CD00341940 /* Frameworks */,
+				38F4AEEB205969CD00341940 /* Sources */,
 				38F4AEED205969CD00341940 /* Headers */,
 				38F4AEEE205969CD00341940 /* Resources */,
+				512104D927ECE42100A32EC4 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -486,22 +509,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				381CFE6A2091BC1800379B26 /* SafeAreaHelper.swift in Sources */,
+				51E1D3202671F98300919E4D /* SnackViewKeyboardObserver.swift in Sources */,
 				38F4AF18205969E900341940 /* SVDetailTextItem.swift in Sources */,
-				51F4CB1321E388CF0096E48D /* SnackViewNotifications.swift in Sources */,
 				51F4CB1221E388CF0096E48D /* SnackViewInternalMethods.swift in Sources */,
 				38F4AF1B205969E900341940 /* SVTextFieldItem.swift in Sources */,
 				51251DDA26539D7B00029209 /* SVSegmentedControllerItem.swift in Sources */,
 				38F4AF1A205969E900341940 /* SVApplicationItem.swift in Sources */,
+				511C8CFA2673502C00C13B07 /* SVSkeletonView.swift in Sources */,
+				511C8CFE267399AA00C13B07 /* SVScrollView.swift in Sources */,
 				38F4AF14205969E900341940 /* SVButtonItem.swift in Sources */,
 				514C7B98264D6B6E00644BAA /* SVSliderItem.swift in Sources */,
 				51789F182656960B006D10E4 /* SVStepperItem.swift in Sources */,
 				51F4CB1121E388CF0096E48D /* SnackViewPublicMethods.swift in Sources */,
 				38EA7C3620862B7700B6F88D /* SVLoaderItem.swift in Sources */,
+				511C8CFC267356CF00C13B07 /* UIView-Extensions.swift in Sources */,
 				38F4AF17205969E900341940 /* SnackView.swift in Sources */,
 				38F4AF15205969E900341940 /* SVItem.swift in Sources */,
 				511780C621E5E84E00EBD9F8 /* SnackViewDataSource.swift in Sources */,
 				385DCCC5207BD55E00E280E3 /* SVSwitchItem.swift in Sources */,
+				8ECDDA00266A2D07001D2A8D /* SVSpacerItem.swift in Sources */,
 				38F4AF19205969E900341940 /* SVTitleItem.swift in Sources */,
 				8EDE06222099FC6D0017A700 /* SVImageViewItem.swift in Sources */,
 				38F4AF16205969E900341940 /* SVDescriptionItem.swift in Sources */,
@@ -527,7 +553,7 @@
 				5192725A21F86BC100E0965C /* SVCustomButton.swift in Sources */,
 				FF42AE1121E2844200F4ECEB /* ViewController.swift in Sources */,
 				5192725E21F86EE800E0965C /* SVGradientView.swift in Sources */,
-				8EFCF5922212149800F68700 /* SnackViewDataSource.swift in Sources */,
+				8EFCF5922212149800F68700 /* ExampleSnackViewDataSourceManager.swift in Sources */,
 				FF42AE0F21E2844200F4ECEB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -705,10 +731,12 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_BITCODE = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SnackView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -741,10 +769,12 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_BITCODE = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SnackView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -781,6 +811,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)",
 				);
+				GENERATE_PKGINFO_FILE = NO;
 				INFOPLIST_FILE = SnackViewTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -790,6 +821,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = LucaCasula.SnackViewTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SnackViewTests/SnackViewTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -817,6 +849,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)",
 				);
+				GENERATE_PKGINFO_FILE = NO;
 				INFOPLIST_FILE = SnackViewTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -826,6 +859,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = LucaCasula.SnackViewTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SnackViewTests/SnackViewTests-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

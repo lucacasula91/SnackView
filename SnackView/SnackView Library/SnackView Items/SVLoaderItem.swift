@@ -21,6 +21,8 @@ public class SVLoaderItem: SVItem {
     }
 
     // MARK: - Properties
+    private var messageLabel: UILabel
+    private var activityIndicator: UIActivityIndicatorView
     private(set) var size: ActivityIndicatorSize
     private(set) var text: String?
 
@@ -31,47 +33,60 @@ public class SVLoaderItem: SVItem {
      - parameter text: A text that can appear on top of activity indicator view
      */
     public init(withSize size: ActivityIndicatorSize, andText text: String?) {
+        self.messageLabel = UILabel()
+        self.activityIndicator = UIActivityIndicatorView(style: size == .little ? .gray : .whiteLarge )
+
         self.size = size
         self.text = text
         super.init()
 
-        //Disable auto height to handle it manually
-        self.setMinimumHeightActive(active: false)
-        self.heightAnchor.constraint(greaterThanOrEqualToConstant: size == .little ? 50 : 70).isActive = true
-
-        //Add activity indicator view
-        let activityIndicator = UIActivityIndicatorView(style: size == .little ? .gray : .whiteLarge )
-        activityIndicator.color = UIColor.gray
-        activityIndicator.startAnimating()
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(activityIndicator)
-
-        //Check for text
-        if let unwrappedText = text {
-            let messageLabel = UILabel()
-            messageLabel.translatesAutoresizingMaskIntoConstraints = false
-            messageLabel.textColor = self.secondaryTextColor
-            messageLabel.numberOfLines = 0
-            messageLabel.textAlignment = .center
-            messageLabel.text = unwrappedText
-            self.addSubview(messageLabel)
-
-            //Add constraints to message label
-            let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[messageLabel]-|", options: [], metrics: nil, views: ["messageLabel": messageLabel])
-
-            let vConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[messageLabel]-[activityIndicator]-|", options: [], metrics: nil, views: ["messageLabel": messageLabel, "activityIndicator": activityIndicator])
-            self.addConstraints(hConstraints + vConstraints)
-
-            //Add constraint to center the activity indicator in center X anchor
-            activityIndicator.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        } else {
-            //Add constraints to center the anctivity indicator inside the container.
-            activityIndicator.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-            activityIndicator.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        }
+        self.addActivityIndicator()
+        self.addMessageLabelFor(text: text)
     }
 
     required public init?(coder aDecoder: NSCoder) {
         return nil
+    }
+
+    // MARK: - Private Method
+
+    private func addActivityIndicator() {
+        self.setMinimumHeightActive(active: false)
+        self.heightAnchor.constraint(greaterThanOrEqualToConstant: size == .little ? 50 : 70).isActive = true
+
+        self.activityIndicator.color = UIColor.gray
+        self.activityIndicator.startAnimating()
+        self.activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(self.activityIndicator)
+    }
+
+    private func addMessageLabelFor(text: String?) {
+        if let unwrappedText = text {
+            self.messageLabel.translatesAutoresizingMaskIntoConstraints = false
+            self.messageLabel.textColor = self.secondaryTextColor
+            self.messageLabel.numberOfLines = 0
+            self.messageLabel.font = UIFont.preferredFont(forTextStyle: .body)
+            self.messageLabel.adjustsFontForContentSizeCategory = true
+            self.messageLabel.textAlignment = .center
+            self.messageLabel.text = unwrappedText
+            self.addSubview(self.messageLabel)
+
+            //Add constraints to message label
+            let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[messageLabel]-|",
+                                                              options: [],
+                                                              metrics: nil,
+                                                              views: ["messageLabel": messageLabel])
+
+            let vConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[messageLabel]-[activityIndicator]-|",
+                                                              options: [],
+                                                              metrics: nil,
+                                                              views: ["messageLabel": messageLabel, "activityIndicator": activityIndicator])
+            self.addConstraints(hConstraints + vConstraints)
+
+            activityIndicator.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        } else {
+            activityIndicator.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+            activityIndicator.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        }
     }
 }

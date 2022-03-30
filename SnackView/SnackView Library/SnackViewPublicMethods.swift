@@ -12,7 +12,6 @@ extension SnackView {
 
     /// Present SnackView with custom animation.
     open func show() {
-        
         self.modalPresentationStyle = .overFullScreen
         
         let presenter = self.getPresenterViewController()
@@ -26,7 +25,13 @@ extension SnackView {
 
     /// Reload the content of SnackView in case of update.
     open func reloadData() {
-        self.addItemsInsideStackView()
+        if let _items = self.dataSource?.itemsFor(snackView: self) {
+            let checkedItems = checkIfItemArrayIsEmpty(_items)
+            self.items = checkedItems
+            self.skeletonView.reload(with: checkedItems)
+        }
+
     }
+
 
 }

@@ -1,6 +1,6 @@
 //
 //  NewSnackViewDataSource.swift
-//  
+//
 //
 //  Created by Luca Casula on 14/01/19.
 //
@@ -52,8 +52,7 @@ class SnackViewDataSourceManager {
         let applicationItem = SVApplicationItem(withIcon: #imageLiteral(resourceName: "Icon"),
                                                 withTitle: "Ipsum lorem",
                                                 andDescription: "Lorem ipsum dolor sit amet")
-        let sliderItem = SVSliderItem(withTitle: "My Slider", minimum: 0, maximum: 100, current: 23)
-        return [loaderItem, switchItem, applicationItem, sliderItem]
+        return [loaderItem, switchItem, applicationItem]
     }
 
 }
