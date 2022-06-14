@@ -7,47 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		385DCCC5207BD55E00E280E3 /* SVSwitchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DCCC4207BD55E00E280E3 /* SVSwitchItem.swift */; };
-		38EA7C3620862B7700B6F88D /* SVLoaderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA7C3520862B7700B6F88D /* SVLoaderItem.swift */; };
 		38F4AEFA205969CD00341940 /* SnackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F4AEF0205969CD00341940 /* SnackView.framework */; platformFilter = ios; };
 		38F4AF01205969CD00341940 /* SnackView.h in Headers */ = {isa = PBXBuildFile; fileRef = 38F4AEF3205969CD00341940 /* SnackView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		38F4AF14205969E900341940 /* SVButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF0A205969E700341940 /* SVButtonItem.swift */; };
-		38F4AF15205969E900341940 /* SVItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF0B205969E800341940 /* SVItem.swift */; };
-		38F4AF16205969E900341940 /* SVDescriptionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF0C205969E800341940 /* SVDescriptionItem.swift */; };
-		38F4AF17205969E900341940 /* SnackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF0D205969E800341940 /* SnackView.swift */; };
-		38F4AF18205969E900341940 /* SVDetailTextItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF0E205969E800341940 /* SVDetailTextItem.swift */; };
-		38F4AF19205969E900341940 /* SVTitleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF0F205969E800341940 /* SVTitleItem.swift */; };
-		38F4AF1A205969E900341940 /* SVApplicationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF10205969E800341940 /* SVApplicationItem.swift */; };
-		38F4AF1B205969E900341940 /* SVTextFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF11205969E900341940 /* SVTextFieldItem.swift */; };
-		38F4AF1C205969E900341940 /* CustomInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4AF12205969E900341940 /* CustomInputAccessoryView.swift */; };
-		511780C621E5E84E00EBD9F8 /* SnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511780C521E5E84E00EBD9F8 /* SnackViewDataSource.swift */; };
-		511C8CFA2673502C00C13B07 /* SVSkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511C8CF92673502C00C13B07 /* SVSkeletonView.swift */; };
-		511C8CFC267356CF00C13B07 /* UIView-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511C8CFB267356CF00C13B07 /* UIView-Extensions.swift */; };
-		511C8CFE267399AA00C13B07 /* SVScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511C8CFD267399AA00C13B07 /* SVScrollView.swift */; };
-		512104D327ECE41800A32EC4 /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51170A0527EB140000AA46B7 /* Nimble.xcframework */; };
-		512104D527ECE41800A32EC4 /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51170A0627EB140000AA46B7 /* Quick.xcframework */; };
-		512104DA27ECE42B00A32EC4 /* Nimble.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 51170A0527EB140000AA46B7 /* Nimble.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		512104DB27ECE42B00A32EC4 /* Quick.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 51170A0627EB140000AA46B7 /* Quick.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		51251DDA26539D7B00029209 /* SVSegmentedControllerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51251DD926539D7B00029209 /* SVSegmentedControllerItem.swift */; };
 		5133D430264E876B006EB850 /* SnackViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5133D42F264E876B006EB850 /* SnackViewTests.swift */; };
-		514C7B98264D6B6E00644BAA /* SVSliderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514C7B97264D6B6E00644BAA /* SVSliderItem.swift */; };
-		51789F182656960B006D10E4 /* SVStepperItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51789F172656960B006D10E4 /* SVStepperItem.swift */; };
-		5187CA8126524BFE007443CD /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5187CA7F26524BFE007443CD /* Quick.xcframework */; };
-		5187CA8226524BFF007443CD /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5187CA8026524BFE007443CD /* Nimble.xcframework */; };
-		5187CA8526524C0F007443CD /* Nimble.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5187CA8026524BFE007443CD /* Nimble.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5187CA8626524C0F007443CD /* Quick.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5187CA7F26524BFE007443CD /* Quick.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5187CA8926524E5B007443CD /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5187CA8026524BFE007443CD /* Nimble.xcframework */; };
-		5187CA8C26524E5E007443CD /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5187CA7F26524BFE007443CD /* Quick.xcframework */; };
+		515479872857DD9A005C5C71 /* SVSkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515479802857DD9A005C5C71 /* SVSkeletonView.swift */; };
+		515479882857DD9A005C5C71 /* SnackViewPublicMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515479812857DD9A005C5C71 /* SnackViewPublicMethods.swift */; };
+		515479892857DD9A005C5C71 /* SVScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515479822857DD9A005C5C71 /* SVScrollView.swift */; };
+		5154798A2857DD9A005C5C71 /* SnackViewInternalMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515479832857DD9A005C5C71 /* SnackViewInternalMethods.swift */; };
+		5154798B2857DD9A005C5C71 /* SnackViewKeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515479842857DD9A005C5C71 /* SnackViewKeyboardObserver.swift */; };
+		5154798C2857DD9A005C5C71 /* SnackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515479852857DD9A005C5C71 /* SnackView.swift */; };
+		5154798D2857DD9A005C5C71 /* SnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515479862857DD9A005C5C71 /* SnackViewDataSource.swift */; };
+		5154799D2857DDC3005C5C71 /* SVSwitchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5154798F2857DDC2005C5C71 /* SVSwitchItem.swift */; };
+		5154799E2857DDC3005C5C71 /* SVDescriptionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515479902857DDC2005C5C71 /* SVDescriptionItem.swift */; };
+		5154799F2857DDC3005C5C71 /* SVSegmentedControllerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515479912857DDC2005C5C71 /* SVSegmentedControllerItem.swift */; };
+		515479A02857DDC3005C5C71 /* SVSpacerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515479922857DDC2005C5C71 /* SVSpacerItem.swift */; };
+		515479A12857DDC3005C5C71 /* SVImageViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515479932857DDC2005C5C71 /* SVImageViewItem.swift */; };
+		515479A22857DDC3005C5C71 /* SVItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515479942857DDC2005C5C71 /* SVItem.swift */; };
+		515479A32857DDC3005C5C71 /* SVApplicationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515479952857DDC2005C5C71 /* SVApplicationItem.swift */; };
+		515479A42857DDC3005C5C71 /* SVButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515479962857DDC2005C5C71 /* SVButtonItem.swift */; };
+		515479A52857DDC3005C5C71 /* SVDetailTextItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515479972857DDC2005C5C71 /* SVDetailTextItem.swift */; };
+		515479A62857DDC3005C5C71 /* SVStepperItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515479982857DDC3005C5C71 /* SVStepperItem.swift */; };
+		515479A72857DDC3005C5C71 /* SVSliderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515479992857DDC3005C5C71 /* SVSliderItem.swift */; };
+		515479A82857DDC3005C5C71 /* SVTextFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5154799A2857DDC3005C5C71 /* SVTextFieldItem.swift */; };
+		515479A92857DDC3005C5C71 /* SVTitleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5154799B2857DDC3005C5C71 /* SVTitleItem.swift */; };
+		515479AA2857DDC3005C5C71 /* SVLoaderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5154799C2857DDC3005C5C71 /* SVLoaderItem.swift */; };
+		515479AC2857E590005C5C71 /* SnackViewAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 515479AB2857E590005C5C71 /* SnackViewAssets.xcassets */; };
+		515479B22857E6D8005C5C71 /* CustomInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515479B02857E6D8005C5C71 /* CustomInputAccessoryView.swift */; };
+		515479B32857E6D8005C5C71 /* UIView-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515479B12857E6D8005C5C71 /* UIView-Extensions.swift */; };
+		515479B828586407005C5C71 /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515479B628586407005C5C71 /* Quick.xcframework */; };
+		515479B928586407005C5C71 /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515479B728586407005C5C71 /* Nimble.xcframework */; };
 		5192725A21F86BC100E0965C /* SVCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192725921F86BC100E0965C /* SVCustomButton.swift */; };
 		5192725E21F86EE800E0965C /* SVGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192725D21F86EE800E0965C /* SVGradientView.swift */; };
 		51ADB77D264E9B2300D6488C /* SnackViewItemsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ADB77C264E9B2300D6488C /* SnackViewItemsTests.swift */; };
 		51ADB790264EB5E300D6488C /* MockSnackViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ADB78F264EB5E300D6488C /* MockSnackViewDataSource.swift */; };
-		51E1D3202671F98300919E4D /* SnackViewKeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E1D31F2671F98300919E4D /* SnackViewKeyboardObserver.swift */; };
-		51F4CB1121E388CF0096E48D /* SnackViewPublicMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */; };
-		51F4CB1221E388CF0096E48D /* SnackViewInternalMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */; };
-		8ECDDA00266A2D07001D2A8D /* SVSpacerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECDD9FF266A2D07001D2A8D /* SVSpacerItem.swift */; };
-		8EDE06202099F5DF0017A700 /* SnackViewAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EDE061F2099F5DF0017A700 /* SnackViewAssets.xcassets */; };
-		8EDE06222099FC6D0017A700 /* SVImageViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDE06212099FC6D0017A700 /* SVImageViewItem.swift */; };
 		8EFCF5922212149800F68700 /* ExampleSnackViewDataSourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFCF5912212149800F68700 /* ExampleSnackViewDataSourceManager.swift */; };
 		FF42AE0F21E2844200F4ECEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE0E21E2844200F4ECEB /* AppDelegate.swift */; };
 		FF42AE1121E2844200F4ECEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42AE1021E2844200F4ECEB /* ViewController.swift */; };
@@ -78,17 +70,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		512104D927ECE42100A32EC4 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 7;
-			files = (
-				512104DA27ECE42B00A32EC4 /* Nimble.xcframework in CopyFiles */,
-				512104DB27ECE42B00A32EC4 /* Quick.xcframework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		51AB2CA326504CF400BE2891 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -111,45 +92,43 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		385DCCC4207BD55E00E280E3 /* SVSwitchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVSwitchItem.swift; sourceTree = "<group>"; };
-		38EA7C3520862B7700B6F88D /* SVLoaderItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVLoaderItem.swift; sourceTree = "<group>"; };
 		38F4AEF0205969CD00341940 /* SnackView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnackView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F4AEF3205969CD00341940 /* SnackView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SnackView.h; sourceTree = "<group>"; };
 		38F4AEF4205969CD00341940 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38F4AEF9205969CD00341940 /* SnackViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnackViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F4AF00205969CD00341940 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		38F4AF0A205969E700341940 /* SVButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVButtonItem.swift; sourceTree = "<group>"; };
-		38F4AF0B205969E800341940 /* SVItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVItem.swift; sourceTree = "<group>"; };
-		38F4AF0C205969E800341940 /* SVDescriptionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVDescriptionItem.swift; sourceTree = "<group>"; };
-		38F4AF0D205969E800341940 /* SnackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackView.swift; sourceTree = "<group>"; };
-		38F4AF0E205969E800341940 /* SVDetailTextItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVDetailTextItem.swift; sourceTree = "<group>"; };
-		38F4AF0F205969E800341940 /* SVTitleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVTitleItem.swift; sourceTree = "<group>"; };
-		38F4AF10205969E800341940 /* SVApplicationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVApplicationItem.swift; sourceTree = "<group>"; };
-		38F4AF11205969E900341940 /* SVTextFieldItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVTextFieldItem.swift; sourceTree = "<group>"; };
-		38F4AF12205969E900341940 /* CustomInputAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInputAccessoryView.swift; sourceTree = "<group>"; };
-		51170A0527EB140000AA46B7 /* Nimble.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nimble.xcframework; path = Carthage/Build/Nimble.xcframework; sourceTree = "<group>"; };
-		51170A0627EB140000AA46B7 /* Quick.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Quick.xcframework; path = Carthage/Build/Quick.xcframework; sourceTree = "<group>"; };
-		511780C521E5E84E00EBD9F8 /* SnackViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewDataSource.swift; sourceTree = "<group>"; };
-		511C8CF92673502C00C13B07 /* SVSkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVSkeletonView.swift; sourceTree = "<group>"; };
-		511C8CFB267356CF00C13B07 /* UIView-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-Extensions.swift"; sourceTree = "<group>"; };
-		511C8CFD267399AA00C13B07 /* SVScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVScrollView.swift; sourceTree = "<group>"; };
-		51251DD926539D7B00029209 /* SVSegmentedControllerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVSegmentedControllerItem.swift; sourceTree = "<group>"; };
 		5133D42E264E876B006EB850 /* SnackViewTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SnackViewTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		5133D42F264E876B006EB850 /* SnackViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewTests.swift; sourceTree = "<group>"; };
-		514C7B97264D6B6E00644BAA /* SVSliderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVSliderItem.swift; sourceTree = "<group>"; };
-		51789F172656960B006D10E4 /* SVStepperItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVStepperItem.swift; sourceTree = "<group>"; };
-		5187CA7F26524BFE007443CD /* Quick.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Quick.xcframework; path = Carthage/Build/Quick.xcframework; sourceTree = "<group>"; };
-		5187CA8026524BFE007443CD /* Nimble.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nimble.xcframework; path = Carthage/Build/Nimble.xcframework; sourceTree = "<group>"; };
+		515479802857DD9A005C5C71 /* SVSkeletonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVSkeletonView.swift; path = Sources/SnackView/SVSkeletonView.swift; sourceTree = SOURCE_ROOT; };
+		515479812857DD9A005C5C71 /* SnackViewPublicMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnackViewPublicMethods.swift; path = Sources/SnackView/SnackViewPublicMethods.swift; sourceTree = SOURCE_ROOT; };
+		515479822857DD9A005C5C71 /* SVScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVScrollView.swift; path = Sources/SnackView/SVScrollView.swift; sourceTree = SOURCE_ROOT; };
+		515479832857DD9A005C5C71 /* SnackViewInternalMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnackViewInternalMethods.swift; path = Sources/SnackView/SnackViewInternalMethods.swift; sourceTree = SOURCE_ROOT; };
+		515479842857DD9A005C5C71 /* SnackViewKeyboardObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnackViewKeyboardObserver.swift; path = Sources/SnackView/SnackViewKeyboardObserver.swift; sourceTree = SOURCE_ROOT; };
+		515479852857DD9A005C5C71 /* SnackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnackView.swift; path = Sources/SnackView/SnackView.swift; sourceTree = SOURCE_ROOT; };
+		515479862857DD9A005C5C71 /* SnackViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnackViewDataSource.swift; path = Sources/SnackView/SnackViewDataSource.swift; sourceTree = SOURCE_ROOT; };
+		5154798F2857DDC2005C5C71 /* SVSwitchItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVSwitchItem.swift; path = "Sources/SnackView/SnackView Items/SVSwitchItem.swift"; sourceTree = SOURCE_ROOT; };
+		515479902857DDC2005C5C71 /* SVDescriptionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVDescriptionItem.swift; path = "Sources/SnackView/SnackView Items/SVDescriptionItem.swift"; sourceTree = SOURCE_ROOT; };
+		515479912857DDC2005C5C71 /* SVSegmentedControllerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVSegmentedControllerItem.swift; path = "Sources/SnackView/SnackView Items/SVSegmentedControllerItem.swift"; sourceTree = SOURCE_ROOT; };
+		515479922857DDC2005C5C71 /* SVSpacerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVSpacerItem.swift; path = "Sources/SnackView/SnackView Items/SVSpacerItem.swift"; sourceTree = SOURCE_ROOT; };
+		515479932857DDC2005C5C71 /* SVImageViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVImageViewItem.swift; path = "Sources/SnackView/SnackView Items/SVImageViewItem.swift"; sourceTree = SOURCE_ROOT; };
+		515479942857DDC2005C5C71 /* SVItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVItem.swift; path = "Sources/SnackView/SnackView Items/SVItem.swift"; sourceTree = SOURCE_ROOT; };
+		515479952857DDC2005C5C71 /* SVApplicationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVApplicationItem.swift; path = "Sources/SnackView/SnackView Items/SVApplicationItem.swift"; sourceTree = SOURCE_ROOT; };
+		515479962857DDC2005C5C71 /* SVButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVButtonItem.swift; path = "Sources/SnackView/SnackView Items/SVButtonItem.swift"; sourceTree = SOURCE_ROOT; };
+		515479972857DDC2005C5C71 /* SVDetailTextItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVDetailTextItem.swift; path = "Sources/SnackView/SnackView Items/SVDetailTextItem.swift"; sourceTree = SOURCE_ROOT; };
+		515479982857DDC3005C5C71 /* SVStepperItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVStepperItem.swift; path = "Sources/SnackView/SnackView Items/SVStepperItem.swift"; sourceTree = SOURCE_ROOT; };
+		515479992857DDC3005C5C71 /* SVSliderItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVSliderItem.swift; path = "Sources/SnackView/SnackView Items/SVSliderItem.swift"; sourceTree = SOURCE_ROOT; };
+		5154799A2857DDC3005C5C71 /* SVTextFieldItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVTextFieldItem.swift; path = "Sources/SnackView/SnackView Items/SVTextFieldItem.swift"; sourceTree = SOURCE_ROOT; };
+		5154799B2857DDC3005C5C71 /* SVTitleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVTitleItem.swift; path = "Sources/SnackView/SnackView Items/SVTitleItem.swift"; sourceTree = SOURCE_ROOT; };
+		5154799C2857DDC3005C5C71 /* SVLoaderItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVLoaderItem.swift; path = "Sources/SnackView/SnackView Items/SVLoaderItem.swift"; sourceTree = SOURCE_ROOT; };
+		515479AB2857E590005C5C71 /* SnackViewAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = SnackViewAssets.xcassets; path = Sources/SnackView/SnackViewAssets.xcassets; sourceTree = SOURCE_ROOT; };
+		515479B02857E6D8005C5C71 /* CustomInputAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomInputAccessoryView.swift; path = SnackView/Helper/CustomInputAccessoryView.swift; sourceTree = SOURCE_ROOT; };
+		515479B12857E6D8005C5C71 /* UIView-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView-Extensions.swift"; path = "SnackView/Helper/UIView-Extensions.swift"; sourceTree = SOURCE_ROOT; };
+		515479B628586407005C5C71 /* Quick.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Quick.xcframework; path = Carthage/Build/Quick.xcframework; sourceTree = "<group>"; };
+		515479B728586407005C5C71 /* Nimble.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nimble.xcframework; path = Carthage/Build/Nimble.xcframework; sourceTree = "<group>"; };
 		5192725921F86BC100E0965C /* SVCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVCustomButton.swift; sourceTree = "<group>"; };
 		5192725D21F86EE800E0965C /* SVGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGradientView.swift; sourceTree = "<group>"; };
 		51ADB77C264E9B2300D6488C /* SnackViewItemsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewItemsTests.swift; sourceTree = "<group>"; };
 		51ADB78F264EB5E300D6488C /* MockSnackViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSnackViewDataSource.swift; sourceTree = "<group>"; };
-		51E1D31F2671F98300919E4D /* SnackViewKeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackViewKeyboardObserver.swift; sourceTree = "<group>"; };
-		51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewPublicMethods.swift; sourceTree = "<group>"; };
-		51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackViewInternalMethods.swift; sourceTree = "<group>"; wrapsLines = 0; };
-		8ECDD9FF266A2D07001D2A8D /* SVSpacerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVSpacerItem.swift; sourceTree = "<group>"; };
-		8EDE061F2099F5DF0017A700 /* SnackViewAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SnackViewAssets.xcassets; sourceTree = "<group>"; };
-		8EDE06212099FC6D0017A700 /* SVImageViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVImageViewItem.swift; sourceTree = "<group>"; };
 		8EFCF5912212149800F68700 /* ExampleSnackViewDataSourceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleSnackViewDataSourceManager.swift; sourceTree = "<group>"; };
 		FF42AE0C21E2844200F4ECEB /* SnackViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnackViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF42AE0E21E2844200F4ECEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -167,8 +146,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				512104D327ECE41800A32EC4 /* Nimble.xcframework in Frameworks */,
-				512104D527ECE41800A32EC4 /* Quick.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +153,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				515479B828586407005C5C71 /* Quick.xcframework in Frameworks */,
+				515479B928586407005C5C71 /* Nimble.xcframework in Frameworks */,
 				38F4AEFA205969CD00341940 /* SnackView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,7 +195,10 @@
 			isa = PBXGroup;
 			children = (
 				38F4AEF3205969CD00341940 /* SnackView.h */,
-				8E030710209746A800A5326E /* SnackView Library */,
+				515479B42857E6DC005C5C71 /* Helper */,
+				5154797F2857DD2C005C5C71 /* Main Classes */,
+				5154798E2857DDAC005C5C71 /* SnackView Items */,
+				515479AB2857E590005C5C71 /* SnackViewAssets.xcassets */,
 				38F4AEF4205969CD00341940 /* Info.plist */,
 			);
 			path = SnackView;
@@ -251,34 +233,48 @@
 			path = Examples;
 			sourceTree = "<group>";
 		};
-		51822D8C21E4D4EC00380738 /* SnackView Items */ = {
+		5154797F2857DD2C005C5C71 /* Main Classes */ = {
 			isa = PBXGroup;
 			children = (
-				38F4AF0B205969E800341940 /* SVItem.swift */,
-				38F4AF10205969E800341940 /* SVApplicationItem.swift */,
-				38F4AF0A205969E700341940 /* SVButtonItem.swift */,
-				38F4AF0C205969E800341940 /* SVDescriptionItem.swift */,
-				38F4AF0E205969E800341940 /* SVDetailTextItem.swift */,
-				514C7B97264D6B6E00644BAA /* SVSliderItem.swift */,
-				38EA7C3520862B7700B6F88D /* SVLoaderItem.swift */,
-				385DCCC4207BD55E00E280E3 /* SVSwitchItem.swift */,
-				38F4AF11205969E900341940 /* SVTextFieldItem.swift */,
-				38F4AF0F205969E800341940 /* SVTitleItem.swift */,
-				8EDE06212099FC6D0017A700 /* SVImageViewItem.swift */,
-				51251DD926539D7B00029209 /* SVSegmentedControllerItem.swift */,
-				51789F172656960B006D10E4 /* SVStepperItem.swift */,
-				8ECDD9FF266A2D07001D2A8D /* SVSpacerItem.swift */,
+				515479852857DD9A005C5C71 /* SnackView.swift */,
+				515479862857DD9A005C5C71 /* SnackViewDataSource.swift */,
+				515479832857DD9A005C5C71 /* SnackViewInternalMethods.swift */,
+				515479842857DD9A005C5C71 /* SnackViewKeyboardObserver.swift */,
+				515479812857DD9A005C5C71 /* SnackViewPublicMethods.swift */,
+				515479822857DD9A005C5C71 /* SVScrollView.swift */,
+				515479802857DD9A005C5C71 /* SVSkeletonView.swift */,
+			);
+			path = "Main Classes";
+			sourceTree = "<group>";
+		};
+		5154798E2857DDAC005C5C71 /* SnackView Items */ = {
+			isa = PBXGroup;
+			children = (
+				515479952857DDC2005C5C71 /* SVApplicationItem.swift */,
+				515479962857DDC2005C5C71 /* SVButtonItem.swift */,
+				515479902857DDC2005C5C71 /* SVDescriptionItem.swift */,
+				515479972857DDC2005C5C71 /* SVDetailTextItem.swift */,
+				515479932857DDC2005C5C71 /* SVImageViewItem.swift */,
+				515479942857DDC2005C5C71 /* SVItem.swift */,
+				5154799C2857DDC3005C5C71 /* SVLoaderItem.swift */,
+				515479912857DDC2005C5C71 /* SVSegmentedControllerItem.swift */,
+				515479992857DDC3005C5C71 /* SVSliderItem.swift */,
+				515479922857DDC2005C5C71 /* SVSpacerItem.swift */,
+				515479982857DDC3005C5C71 /* SVStepperItem.swift */,
+				5154798F2857DDC2005C5C71 /* SVSwitchItem.swift */,
+				5154799A2857DDC3005C5C71 /* SVTextFieldItem.swift */,
+				5154799B2857DDC3005C5C71 /* SVTitleItem.swift */,
 			);
 			path = "SnackView Items";
 			sourceTree = "<group>";
 		};
-		51822D8D21E4D51300380738 /* SnackView Utilities */ = {
+		515479B42857E6DC005C5C71 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				38F4AF12205969E900341940 /* CustomInputAccessoryView.swift */,
-				511C8CFB267356CF00C13B07 /* UIView-Extensions.swift */,
+				515479B02857E6D8005C5C71 /* CustomInputAccessoryView.swift */,
+				515479B12857E6D8005C5C71 /* UIView-Extensions.swift */,
 			);
-			path = "SnackView Utilities";
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		5192725B21F86EC200E0965C /* ViewController */ = {
@@ -297,23 +293,6 @@
 				5192725D21F86EE800E0965C /* SVGradientView.swift */,
 			);
 			path = "Custom Items";
-			sourceTree = "<group>";
-		};
-		8E030710209746A800A5326E /* SnackView Library */ = {
-			isa = PBXGroup;
-			children = (
-				38F4AF0D205969E800341940 /* SnackView.swift */,
-				511C8CF92673502C00C13B07 /* SVSkeletonView.swift */,
-				511C8CFD267399AA00C13B07 /* SVScrollView.swift */,
-				51F4CB0F21E388CF0096E48D /* SnackViewInternalMethods.swift */,
-				51F4CB0E21E388CF0096E48D /* SnackViewPublicMethods.swift */,
-				511780C521E5E84E00EBD9F8 /* SnackViewDataSource.swift */,
-				51E1D31F2671F98300919E4D /* SnackViewKeyboardObserver.swift */,
-				51822D8D21E4D51300380738 /* SnackView Utilities */,
-				51822D8C21E4D4EC00380738 /* SnackView Items */,
-				8EDE061F2099F5DF0017A700 /* SnackViewAssets.xcassets */,
-			);
-			path = "SnackView Library";
 			sourceTree = "<group>";
 		};
 		FF42AE0D21E2844200F4ECEB /* SnackViewExample */ = {
@@ -350,8 +329,8 @@
 		FF511B0421E250CF00911490 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				51170A0527EB140000AA46B7 /* Nimble.xcframework */,
-				51170A0627EB140000AA46B7 /* Quick.xcframework */,
+				515479B728586407005C5C71 /* Nimble.xcframework */,
+				515479B628586407005C5C71 /* Quick.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -378,13 +357,14 @@
 				38F4AEEB205969CD00341940 /* Sources */,
 				38F4AEED205969CD00341940 /* Headers */,
 				38F4AEEE205969CD00341940 /* Resources */,
-				512104D927ECE42100A32EC4 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SnackView;
+			packageProductDependencies = (
+			);
 			productName = SnackView;
 			productReference = 38F4AEF0205969CD00341940 /* SnackView.framework */;
 			productType = "com.apple.product-type.framework";
@@ -439,7 +419,7 @@
 				TargetAttributes = {
 					38F4AEEF205969CD00341940 = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1100;
+						LastSwiftMigration = 1320;
 						ProvisioningStyle = Automatic;
 					};
 					38F4AEF8205969CD00341940 = {
@@ -464,6 +444,8 @@
 				Base,
 			);
 			mainGroup = 38F4AEE6205969CD00341940;
+			packageReferences = (
+			);
 			productRefGroup = 38F4AEF1205969CD00341940 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -480,7 +462,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8EDE06202099F5DF0017A700 /* SnackViewAssets.xcassets in Resources */,
+				515479AC2857E590005C5C71 /* SnackViewAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,29 +491,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51E1D3202671F98300919E4D /* SnackViewKeyboardObserver.swift in Sources */,
-				38F4AF18205969E900341940 /* SVDetailTextItem.swift in Sources */,
-				51F4CB1221E388CF0096E48D /* SnackViewInternalMethods.swift in Sources */,
-				38F4AF1B205969E900341940 /* SVTextFieldItem.swift in Sources */,
-				51251DDA26539D7B00029209 /* SVSegmentedControllerItem.swift in Sources */,
-				38F4AF1A205969E900341940 /* SVApplicationItem.swift in Sources */,
-				511C8CFA2673502C00C13B07 /* SVSkeletonView.swift in Sources */,
-				511C8CFE267399AA00C13B07 /* SVScrollView.swift in Sources */,
-				38F4AF14205969E900341940 /* SVButtonItem.swift in Sources */,
-				514C7B98264D6B6E00644BAA /* SVSliderItem.swift in Sources */,
-				51789F182656960B006D10E4 /* SVStepperItem.swift in Sources */,
-				51F4CB1121E388CF0096E48D /* SnackViewPublicMethods.swift in Sources */,
-				38EA7C3620862B7700B6F88D /* SVLoaderItem.swift in Sources */,
-				511C8CFC267356CF00C13B07 /* UIView-Extensions.swift in Sources */,
-				38F4AF17205969E900341940 /* SnackView.swift in Sources */,
-				38F4AF15205969E900341940 /* SVItem.swift in Sources */,
-				511780C621E5E84E00EBD9F8 /* SnackViewDataSource.swift in Sources */,
-				385DCCC5207BD55E00E280E3 /* SVSwitchItem.swift in Sources */,
-				8ECDDA00266A2D07001D2A8D /* SVSpacerItem.swift in Sources */,
-				38F4AF19205969E900341940 /* SVTitleItem.swift in Sources */,
-				8EDE06222099FC6D0017A700 /* SVImageViewItem.swift in Sources */,
-				38F4AF16205969E900341940 /* SVDescriptionItem.swift in Sources */,
-				38F4AF1C205969E900341940 /* CustomInputAccessoryView.swift in Sources */,
+				515479872857DD9A005C5C71 /* SVSkeletonView.swift in Sources */,
+				515479A52857DDC3005C5C71 /* SVDetailTextItem.swift in Sources */,
+				515479A92857DDC3005C5C71 /* SVTitleItem.swift in Sources */,
+				515479B22857E6D8005C5C71 /* CustomInputAccessoryView.swift in Sources */,
+				515479A82857DDC3005C5C71 /* SVTextFieldItem.swift in Sources */,
+				5154798A2857DD9A005C5C71 /* SnackViewInternalMethods.swift in Sources */,
+				515479AA2857DDC3005C5C71 /* SVLoaderItem.swift in Sources */,
+				515479A22857DDC3005C5C71 /* SVItem.swift in Sources */,
+				515479B32857E6D8005C5C71 /* UIView-Extensions.swift in Sources */,
+				5154799E2857DDC3005C5C71 /* SVDescriptionItem.swift in Sources */,
+				5154798D2857DD9A005C5C71 /* SnackViewDataSource.swift in Sources */,
+				5154798B2857DD9A005C5C71 /* SnackViewKeyboardObserver.swift in Sources */,
+				515479A42857DDC3005C5C71 /* SVButtonItem.swift in Sources */,
+				515479A72857DDC3005C5C71 /* SVSliderItem.swift in Sources */,
+				515479892857DD9A005C5C71 /* SVScrollView.swift in Sources */,
+				515479A12857DDC3005C5C71 /* SVImageViewItem.swift in Sources */,
+				515479A32857DDC3005C5C71 /* SVApplicationItem.swift in Sources */,
+				515479A62857DDC3005C5C71 /* SVStepperItem.swift in Sources */,
+				5154799F2857DDC3005C5C71 /* SVSegmentedControllerItem.swift in Sources */,
+				515479882857DD9A005C5C71 /* SnackViewPublicMethods.swift in Sources */,
+				5154798C2857DD9A005C5C71 /* SnackView.swift in Sources */,
+				515479A02857DDC3005C5C71 /* SVSpacerItem.swift in Sources */,
+				5154799D2857DDC3005C5C71 /* SVSwitchItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,7 +628,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -706,7 +688,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -722,6 +704,7 @@
 		38F4AF05205969CD00341940 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -740,7 +723,7 @@
 				);
 				INFOPLIST_FILE = SnackView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -760,6 +743,7 @@
 		38F4AF06205969CD00341940 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -778,7 +762,7 @@
 				);
 				INFOPLIST_FILE = SnackView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -797,6 +781,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -835,6 +820,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -870,12 +856,13 @@
 		FF42AE2621E2844400F4ECEB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 486MB7T8V9;
 				INFOPLIST_FILE = "Examples/SnackViewExample/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -892,12 +879,13 @@
 		FF42AE2721E2844400F4ECEB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 486MB7T8V9;
 				INFOPLIST_FILE = "Examples/SnackViewExample/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
