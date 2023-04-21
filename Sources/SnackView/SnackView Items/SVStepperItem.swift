@@ -60,10 +60,11 @@ public class SVStepperItem: SVItem {
     // MARK: - Private Methods
     private func addTitleLabel() {
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.titleLabel.adjustsFontForContentSizeCategory = true
         self.titleLabel.text = self.title.uppercased()
         self.titleLabel.textAlignment = .right
         self.titleLabel.textColor = secondaryTextColor
-        self.titleLabel.font = UIFont.systemFont(ofSize: 14)
+        self.titleLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
         self.titleLabel.numberOfLines = 0
         self.addSubview(self.titleLabel)
 
@@ -86,7 +87,8 @@ public class SVStepperItem: SVItem {
         self.countLabel.text = "\(Int(currentValue))"
         self.countLabel.textAlignment = .left
         self.countLabel.textColor = primaryTextColor
-        self.countLabel.font = UIFont.boldSystemFont(ofSize: 22)
+        self.countLabel.font = UIFont.preferredFont(forTextStyle: .headline)
+        self.countLabel.adjustsFontForContentSizeCategory = true
         self.countLabel.numberOfLines = 1
         self.addSubview(self.countLabel)
 
@@ -116,11 +118,8 @@ public class SVStepperItem: SVItem {
                                                                        "stepper": stepper])
         self.addConstraints(segmentControllerHContraints)
 
-        let segmentControllerVContraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[stepper]-|",
-                                                                    options: [],
-                                                                    metrics: nil,
-                                                                    views: ["stepper": stepper])
-        self.addConstraints(segmentControllerVContraints)
+        self.stepper.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        
     }
 
     // MARK: - Custom Stuff
