@@ -11,7 +11,7 @@ extension SnackView {
     // MARK: - Presentation and Dismission methods
 
     /// Present SnackView with custom animation.
-    open func show() {
+    public func show() {
         self.modalPresentationStyle = .overFullScreen
         
         let presenter = self.getPresenterViewController()
@@ -19,12 +19,12 @@ extension SnackView {
     }
 
     /// Dismiss SnackView with custom animation.
-    open func close() {
+    public func close() {
         self.closeActionSelector()
     }
 
     /// Reload the content of SnackView in case of update.
-    open func reloadData() {
+    public func reloadData() {
         if let _items = self.dataSource?.itemsFor(snackView: self) {
             let checkedItems = checkIfItemArrayIsEmpty(_items)
             self.items = checkedItems
