@@ -5,10 +5,7 @@
 ![SnackView logo](http://www.lucacasula.it/SVItems/NewSnackViewPreview.jpg)
 
 
-[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SnackView.svg)](https://img.shields.io/cocoapods/v/SnackView.svg)
-[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Platform](https://img.shields.io/cocoapods/p/SnackView.svg?style=flat)](https://github.com/lucacasula91/SnackView/wiki)
-![License](https://img.shields.io/cocoapods/l/SnackView.svg?style=flat)
 [![Twitter](https://img.shields.io/badge/twitter-@lucacasula91-green.svg?style=flat)](http://twitter.com/lucacasula91)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/9aeb1378d61a9f9a3fe4/maintainability)](https://codeclimate.com/github/lucacasula91/SnackView/maintainability)
