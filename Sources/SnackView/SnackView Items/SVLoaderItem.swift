@@ -34,7 +34,7 @@ public class SVLoaderItem: SVItem {
      */
     public init(withSize size: ActivityIndicatorSize, andText text: String?) {
         self.messageLabel = UILabel()
-        self.activityIndicator = UIActivityIndicatorView(style: size == .little ? .medium : .large)
+        self.activityIndicator = UIActivityIndicatorView(style: size == .little ? .white : .whiteLarge)
 
         self.size = size
         self.text = text

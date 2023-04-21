@@ -16,8 +16,7 @@
 
 - [Roadmap](#roadmap)
 - [What's new](#whats-new)
-  - [What's new in 1.1.0](#whats-new-in-110)
-	- [What's new in 1.0.9](#whats-new-in-101)
+  - [What's new in 1.2.0](#whats-new-in-120)
 - [Installation](#installation)
 	- [CocoaPods](#cocoapods)
 	- [Carthage](#carthage)
@@ -33,58 +32,17 @@
 
 ## What's new
 
-### What's new in 1.1.0
-- Added support for Dark mode.
-- Added item SVSliderItem.
-- Removed deprecated methods and files. 
-
-
-### What's new in 1.0.9
-- New SnackViewDataSource protocol with which create your SnackView.
-- New SVImageViewItem class with which display images.
-- Compatible with the new UIWindowSceneDelegate system. 
+### What's new in 1.2.0
 
 
 ## Installation
 
-### CocoaPods
-
-[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like SnackView in your projects. You can install it with the following command:
-
-```bash
-$ gem install cocoapods
-```
-
-> CocoaPods 1.0.1+ is required to build SnackView 1+ (along with Swift 3 and Xcode 9).
-
-#### Podfile
-
-- **Swift 3.x**: >= 1.0.1 [Download here](https://github.com/lucacasula91/SnackView/releases/tag/1.0.2).
-To integrate SnackView into your Xcode project using CocoaPods, specify it in your `Podfile`:
-
-```ruby
-use_frameworks!
-pod 'SnackView', '~> 1.1.0'
-```
-
-Then, run the following command:
-
-```bash
-$ pod install
-```
-
-### Carthage
-
-[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate SnackView into your Xcode project using Carthage, specify it in your `Cartfile`:
-
-```ogdl
-github "lucacasula91/SnackView"
-```
+### SwiftPackageManager
 
 
 ### Manual installation
 
-If you want to install SnackView manually, just drag **SnackView Library** folder into your project.
+If you want to install SnackView manually, just drag **Sources** folder into your project.
 
 ## Usage
 
@@ -133,28 +91,6 @@ extension MyCustomClass: SnackViewDataSource {
 
 
 ------
-
-## Deprecated methods
-
-With SnackView 1.0.9 the current method are now deprecated:
-
-
-
-- init(withTitleOptions: andItems:)
-- init(withTitle: andCloseButtonTitle: andItems:)
-
-**SnackViewDataSource** contains all you need to handle title, cancel button title and items to display. For more info please see the SnackViewDataSource protocol documentation code.
-
-
-
-- func insert(item: atIndex:)
-- func remove(item:)
-- func removeItemAt(index:)
-- func updateWith(items:)
-
-Please start using the new **SnackViewDataSource** instead, all the above operations can be performed simply by changing the return content in the `func itemsFor(snackView:)` method of SnackViewDataSource and call the `reloadData()` function to perform an update.
-
-***
 
 ## SVItems included
 SnackView provides some SVItems ready to use, here below the list of SVItems available:
