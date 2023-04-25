@@ -52,10 +52,41 @@ If you want to install SnackView manually, just drag **Sources** folder into you
 
 ### Create your custom SnackView sheet
 To create a custom SnackView your UIViewController or you NSObject class should conform to to **SnackViewDataSource** protocol.
-SnackViewDataSource allows you to specify title bar elements and UI elements to present with it.
+SnackViewDataSource allows you to specify title bar elements and UI elements that sheet should present.
 
-The first step is to create an array of SVItem. SVItem is the main class with which each SnackView item it is made.
+The first step is to specify the title of you SnackView sheet:
+```swift
+func titleFor(_: SnackView) -> String {
+    return "My Title"
+} 
+```
 
+Then you can specify the dismission button title. This method can return an Optional string value to hide the dismission button.
+- Note: If you pass nil it is up to you to handle manually the SnackView dismission logic.
+```swift
+func cancelTitleFor(_: SnackView) -> String? {
+    return "Cancel"
+} 
+```
+
+The last part required is the method with which specify the items to show.
+```swift
+func itemsFor(_: SnackView) -> [SVItem] {
+    let descriptionItem = SVDescriptionItem(withDescription: "In this last release of SnackView we...")
+    let imageItem = SVImageViewItem(withImage: UIImage(named: "what_is_new")!,
+                                    andContentMode: .scaleAspectFill)
+
+    return [descriptionItem, imageItem]
+} 
+```
+
+Once conformed to SnackViewDataSource you are ready to present you SnackView sheet:
+```swift
+let snackView = SnackView(with: dataSource)
+snackView.show()
+```
+
+## Example
 Here below an example of SnackView implementation:
 
 ```swift
@@ -100,6 +131,10 @@ extension MyCustomClass: SnackViewDataSource {
 
 ## SVItems included
 SnackView provides some SVItems ready to use, here below the list of some SVItems available:
+- **SVStepperItem**
+- **SVSliderItem**
+- **SVSegmentedControllerItem**
+- **SVSpacerItem**
 
 **SVApplicationItem**
 
