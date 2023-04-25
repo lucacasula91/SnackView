@@ -1,22 +1,19 @@
-![SnackView logo](http://www.lucacasula.it/SVItems/SnackViewTitle.svg)
+![SnackView logo](http://www.lucacasula.it/SVItems/snackview_header.png)
 
-# SnackView
-***An easy way to present customizable bottom-half alert.***
+***Create customizable bottom-half sheets.***
 ![SnackView logo](http://www.lucacasula.it/SVItems/NewSnackViewPreview.jpg)
 
-
-[![Platform](https://img.shields.io/cocoapods/p/SnackView.svg?style=flat)](https://github.com/lucacasula91/SnackView/wiki)
-[![Twitter](https://img.shields.io/badge/twitter-@lucacasula91-green.svg?style=flat)](http://twitter.com/lucacasula91)
-
-[![Maintainability](https://api.codeclimate.com/v1/badges/9aeb1378d61a9f9a3fe4/maintainability)](https://codeclimate.com/github/lucacasula91/SnackView/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/9aeb1378d61a9f9a3fe4/test_coverage)](https://codeclimate.com/github/lucacasula91/SnackView/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/9aeb1378d61a9f9a3fe4/maintainability)](https://codeclimate.com/github/lucacasula91/SnackView/maintainability)
+
 
 - [Roadmap](#roadmap)
 - [What's new](#whats-new)
   - [What's new in 1.2.0](#whats-new-in-120)
 - [Installation](#installation)
-	- [CocoaPods](#cocoapods)
-	- [Carthage](#carthage)
+ 	- [Swift Package Manager](#swift-package-manager)
+	- ~~[CocoaPods](#cocoapods)~~ Not available yet for 1.2.0
+	- ~~[Carthage](#carthage)~~ Not available yet for 1.2.0
 	- [Manual installation](#manual-installation)
 - [Usage](#usage)
 	- [Create your custom SnackView alert](#create-your-custom-snackview-alert)
@@ -25,17 +22,27 @@
 - [Contributing](#contributing)
 
 ## Roadmap
-![SnackView RoadMap](http://www.lucacasula.it/SVItems/NewSnackView_RoadMap.svg)
+- Create DocC documentation
+- Allow UIFont override
+- Add support for Xib hosted SVItems
+- Add new SVItems
+
 
 ## What's new
 
 ### What's new in 1.2.0
-
+- **Dynamic type support**
+- **SVSegmentedControlItem**
+- **SVStepperItem**
+- **SVSpacerItem**
 
 ## Installation
 
-### SwiftPackageManager
-
+### Swift Package Manager
+To install SnackView library using Swift Package Manager from Xcode select **File** > **Add Package** and enter:
+```
+https://github.com/lucacasula91/SnackView
+```
 
 ### Manual installation
 
@@ -43,11 +50,13 @@ If you want to install SnackView manually, just drag **Sources** folder into you
 
 ## Usage
 
-### Create your custom SnackView alert
-SnackView includes some default UI elements as Button, Label and other complex UI.
-The first step is to create an array of SVItem. SVItem is the class of every element that SnackView can include within it.
+### Create your custom SnackView sheet
+To create a custom SnackView your UIViewController or you NSObject class should conform to to **SnackViewDataSource** protocol.
+SnackViewDataSource allows you to specify title bar elements and UI elements to present with it.
 
-Here an example of simple SnackView alert:
+The first step is to create an array of SVItem. SVItem is the main class with which each SnackView item it is made.
+
+Here below an example of SnackView implementation:
 
 ```swift
 class MyCustomClass: UIViewController {
@@ -76,7 +85,7 @@ extension MyCustomClass: SnackViewDataSource {
 
     func itemsFor(snackView: SnackView) -> [SVItem] {
         let descriptionItem = SVDescriptionItem(withDescription: "In this last release of SnackView we...")
-        let imageItem = SVImageViewItem(withImage: UIImage(named: "hat_is_new")!,
+        let imageItem = SVImageViewItem(withImage: UIImage(named: "what_is_new")!,
                                         andContentMode: .scaleAspectFill)
 
         return [descriptionItem, imageItem]
@@ -90,7 +99,7 @@ extension MyCustomClass: SnackViewDataSource {
 ------
 
 ## SVItems included
-SnackView provides some SVItems ready to use, here below the list of SVItems available:
+SnackView provides some SVItems ready to use, here below the list of some SVItems available:
 
 **SVApplicationItem**
 
