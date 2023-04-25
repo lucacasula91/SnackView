@@ -56,7 +56,7 @@ SnackViewDataSource allows you to specify title bar elements and UI elements tha
 
 The first step is to specify the title of you SnackView sheet:
 ```swift
-func titleFor(_: SnackView) -> String {
+func titleFor(snackView: SnackView) -> String {
     return "My Title"
 } 
 ```
@@ -64,14 +64,14 @@ func titleFor(_: SnackView) -> String {
 Then you can specify the dismission button title. This method can return an Optional string value to hide the dismission button.
 - Note: If you pass nil it is up to you to handle manually the SnackView dismission logic.
 ```swift
-func cancelTitleFor(_: SnackView) -> String? {
+func cancelTitleFor(snackView: SnackView) -> String? {
     return "Cancel"
 } 
 ```
 
 The last part required is the method with which specify the items to show.
 ```swift
-func itemsFor(_: SnackView) -> [SVItem] {
+func itemsFor(snackView: SnackView) -> [SVItem] {
     let descriptionItem = SVDescriptionItem(withDescription: "In this last release of SnackView we...")
     let imageItem = SVImageViewItem(withImage: UIImage(named: "what_is_new")!,
                                     andContentMode: .scaleAspectFill)
