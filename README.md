@@ -1,4 +1,4 @@
-![SnackView logo](http://www.lucacasula.it/SVItems/snackview_header.png)
+![SnackView Header](http://www.lucacasula.it/SVItems/snackview_header_color.png)
 
 ***Create customizable bottom-half sheets.***
 ![SnackView logo](http://www.lucacasula.it/SVItems/NewSnackViewPreview.jpg)
