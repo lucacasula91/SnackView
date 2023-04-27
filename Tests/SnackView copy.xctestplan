@@ -1,0 +1,28 @@
+{
+  "configurations" : [
+
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:",
+          "identifier" : "SnackView",
+          "name" : "SnackView"
+        }
+      ]
+    },
+    "uiTestingScreenshotsLifetime" : "keepNever",
+    "userAttachmentLifetime" : "keepNever"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "SnackViewTests",
+        "name" : "SnackViewTests"
+      }
+    }
+  ],
+  "version" : 1
+}

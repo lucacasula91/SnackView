@@ -277,6 +277,41 @@ class SnackViewItemsTests: QuickSpec {
                 }
             }
         }
+        
+        describe("SVPriceRowItem") {
+            let priceItem = SVPriceRowItem(withTitle: "Total", andDescription: nil, andPrice: "€ 8,99")
+
+            it("had to have 'descriptionText' property non nil.") {
+                snackViewSpy?.set(items: [priceItem])
+                snackView?.reloadData()
+
+                expect(priceItem.descriptionText).to(beNil())
+            }
+            
+            it("had to have 'title' property setted to 'Total'") {
+                snackViewSpy?.set(items: [priceItem])
+                snackView?.reloadData()
+
+                expect(priceItem.title).to(equal("Total"))
+            }
+            
+            it("had to have 'price' property setted to '€ 8,99'") {
+                snackViewSpy?.set(items: [priceItem])
+                snackView?.reloadData()
+
+                expect(priceItem.priceText).to(equal("€ 8,99"))
+            }
+            
+            describe("SVPriceRowItem from init with coder") {
+                let archiver = NSKeyedArchiver(requiringSecureCoding: false)
+                let priceRowItem = SVPriceRowItem(coder: archiver)
+
+                it("had to return nil.") {
+                    expect(priceRowItem).to(beNil())
+                }
+            }
+            
+        }
     }
 }
 
