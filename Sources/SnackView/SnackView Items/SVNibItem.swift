@@ -11,13 +11,27 @@ protocol SVNameableItem {
     var nibName: String { get }
 }
 
-class SVNibItem: SVItem {
+public class SVNibItem: SVItem {
+    
+    // MARK: - Private Outlets
     @IBOutlet private var view: UIView!
 
+    // MARK: - Initialization Methods
     override init() {
         super.init()
         self.commonInit()
     }
+    
+    init(frame: CGRect) {
+        super.init()
+        self.commonInit()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init()
+        self.commonInit()
+    }
+    
     
     // MARK: - Private Methods
     private func commonInit() {
@@ -25,7 +39,8 @@ class SVNibItem: SVItem {
         if let _namebleString = self as? SVNameableItem {
             name = _namebleString.nibName
         }
-
+        print("NibName: \(name)")
+        
         Bundle.main.loadNibNamed(name, owner: self, options: nil)
         addSubview(view)
         view.frame = self.bounds
