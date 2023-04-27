@@ -17,7 +17,7 @@ public class SVSwitchItem: SVItem {
     private var descriptionLabel: UILabel = UILabel()
 
     // MARK: - Properties
-    private(set) var title: String
+    private(set) var title: String?
     private(set) var descriptionText: String?
     private(set) var currentState: Bool
 
@@ -43,7 +43,7 @@ public class SVSwitchItem: SVItem {
      }
      ```
      */
-    public init(withTitle title: String, andDescription description: String?, withState state: Bool, withSwitchAction switchAction:@escaping (_ switchValue: Bool) -> Void) {
+    public init(withTitle title: String?, andDescription description: String?, withState state: Bool, withSwitchAction switchAction: @escaping (_ switchValue: Bool) -> Void) {
         self.title = title
         self.descriptionText = description
         self.currentState = state
@@ -67,7 +67,7 @@ public class SVSwitchItem: SVItem {
 
     // MARK: - Private Methods
     private func addTitleLabel() {
-        self.titleLabel.text = title.uppercased()
+        self.titleLabel.text = title?.uppercased()
         self.titleLabel.textAlignment = .right
         self.titleLabel.textColor = secondaryTextColor
         self.titleLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
