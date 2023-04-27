@@ -27,6 +27,8 @@ public protocol SnackViewDataSource: AnyObject {
 
     /// Tells the data source to return the title of **cancel** or **dismiss** button for a specific SnackView.
     ///
+    /// Dismission button can be obmitted by returning a `nil` value. In case it is responsability of the developer allow the user to dismiss the `SnackView` sheet.
+    ///
     /// - Parameter snackView: Instance of SnackView for which get cancel button title string
     /// - Returns: Optional string value rapresenting SnackView cancel button title or nil if you want to hide Cancel button.
     func cancelTitleFor(snackView: SnackView) -> String?

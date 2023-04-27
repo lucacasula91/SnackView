@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "274E9F6C-DEBB-44B7-81C7-8B3EE4826C25",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "SnackViewTests",
+        "name" : "SnackViewTests"
+      }
+    }
+  ],
+  "version" : 1
+}
